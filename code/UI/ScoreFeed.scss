@@ -1,0 +1,49 @@
+﻿scorefeed {
+    position: absolute;
+    top: 0;
+    right: 0;
+    // background-color: rgba(red, 0.1);
+    width: 512px;
+    height: 256px;
+    padding: 32px;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+scorefeedentry {
+    align-items: center;
+    flex-direction: row-reverse;
+
+    image {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        margin-left: 8px;
+    }
+
+    label {
+        color: white;
+        font-family: Poppins;
+        font-weight: 500;
+        text-shadow: 1px 1px 2px rgba( black, 0.7 );
+        font-size: 20px;
+        margin-right: 4px;
+
+        &.score {
+            color: yellow;
+        }
+    }
+
+    transition: all 1s ease-out;
+    // transform: scale( 1 );
+
+    &:intro {
+        right: 512px;
+        // transform: scale( 0 );
+    }
+    // When the element is deleted make it double in size before being deleted.
+    &:outro {
+        top: -256px;
+        // transform: scale( 2 );
+    }
+}

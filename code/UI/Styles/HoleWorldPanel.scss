@@ -1,0 +1,29 @@
+﻿HoleWorldPanel
+{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    font-family: Poppins;
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 2px 2px 2px rgba( black, 0.1 );
+}
+
+.hole
+{
+    font-size: 100px;
+    text-transform: uppercase;
+}
+
+.name {
+    font-size: 54px;
+}
+
+.par
+{
+    margin-top: 32px;
+    font-size: 54px;
+}

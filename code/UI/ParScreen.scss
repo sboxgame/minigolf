@@ -1,0 +1,44 @@
+﻿parscreen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(black, 0.8);
+    transition: all 0.25s ease-in;
+    z-index: 5000;
+
+    &:intro, &:outro {
+        opacity: 0;
+    }
+
+    &:intro {
+        label.score {
+            transform: rotate( 3deg ) scale(0.1);
+        }
+    }
+
+    label {
+        color: white;
+        font-family: Poppins;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    label.score {
+        color: #efa307;
+        font-size: 144px;
+        text-shadow: 5px 5px 5px #732a00;
+        transform: rotate( -3deg ) scale(1);
+        transition: all 0.25s linear;
+    }
+
+    label.hole {
+        font-size: 42px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        margin-top: -20px;
+    }
+}

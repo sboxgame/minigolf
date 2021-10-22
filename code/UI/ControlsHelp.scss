@@ -1,0 +1,35 @@
+﻿controlshelp {
+    position: absolute;
+    right: 64px;
+    bottom: 128px;
+    flex-direction: column;
+    padding-bottom: 16px;
+
+    .row {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 8px;
+        justify-content: flex-end;
+
+        .name {
+            font-family: Poppins;
+            font-size: 15px;
+            font-weight: 500;
+            color: white;
+            margin-right: 8px;
+        }
+
+        .key {
+            justify-content: center;
+            text-align: center;
+            width: 64px;
+            padding: 4px;
+            font-family: Poppins;
+            font-size: 13px;
+            font-weight: 500;
+            color: white;
+            background-color: rgba(black, 0.9);
+            border-radius: 4px;
+        }
+    }
+}

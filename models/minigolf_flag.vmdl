@@ -1,0 +1,152 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "ClothProxyMeshList"
+				children = 
+				[
+					{
+						_class = "ClothProxyMeshFile"
+						name = "mimigolf_triangleflag_proxy"
+						filename = "models/minigolf_triangleflag_proxy.dmx"
+						import_scale = 1.0
+						back_solve_joints = false
+						back_solve_joints_drive_meshes = false
+						flex_cloth_borders = true
+						add_bones_to_render_mesh = true
+						back_solve_influence_threshold = 0.05
+						cloth_friction_bias = 0.0
+						cloth_friction_scale = 1.0
+						envelope_inches = 1000.0
+						cloth_goal_strength_bias = 0.0
+						cloth_goal_strength_scale = 1.0
+						cloth_drag_scale = 1.0
+						cloth_mass_scale = 1.0
+						cloth_gravity_scale = 1.0
+						cloth_collision_radius_scale = 1.0
+						cloth_ground_collision_scale = 1.0
+						cloth_ground_friction_scale = 1.0
+						cloth_use_rods_scale = 1.0
+						cloth_make_rods_scale = 1.0
+						cloth_anchor_free_rotate_scale = 1.0
+						cloth_volumetric_scale = 1.0
+						cloth_suspenders_scale = 1.0
+						cloth_bend_stiffness_scale = 1.0
+						cloth_stray_radius_inv_scale = 1.0
+						cloth_stray_radius_scale = 1.0
+						cloth_stray_radius_stretchiness_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+					{
+						_class = "ClothParams"
+						default_stretch = 0.0
+						additional_shear_stretch = 0.0
+						extra_iterations = 0
+						extra_goal_iterations = 0
+						extra_pressure_iterations = 0
+						goal_strength_bias = 0.069
+						default_gravity_scale = 0.005
+						default_vel_air_drag = 0.0
+						default_exp_air_drag = 0.0
+						velocity_smooth_rate = 0.0
+						internal_pressure = 0.0
+						windage = 0.0
+						wind_drag = 0.0
+						velocity_smooth_iterations = 1
+						default_ground_friction = 0.0
+						default_world_collision_penetration = 0.0
+						add_world_collision_radius = 1.01
+						local_force = 1.0
+						local_rotation = 0.0
+						add_curvature = 0.651
+						quad_bend_tolerance = 0.05
+						follow_the_lead = false
+						use_per_node_local_force_and_rotation = false
+						uninertial_rods = false
+						explicit_masses = false
+						unitless_damping = true
+						force_world_collision_on_all_nodes = true
+						new_style = true
+						can_collide_with_world_hulls = true
+						can_collide_with_world_meshes = true
+						can_collide_with_world_capsule_and_spheres = false
+						add_stiffness_rods = true
+						rigid_edge_hinges = false
+						soft_skin_animation = false
+						add_bend_only_rods = false
+						immovable = false
+					},
+				]
+			},
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "minigolf_flag.vmat"
+								to = "materials/models/minigolf_flag.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "pole"
+						filename = "models/minigolf_flagpole.dmx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.5
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "flag"
+						filename = "models/minigolf_triangleflag.dmx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.5
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+	}
+}
