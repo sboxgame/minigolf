@@ -1,0 +1,165 @@
+
+@BaseClass = BaseProperties_minigolf
+[
+	parentname(target_destination) [ group="Hierarchy" ] : "Parent" : : "The name of this entity's parent in the movement hierarchy. Entities with parents move with their parent."
+	parentAttachmentName(parentAttachment) [ group="Hierarchy" ] : "Parent Model Bone/Attachment Name" : : "The name of the bone or attachment to attach to on the entity's parent in the movement hierarchy. Use !bonemerge to use bone-merge style attachment."
+
+	useLocalOffset(boolean) [ group="Hierarchy" ] : "Use Model Attachment offsets" : 0 : "Whether to respect the specified local offset when doing the initial hierarchical attachment to its parent."
+	local.origin(vector) [ group="Hierarchy" ] : "Model Attachment position offset" : : "Offset in the local space of the parent model's attachment/bone to use in hierarchy. Not used if you are not using parent attachment."
+	local.angles(angle) [ group="Hierarchy" ] : "Model Attachment angular offset" : : "Angular offset in the local space of the parent model's attachment/bone to use in hierarchy. Not used if you are not using parent attachment."
+	local.scales(vector) [ group="Hierarchy" ] : "Model Attachment scale" : : "Scale in the local space of the parent model's attachment/bone to use in hierarchy. Not used if you are not using parent attachment."
+
+	targetname(target_source) : "Name" : : "The name that other entities refer to this entity by."
+	tags(tags) : "Tags" : "" : "A list of general purpose tags for this entity, for interactions with other entities such as triggers."
+]
+
+//
+// Minigolf.BallSpawnpoint
+//
+@PointClass base(BaseProperties_minigolf) drawangles() editormodel( "models/golf_ball.vmdl" ) 
+metadata
+{
+	entity_tool_name = "Ball spawn point"
+	entity_tool_group = "Minigolf"
+}
+= minigolf_ball_spawnpoint : "Where the ball spawns, also defines the hole name and par."
+[
+	holenumber(integer) : "Hole Number" : 0 : "What hole number this spawnpoint belongs to."
+	holename(string) : "Hole Name" : "Untitled Hole" : "The name of this hole, this is displayed in-game."
+	holepar(integer) : "Hole Par" : 3 : "How many strokes should this hole be done in."
+	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+]
+
+//
+// Minigolf.HoleCamera
+//
+@PointClass base(BaseProperties_minigolf) editormodel( "models/editor/camera.vmdl" ) = minigolf_hole_camera : "Minigolf Hole Camera"
+[
+	hole_number(integer) : "Hole Number" : 1 : "Which hole this camera is for"
+	fov(float) : "FOV" : 90 : "Field of view in degrees"
+	znear(float) : "Znear" : 4 : "Distance to the near plane"
+	zfar(float) : "Zfar" : 10000 : "Distance to the far plane"
+	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+]
+
+//
+// Minigolf.StartCamera
+//
+@PointClass base(BaseProperties_minigolf) editormodel( "models/editor/camera.vmdl" ) frustum_boundless( "FOV", "ZNear", "ZFar" ) = minigolf_start_camera : "Minigolf Start Camera"
+[
+	fov(float) : "FOV" : 90 : "Field of view"
+	znear(float) : "Znear" : 4 : "Distance to the near plane"
+	zfar(float) : "Zfar" : 10000 : "Distance to the far plane"
+	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+]
+
+//
+// Minigolf.FlagBase
+//
+@PointClass base(BaseProperties_minigolf) editormodel( "models/minigolf_flag.vmdl" ) = minigolf_flag_base : "Minigolf Flag Base"
+[
+	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+
+	input SetColor(string) : "Sets the color of this entity. Format is '255 255 255 255'."
+]
+
+//
+// Minigolf.HoleBounds
+//
+@SolidClass base(BaseProperties_minigolf) 
+metadata
+{
+	auto_apply_material = "materials/tools/toolstrigger.vmat"
+}
+= minigolf_hole_bounds : "Bounds of a hole."
+[
+	holenumber(integer) : "Hole Number" : 0 : "Which hole this hole is on."
+	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+
+	input SetColor(string) : "Sets the color of this entity. Format is '255 255 255 255'."
+]
+
+//
+// Minigolf.HoleGoal
+//
+@SolidClass base(BaseProperties_minigolf) 
+metadata
+{
+	auto_apply_material = "materials/tools/toolstrigger.vmat"
+	entity_tool_name = "Hole goal"
+	entity_tool_group = "Minigolf"
+}
+= minigolf_hole_goal : "Minigolf hole goal trigger"
+[
+	holenumber(integer) : "Hole Number" : 0 : "Which hole this hole is on."
+	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+
+	input SetColor(string) : "Sets the color of this entity. Format is '255 255 255 255'."
+]
+
+//
+// Minigolf.HoleSign
+//
+@PointClass base(BaseProperties_minigolf) drawangles() iconsprite( "editor/snd_event.vmat" ) = minigolf_hole_sign : "Minigolf Sign Pole"
+[
+	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+]
+
+//
+// Minigolf.OutOfBoundsArea
+//
+@SolidClass base(BaseProperties_minigolf) 
+metadata
+{
+	auto_apply_material = "materials/tools/toolstrigger.vmat"
+}
+= minigolf_out_of_bounds : "Out of bounds"
+[
+	forgivetime(integer) : "Forgiveness Time" : 3 : "When the ball enters this out of bounds area, how much time until we declare out of bounds?"
+	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+
+	input SetColor(string) : "Sets the color of this entity. Format is '255 255 255 255'."
+]
+
+//
+// Minigolf.SpeedBoost
+//
+@SolidClass base(BaseProperties_minigolf) drawangles( "Direction" ) 
+metadata
+{
+	auto_apply_material = "materials/tools/toolstrigger.vmat"
+	entity_tool_name = "Speed boost"
+	entity_tool_group = "Minigolf"
+}
+= minigolf_speed_boost : "A trigger brush that applies a constant velocity to golf balls."
+[
+	acceleration(float) : "Acceleration" : 100 : "How much velocity will be applied across each second. This is divided and applied each tick."
+	maxvelocity(float) : "Max Velocity" : 1000 : "If the ball is going faster then this (towards the direction vector), don't apply the acceleration. Set to 0 to disable."
+	direction(angle) : "Direction (Pitch Yaw Roll)" :  : "The direction the ball will move, when told to."
+	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+
+	input SetColor(string) : "Sets the color of this entity. Format is '255 255 255 255'."
+]
+
+//
+// Minigolf.Wall
+//
+@SolidClass base(BaseProperties_minigolf)  base( PhysicsTypeOverride_Mesh ) = minigolf_wall : "A generic brush/mesh that has customizable reflectivity."
+[
+	reflect(boolean) : "Reflect" : 1 : "If checked, the ball will bounce off this surface at the defined multiplier."
+	reflectmultiplier(float) : "Reflect Multiplier" : 1 : "How much the wall will reflect"
+	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+
+	input SetColor(string) : "Sets the color of this entity. Format is '255 255 255 255'."
+]
+
+//
+// Minigolf.Water
+//
+@PointClass base(BaseProperties_minigolf) = minigolf_water : ""
+[
+	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+
+	input SetColor(string) : "Sets the color of this entity. Format is '255 255 255 255'."
+]
+

@@ -1,0 +1,35 @@
+﻿outofbounds {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    label {
+        color: rgba(255, 255, 255, 0);
+        font-family: No Virus;
+        font-weight: bold;
+        transition: color 0.6s ease-out;
+        font-size: 42px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+
+        &.big {
+            font-size: 104px;
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+            margin-bottom: 12px;
+        }
+    }
+
+    &.show {
+        opacity: 1;
+
+        label {
+            transition: color 1s ease-in;
+            color: white;
+        }
+    }
+}

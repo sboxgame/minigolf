@@ -1,0 +1,47 @@
+powerbar {
+    position: absolute;
+    bottom: 32px;
+    left: 64px;
+    flex-direction: column;
+
+    > text {
+        color: white;
+        font-family: Poppins;
+        font-size: 32px;
+        font-weight: 700;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        left: -8px;
+        top: -2px;
+    }
+
+    > div {
+        flex-direction: row;
+        background-color: rgba(30, 30, 30, 0.98);
+        width: 320px;
+        height: 30px;
+        border-radius: 10px;
+        border: 3px solid rgba(black, 0.8);
+
+        .bar {
+            background-color: rgb(250, 70, 130);
+            border-radius: 10px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            height: 24px;
+        }
+
+        .lastpower {
+            position: absolute;
+            bottom: -4px;
+
+            > div {
+                left: -6px;
+                width: 12px;
+                height: 12px;
+                background-image: url('/ui/arrow.png');
+            }
+
+            opacity: 0;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+﻿hud {
+    background-color: rgba( #000, 0 );
+    transition: background-color 0.8s ease-in;
+
+    &.fade {
+        transition: background-color 0.3s ease-out;
+        background-color: rgba( #000, 0.8 );
+    }
+
+    &.devcamera {
+        display: none;
+    }
+
+    &.state--playing {
+        readyscreen {
+            opacity: 0;
+        }
+
+        .state-playing {
+            opacity: 1;
+        }
+    }
+}
+
+div.title {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    flex-direction: column;
+
+    text {
+        font-family: Poppins;
+        font-size: 50px;
+        font-weight: 900;
+        color: white;
+        text-shadow: 5px 5px 50px rgba( black, 0.8 );
+
+        &:last-child {
+            font-size: 32px;
+            font-weight: 700;
+        }
+    }
+}
+
+.state-playing {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+}

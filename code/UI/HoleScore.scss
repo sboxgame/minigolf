@@ -1,0 +1,55 @@
+﻿holescore {
+    position: absolute;
+    bottom: 32px;
+    right: 64px;
+    flex-direction: row;
+    padding-right: 40px;
+
+    panel {
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+
+        label {
+            color: white;
+            font-size: 36px;
+            font-family: Poppins;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+
+            &.first {
+                margin-right: 8px;
+            }
+        }
+
+        &.par {
+            // background-color: rgba(0, 0, 0, 0.5);
+            background: linear-gradient( to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) );
+            padding: 0px 8px 0px 16px;
+            // margin-right: 1px; // hmmm
+        }
+
+        &.hole {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 0px 56px 0px 8px;
+        }
+
+        &.stroke {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 88px;
+            height: 88px;
+            background-image: url('ui/ball_icon.png');
+            background-size: cover;
+            justify-content: center;
+            z-index: 2;
+
+            label {
+                font-size: 56px;
+                color: rgba(255, 255, 255, 1);
+                text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
+            }
+        }
+    }
+}
