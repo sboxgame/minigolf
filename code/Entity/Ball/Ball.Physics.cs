@@ -251,7 +251,7 @@ namespace Minigolf
 			sound.SetVolume( 0.2f + Math.Clamp( eventData.Speed / 1250.0f, 0.0f, 0.8f ) );
 			sound.SetPitch( 0.5f + Math.Clamp( eventData.Speed / 1250.0f, 0.0f, 0.5f ) );
 
-			var particle = Particles.Create( "particles/ball_hit.vpcf", eventData.Pos );
+			var particle = Particles.Create( "particles/gameplay/ball_hit/ball_hit.vpcf", eventData.Pos );
 			particle.SetPosition( 0, eventData.Pos );
 			particle.Destroy( false );
 

@@ -24,10 +24,10 @@ namespace Minigolf
 
 			var ballRadius = CollisionBounds.Size.z / 2;
 
-			Trail = Particles.Create( "particles/ball_trail.vpcf", this );
+			Trail = Particles.Create( "particles/gameplay/ball_trail/ball_trail.vpcf", this );
 			Trail.SetPosition( 1, Vector3.One ); // Color
 
-			Circle = Particles.Create( "particles/ball_circle.vpcf", this );
+			Circle = Particles.Create( "particles/gameplay/ball_circle/ball_circle.vpcf", this );
 			Circle.SetPosition( 1, Vector3.Down * ballRadius + Vector3.Up * 0.01f );
 		}
 
@@ -42,7 +42,7 @@ namespace Minigolf
 
 				if ( Circle == null )
 				{
-					Circle = Particles.Create( "particles/ball_circle.vpcf", this );
+					Circle = Particles.Create( "particles/gameplay/ball_circle/ball_circle.vpcf", this );
 					Circle.SetPosition( 1, Vector3.Down * ballRadius + Vector3.Up * 0.01f );
 				}
 
