@@ -60,6 +60,8 @@ namespace Minigolf
 				return;
 			}
 
+			GameServices.RecordEvent( ball.Client, $"Cupped hole { Course.CurrentHole.Number }", ball.Client.GetPar() );
+
 			// Tell the ball entity it has been cupped, stops input and does fx.
 			ball.Cup();
 
