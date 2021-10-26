@@ -28,6 +28,8 @@ namespace Minigolf
 		{
 			State = GameState.Playing;
 
+			GameServices.StartGame();
+
 			// Spawn balls for all clients
 			foreach ( var cl in Client.All )
 			{
@@ -40,6 +42,15 @@ namespace Minigolf
 		public void EndGame()
 		{
 			State = GameState.EndOfGame;
+
+			var clients = Client.All.OrderBy( cl => cl.GetTotalPar() ).ToList();
+			for ( int i = 0; i < clients.Count; i++ )
+			{
+				clients[i].SetGameResult( i + 1, clients[i].GetTotalPar() );
+			}
+
+			GameServices.EndGame();
+
 			GolfScoreboard.SetOpen( To.Everyone, true );
 			ReturnToLobbyTime = Time.Now + 15.0f;
 		}
