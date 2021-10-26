@@ -13,11 +13,13 @@ namespace Minigolf
 
 		[Net] public Angles Direction { get; set; }
 
+		static readonly Model Model = Model.Load( "models/golf_ball.vmdl" );
+
 		public override void Spawn()
 		{
 			base.Spawn();
 
-			SetModel( "models/golf_ball.vmdl" );
+			SetModel( Model );
 			SetupPhysicsFromModel( PhysicsMotionType.Dynamic, false );
 
 			MoveType = MoveType.Physics;
