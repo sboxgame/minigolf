@@ -1,5 +1,6 @@
 ﻿using Sandbox;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Minigolf
 {
@@ -15,6 +16,7 @@ namespace Minigolf
 		[Net, Change( nameof( OnStateChanged ) )]
 		public GameState State { get; set; } = GameState.WaitingForPlayers;
 		[Net] public float StartTime { get; private set; }
+		[Net] public float ReturnToLobbyTime { get; private set; }
 
 		public void OnStateChanged( GameState oldState, GameState newState )
 		{
@@ -35,16 +37,28 @@ namespace Minigolf
 			}
 		}
 
-		bool IsEnding;
+		public void EndGame()
+		{
+			State = GameState.EndOfGame;
+			GolfScoreboard.SetOpen( To.Everyone, true );
+			ReturnToLobbyTime = Time.Now + 15.0f;
+		}
+
+		bool IsHoleEnding;
 
 		public async void EndHole()
 		{
-			if ( IsEnding )
+			if ( IsHoleEnding )
 				return;
 
-			IsEnding = true;
+			IsHoleEnding = true;
 
 			// TODO: Is this the end of the game? Is there another hole after this?
+			if ( Course.IsLastHole() )
+			{
+				EndGame();
+				return;
+			}
 
 			GolfScoreboard.SetOpen( To.Everyone, true );
 			await GameTask.DelaySeconds( 5.0f );
@@ -62,7 +76,7 @@ namespace Minigolf
 				(cl.Pawn as Ball).ResetPosition( Course.CurrentHole.SpawnPosition, Course.CurrentHole.SpawnAngles );
 			}
 
-			IsEnding = false;
+			IsHoleEnding = false;
 		}
 
 		[Event.Tick.Server]
@@ -81,7 +95,7 @@ namespace Minigolf
 		public void CheckRoundState()
 		{
 			if ( State != GameState.Playing ) return;
-			if ( IsEnding ) return;
+			if ( IsHoleEnding ) return;
 
 			// Check if all playing clients have putted their ball
 			var WaitingForClientsCount = Client.All.Count;
@@ -93,6 +107,15 @@ namespace Minigolf
 
 			if ( WaitingForClientsCount == 0 )
 				EndHole();
+		}
+
+		[Event.Tick.Server]
+		public void ReturnToLobby()
+		{
+			if ( State != GameState.EndOfGame ) return;
+			if ( Time.Now < ReturnToLobbyTime ) return;
+
+			Client.All.ToList().ForEach( cl => cl.Kick() );
 		}
 
 		[AdminCmd( "minigolf_force_start" )]

@@ -54,13 +54,10 @@ namespace Minigolf
 
 		public override void Tick()
 		{
-			base.Tick();
-
-			SetClass( "open", ForceOpen || Input.Down(InputButton.Score) );
-			// SetClass( "open", true );
-
-			MapNameLabel.Text = Global.MapName;
-			PlayerCountLabel.Text = Client.All.Count.ToString();
+			if ( ForceOpen )
+				SetClass( "open", true );
+			else if ( Game.Current.State == GameState.Playing )
+				SetClass( "open", Input.Down( InputButton.Score ) );
 
 			foreach ( var client in Client.All.Except( Players.Keys ) )
 			{

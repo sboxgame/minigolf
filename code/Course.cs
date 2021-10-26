@@ -56,6 +56,11 @@ namespace Minigolf
 			}
 		}
 
+		public bool IsLastHole()
+		{
+			return !Holes.Where( x => x.Key > _currentHole ).Any();
+		}
+
         public void NextHole()
         {
 			var matchedHoles = Holes.Where( x => x.Key > _currentHole )
