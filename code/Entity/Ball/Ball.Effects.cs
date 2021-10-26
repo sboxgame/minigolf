@@ -17,6 +17,28 @@ namespace Minigolf
 		// TraceResult of a downwards trace run every clientside frame.
 		TraceResult DownTrace { get; set; }
 
+		BallNameTag NameTag { get; set; }
+
+		public override void OnNewModel( Model model )
+		{
+			base.OnNewModel( model );
+
+
+			if ( IsClient )
+			{
+				NameTag = new BallNameTag( this );
+
+			}
+		}
+
+		protected override void OnDestroy()
+		{
+			if ( IsClient )
+			{
+				NameTag?.Delete();
+			}
+		}
+
 		private void CreateParticles()
 		{
 			// Create all particles clientside, this gives us authority over them to set control points clientside.

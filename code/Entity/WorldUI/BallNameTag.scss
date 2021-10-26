@@ -1,0 +1,19 @@
+﻿BallNameTag {
+    // background-color: green;
+    align-items: center;
+
+    image {
+        aspect-ratio: 1;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    label {
+        margin-left: 16px;
+        color: white;
+        font-family: Poppins;
+        font-size: 50px;
+        font-weight: 300;
+        text-shadow: 1px 1px 4px rgba( black, 0.9 );
+    }
+}

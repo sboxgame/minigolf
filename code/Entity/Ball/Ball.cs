@@ -11,6 +11,8 @@ namespace Minigolf
 
 		static readonly SoundEvent CuppedSound = new SoundEvent( "sounds/minigolf.ball_inhole.vsnd" );
 
+		[Net] public Angles Direction { get; set; }
+
 		public override void Spawn()
 		{
 			base.Spawn();
@@ -60,6 +62,8 @@ namespace Minigolf
 
 			InPlay = false;
 			Cupped = false;
+
+			Direction = direction;
 
 			// Tell the player we reset the ball
 			PlayerResetPosition( To.Single(this), position, direction );
