@@ -5,11 +5,17 @@ namespace Minigolf
 {
 	public class FollowBallCamera : ICamera
 	{
-		public Angles Angles;
-		public Vector3 Position;
+		public Angles Angles { get { return Rot.Angles(); } set { TargetAngles = value; } }
+		public float FieldOfView => 80.0f;
+
+		Vector3 Pos;
+		Rotation Rot;
+
+		Angles TargetAngles;
+		Rotation TargetRot;
 
 		private float Distance;
-		private float distanceTarget;
+		private float TargetDistance;
 
 		public float MinDistance => 100.0f;
 		public float MaxDistance => 300.0f;
@@ -20,41 +26,22 @@ namespace Minigolf
 		public FollowBallCamera()
 		{
 			Distance = 150;
-			distanceTarget = Distance;
+			TargetDistance = Distance;
 		}
 
 		public override void Build( ref CameraSetup camSetup )
 		{
 			if ( !Ball.IsValid() ) return;
 
-			var pos = Ball.Position + Vector3.Up * (24 + (Ball.CollisionBounds.Center.z * Ball.Scale));
-			var rot = Rotation.From( Angles );
+			Pos = Ball.Position + Vector3.Up * (24 + (Ball.CollisionBounds.Center.z * Ball.Scale));
+			TargetRot = Rotation.From( TargetAngles );
 
-			distanceTarget = distanceTarget.LerpTo( Distance, Time.Delta * 5.0f );
+			Rot = Rotation.Slerp( Rot, TargetRot, RealTime.Delta * 10.0f );
+			TargetDistance = TargetDistance.LerpTo( Distance, RealTime.Delta * 5.0f );
+			Pos += Rot.Backward * TargetDistance;
 
-			// TODO: Camera snapping like this is horrible, do a better trace to prevent the camera being inside objects instead.
-			/*
-			var tr = Trace.Ray( pos, pos + rot.Backward * Distance )
-				.Ignore( Ball )
-				.WorldOnly()
-				.Radius( 8 )
-				.Run();
-
-			if ( tr.Hit )
-			{
-				distanceTarget = Math.Min( distanceTarget, tr.Distance );
-			}
-			*/
-
-			pos += rot.Backward * distanceTarget;
-
-			// ball.RenderAlpha = Math.Clamp( (distanceTarget - 25.0f) / 50.0f, 0.0f, 1.0f );
-
-			// TODO: If the ball is cupped, take control and rotate around it cinematically
-			// Zoom out the camera to max distance and rotate.
-
-			camSetup.Position = pos;
-			camSetup.Rotation = rot;
+			camSetup.Position = Pos;
+			camSetup.Rotation = Rot;
 			camSetup.FieldOfView = 80;
 		}
 
@@ -66,15 +53,15 @@ namespace Minigolf
 
 			Distance = Math.Clamp( Distance + (-input.MouseWheel * DistanceStep), MinDistance, MaxDistance );
 
-			Angles.yaw += input.AnalogLook.yaw;
+			TargetAngles.yaw += input.AnalogLook.yaw;
 
 			if ( !input.Down( InputButton.Attack1 ) )
-				Angles.pitch += input.AnalogLook.pitch;
+				TargetAngles.pitch += input.AnalogLook.pitch;
 
-			Angles = Angles.Normal;
+			TargetAngles = TargetAngles.Normal;
 
 			if ( !input.Down( InputButton.Attack1 ) )
-				Angles.pitch = Angles.pitch.Clamp( 0, 89 );
+				TargetAngles.pitch = TargetAngles.pitch.Clamp( 0, 89 );
 		}
 	}
 }
