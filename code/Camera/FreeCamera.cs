@@ -14,24 +14,14 @@ namespace Minigolf
 		float MoveSpeed;
 		float LerpMode = 0;
 
-		/// <summary>
-		/// On the camera becoming activated, snap to the current view position
-		/// </summary>
-		public override void Activated()
+		public FreeCamera()
 		{
-			base.Activated();
-
 			TargetPos = CurrentView.Position;
 			TargetRot = CurrentView.Rotation;
 
 			Pos = TargetPos;
 			Rot = TargetRot;
 			LookAngles = Rot.Angles();
-		}
-
-		public override void Deactivated()
-		{
-			base.Deactivated();
 		}
 
 		public override void Update()

@@ -85,9 +85,6 @@ namespace Minigolf
 
 		public ICamera FindActiveCamera()
 		{
-			// DevCamera takes priority over anything else
-			if ( Local.Client.DevCamera != null ) return Local.Client.DevCamera;
-
 			// If the game hasn't started yet show our "cinematic" camera
 			if ( State == GameState.WaitingForPlayers )
 			{
@@ -146,20 +143,9 @@ namespace Minigolf
 			Local.Pawn?.BuildInput( input );
 		}
 
-
-		Camera LastCamera { get; set; }
-
 		public override CameraSetup BuildCamera( CameraSetup camSetup )
 		{
 			var cam = FindActiveCamera();
-
-			if ( LastCamera != cam )
-			{
-				LastCamera?.Deactivated();
-				LastCamera = cam as Camera;
-				LastCamera?.Activated();
-			}
-
 			cam?.Build( ref camSetup );
 
 			PostCameraSetup( ref camSetup );
@@ -210,18 +196,6 @@ namespace Minigolf
 			if ( !cl.Pawn.IsAuthority ) return;
 
 			cl.Pawn?.FrameSimulate( cl );
-		}
-
-		[ServerCmd( "devcam", Help = "Enables the devcam. Input to the player will stop and you'll be able to freefly around." )]
-		public static void DevcamCommand()
-		{
-			if ( ConsoleSystem.Caller == null ) return;
-			var player = ConsoleSystem.Caller;
-
-			if ( !player.HasPermission( "devcam" ) )
-				return;
-
-			player.DevCamera = player.DevCamera == null ? new DevCamera() : null;
 		}
 	}
 }
