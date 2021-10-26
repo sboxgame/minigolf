@@ -10,7 +10,7 @@ namespace Minigolf
 	{
 		public ControlsHelp()
 		{
-			StyleSheet.Load( "/ui/ControlsHelp.scss" );
+			StyleSheet.Load( "/UI/ControlsHelp.scss" );
 
 			AddButton( "Free Cam", "iv_view" );
 			AddButton( "Reset", "iv_reload" );
@@ -20,7 +20,7 @@ namespace Minigolf
 
 		protected void AddButton( string name, string bind )
 		{
-			var key = Input.GetKeyWithBinding( bind ).ToUpper();
+			var key = Input.GetKeyWithBinding( bind ) ?? "Unbound";
 
 			var row = Add.Panel( "row" );
 			row.Add.Label( name, "name" );

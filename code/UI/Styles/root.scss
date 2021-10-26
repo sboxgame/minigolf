@@ -12,10 +12,6 @@
     }
 
     &.state--playing {
-        waitingscreen {
-            opacity: 0;
-        }
-
         .state-playing {
             opacity: 1;
         }

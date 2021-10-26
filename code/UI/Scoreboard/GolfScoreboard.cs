@@ -8,26 +8,26 @@ using System.Linq;
 
 namespace Minigolf
 {
+	[UseTemplate]
 	public partial class GolfScoreboard : Panel
 	{
 		static GolfScoreboard Current;
+
+		public bool ForceOpen;
+
+		// Bindings for HTML
+		public string MapName => Global.MapName;
+		public string PlayerCount => Client.All.Count.ToString();
 
 		Panel PlayersPanel { get; set; }
 		Panel HoleHeadersPanel { get; set; }
 		Panel ParHeadersPanel { get; set; }
 
-		Label MapNameLabel { get; set; }
-		Label PlayerCountLabel { get; set; }
-
 		Dictionary<Client, ScoreboardPlayer> Players = new();
-
-		public bool ForceOpen;
 
 		public GolfScoreboard()
 		{
 			Current = this;
-
-			SetTemplate( "/UI/Scoreboard/GolfScoreboard.html" );
 		}
 
 		protected override void PostTemplateApplied()

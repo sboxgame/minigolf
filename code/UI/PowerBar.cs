@@ -3,15 +3,11 @@ using Sandbox.UI;
 
 namespace Minigolf
 {
+	[UseTemplate]
 	public partial class PowerBar : Panel
 	{
 		Panel Bar { get; set; }
 		Panel LastPower { get; set; }
-
-		public PowerBar()
-		{
-			SetTemplate( "/UI/PowerBar.html" );
-		}
 
 		public override void Tick()
 		{
