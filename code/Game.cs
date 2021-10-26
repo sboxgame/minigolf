@@ -16,6 +16,7 @@ namespace Minigolf
 
 			if ( IsServer )
 			{
+				AddToPrecache();
 				Course = new();
 			}
 
