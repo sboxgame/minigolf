@@ -37,6 +37,8 @@ namespace Minigolf
 				return;
 
 			Game.Current.CupBall( ball, HoleNumber );
+
+			Particles.Create( "particles/gameplay/hole_effect/confetti.vpcf", this );
 		}
 	}
 }
