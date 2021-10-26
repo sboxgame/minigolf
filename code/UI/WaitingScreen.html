@@ -1,0 +1,25 @@
+﻿<link rel="stylesheet" href="/UI/Styles/WaitingScreen.scss">
+
+<div>
+    <div class="header">
+        <text>minigolf</text>
+        <text>something something balls</text>
+    </div>
+
+    <div @ref="PlayersContainer" class="players"></div>
+
+    <div class="waiting">
+        <div>
+            <text>Waiting for </text>
+            <text @text="PlayerCount" class="count"></text>
+            <text class="count">/</text>
+            <text @text="MaxPlayers" class="count"></text>
+            <text> players to load...</text>
+        </div>
+        <div>
+            <text>( Starting in </text>
+            <text @text="StartingTimeLeft"></text>
+            <text> seconds )</text>
+        </div>
+    </div>
+</div>

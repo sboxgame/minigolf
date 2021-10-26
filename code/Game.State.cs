@@ -14,8 +14,7 @@ namespace Minigolf
 	{
 		[Net, Change( nameof( OnStateChanged ) )]
 		public GameState State { get; set; } = GameState.WaitingForPlayers;
-
-		[Net] public List<Client> PlayingClients { get; set; }
+		[Net] public float StartTime { get; private set; }
 
 		public void OnStateChanged( GameState oldState, GameState newState )
 		{
@@ -23,42 +22,17 @@ namespace Minigolf
 			// Pass to HUD?
 		}
 
-		[ServerCmd]
-		public static void Ready()
-		{
-			var client = ConsoleSystem.Caller;
-			if ( client == null ) return;
-
-			client.SetValue( "ready", !client.GetValue<bool>( "ready", false ) );
-
-			// TODO: move this to a tick or some shit
-			foreach ( var cl in Client.All )
-			{
-				if ( !cl.GetValue<bool>( "ready", false ) )
-					return;
-			}
-
-			Current.StartGame();
-		}
-
 		public void StartGame()
 		{
-			PlayingClients = new List<Client>();
-			foreach( var client in Client.All )
-			{
-				if ( client.GetValue<bool>( "ready", false ) )
-					PlayingClients.Add( client );
-			}
+			State = GameState.Playing;
 
 			// Spawn balls for all clients
-			foreach ( var cl in PlayingClients )
+			foreach ( var cl in Client.All )
 			{
 				var ball = new Ball();
 				cl.Pawn = ball;
 				ball.ResetPosition( Course.CurrentHole.SpawnPosition, Course.CurrentHole.SpawnAngles );
 			}
-
-			State = GameState.Playing;
 		}
 
 		bool IsEnding;
@@ -82,7 +56,7 @@ namespace Minigolf
 			// await GameTask.DelaySeconds( 5.0f );
 
 			// Respawn all pawns
-			foreach ( var cl in PlayingClients )
+			foreach ( var cl in Client.All )
 			{
 				cl.Pawn = new Ball();
 				(cl.Pawn as Ball).ResetPosition( Course.CurrentHole.SpawnPosition, Course.CurrentHole.SpawnAngles );
@@ -92,47 +66,38 @@ namespace Minigolf
 		}
 
 		[Event.Tick.Server]
+		void ShouldStartGame()
+		{
+			if ( State != GameState.WaitingForPlayers ) return;
+			if ( StartTime == 0 ) return; // Level not loaded yet
+			// TODO: Find out all connecting clients somehow
+
+			if ( Time.Now >= StartTime )
+				StartGame();
+
+		}
+
+		[Event.Tick.Server]
 		public void CheckRoundState()
 		{
-			switch ( State )
+			if ( State != GameState.Playing ) return;
+			if ( IsEnding ) return;
+
+			// Check if all playing clients have putted their ball
+			var WaitingForClientsCount = Client.All.Count;
+			foreach ( var cl in Client.All )
 			{
-				case GameState.WaitingForPlayers:
-					// TODO: Check Ready Clients
-					break;
-				case GameState.Playing:
-					if ( IsEnding )
-						break;
-
-					// Check if all playing clients have putted their ball
-					var WaitingForClientsCount = PlayingClients.Count;
-					foreach ( var cl in PlayingClients )
-					{
-						if ( !cl.Pawn.IsValid() )
-							WaitingForClientsCount--;
-					}
-
-					if ( WaitingForClientsCount != 0 )
-					{
-						break;
-					}
-
-					EndHole();
-
-					break;
-				case GameState.EndOfGame:
-					break;
+				if ( !cl.Pawn.IsValid() )
+					WaitingForClientsCount--;
 			}
+
+			if ( WaitingForClientsCount == 0 )
+				EndHole();
 		}
 
 		[AdminCmd( "minigolf_force_start" )]
 		public static void ForceStart()
 		{
-			// Force everyone to ready
-			foreach ( var client in Client.All )
-			{
-				client.SetValue( "ready", true );
-			}
-
 			Current.StartGame();
 		}
 
@@ -150,7 +115,7 @@ namespace Minigolf
 		public static void SkipToHole( int hole )
 		{
 			Current.Course._currentHole = hole;
-			foreach ( var cl in Current.PlayingClients )
+			foreach ( var cl in Client.All )
 			{
 				Current.ResetBall( cl );
 			}
