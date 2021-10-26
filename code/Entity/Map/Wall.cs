@@ -7,6 +7,7 @@ namespace Minigolf
 	/// </summary>
 	[Library( "minigolf_wall" )]
 	[Hammer.Solid]
+	[Hammer.AutoApplyMaterial( "materials/editor/minigolf_wall/minigolf_wall.vmat" )]
 	[Hammer.PhysicsTypeOverride( Hammer.PhysicsTypeOverrideAttribute.PhysicsTypeOverride.Mesh )]
 	public partial class Wall : ModelEntity
 	{
