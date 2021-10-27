@@ -46,7 +46,8 @@ namespace Minigolf
 			var clients = Client.All.OrderBy( cl => cl.GetTotalPar() ).ToList();
 			for ( int i = 0; i < clients.Count; i++ )
 			{
-				clients[i].SetGameResult( i + 1, clients[i].GetTotalPar() );
+				var result = i == 0 ? GameplayResult.Win : GameplayResult.Lose;
+				clients[i].SetGameResult( result, clients[i].GetTotalPar() );
 			}
 
 			GameServices.EndGame();
