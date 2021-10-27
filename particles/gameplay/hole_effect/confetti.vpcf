@@ -1213,13 +1213,6 @@
 			}
 		},
 	]
-	m_Constraints = 
-	[
-		{
-			_class = "C_OP_WorldTraceConstraint"
-			m_CollisionGroupName = "DEBRIS"
-		},
-	]
 	m_Renderers = 
 	[
 		{
