@@ -42,7 +42,6 @@ namespace Minigolf
 
 			camSetup.Position = Pos;
 			camSetup.Rotation = Rot;
-			camSetup.FieldOfView = 80;
 		}
 
 		public override void BuildInput( InputBuilder input )
