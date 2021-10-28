@@ -33,8 +33,6 @@ namespace Minigolf
 
 			// DebugOverlay.Box( tr.EndPos, Vector3.One * -1, Vector3.One, Color.Red );
 
-			FieldOfView = 80;
-
 			Viewer = null;
 			{
 				var lerpTarget = tr.EndPos.Distance( Position );
