@@ -75,8 +75,7 @@ namespace Minigolf
 		{
 			var trace = Trace.Ray( Position, Position + Vector3.Down * CollisionBounds.Size.z * 1.15f );
 			trace.HitLayer( CollisionLayer.Solid );
-			trace.WorldOnly();
-			trace.Ignore( this );
+			trace.WithoutTags( "golf_ball" );
 			var tr = trace.Run();
 
 			if ( tr.Hit )
@@ -112,8 +111,7 @@ namespace Minigolf
 		{
 			var downTrace = Trace.Ray( Position, Position + Vector3.Down * CollisionBounds.Size.z );
 			downTrace.HitLayer( CollisionLayer.Solid );
-			downTrace.WorldOnly();
-			downTrace.Ignore( this );
+			downTrace.WithoutTags( "golf_ball" );
 			var downTraceResult = downTrace.Run();
 
 			if ( Debug )
@@ -177,8 +175,7 @@ namespace Minigolf
 			// TODO: This direction is wrong, we should be using the hill normal dot with 
 			var trace = Trace.Ray( Position, Position + PhysicsBody.Velocity.WithZ( 0 ).Normal * CollisionBounds.Size.y * 2 );
 			trace.HitLayer( CollisionLayer.Solid );
-			trace.Ignore( this );
-			trace.WorldOnly();
+			trace.WithoutTags( "golf_ball" );
 			var traceResult = trace.Run();
 
 			if ( Debug )
