@@ -54,7 +54,7 @@ namespace Minigolf
 		[Event.Frame]
 		private void Frame()
 		{
-			DownTrace = Trace.Ray( Position, Position + Vector3.Down * (CollisionBounds.Size.z) ).Ignore( this ).WorldOnly().Run();
+			DownTrace = Trace.Ray( Position, Position + Vector3.Down * (CollisionBounds.Size.z) ).WithoutTags( "golf_ball" ).Run();
 
 			if ( !InPlay )
 			{

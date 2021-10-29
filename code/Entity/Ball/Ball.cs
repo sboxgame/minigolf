@@ -27,6 +27,8 @@ namespace Minigolf
 			Transmit = TransmitType.Always;
 
 			Predictable = false;
+
+			Tags.Add( "golf_ball" );
 		}
 
 		public override void ClientSpawn()
