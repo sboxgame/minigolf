@@ -247,7 +247,8 @@ namespace Minigolf
 				return;
 
 			// Collision sound happens at this point, not entity
-			var sound = Sound.FromWorld( BounceSound.Name, eventData.Pos );
+			var soundName = $"minigolf.ball_impact_on_concrete{ Rand.Int( 1, 4 ) }";
+			var sound = Sound.FromWorld( soundName, eventData.Pos );
 			sound.SetVolume( 0.2f + Math.Clamp( eventData.Speed / 1250.0f, 0.0f, 0.8f ) );
 			sound.SetPitch( 0.5f + Math.Clamp( eventData.Speed / 1250.0f, 0.0f, 0.5f ) );
 

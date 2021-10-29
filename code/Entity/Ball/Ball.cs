@@ -8,9 +8,6 @@ namespace Minigolf
 		public static bool Debug { get; set; } = false;
 		[Net] public bool InPlay { get; set; } = false;
 		[Net] public bool Cupped { get; set; } = false;
-
-		static readonly SoundEvent CuppedSound = new SoundEvent( "sounds/minigolf.ball_inhole.vsnd" );
-
 		[Net] public Angles Direction { get; set; }
 
 		static readonly Model Model = Model.Load( "models/golf_ball.vmdl" );
@@ -45,7 +42,7 @@ namespace Minigolf
 
 			Cupped = true;
 
-			var sound = PlaySound( CuppedSound.Name );
+			var sound = PlaySound( "minigolf.sink_into_cup" );
 			sound.SetVolume( 1.0f );
 			sound.SetPitch( Rand.Float(0.75f, 1.25f) );
 		}
