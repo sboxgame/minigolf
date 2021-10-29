@@ -10,10 +10,6 @@ namespace Minigolf
 		[ServerVar( "minigolf_check_bounds" )]
 		public static bool CheckBounds { get; set; } = true;
 
-        static readonly SoundEvent SoundHoleInOne = new("sounds/minigolf.crowd_ovation.vsnd");
-		static readonly SoundEvent SoundBelowPar = new("sounds/minigolf.fart.vsnd");
-		static readonly SoundEvent InHoleSound = new("sounds/minigolf.ball_inhole.vsnd");
-
 		public void OnBallStoppedMoving(Ball ball)
 		{
 			// if ( CheckBounds && !ball.Cupped && !Course.CurrentHole.InBounds(ball) )

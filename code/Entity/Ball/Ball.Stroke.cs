@@ -5,29 +5,6 @@ namespace Minigolf
 {
 	public partial class Ball
 	{
-		static readonly string[][] SwingSounds = new string[][] {
-			new string[] {
-				new("minigolf.swing_supersoft_01"),
-				new("minigolf.swing_supersoft_02"),
-				new("minigolf.swing_supersoft_03"),
-			},
-			new string[] {
-				new("minigolf.swing_soft_01"),
-				new("minigolf.swing_soft_02"),
-				new("minigolf.swing_soft_03"),
-			},
-			new string[] {
-				new("minigolf.swing_medium_01"),
-				new("minigolf.swing_medium_02"),
-				new("minigolf.swing_medium_03"),
-			},
-			new string[] {
-				new("minigolf.swing_hard_01"),
-				new("minigolf.swing_hard_02"),
-				new("minigolf.swing_hard_03"),
-			},
-		};
-
 		/// <summary>
 		/// Applies a velocity to the ball's PhysicsBody
 		/// This does not check if the player is allowed.
@@ -45,8 +22,8 @@ namespace Minigolf
 			direction = direction.Normal.WithZ(0);
 			power = Math.Clamp( power, 0, 1 );
 
-			var sound = SwingSounds[(int)MathF.Ceiling(power / 25)][Rand.Int(0, 2)];
-			Sound.FromWorld(sound, Position);
+			var sound = "minigolf.swing" + Rand.Int( 1, 3 );
+			Sound.FromWorld( sound, Position ).SetVolume( 1.0f + power ).SetPitch( Rand.Float( 0.8f, 1.2f ) );
 
 			PhysicsBody.Velocity = direction * power * PowerMultiplier;
 			PhysicsBody.AngularVelocity = 0;

@@ -7,8 +7,6 @@ namespace Minigolf
 	{
 		// Everything in here is clientside only, it's easier to manipulate effects that way.
 
-		static readonly SoundEvent BounceSound = new( "sounds/minigolf.ball_bounce1.vsnd" );
-
 		Particles Trail { get; set; }
 		Particles Circle { get; set; }
 

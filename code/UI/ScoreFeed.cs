@@ -41,12 +41,14 @@ namespace Minigolf
 		public void AddEntry( Client cl, int score )
 		{
 			_ = new ScoreFeedEntry( this, cl, score );
+			Sound.FromScreen( "minigolf.award" ).SetVolume( 0.5f );
 		}
 
 		[ClientCmd("minigolf_score_test")]
 		public static void AddTest()
 		{
 			Instance.AddEntry( Local.Client, 3 );
+			Sound.FromScreen( "minigolf.award" ).SetVolume(0.5f);
 		}
 	}
 }
