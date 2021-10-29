@@ -25,6 +25,8 @@ namespace Minigolf
 			var sound = "minigolf.swing" + Rand.Int( 1, 3 );
 			Sound.FromWorld( sound, Position ).SetVolume( 1.0f + power ).SetPitch( Rand.Float( 0.8f, 1.2f ) );
 
+			Direction = direction.EulerAngles;
+
 			PhysicsBody.Velocity = direction * power * PowerMultiplier;
 			PhysicsBody.AngularVelocity = 0;
 			PhysicsBody.Wake();
