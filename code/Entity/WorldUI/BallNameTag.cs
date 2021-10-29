@@ -14,6 +14,8 @@ namespace Minigolf
 		{
 			Owner = owner;
 
+			PanelBounds = new Rect( 0, -80, 800, 160 );
+
 			Add.Image( $"avatar:{ owner.Client.SteamId }" );
 			Add.Label( owner.Client.Name );
 
@@ -23,6 +25,8 @@ namespace Minigolf
 			// owner.SceneObject.AddChild( "NameTagPanel", SceneObject );
 		}
 
+		Angles CurrentDirection;
+
 		[Event.PreRender]
 		void MoveNameTag()
 		{
@@ -30,17 +34,33 @@ namespace Minigolf
 			if ( !Owner.IsValid() )
 				return;
 
-			// TODO: Put on ground normal
-			Position = Owner.Position;
-			Position -= Vector3.Up * 2.9f;
+			CurrentDirection = Angles.Lerp( CurrentDirection, Owner.Direction, RealTime.Delta * 4.0f ).WithRoll(0).WithPitch(0);
 
-			var forward = Angles.AngleVector( Owner.Direction );
+			var DownTrace = Trace.Ray( Owner.Position, Owner.Position + Vector3.Down * 34.0f ).WithoutTags( "golf_ball" ).Run();
+
+			Position = DownTrace.EndPos + Vector3.Up * 0.1f;
+
+			var forward = Angles.AngleVector( CurrentDirection );
 			var right = Vector3.Cross( forward, Vector3.Up );
 
 			Position += right * 8.0f;
-			Rotation = Rotation.From( Owner.Direction ) * Rotation.FromYaw(180) * Rotation.From( Vector3.Up.EulerAngles );
+			Rotation = Rotation.From( CurrentDirection ) * Rotation.FromYaw( 180 ) * Rotation.From( DownTrace.Normal.EulerAngles );
 
-			PanelBounds = new Rect( 0, -80, 800, 160 );
+			if ( !DownTrace.Hit )
+			{
+				Style.Opacity = 0.0f;
+			}
+			else
+			{
+				if ( DownTrace.Distance > 4 )
+				{
+					Style.Opacity = (34.0f - DownTrace.Distance) / 30.0f;
+				}
+				else
+				{
+					Style.Opacity = 1.0f;
+				}
+			}
 		}
 	}
 }

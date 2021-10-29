@@ -13,7 +13,7 @@ namespace Minigolf
 		PowerArrow PowerArrow { get; set; }
 
 		// TraceResult of a downwards trace run every clientside frame.
-		TraceResult DownTrace { get; set; }
+		public TraceResult DownTrace { get; set; }
 
 		BallNameTag NameTag { get; set; }
 

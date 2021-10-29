@@ -65,6 +65,9 @@ namespace Minigolf
 			if ( Cupped )
 				return;
 
+			if ( Velocity.Length > 16.0f )
+				Direction = Velocity.Normal.WithZ( 0 ).EulerAngles;
+
 			if ( ClipVelocityTest )
 				ClipVelocity();
 			
