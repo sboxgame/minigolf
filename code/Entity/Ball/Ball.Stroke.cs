@@ -22,6 +22,10 @@ namespace Minigolf
 			direction = direction.Normal.WithZ(0);
 			power = Math.Clamp( power, 0, 1 );
 
+			// gradient the power, smaller shots have less power
+			// y = 2.78(0.5x + 0.1)^2
+			power = 2.78f * MathF.Pow( 0.5f * power + 0.1f, 2.0f );
+
 			var sound = "minigolf.swing" + Rand.Int( 1, 3 );
 			Sound.FromWorld( sound, Position ).SetVolume( 1.0f + power ).SetPitch( Rand.Float( 0.8f, 1.2f ) );
 
