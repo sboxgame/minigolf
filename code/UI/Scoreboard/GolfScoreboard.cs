@@ -32,15 +32,18 @@ namespace Minigolf
 
 		protected override void PostTemplateApplied()
 		{
+			if ( Game.Current.Course == null )
+				return;
+
 			HoleHeadersPanel.DeleteChildren( true );
 			ParHeadersPanel.DeleteChildren( true );
 
-			for ( int i = 0; i < 16; i++ )
+			for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
 			{
 				HoleHeadersPanel.Add.Label( $"{ i + 1 }" );
 			}
 
-			for ( int i = 0; i < 16; i++ )
+			for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
 			{
 				ParHeadersPanel.Add.Label( $"3" );
 			}
@@ -54,6 +57,17 @@ namespace Minigolf
 
 		public override void Tick()
 		{
+			// Hacky hack
+			if ( HoleHeadersPanel.Children.Count() == 0 )
+			{
+				if ( Game.Current.Course != null )
+				{
+					PostTemplateApplied();
+				}
+
+				return;
+			}
+
 			if ( ForceOpen )
 				SetClass( "open", true );
 			else if ( Game.Current.State == GameState.Playing )

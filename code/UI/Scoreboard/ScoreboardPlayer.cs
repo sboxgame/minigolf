@@ -38,17 +38,17 @@ namespace Minigolf
 
 			Scores.Clear();
 
-			for ( int i = 1; i < 17; i++ )
+			for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
 			{
-				Scores[i] = ScoresPanel.Add.Label( $"-" );
+				Scores[i + 1] = ScoresPanel.Add.Label( $"-" );
 			}
 		}
 
 		public override void Tick()
 		{
-			for ( int i = 1; i < 17; i++ )
+			for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
 			{
-				Scores[i].Text = $"{ Client.GetPar( i ) }";
+				Scores[i + 1].Text = $"{ Client.GetPar( i + 1 ) }";
 			}
 
 			TotalScoreLabel.Text = $"{ Client.GetTotalPar() }";
