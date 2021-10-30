@@ -64,6 +64,16 @@ namespace Minigolf
 			// Let all players know the ball has been cupped.
 			CuppedBall( To.Everyone, ball, ball.Client.GetPar() );
 
+			// Boop
+			if ( ball.Client.GetPar() == 1 )
+			{
+				Particles.Create( "particles/gameplay/hole_in_one/hole_in_one.vpcf", Course.CurrentHole.GoalPosition + Vector3.Up * 16.0f );
+			}
+			else
+			{
+				Particles.Create( "particles/gameplay/hole_effect/confetti.vpcf", Course.CurrentHole.GoalPosition + Vector3.Up * 16.0f );
+			}
+
 			// Remove the ball after a few seconds.
 			delayedDeletePawn();
 			async void delayedDeletePawn()
