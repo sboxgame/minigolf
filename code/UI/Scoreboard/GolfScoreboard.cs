@@ -21,6 +21,29 @@ namespace Minigolf
 		public int CurrentHoleNumber => Game.Current.Course.CurrentHole.Number;
 		public string CurrentHoleName => Game.Current.Course.CurrentHole.Name;
 
+		public string TimerTimeLeft {
+			get
+			{
+				if ( Game.Current.State == GameState.EndOfGame )
+					return $"00:{ Math.Max( 0, (int)MathF.Floor( Game.Current.ReturnToLobbyTime - Time.Now ) ).ToString( "D2" ) }";
+				if ( Game.Current.IsHoleEnding )
+					return $"00:{ Math.Max( 0, (int)MathF.Floor( Game.Current.NextHoleTime - Time.Now ) ).ToString( "D2" ) }";
+				return "";
+			}
+		}
+		public string TimerTimeUntil
+		{
+			get
+			{
+				if ( Game.Current.State == GameState.EndOfGame )
+					return "Return To Lobby";
+				if ( Game.Current.IsHoleEnding )
+					return "Next Hole";
+
+				return "";
+			}
+		}
+
 		Panel PlayersPanel { get; set; }
 		Panel HoleHeadersPanel { get; set; }
 		Panel ParHeadersPanel { get; set; }
@@ -55,6 +78,9 @@ namespace Minigolf
 
 		public override void Tick()
 		{
+			// Some shitty code
+			SetClass( "timer--active", Game.Current.State == GameState.EndOfGame || Game.Current.IsHoleEnding );
+
 			// Hacky hack
 			if ( HoleHeadersPanel.Children.Count() == 0 )
 			{
