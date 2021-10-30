@@ -144,7 +144,12 @@ metadata
 //
 // Minigolf.Wall
 //
-@SolidClass base(BaseProperties_minigolf)  base( PhysicsTypeOverride_Mesh ) = minigolf_wall : "A generic brush/mesh that has customizable reflectivity."
+@SolidClass base(BaseProperties_minigolf)  base( PhysicsTypeOverride_Mesh ) 
+metadata
+{
+	auto_apply_material = "materials/editor/minigolf_wall/minigolf_wall.vmat"
+}
+= minigolf_wall : "A generic brush/mesh that has customizable reflectivity."
 [
 	reflect(boolean) : "Reflect" : 1 : "If checked, the ball will bounce off this surface at the defined multiplier."
 	reflectmultiplier(float) : "Reflect Multiplier" : 1 : "How much the wall will reflect"
@@ -156,7 +161,7 @@ metadata
 //
 // Minigolf.Water
 //
-@PointClass base(BaseProperties_minigolf) = minigolf_water : ""
+@SolidClass base(BaseProperties_minigolf) = minigolf_water : ""
 [
 	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
 

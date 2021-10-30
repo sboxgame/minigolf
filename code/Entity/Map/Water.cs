@@ -5,6 +5,7 @@ using System.Collections.Generic;
 namespace Minigolf
 {
 	[Library( "minigolf_water" )]
+	[Hammer.Solid]
 	public partial class Water : AnimEntity
 	{
 		public WaterController WaterController = new WaterController();
@@ -14,12 +15,6 @@ namespace Minigolf
 			WaterController.WaterEntity = this;
 
 			Transmit = TransmitType.Always;
-
-			if ( IsClient )
-			{
-				CreatePhysics();
-				SceneLayer = "water";
-			}
 
 			EnableTouch = true;
 			EnableTouchPersists = true;
@@ -49,7 +44,7 @@ namespace Minigolf
 		{
 			base.Touch( other );
 
-			// WaterController.Touch( other );
+			WaterController.Touch( other );
 		}
 
 		public override void EndTouch( Entity other )
@@ -64,6 +59,11 @@ namespace Minigolf
 			base.StartTouch( other );
 
 			WaterController.StartTouch( other );
+
+			if ( other is not Ball ball )
+				return;
+
+			Sound.FromWorld( "minigolf.ball_in_water", ball.Position );
 
 			Action task = async () =>
 			{
