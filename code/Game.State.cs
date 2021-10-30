@@ -56,7 +56,8 @@ namespace Minigolf
 			ReturnToLobbyTime = Time.Now + 15.0f;
 		}
 
-		bool IsHoleEnding;
+		[Net] public bool IsHoleEnding { get; private set; }
+		[Net] public float NextHoleTime { get; private set; }
 
 		public async void EndHole()
 		{
@@ -64,6 +65,7 @@ namespace Minigolf
 				return;
 
 			IsHoleEnding = true;
+			NextHoleTime = Time.Now + 5.0f;
 
 			// TODO: Is this the end of the game? Is there another hole after this?
 			if ( Course.IsLastHole() )
