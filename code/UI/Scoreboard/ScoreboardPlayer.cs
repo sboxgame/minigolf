@@ -49,6 +49,7 @@ namespace Minigolf
 			for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
 			{
 				Scores[i + 1].Text = $"{ Client.GetPar( i + 1 ) }";
+				Scores[i + 1].SetClass( "active", Game.Current.Course.CurrentHole.Number == i + 1 );
 			}
 
 			TotalScoreLabel.Text = $"{ Client.GetTotalPar() }";

@@ -18,6 +18,8 @@ namespace Minigolf
 		// Bindings for HTML
 		public string MapName => Global.MapName;
 		public string PlayerCount => Client.All.Count.ToString();
+		public int CurrentHoleNumber => Game.Current.Course.CurrentHole.Number;
+		public string CurrentHoleName => Game.Current.Course.CurrentHole.Name;
 
 		Panel PlayersPanel { get; set; }
 		Panel HoleHeadersPanel { get; set; }
@@ -41,10 +43,6 @@ namespace Minigolf
 			for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
 			{
 				HoleHeadersPanel.Add.Label( $"{ i + 1 }" );
-			}
-
-			for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
-			{
 				ParHeadersPanel.Add.Label( $"3" );
 			}
 
@@ -66,6 +64,14 @@ namespace Minigolf
 				}
 
 				return;
+			}
+
+			for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
+			{
+				var hole = HoleHeadersPanel.GetChild( i ) as Label;
+				var par = ParHeadersPanel.GetChild( i ) as Label;
+				hole.SetClass( "active", Game.Current.Course.CurrentHole.Number == i + 1 );
+				par.SetClass( "active", Game.Current.Course.CurrentHole.Number == i + 1 );
 			}
 
 			if ( ForceOpen )
