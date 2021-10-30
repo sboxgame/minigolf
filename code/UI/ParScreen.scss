@@ -31,7 +31,9 @@
     label.score {
         color: #efa307;
         font-size: 144px;
-        text-shadow: 5px 5px 5px #732a00;
+        // text-shadow: 5px 5px 5px #732a00;
+        text-stroke: 16px #732a00;
+
         transform: rotate( -3deg ) scale(1);
         transition: all 0.25s linear;
     }

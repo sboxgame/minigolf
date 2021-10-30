@@ -244,24 +244,16 @@ golfscoreboard {
         transition: opacity 0.2s linear;
 
         div {
-            background-color: rgba(black, 0.95);
-            border-radius: 8px;
-            padding: 0px 16px;
-            justify-content: center;
-
-            &:first-child {
-                width: 154px;
-            }
-
             text {
                 font-family: Poppins;
                 font-size: 48px;
-                font-weight: 600;
+                font-weight: 800;
                 color: white;
+                text-stroke: 8px black;
             }
 
             &:last-child {
-                margin-top: 8px;
+                margin-top: -8px;
 
                 text {
                     text-transform: uppercase;

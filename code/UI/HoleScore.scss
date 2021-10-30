@@ -14,8 +14,9 @@
             color: white;
             font-size: 36px;
             font-family: Poppins;
-            font-weight: bold;
+            font-weight: 800;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+            text-stroke: 5px rgba( black, 0.8 );
 
             &.first {
                 margin-right: 8px;
@@ -47,7 +48,8 @@
 
             label {
                 font-size: 56px;
-                color: rgba(255, 255, 255, 1);
+                color: white;
+                text-stroke: 5px rgba( black, 0.8 );
                 text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
             }
         }
