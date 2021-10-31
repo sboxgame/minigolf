@@ -129,25 +129,44 @@ namespace Minigolf
 			Count = 0;
 		}
 
+		Vector3 ClipVelocity( Vector3 v, Vector3 normal, float overBounce = 1.0f )
+		{
+			float backoff = v.Dot( normal );
+
+			if ( overBounce != 1.0 )
+			{
+				if ( backoff < 0 )
+				{
+					backoff *= overBounce;
+				}
+				else
+				{
+					backoff /= overBounce;
+				}
+			}
+
+			return v - backoff * normal;
+		}
+
 		/// <summary>
 		/// Clip the velocity to the normal
 		/// </summary>
-		Vector3 ClipVelocity( Vector3 vel, Vector3 norm, float overbounce = 1.0f )
-		{
-			var backoff = Vector3.Dot( vel, norm ) * overbounce;
-			var o = vel - (norm * backoff);
+		//public static Vector3 ClipVelocity( Vector3 vel, Vector3 norm, float overbounce = 1.0f )
+		//{
+		//	var backoff = Vector3.Dot( vel, norm ) * overbounce;
+		//	var o = vel - (norm * backoff);
 
-			// garry: I don't totally understand how we could still
-			//		  be travelling towards the norm, but the hl2 code
-			//		  does another check here, so we're going to too.
-			var adjust = Vector3.Dot( o, norm );
-			if ( adjust >= 1.0f ) return o;
+		//	// garry: I don't totally understand how we could still
+		//	//		  be travelling towards the norm, but the hl2 code
+		//	//		  does another check here, so we're going to too.
+		//	var adjust = Vector3.Dot( o, norm );
+		//	if ( adjust >= 1.0f ) return o;
 
-			adjust = MathF.Min( adjust, -1.0f );
-			o -= norm * adjust;
+		//	adjust = MathF.Min( adjust, -1.0f );
+		//	o -= norm * adjust;
 
-			return o;
-		}
+		//	return o;
+		//}
 
 		public void Dispose()
 		{
