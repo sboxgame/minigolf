@@ -23,6 +23,8 @@ namespace Minigolf
 		public Vector3 Position;
 		public Vector3 Velocity;
 		public bool HitWall;
+		public Entity WallEntity;
+		public Vector3 HitWallPos;
 
 		//
 		// Config
@@ -81,6 +83,8 @@ namespace Minigolf
 			var timeLeft = timestep;
 			float travelFraction = 0;
 			HitWall = false;
+			WallEntity = null;
+			HitWallPos = Vector3.Zero;
 
 			using var moveplanes = new VelocityClipPlanes( Velocity );
 
@@ -105,9 +109,11 @@ namespace Minigolf
 					moveplanes.StartBump( Velocity );
 				}
 
-				if ( bump == 0 && pm.Hit && pm.Normal.Angle( Vector3.Up ) >= MaxStandableAngle )
+				if ( !HitWall && !pm.StartedSolid && pm.Hit && pm.Normal.Angle( Vector3.Up ) >= MaxStandableAngle )
 				{
 					HitWall = true;
+					WallEntity = pm.Entity;
+					HitWallPos = pm.EndPos;
 				}
 
 				timeLeft -= timeLeft * pm.Fraction;

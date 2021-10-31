@@ -20,7 +20,7 @@ namespace Minigolf
 			SetupPhysicsFromModel( PhysicsMotionType.Static, false );
 
 			CollisionGroup = CollisionGroup.Debris;
-			UsePhysicsCollision = false;
+			EnableTraceAndQueries = false;
 
 			Transmit = TransmitType.Always;
 
