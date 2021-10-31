@@ -21,18 +21,54 @@ namespace Minigolf
 		static float DownHillLinearDamping => 0.0f;
 		static float DownHillAngularDamping => 1.0f;
 
+		public override void Simulate( Client cl )
+		{
+			base.Simulate( cl );
+
+			if ( IsServer )
+				Move();
+		}
+
+		public override void FrameSimulate( Client cl )
+		{
+			base.FrameSimulate( cl );
+
+			DebugOverlay.Text( Position, $"Velocity: {Velocity}" );
+			DebugOverlay.Box( Position, -3.0f, 3.0f, Color.Green, false );
+		}
+
+		public virtual void Move()
+		{
+			Velocity += Vector3.Down * 800 * Time.Delta;
+
+			MoveHelper mover = new MoveHelper( Position, Velocity );
+			mover.Trace = mover.Trace.Size( 6.0f ).Ignore( this );
+			mover.MaxStandableAngle = 45.0f;
+			mover.GroundBounce = 0.25f;
+			mover.WallBounce = 0.5f;
+
+			mover.TryMove( Time.Delta );
+			mover.ApplyFriction( mover.Velocity.Length < 1.0f ? 5.0f : 0.75f, Time.Delta );
+
+			Position = mover.Position;
+			Velocity = mover.Velocity;
+		}
+
 		[Event.Tick.Server]
 		protected void CheckInPlay()
 		{
+			InPlay = false;
+			return;
+
 			// Sanity check, maybe our ball is hit by rotating blades?
 			if ( !InPlay )
 			{
-				if ( Velocity.Length >= 0.5f )
+				if ( Velocity.Length >= 2.5f )
 					InPlay = true;
 			}
 
 			// Check if our ball has pretty much stopped (waiting for 0 is nasty)
-			if ( !Velocity.Length.AlmostEqual( 0.0f, 0.1f ) )
+			if ( !Velocity.Length.AlmostEqual( 0.0f, 2.5f ) )
 				return;
 
 			Velocity = Vector3.Zero;
@@ -45,6 +81,8 @@ namespace Minigolf
 		[Event.Physics.PreStep]
 		protected void AdjustPhysics()
 		{
+			return;
+
 			// BUG? Sometimes this event will run with an invalid physicsbody whilst being deleted.
 			if ( !IsValid || !PhysicsBody.IsValid() )
 				return;
@@ -70,7 +108,7 @@ namespace Minigolf
 
 			if ( ClipVelocityTest )
 				ClipVelocity();
-			
+
 			AdjustDamping();
 		}
 

@@ -17,12 +17,10 @@ namespace Minigolf
 			base.Spawn();
 
 			SetModel( Model );
-			SetupPhysicsFromModel( PhysicsMotionType.Dynamic, false );
+			SetupPhysicsFromModel( PhysicsMotionType.Static, false );
 
-			MoveType = MoveType.Physics;
 			CollisionGroup = CollisionGroup.Debris;
-			PhysicsEnabled = true;
-			UsePhysicsCollision = true;
+			UsePhysicsCollision = false;
 
 			Transmit = TransmitType.Always;
 
