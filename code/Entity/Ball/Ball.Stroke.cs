@@ -31,6 +31,7 @@ namespace Minigolf
 
 			Direction = direction.EulerAngles;
 
+			Velocity = direction * power * PowerMultiplier;
 			PhysicsBody.Velocity = direction * power * PowerMultiplier;
 			PhysicsBody.AngularVelocity = 0;
 			PhysicsBody.Wake();
