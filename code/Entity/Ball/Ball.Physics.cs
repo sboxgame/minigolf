@@ -52,6 +52,25 @@ namespace Minigolf
 
 			Position = mover.Position;
 			Velocity = mover.Velocity;
+
+			if ( mover.HitWall && mover.WallEntity is Wall )
+			{
+				ImpactEffects( mover.Position, mover.Velocity.Length );
+			}
+		}
+
+		[ClientRpc]
+		void ImpactEffects( Vector3 pos, float speed )
+		{
+			// Collision sound happens at this point, not entity
+			var soundName = $"minigolf.ball_impact_on_concrete{ Rand.Int( 1, 4 ) }";
+			var sound = Sound.FromWorld( soundName, pos );
+			sound.SetVolume( 0.2f + Math.Clamp( speed / 1250.0f, 0.0f, 0.8f ) );
+			sound.SetPitch( 0.5f + Math.Clamp( speed / 1250.0f, 0.0f, 0.5f ) );
+
+			var particle = Particles.Create( "particles/gameplay/ball_hit/ball_hit.vpcf", pos );
+			particle.SetPosition( 0, pos );
+			particle.Destroy( false );
 		}
 
 		[Event.Tick.Server]
