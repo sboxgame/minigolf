@@ -32,15 +32,40 @@ namespace Minigolf
 			DebugOverlay.Sphere( Position, 3.0f, Color.Green, false );
 		}
 
+		static Vector3 ProjectOntoPlane( Vector3 v, Vector3 normal, float overBounce = 1.0f )
+		{
+			float backoff = v.Dot( normal );
+
+			if ( overBounce != 1.0 )
+			{
+				if ( backoff < 0 )
+				{
+					backoff *= overBounce;
+				}
+				else
+				{
+					backoff /= overBounce;
+				}
+			}
+
+			return v - backoff * normal;
+		}
+
 		public virtual void Move()
 		{
-			Velocity += Vector3.Down * 800 * Time.Delta;
-
 			MoveHelper mover = new MoveHelper( Position, Velocity );
 			mover.Trace = mover.Trace.Radius( 3.0f ).Ignore( this );
-			mover.MaxStandableAngle = 45.0f;
+			mover.MaxStandableAngle = 50.0f;
 			mover.GroundBounce = 0.25f;
 			mover.WallBounce = 0.5f;
+
+			mover.Velocity += Vector3.Down * 800 * Time.Delta;
+
+			var groundTrace = mover.TraceDirection( Vector3.Down * 0.5f );
+			if ( groundTrace.Hit && groundTrace.Normal.Angle( Vector3.Up ) < 1.0f )
+			{
+				mover.Velocity = ProjectOntoPlane( mover.Velocity, groundTrace.Normal );
+			}
 
 			mover.TryMove( Time.Delta );
 			mover.ApplyFriction( mover.Velocity.Length < 1.0f ? 5.0f : 0.75f, Time.Delta );
