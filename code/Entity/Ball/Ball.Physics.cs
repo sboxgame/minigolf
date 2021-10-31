@@ -27,14 +27,9 @@ namespace Minigolf
 
 			if ( IsServer )
 				Move();
-		}
-
-		public override void FrameSimulate( Client cl )
-		{
-			base.FrameSimulate( cl );
 
 			DebugOverlay.Text( Position, $"Velocity: {Velocity}" );
-			DebugOverlay.Box( Position, -3.0f, 3.0f, Color.Green, false );
+			DebugOverlay.Sphere( Position, 3.0f, Color.Green, false );
 		}
 
 		public virtual void Move()
@@ -42,7 +37,7 @@ namespace Minigolf
 			Velocity += Vector3.Down * 800 * Time.Delta;
 
 			MoveHelper mover = new MoveHelper( Position, Velocity );
-			mover.Trace = mover.Trace.Size( 6.0f ).Ignore( this );
+			mover.Trace = mover.Trace.Radius( 3.0f ).Ignore( this );
 			mover.MaxStandableAngle = 45.0f;
 			mover.GroundBounce = 0.25f;
 			mover.WallBounce = 0.5f;
@@ -141,7 +136,7 @@ namespace Minigolf
 			if ( tr.Hit )
 			{
 				var backoff = PhysicsBody.Velocity.Dot( tr.Normal );
-				var o = PhysicsBody.Velocity - ( tr.Normal * backoff );
+				var o = PhysicsBody.Velocity - (tr.Normal * backoff);
 
 				var adjust = o.Dot( tr.Normal );
 				if ( adjust >= 1.0f )
@@ -207,7 +202,7 @@ namespace Minigolf
 				PhysicsBody.AngularDamping = DefaultAngularDamping;
 				return;
 			}
-			
+
 			// See if we're on a flat surface by checking the dot product of the surface normal.
 			// TODO: This is actually shit, what if we have these on a hill?
 			if ( downTraceResult.Normal.Dot( Vector3.Up ).AlmostEqual( 1, 0.001f ) )
