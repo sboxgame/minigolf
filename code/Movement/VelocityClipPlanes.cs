@@ -52,7 +52,6 @@ namespace Minigolf
 			//
 			if ( Count == 1 )
 			{
-			//	BumpVelocity = velocity;
 				BumpVelocity = ClipVelocity( BumpVelocity, normal, 1.0f + bounce );
 				velocity = BumpVelocity;
 
@@ -84,7 +83,7 @@ namespace Minigolf
 			//
 			if ( velocity.Dot( OrginalVelocity ) < 0 )
 			{
-				//velocity = OrginalVelocity;
+				velocity = OrginalVelocity;
 			}
 
 			return true;
