@@ -6,6 +6,7 @@ namespace Minigolf
 	[Library( "minigolf_water" )]
 	[Hammer.Solid]
 	[Hammer.AutoApplyMaterial( "materials/editor/minigolf_wall/minigolf_water.vmat" )]
+	[Hammer.VisGroup( Hammer.VisGroup.Trigger )]
 	public partial class Water : ModelEntity
 	{
 		public override void Spawn()

@@ -9,6 +9,7 @@ namespace Minigolf
 	[Library( "minigolf_hole_bounds" )]
 	[Hammer.Solid]
 	[Hammer.AutoApplyMaterial( "materials/editor/minigolf_wall/minigolf_hole_bounds.vmat" )]
+	[Hammer.VisGroup( Hammer.VisGroup.Trigger )]
 	public partial class HoleBounds : ModelEntity
 	{
 		/// <summary>

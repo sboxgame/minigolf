@@ -9,6 +9,7 @@ namespace Minigolf
 	[Hammer.Solid]
 	[Hammer.AutoApplyMaterial]
 	[Hammer.EntityTool( "Hole goal", "Minigolf" )]
+	[Hammer.VisGroup( Hammer.VisGroup.Trigger )]
 	public partial class HoleGoal : ModelEntity
 	{
 		/// <summary>
