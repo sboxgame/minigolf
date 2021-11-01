@@ -6,6 +6,7 @@ namespace Minigolf
 {
 	[Library( "minigolf_water" )]
 	[Hammer.Solid]
+	[Hammer.AutoApplyMaterial( "materials/editor/minigolf_wall/minigolf_water.vmat" )]
 	public partial class Water : AnimEntity
 	{
 		public WaterController WaterController = new WaterController();
@@ -40,36 +41,20 @@ namespace Minigolf
 			EnableTouchPersists = true;
 		}
 
-		public override void Touch( Entity other )
-		{
-			if ( !other.IsValid() || other is not Ball )
-				return;
-
-			WaterController.Touch( other );
-		}
-
-		public override void EndTouch( Entity other )
-		{
-			base.EndTouch( other );
-
-			WaterController.EndTouch( other );
-		}
-
 		public override void StartTouch( Entity other )
 		{
-			base.StartTouch( other );
-
-			WaterController.StartTouch( other );
-
 			if ( other is not Ball ball )
 				return;
 
 			if ( !IsServer )
 				return;
 
+			ball.InWater = true;
+
 			using ( Prediction.Off() )
 			{
 				Sound.FromWorld( "minigolf.ball_in_water", ball.Position );
+				Particles.Create( "particles/gameplay/ball_water_splash/ball_water_splash.vpcf", ball.Position );
 
 				Action task = async () =>
 				{

@@ -12,6 +12,8 @@ namespace Minigolf
 
 		static readonly Model Model = Model.Load( "models/golf_ball.vmdl" );
 
+		public bool InWater = false;
+
 		public override void Spawn()
 		{
 			base.Spawn();
@@ -49,18 +51,13 @@ namespace Minigolf
 
 		public void ResetPosition( Vector3 position, Angles direction )
 		{
-			// Reset all velocity
-			PhysicsBody.Velocity = Vector3.Zero;
-			PhysicsBody.AngularVelocity = Vector3.Zero;
-			PhysicsBody.ClearForces();
-			PhysicsBody.ClearTorques();
-
 			Position = position;
-			PhysicsBody.Position = position;
+			Velocity = Vector3.Zero;
 			ResetInterpolation();
 
 			InPlay = false;
 			Cupped = false;
+			InWater = false;
 
 			Direction = direction;
 
