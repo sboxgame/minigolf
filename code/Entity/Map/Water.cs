@@ -42,7 +42,8 @@ namespace Minigolf
 
 		public override void Touch( Entity other )
 		{
-			base.Touch( other );
+			if ( !other.IsValid() || other is not Ball )
+				return;
 
 			WaterController.Touch( other );
 		}
@@ -63,24 +64,26 @@ namespace Minigolf
 			if ( other is not Ball ball )
 				return;
 
-			Sound.FromWorld( "minigolf.ball_in_water", ball.Position );
+			if ( !IsServer )
+				return;
 
-			Action task = async () =>
+			using ( Prediction.Off() )
 			{
-				await Task.DelaySeconds( 2 );
+				Sound.FromWorld( "minigolf.ball_in_water", ball.Position );
 
-				if ( !other.IsValid() )
-					return;
+				Action task = async () =>
+				{
+					await Task.DelaySeconds( 2 );
+
+					if ( !other.IsValid() )
+						return;
 
 				// TODO: check if other is still in water
-
-				using ( Prediction.Off() )
-				{
-					if ( other is Ball ball )
+				if ( other is Ball ball )
 						Game.Current.BallOutOfBounds( ball, Game.OutOfBoundsType.Water );
-				}
-			};
-			task.Invoke();
+				};
+				task.Invoke();
+			}
 		}
 	}
 }
