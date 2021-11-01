@@ -7,7 +7,7 @@ namespace Minigolf
 {
 	[Library( "minigolf_out_of_bounds", Description = "Out of bounds" )]
 	[Hammer.Solid]
-	[Hammer.AutoApplyMaterial]
+	[Hammer.AutoApplyMaterial( "materials/editor/minigolf_wall/minigolf_out_of_bounds.vmat" )]
 	public partial class OutOfBoundsArea : ModelEntity
 	{
 		/// <summary>

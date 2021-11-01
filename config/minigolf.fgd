@@ -69,7 +69,7 @@ metadata
 @SolidClass base(BaseProperties_minigolf) 
 metadata
 {
-	auto_apply_material = "materials/tools/toolstrigger.vmat"
+	auto_apply_material = "materials/editor/minigolf_wall/minigolf_hole_bounds.vmat"
 }
 = minigolf_hole_bounds : "Bounds of a hole."
 [
@@ -111,7 +111,7 @@ metadata
 @SolidClass base(BaseProperties_minigolf) 
 metadata
 {
-	auto_apply_material = "materials/tools/toolstrigger.vmat"
+	auto_apply_material = "materials/editor/minigolf_wall/minigolf_out_of_bounds.vmat"
 }
 = minigolf_out_of_bounds : "Out of bounds"
 [
