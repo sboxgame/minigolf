@@ -40,7 +40,7 @@ namespace Minigolf
 			var copy = new Dictionary<Ball, float>(OutOfBoundsBalls);
 			foreach ( var ball in copy.Keys )
 			{
-				if ( !ball.IsValid() )
+				if ( !ball.IsValid() || ball.Cupped )
 				{
 					OutOfBoundsBalls.Remove( ball );
 					continue;
