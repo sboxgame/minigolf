@@ -1,4 +1,5 @@
 ﻿using System;
+using Sandbox;
 using Sandbox.UI;
 using Sandbox.UI.Construct;
 using System.Collections.Generic;
@@ -9,39 +10,23 @@ namespace Minigolf
 {
 	public partial class OutOfBounds : Panel
 	{
-		private static List<string> Messages = new List<string>
-		{
-			"you stupid twat",
-			"d'oh!",
-			"the lesson is never try"
-		};
-		
-		public static OutOfBounds Current;
-
-		private Label messageLabel;
+		float DeleteTime;
 
 		public OutOfBounds()
 		{
-			Current = this;
-
 			StyleSheet.Load("/ui/OutOfBounds.scss");
 
-			Add.Label("OUT OF BOUNDS", "big");
-			messageLabel = Add.Label();
+			Add.Label( "Out" );
+			Add.Label( "Of" );
+			Add.Label( "Bounds" );
+
+			DeleteTime = RealTime.Now + 2.0f;
 		}
 
-		public async Task Show()
+		public override void Tick()
 		{
-			messageLabel.Text = Messages.OrderBy(x => Guid.NewGuid()).First().ToUpper();
-
-			// (GolfHUD.Current as GolfHUD).Fade = true;
-			AddClass("show");
-
-			await Task.DelaySeconds(3);
-
-			// (GolfHUD.Current as GolfHUD).Fade = false;
-			RemoveClass("show");
+			if ( RealTime.Now > DeleteTime )
+				Delete( false );
 		}
 	}
-
 }

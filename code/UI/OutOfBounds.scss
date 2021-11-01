@@ -4,28 +4,44 @@
     top: 0;
     bottom: 0;
     right: 0;
-    opacity: 0;
+    opacity: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    transition: opacity 1s ease-in;
+    background-color: rgba(black, 0.8);
+    transition: all 0.25s ease-in;
+    z-index: 5000;
 
-    label {
-        font-family: Poppins;
-        font-weight: bold;
-        transition: color 0.6s ease-out;
-        font-size: 42px;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    &:intro, &:outro {
+        opacity: 0;
+    }
 
-        &.big {
-            font-size: 104px;
-            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
-            margin-bottom: 12px;
+    &:intro {
+        label.score {
+            transform: rotate( 3deg ) scale(0.1);
         }
     }
 
-    &.show {
-        opacity: 1;
+    label {
+        font-family: Poppins;
+        font-weight: 900;
+        letter-spacing: 4px;
+        color: #efa307;
+        font-size: 144px;
+        text-stroke: 16px #732a00;
+        transform: rotate( -1deg ) scale(1);
+        transition: all 0.25s linear;
+        text-transform: uppercase;
+        margin-bottom: -56px;
+
+        &:nth-child(2) {
+            font-size: 100px;
+            margin-bottom: -52px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }
