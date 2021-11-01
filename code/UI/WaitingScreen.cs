@@ -37,7 +37,7 @@ namespace Minigolf
 		// Bindables for HTML:
 		public string StartingTimeLeft => $"{ Math.Max(0, Game.Current.StartTime - Time.Now ).CeilToInt() }";
 		public string PlayerCount => $"{Client.All.Count}";
-		public string MaxPlayers => ConsoleSystem.GetValue( "maxplayers" );
+		public string MaxPlayers => $"{ Game.Current.LobbyCount }";
 
 		public override void Tick()
 		{

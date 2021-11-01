@@ -17,6 +17,7 @@ namespace Minigolf
 		public GameState State { get; set; } = GameState.WaitingForPlayers;
 		[Net] public float StartTime { get; private set; }
 		[Net] public float ReturnToLobbyTime { get; private set; }
+		[Net] public int LobbyCount => Global.Lobby.MemberCount;
 
 		public void OnStateChanged( GameState oldState, GameState newState )
 		{
@@ -98,9 +99,8 @@ namespace Minigolf
 		{
 			if ( State != GameState.WaitingForPlayers ) return;
 			if ( StartTime == 0 ) return; // Level not loaded yet
-			// TODO: Find out all connecting clients somehow
-
-			if ( Time.Now >= StartTime )
+			
+			if ( Time.Now >= StartTime || Client.All.Count >= LobbyCount )
 				StartGame();
 
 		}

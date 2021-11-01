@@ -80,7 +80,7 @@ namespace Minigolf
 
 		public override void PostLevelLoaded()
 		{
-			StartTime = Time.Now + 10.0f;
+			StartTime = Time.Now + 60.0f;
 			// Replaced with [Event.Entity.PostLoaded] since for some reason it runs clientside and this doesn't.
 		}
 
