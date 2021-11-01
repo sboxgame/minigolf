@@ -46,10 +46,18 @@ namespace Minigolf
 
 		public override void Tick()
 		{
-			for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
+			for ( int i = 1; i <= Game.Current.Course.Holes.Count; i++ )
 			{
-				Scores[i + 1].Text = $"{ Client.GetPar( i + 1 ) }";
-				Scores[i + 1].SetClass( "active", Game.Current.Course.CurrentHole.Number == i + 1 );
+				if ( Game.Current.Course.CurrentHole.Number < i )
+					continue;
+
+				var par = Client.GetPar( i );
+				var holePar = Game.Current.Course.Holes[i].Par;
+
+				Scores[i].Text = $"{ par }";
+				Scores[i].SetClass( "active", Game.Current.Course.CurrentHole.Number == i );
+				Scores[i].SetClass( "below", par < holePar );
+				Scores[i].SetClass( "over", par > holePar );
 			}
 
 			TotalScoreLabel.Text = $"{ Client.GetTotalPar() }";
