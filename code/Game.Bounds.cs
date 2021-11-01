@@ -69,7 +69,7 @@ namespace Minigolf
 		[ClientRpc]
 		public void ClientBallOutOfBounds()
 		{
-			_ = OutOfBounds.Current.Show();
+			Local.Hud.AddChild<OutOfBounds>();
 		}
 	}
 }
