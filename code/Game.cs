@@ -51,13 +51,19 @@ namespace Minigolf
 		public override void ClientJoined( Client cl )
 		{
 			Log.Info( $"\"{cl.Name}\" has joined the game" );
-			ChatBox.AddInformation( To.Everyone, $"{cl.Name} has joined", $"avatar:{cl.SteamId}" );
 
-			// TODO: Thhis could mess shit up?
 			if ( State == GameState.Playing )
 			{
-				cl.Pawn = new Ball();
-				(cl.Pawn as Ball).ResetPosition( Course.CurrentHole.SpawnPosition, Course.CurrentHole.SpawnAngles );
+				cl.SetValue( "late", true );
+				ChatBox.AddInformation( To.Everyone, $"{cl.Name} has joined late, they will not be eligible for scoring.", $"avatar:{cl.SteamId}" );
+
+				// Just give them shitty scores on each hole for now
+				for ( int i = 1; i <= Course.CurrentHole.Number; i++ )
+					cl.SetInt( $"par_{i}", Course.Holes[i].Par + 1 );
+			}
+			else
+			{
+				ChatBox.AddInformation( To.Everyone, $"{cl.Name} has joined", $"avatar:{cl.SteamId}" );
 			}
 		}
 		
