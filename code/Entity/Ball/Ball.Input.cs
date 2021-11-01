@@ -19,7 +19,7 @@ namespace Minigolf
 
 			if ( input.Down( InputButton.Attack1 ) )
 			{
-				float delta = input.AnalogLook.pitch * Time.Delta;
+				float delta = input.AnalogLook.pitch * RealTime.Delta;
 				ShotPower = Math.Clamp( ShotPower - delta, 0, 1 );
 			}
 
