@@ -6,6 +6,7 @@ namespace Minigolf
 	{
 		public Vector3 Position;
 		public Vector3 Velocity;
+
 		public bool HitWall;
 		public Entity WallEntity;
 		public Vector3 HitWallPos;
@@ -23,12 +24,10 @@ namespace Minigolf
 			WallBounce = 0.0f;
 			MaxStandableAngle = 10.0f;
 
+			// Hit everything but other balls
 			Trace = Trace.Ray( 0, 0 )
-							.WorldAndEntities()
-							.HitLayer( CollisionLayer.All, false )
-							.HitLayer( CollisionLayer.Solid, true )
-							.HitLayer( CollisionLayer.GRATE, true )
-							.HitLayer( CollisionLayer.PLAYER_CLIP, true );
+				.WorldAndEntities()
+				.WithoutTags( "golf_ball" );
 		}
 
 		public TraceResult TraceFromTo( Vector3 start, Vector3 end )
