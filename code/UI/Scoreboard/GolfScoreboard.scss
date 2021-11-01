@@ -216,6 +216,14 @@ scoreboardplayer {
                     background-color: rgba(white, 0.1);
                     font-weight: 500;
                 }
+
+                &.below {
+                    color: limegreen;
+                }
+
+                &.over {
+                    color: rgb(255, 100, 100);
+                }
             }
         }
 
