@@ -61,6 +61,11 @@ namespace Minigolf
 
 			mover.TryMove( Time.Delta );
 
+			if ( InWater )
+			{
+				mover.ApplyFriction( 5.0f, Time.Delta );
+			}
+
 			// Apply friction based on our ground surface
 			if ( groundTrace.Hit )
 			{

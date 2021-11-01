@@ -161,7 +161,12 @@ metadata
 //
 // Minigolf.Water
 //
-@SolidClass base(BaseProperties_minigolf) = minigolf_water : ""
+@SolidClass base(BaseProperties_minigolf) 
+metadata
+{
+	auto_apply_material = "materials/editor/minigolf_wall/minigolf_water.vmat"
+}
+= minigolf_water : ""
 [
 	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
 
