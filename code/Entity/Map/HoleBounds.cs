@@ -17,37 +17,38 @@ namespace Minigolf
 		[Property]
 		public int HoleNumber { get; set; }
 
-		public IEnumerable<Ball> TouchingBalls => touchingBalls;
-		private readonly List<Ball> touchingBalls = new();
+		public override void Spawn()
+		{
+			base.Spawn();
+
+			SetupPhysicsFromModel( PhysicsMotionType.Static );
+			CollisionGroup = CollisionGroup.Trigger;
+			EnableSolidCollisions = false;
+			EnableTouch = true;
+
+			Transmit = TransmitType.Never;
+		}
 
 		public override void StartTouch(Entity other)
 		{
-			base.StartTouch(other);
+			if ( Game.Current.Course.CurrentHole.Number != HoleNumber )
+				return;
 
-			if (other is Ball ball)
-				AddTouchingBall( ball );
+			if ( other is not Ball ball )
+				return;
+
+			Game.Current.UpdateBallInBounds( ball, true );
 		}
 
 		public override void EndTouch(Entity other)
 		{
-			base.EndTouch(other);
-
-			if ( other is not Ball )
+			if ( Game.Current.Course.CurrentHole.Number != HoleNumber )
 				return;
 
-			var ball = other as Ball;
-
-			if (touchingBalls.Contains(ball))
-				touchingBalls.Remove(ball);
-		}
-
-		protected void AddTouchingBall( Ball ball )
-		{
-			if (!ball.IsValid())
+			if ( other is not Ball ball )
 				return;
 
-			if (!touchingBalls.Contains(ball))
-				touchingBalls.Add(ball);
+			Game.Current.UpdateBallInBounds( ball, false );
 		}
 	}
 }

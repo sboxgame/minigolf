@@ -7,8 +7,6 @@ namespace Minigolf
 	{
 		[Net] public Course Course { get; set; }
 
-		[ServerVar( "minigolf_check_bounds" )]
-		public static bool CheckBounds { get; set; } = true;
 
 		public void OnBallStoppedMoving(Ball ball)
 		{
@@ -16,29 +14,6 @@ namespace Minigolf
 			// 	BallOutOfBounds(ball, OutOfBoundsType.Normal);
 		}
 
-		public enum OutOfBoundsType
-		{
-			Normal,
-			Water,
-			Fire
-		}
-
-		public void BallOutOfBounds(Ball ball, OutOfBoundsType type)
-        {
-			if ( IsClient )
-				return;
-
-			ResetBall( ball.Client );
-
-			// Tell the ball owner his balls are out of bounds
-			ClientBallOutOfBounds( To.Single(ball) );
-		}
-
-		[ClientRpc]
-		public void ClientBallOutOfBounds()
-		{
-			_ = OutOfBounds.Current.Show();
-		}
 
 		/// <summary>
 		/// Called from the HoleGoal entity 
