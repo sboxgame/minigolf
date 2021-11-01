@@ -66,7 +66,7 @@ namespace Minigolf
 			for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
 			{
 				HoleHeadersPanel.Add.Label( $"{ i + 1 }" );
-				ParHeadersPanel.Add.Label( $"3" );
+				ParHeadersPanel.Add.Label( $"{ Game.Current.Course.Holes[i + 1].Par }" );
 			}
 
 			// If this is from a hot reload, clear any existing names
