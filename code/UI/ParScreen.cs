@@ -9,7 +9,7 @@ namespace Minigolf
 {
 	public partial class ParScreen : Panel
 	{
-		public static readonly string HoleInOne = "Hole-in-One!";
+		public static readonly string HoleInOne = "Hole\nin\nOne";
 		public static readonly Dictionary<int, string> ScoreText = new Dictionary<int, string>
 		{
 			{ 4, "Condor" },
@@ -36,7 +36,27 @@ namespace Minigolf
 		{
 			StyleSheet.Load( "/ui/ParScreen.scss" );
 
-			Add.Label( ScoreText.GetValueOrDefault( par - strokes, $"WTF +{par - strokes}" ), "score" );
+			var score = Add.Panel( "score" );
+
+			if ( strokes == 1 )
+			{
+				score.AddClass( "hole-in-one" );
+
+				score.Add.Label( "Hole" );
+				score.Add.Label( "in" );
+				score.Add.Label( "One" );
+			}
+			else
+			{
+				score.AddClass( $"score--{ par - strokes }" );
+
+				var text = ScoreText.GetValueOrDefault( par - strokes, $"WTF { par - strokes}" );
+				foreach ( var line in text.Split(' ') )
+				{
+					score.Add.Label( line );
+				}
+			}
+
 			Add.Label( $"Hole {hole}", "hole" );
 
 			CreatedAt = 0;

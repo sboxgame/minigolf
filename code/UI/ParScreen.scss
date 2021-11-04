@@ -28,14 +28,29 @@
         text-transform: uppercase;
     }
 
-    label.score {
-        color: #efa307;
-        font-size: 144px;
-        // text-shadow: 5px 5px 5px #732a00;
-        text-stroke: 16px #732a00;
+    .score {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-        transform: rotate( -3deg ) scale(1);
-        transition: all 0.25s linear;
+        label {
+            transform: rotate( -3deg ) scale(1);
+            transition: all 0.25s linear;
+            color: #efa307;
+            font-size: 144px;
+            text-stroke: 16px #732a00;
+            margin-bottom: -64px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &.hole-in-one {
+            label:nth-child(2) {
+                font-size: 100px;
+            }
+        }
     }
 
     label.hole {
