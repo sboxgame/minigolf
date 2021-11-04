@@ -106,7 +106,12 @@ namespace Minigolf
 
 			if ( FreeCamera != null )
 			{
-				return FreeCamera;
+				if ( Local.Pawn is Ball balll && !balll.InPlay && !balll.Cupped && FreeCamTimeLeft > 0.0f )
+				{
+					return FreeCamera;
+				}
+
+				FreeCamera = null;
 			}
 
 			if ( Local.Pawn is Ball ball )
@@ -125,7 +130,15 @@ namespace Minigolf
 		}
 
 		public FollowBallCamera BallCamera = new();
-		FreeCamera FreeCamera { get; set; }
+		public FreeCamera FreeCamera { get; set; }
+		public float FreeCamTimeLeft { get; set; } = 30.0f;
+
+		[Event.Frame]
+		public void TickFreeCamTimeLeft()
+		{
+			if ( FreeCamera != null )
+				FreeCamTimeLeft -= RealTime.Delta;
+		}
 
 		public override void BuildInput( InputBuilder input )
 		{
@@ -135,7 +148,7 @@ namespace Minigolf
 
 			// todo: pass to spectate
 
-			if ( input.Pressed( InputButton.View ) )
+			if ( input.Pressed( InputButton.View ) && Local.Pawn.IsValid() && !(Local.Pawn as Ball).InPlay && !(Local.Pawn as Ball).Cupped && FreeCamTimeLeft > 0.0f )
 			{
 				if ( FreeCamera == null )
 					FreeCamera = new FreeCamera();

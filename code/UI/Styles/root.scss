@@ -38,6 +38,33 @@ div.title {
     }
 }
 
+.freecam {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 16px;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+
+    &.freecam--active {
+        opacity: 1;
+    }
+
+    text {
+        font-family: Poppins;
+        font-size: 56px;
+        color: yellow;
+        text-stroke: 6px black;
+        font-weight: 600;
+    }
+
+    text.timer {
+        margin-top: -16px;
+        font-size: 32px;
+    }
+}
+
 .state-playing {
     position: absolute;
     left: 0;
