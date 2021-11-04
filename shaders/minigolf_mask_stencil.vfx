@@ -1,0 +1,128 @@
+//=========================================================================================================================
+// Optional
+//=========================================================================================================================
+HEADER
+{
+    CompileTargets = ( IS_SM_50 && ( PC || VULKAN ) );
+    Description = "Minigolf mask drawer";
+}
+
+//=========================================================================================================================
+// Optional
+//=========================================================================================================================
+FEATURES
+{
+    #include "common/features.hlsl"
+    Feature(F_IS_BACK_LAYER, 0..1, "Is back layer");
+
+}
+
+MODES
+{
+    VrForward();
+
+    ToolsVis( S_MODE_TOOLS_VIS );
+    ToolsWireframe( "vr_tools_wireframe.vfx" );
+
+    Depth( "vr_depth_only_nonbindless.vfx" );
+}
+
+//=========================================================================================================================
+COMMON
+{
+    #define D_HIGH_QUALITY_SHADOWS 1
+    #define S_TRANSLUCENT 1
+    #define STENCIL_ALREADY_SET
+    #define DEPTH_STATE_ALREADY_SET
+    #define BLEND_MODE_ALREADY_SET
+    #define COLOR_WRITE_ALREADY_SET
+    #include "common/shared.hlsl"
+}
+
+//=========================================================================================================================
+
+struct VertexInput
+{
+    #include "common/vertexinput.hlsl"
+};
+
+//=========================================================================================================================
+
+struct PixelInput
+{
+    #include "common/pixelinput.hlsl"
+};
+
+//=========================================================================================================================
+
+VS
+{
+    #include "common/vertex.hlsl"
+    //VS_CommonProcessing_Post
+    // Main
+    //
+    PixelInput MainVs( INSTANCED_SHADER_PARAMS( VS_INPUT i ) )
+    {
+        PixelInput o = ProcessVertex( i );
+        return FinalizeVertex( o );
+    }
+}
+
+//=========================================================================================================================
+
+PS
+{
+    #include "common/pixel.hlsl"
+    StaticCombo( S_IS_BACK_LAYER, F_IS_BACK_LAYER, Sys( ALL ) );
+
+    RenderState( BlendEnable, true );
+    RenderState( SrcBlend, SRC_ALPHA );
+    RenderState( DstBlend, INV_SRC_ALPHA );
+
+    #if( S_IS_BACK_LAYER )
+        RenderState( DepthEnable, true );
+        RenderState( DepthWriteEnable, true );
+        RenderState( DepthFunc, LESS_EQUAL );
+        RenderState( StencilEnable, true );
+        RenderState( StencilReadMask, 0xFF );
+        RenderState( StencilWriteMask, 0xFF );
+        RenderState( StencilRef, 5 );
+        RenderState( StencilDepthFailOp, REPLACE );
+        RenderState( StencilFailOp, KEEP );
+        RenderState( StencilPassOp, ZERO );
+        RenderState( StencilFunc, ALWAYS );
+        RenderState( ColorWriteEnable0, false );
+    #else
+        RenderState( DepthEnable, false );
+        RenderState( DepthWriteEnable, false );
+        RenderState( DepthFunc, LESS_EQUAL );
+        RenderState( StencilEnable, true );
+        RenderState( StencilReadMask, 0xFF );
+        RenderState( StencilWriteMask, 0xFF );
+        RenderState( StencilRef, 5 );
+        RenderState( StencilFunc, NOT_EQUAL );
+        RenderState( ColorWriteEnable0, RGBA );
+    #endif 
+
+    PixelOutput MainPs( PixelInput i )
+    {
+        #if( S_IS_BACK_LAYER )
+            PixelOutput o;
+            o.vColor = float4(0,0,0,1);
+        #else
+            PixelOutput o;
+
+            float3 vPositionWs = i.vPositionWithOffsetWs.xyz;
+        
+            float2 vMSAAOffset = frac(i.vPositionSs.xy);
+            float3 vRay = normalize( vPositionWs );
+            float fFresnel = -dot( i.vNormalWs, vRay );
+
+            if( fFresnel > 0.6 )
+                discard;
+
+            o.vColor = float4( 0, 1, 0, 0.85f );
+        #endif
+        return o;
+    }
+}
