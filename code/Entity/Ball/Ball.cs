@@ -9,6 +9,8 @@ namespace Minigolf
 		[Net] public bool InPlay { get; set; } = false;
 		[Net] public bool Cupped { get; set; } = false;
 		[Net] public Angles Direction { get; set; }
+		public Vector3 LastPosition { get; set; }
+		public Angles LastAngles { get; set; }
 
 		static readonly Model Model = Model.Load( "models/golf_ball.vmdl" );
 

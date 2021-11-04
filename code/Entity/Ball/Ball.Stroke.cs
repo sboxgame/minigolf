@@ -32,6 +32,9 @@ namespace Minigolf
 			Direction = direction.EulerAngles;
 
 			Velocity = direction * power * PowerMultiplier;
+
+			LastPosition = Position;
+			LastAngles = Direction;
 		}
 	}
 }
