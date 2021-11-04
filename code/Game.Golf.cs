@@ -79,11 +79,22 @@ namespace Minigolf
 			if ( IsClient )
 				return;
 
-			if ( cl.Pawn.IsValid() )
+			var SpawnPosition = Course.CurrentHole.SpawnPosition;
+			var SpawnAngles = Course.CurrentHole.SpawnAngles;
+
+			if ( cl.Pawn.IsValid() && cl.Pawn is Ball ball )
+			{
+				if ( !ball.LastPosition.IsNearlyZero() && !ball.LastPosition.IsNaN )
+				{
+					SpawnPosition = ball.LastPosition;
+					SpawnAngles = ball.LastAngles;
+				}
+
 				cl.Pawn.Delete();
+			}
 
 			cl.Pawn = new Ball();
-			(cl.Pawn as Ball).ResetPosition( Course.CurrentHole.SpawnPosition, Course.CurrentHole.SpawnAngles );
+			(cl.Pawn as Ball).ResetPosition( SpawnPosition, SpawnAngles );
 		}
 
 		// fuck it do this somewhere else and keep score?
