@@ -27,6 +27,9 @@ namespace Minigolf
 			// Hit everything but other balls
 			Trace = Trace.Ray( 0, 0 )
 				.WorldAndEntities()
+				.HitLayer( CollisionLayer.Solid, true )
+				.HitLayer( CollisionLayer.PLAYER_CLIP, true )
+				.HitLayer( CollisionLayer.GRATE, true )
 				.WithoutTags( "golf_ball" );
 		}
 
