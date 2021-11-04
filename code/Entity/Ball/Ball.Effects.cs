@@ -46,6 +46,7 @@ namespace Minigolf
 			if ( IsClient )
 			{
 				NameTag?.Delete();
+				PowerArrow?.Delete();
 			}
 		}
 
