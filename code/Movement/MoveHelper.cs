@@ -127,5 +127,14 @@ namespace Minigolf
 			newspeed /= speed;
 			Velocity *= newspeed;
 		}
+
+		public void TryUnstuck()
+		{
+			var tr = TraceFromTo( Position, Position );
+			if ( !tr.StartedSolid ) return;
+
+			Position += tr.Normal * 1.0f;
+			Velocity += tr.Normal * 50.0f;
+		}
 	}
 }

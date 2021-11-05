@@ -60,6 +60,7 @@ namespace Minigolf
 			}
 
 			mover.TryMove( Time.Delta );
+			mover.TryUnstuck();
 
 			if ( InWater )
 			{
