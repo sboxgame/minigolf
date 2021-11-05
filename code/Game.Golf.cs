@@ -7,7 +7,6 @@ namespace Minigolf
 	{
 		[Net] public Course Course { get; set; }
 
-
 		public void OnBallStoppedMoving(Ball ball)
 		{
 			// if ( CheckBounds && !ball.Cupped && !Course.CurrentHole.InBounds(ball) )

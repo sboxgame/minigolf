@@ -6,32 +6,17 @@ namespace Minigolf
 {
     public partial class Course : BaseNetworkable
 	{
-        public string Name { get; set; } = "Default";
-		public string Description { get; set; } = "Default Description";
-		public Dictionary<int, HoleInfo> Holes { get; set; }
+        [Net] public string Name { get; set; } = "Default";
+		[Net] public string Description { get; set; } = "Default Description";
+		[Net] public IList<HoleInfo> Holes { get; set; }
 
-		[Net] public int _currentHole { get; set; } = 1;
-		public HoleInfo CurrentHole
+		[Net] public int _currentHole { get; set; } = 0;
+		public HoleInfo CurrentHole => Holes[_currentHole];
+
+		public void LoadFromMap()
 		{
-			get
-			{
-				// Sanity check for networked
-				if ( Holes == null || !Holes.ContainsKey(_currentHole) )
-					return new HoleInfo { Number = _currentHole, Name = "oops" };
-
-				return Holes[_currentHole];
-			}
-		}
-
-		// Register for events
-		public Course() => Event.Register( this );
-		~Course() => Event.Unregister( this );
-
-		[Event.Entity.PostSpawn]
-		public void Load()
-		{
-			// TODO: Instead of loading the clientside this class could be a INetworkSerializable?
-			Holes = new Dictionary<int, HoleInfo>();
+			Host.AssertServer();
+			Holes.Clear();
 
 			foreach ( var hole in Entity.All.OfType<BallSpawnpoint>().OrderBy( ent => ent.HoleNumber ) )
 			{
@@ -43,7 +28,7 @@ namespace Minigolf
 					continue;
 				}
 
-				Holes.Add( hole.HoleNumber, new HoleInfo()
+				Holes.Add( new HoleInfo()
 					{
 						Number = hole.HoleNumber,
 						Name = hole.HoleName,
@@ -54,42 +39,38 @@ namespace Minigolf
 					}
 				);
 			}
+
+			if ( Holes.Count == 0 )
+			{
+				Log.Error( "No holes found, is this actually a minigolf map?" );
+			}
 		}
 
 		public bool IsLastHole()
 		{
-			return !Holes.Where( x => x.Key > _currentHole ).Any();
+			return _currentHole == Holes.Count - 1;
 		}
 
         public void NextHole()
         {
-			var matchedHoles = Holes.Where( x => x.Key > _currentHole )
-				.OrderBy( x => x.Key );
-
-			// No more holes to advance to? Return early.
-			// This should be checked before calling this function.
-			if ( !matchedHoles.Any() )
+			// are we on the last hole, don't advance ( this should be checked before calling this function )
+			if ( _currentHole == Holes.Count - 1 )
 				return;
 
-			var nextHole = matchedHoles.First();
-
-			_currentHole = nextHole.Key;
-
-			// Announce to all clients that the course has advanced.
-			// clientNextHole( To.Everyone, _currentHole );
+			_currentHole++;
 
 			// Run an event so we can pick this up anywhere in the code base.
 			Event.Run( "minigolf.advanced_hole", _currentHole );
         }
 	}
 
-	public struct HoleInfo
+	public partial class HoleInfo : BaseNetworkable
     {
-		public int Number;
-		public string Name;
-		public int Par;
-		public Vector3 SpawnPosition;
-		public Angles SpawnAngles;
-		public Vector3 GoalPosition;
-    }
+		[Net] public int Number { get; set; }
+		[Net] public string Name { get; set; }
+		[Net] public int Par { get; set; }
+		[Net] public Vector3 SpawnPosition { get; set; }
+		[Net] public Angles SpawnAngles { get; set; }
+		[Net] public Vector3 GoalPosition { get; set; }
+	}
 }

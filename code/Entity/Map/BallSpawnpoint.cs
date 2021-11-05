@@ -28,10 +28,5 @@ namespace Minigolf
 		/// </summary>
 		[Property, Net]
 		public int HolePar { get; set; } = 3;
-
-		public override void Spawn()
-		{
-			Transmit = TransmitType.Always;
-		}
 	}
 }

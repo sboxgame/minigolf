@@ -55,15 +55,15 @@ namespace Minigolf
 			if ( State == GameState.Playing )
 			{
 				cl.SetValue( "late", true );
-				ChatBox.AddInformation( To.Everyone, $"{cl.Name} has joined late, they will not be eligible for scoring.", $"avatar:{cl.SteamId}" );
+				ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined late, they will not be eligible for scoring.", $"avatar:{ cl.SteamId }" );
 
 				// Just give them shitty scores on each hole for now
-				for ( int i = 1; i <= Course.CurrentHole.Number; i++ )
-					cl.SetInt( $"par_{i}", Course.Holes[i].Par + 1 );
+				for ( int i = 0; i < Course._currentHole; i++ )
+					cl.SetInt( $"par_{ i }", Course.Holes[i].Par + 1 );
 			}
 			else
 			{
-				ChatBox.AddInformation( To.Everyone, $"{cl.Name} has joined", $"avatar:{cl.SteamId}" );
+				ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined", $"avatar:{ cl.SteamId }" );
 			}
 		}
 		
@@ -87,7 +87,7 @@ namespace Minigolf
 		public override void PostLevelLoaded()
 		{
 			StartTime = Time.Now + 60.0f;
-			// Replaced with [Event.Entity.PostLoaded] since for some reason it runs clientside and this doesn't.
+			Course.LoadFromMap();
 		}
 
 		public ICamera FindActiveCamera()

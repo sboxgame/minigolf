@@ -23,6 +23,7 @@ namespace Minigolf
 		{
 			if ( Game.Current == null) return;
 			var hole = Game.Current.Course.CurrentHole;
+			if ( hole == null ) return;
 
 			if ( Local.Pawn is not Ball ball ) return;
 
