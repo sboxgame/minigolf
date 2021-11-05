@@ -27,7 +27,7 @@ namespace Minigolf
 			EnableSolidCollisions = false;
 			EnableTouch = true;
 			EnableDrawing = false;
-			Transmit = TransmitType.Always;
+			Transmit = TransmitType.Never;
 		}
 
 		public override void StartTouch( Entity other )

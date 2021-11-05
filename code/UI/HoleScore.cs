@@ -37,6 +37,8 @@ namespace Minigolf
 			if ( Game.Current == null ) return;
 			var hole = Game.Current.Course.CurrentHole;
 
+			if ( hole == null ) return;
+
 			holeLabel.Text = $"{hole.Number}";
 			parLabel.Text = $"{hole.Par}";
 			strokeLabel.Text = $"{ Local.Client.GetPar() }";

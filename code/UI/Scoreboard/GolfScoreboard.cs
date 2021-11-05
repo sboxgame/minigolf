@@ -57,16 +57,17 @@ namespace Minigolf
 
 		protected override void PostTemplateApplied()
 		{
-			if ( Game.Current.Course == null )
+			if ( Game.Current.Course == null || Game.Current.Course.Holes.Count == 0 )
 				return;
 
 			HoleHeadersPanel.DeleteChildren( true );
 			ParHeadersPanel.DeleteChildren( true );
 
-			for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
+			var holes = Game.Current.Course.Holes;
+			for ( int i = 0; i < holes.Count; i++ )
 			{
-				HoleHeadersPanel.Add.Label( $"{ i + 1 }" );
-				ParHeadersPanel.Add.Label( $"{ Game.Current.Course.Holes[i + 1].Par }" );
+				HoleHeadersPanel.Add.Label( $"{ holes[i].Number }" );
+				ParHeadersPanel.Add.Label( $"{ holes[i].Par }" );
 			}
 
 			// If this is from a hot reload, clear any existing names
@@ -84,20 +85,19 @@ namespace Minigolf
 			// Hacky hack
 			if ( HoleHeadersPanel.Children.Count() == 0 )
 			{
-				if ( Game.Current.Course != null )
-				{
-					PostTemplateApplied();
-				}
+				PostTemplateApplied();
 
 				return;
 			}
 
-			for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
+			var holes = Game.Current.Course.Holes;
+			for ( int i = 0; i < holes.Count; i++ )
 			{
 				var hole = HoleHeadersPanel.GetChild( i ) as Label;
 				var par = ParHeadersPanel.GetChild( i ) as Label;
-				hole.SetClass( "active", Game.Current.Course.CurrentHole.Number == i + 1 );
-				par.SetClass( "active", Game.Current.Course.CurrentHole.Number == i + 1 );
+
+				hole.SetClass( "active", Game.Current.Course._currentHole == i );
+				par.SetClass( "active", Game.Current.Course._currentHole == i );
 			}
 
 			if ( ForceOpen )
