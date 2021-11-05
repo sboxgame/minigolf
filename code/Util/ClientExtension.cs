@@ -11,8 +11,8 @@ namespace Minigolf
 		public static bool IsHost( this Client self ) => Global.IsListenServer && self.NetworkIdent == 1;
 		public static int GetPar( this Client self, int hole ) => self.GetInt( $"par_{hole}" );
 		public static void AddPar( this Client self, int hole ) => self.AddInt( $"par_{hole}" );
-		public static int GetPar( this Client self ) => self.GetPar( Game.Current.Course.CurrentHole.Number );
-		public static void AddPar( this Client self ) => self.AddPar( Game.Current.Course.CurrentHole.Number );
+		public static int GetPar( this Client self ) => self.GetPar( Game.Current.Course._currentHole );
+		public static void AddPar( this Client self ) => self.AddPar( Game.Current.Course._currentHole );
 
 		public static int GetTotalPar( this Client self )
 		{
