@@ -58,7 +58,7 @@ chatentry {
     transform: scale( 1 );
     backdrop-filter: blur( 10px );
     flex-direction: column;
-    align-self: bottom;
+    align-self: stretch;
     border-radius: 5px;
 
     &:intro {
