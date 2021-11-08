@@ -52,7 +52,7 @@ namespace Minigolf
 			delayedDeletePawn();
 			async void delayedDeletePawn()
 			{
-				await ball.Task.DelaySeconds( 3.5f );
+				await ball.Task.DelaySeconds( 4.5f );
 
 				// Make sure our ball is still valid, maybe they disconnected in those 3 seconds.
 				if ( !ball.IsValid() )
