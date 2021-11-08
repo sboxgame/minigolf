@@ -67,7 +67,7 @@ namespace Minigolf
 		protected void CuppedBall( Ball ball, int score )
 		{
 			var client = ball.Client;
-			ScoreFeed.Instance.AddEntry( client, Course.CurrentHole.Par - score );
+			ScoreFeed.Instance.AddEntry( client, Course.CurrentHole.Par, score );
 
 			if ( Local.Client == client )
 				ParScreen.Show( Course.CurrentHole.Number, Course.CurrentHole.Par, score );
