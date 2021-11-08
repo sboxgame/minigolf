@@ -114,20 +114,32 @@ namespace Minigolf
 				FreeCamera = null;
 			}
 
-			if ( Local.Pawn is Ball ball )
+			if ( Local.Pawn is Ball ball && !ball.Cupped )
 			{
+				HoleEndCamera = null;
 				BallCamera.Ball = ball;
 				return BallCamera;
 			}
 
+			if ( HoleEndCamera == null )
+			{
+				HoleEndCamera = new( Course.CurrentHole.GoalPosition );
+			}
+
+			return HoleEndCamera;
+
 			// if they have no pawn and the game is active, they must be a spectator
 
-			// matt: Is this used internally? probably not needed
-			// if ( Local.Client.Camera != null ) return Local.Client.Camera;
-			// if ( Local.Pawn != null ) return Local.Pawn.Camera;
+			// HoleEndCamera used if there's no spectating going on I guess
 
 			return null;
 		}
+
+		// HoleEndCamera is displayed:
+		// 1. After user cups ball
+		// 2. After all users have cupped ball
+		// 3. On return to lobby
+		HoleEndCamera HoleEndCamera;
 
 		public FollowBallCamera BallCamera = new();
 		public FreeCamera FreeCamera { get; set; }
