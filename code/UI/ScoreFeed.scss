@@ -32,6 +32,11 @@ scorefeedentry {
         &.score {
             color: yellow;
         }
+
+        &.holeinone {
+            // text-shadow: 
+            text-transform: uppercase;
+        }
     }
 
     transition: all 1s ease-out;
