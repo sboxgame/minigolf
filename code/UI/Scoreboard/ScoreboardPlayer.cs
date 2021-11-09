@@ -31,7 +31,7 @@ namespace Minigolf
 		protected override void PostTemplateApplied()
 		{
 			PlayerName.Text = Client.Name;
-			PlayerAvatar.Texture = Texture.Load( $"avatar:{Client.SteamId}" );
+			PlayerAvatar.Texture = Texture.Load( $"avatar:{Client.PlayerId}" );
 
 			foreach ( var pnl in Scores.Values )
 				pnl.Delete();

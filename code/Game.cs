@@ -55,7 +55,7 @@ namespace Minigolf
 			if ( State == GameState.Playing )
 			{
 				cl.SetValue( "late", true );
-				ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined late, they will not be eligible for scoring.", $"avatar:{ cl.SteamId }" );
+				ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined late, they will not be eligible for scoring.", $"avatar:{ cl.PlayerId }" );
 
 				// Just give them shitty scores on each hole for now
 				for ( int i = 0; i < Course._currentHole; i++ )
@@ -63,14 +63,14 @@ namespace Minigolf
 			}
 			else
 			{
-				ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined", $"avatar:{ cl.SteamId }" );
+				ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined", $"avatar:{ cl.PlayerId }" );
 			}
 		}
 		
 		public override void ClientDisconnect( Client cl, NetworkDisconnectionReason reason )
 		{
 			Log.Info( $"\"{cl.Name}\" has left the game ({reason})" );
-			ChatBox.AddInformation( To.Everyone, $"{cl.Name} has left ({reason})", $"avatar:{cl.SteamId}" );
+			ChatBox.AddInformation( To.Everyone, $"{cl.Name} has left ({reason})", $"avatar:{cl.PlayerId}" );
 
 			if ( cl.Pawn.IsValid() )
 			{
@@ -185,7 +185,7 @@ namespace Minigolf
 			return camSetup;
 		}
 
-		public override void OnVoicePlayed( ulong steamId, float level )
+		public override void OnVoicePlayed( long steamId, float level )
 		{
 			VoiceList.Current?.OnVoicePlayed( steamId, level );
 		}

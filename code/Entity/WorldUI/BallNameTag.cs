@@ -16,7 +16,7 @@ namespace Minigolf
 
 			PanelBounds = new Rect( 0, -80, 800, 160 );
 
-			Add.Image( $"avatar:{ owner.Client.SteamId }" );
+			Add.Image( $"avatar:{ owner.Client.PlayerId }" );
 			Add.Label( owner.Client.Name );
 
 			StyleSheet.Load( "/Entity/WorldUI/BallNameTag.scss" );

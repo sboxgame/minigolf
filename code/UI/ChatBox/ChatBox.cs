@@ -119,7 +119,7 @@ namespace Minigolf
 				return;
 
 			Log.Info( $"{ConsoleSystem.Caller}: {message}" );
-			AddChatEntry( To.Everyone, $"{ConsoleSystem.Caller.Name}", message, $"avatar:{ConsoleSystem.Caller.SteamId}" );
+			AddChatEntry( To.Everyone, $"{ConsoleSystem.Caller.Name}", message, $"avatar:{ConsoleSystem.Caller.PlayerId}" );
 		}
 
 
