@@ -16,7 +16,7 @@ namespace Minigolf
 			{
 				// todo: hole in one
 
-				Add.Image( $"avatarbig:{cl.SteamId}", "avatar" );
+				Add.Image( $"avatarbig:{cl.PlayerId}", "avatar" );
 				if ( score == 1 )
 				{
 					Add.Label( "Hole-in-One", "score holeinone" );

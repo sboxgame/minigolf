@@ -15,7 +15,7 @@ namespace Minigolf
 		public WaitingScreenClient( Client cl )
 		{
 			Client = cl;
-			Avatar = Add.Image( $"avatarbig:{cl.SteamId}" );
+			Avatar = Add.Image( $"avatarbig:{cl.PlayerId}" );
 		}
 
 		public override void Tick()
