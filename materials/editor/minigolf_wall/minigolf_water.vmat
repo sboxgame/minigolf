@@ -49,4 +49,9 @@ Layer0
 	//---- Translucent ----
 	g_flOpacityScale "0.500"
 	TextureTranslucency "materials/editor/minigolf_wall/minigolf_water_trans.png"
+
+	Attributes
+	{
+		tools.toolsmaterial "1"
+	}
 }
