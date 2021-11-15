@@ -4,18 +4,21 @@ Layer0
 {
 	shader "complex.vfx"
 
+	//---- PBR ----
+	F_SPECULAR 1
+
 	//---- Rendering ----
 	F_RENDER_BACKFACES 1
 
 	//---- Ambient Occlusion ----
-	g_flAmbientOcclusionDirectDiffuse "0.000"
-	g_flAmbientOcclusionDirectSpecular "0.000"
-	TextureAmbientOcclusion "materials/default/default_ao.tga"
+	g_flAmbientOcclusionDirectDiffuse "0.401"
+	g_flAmbientOcclusionDirectSpecular "0.552"
+	TextureAmbientOcclusion "materials/models/golf_ball_ao.png"
 
 	//---- Color ----
 	g_flModelTintAmount "1.000"
 	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
-	TextureColor "[1.000000 1.000000 1.000000 0.000000]"
+	TextureColor "materials/models/golf_ball_color.png"
 
 	//---- Fade ----
 	g_flFadeExponent "1.000"
@@ -34,7 +37,7 @@ Layer0
 	TextureNormal "materials/models/golf_ball_normal.png"
 
 	//---- Roughness ----
-	TextureRoughness "materials/default/default_rough.tga"
+	TextureRoughness "materials/models/golf_ball_rough.png"
 
 	//---- Texture Coordinates ----
 	g_nScaleTexCoordUByModelScaleAxis "0"
