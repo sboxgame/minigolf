@@ -13,7 +13,8 @@ namespace Minigolf
 		{
 			if ( Local.Pawn is not Ball ball ) return;
 
-			Bar.Style.Width = Length.Percent( ball.ShotPower * 100 );
+			var percentPower = Length.Percent( ball.ShotPower * 100 );
+			Bar.Style.Width = percentPower?.Value > 1 ? percentPower : 0;
 			Bar.Style.Dirty();
 
 			if ( ball.LastShotPower > 0.0f )
