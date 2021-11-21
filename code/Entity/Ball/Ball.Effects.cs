@@ -96,7 +96,7 @@ namespace Minigolf
 		private void AdjustArrow()
 		{
 			// Only show the arrow if we're charging a shot, delete otherwise.
-			if ( ShotPower.AlmostEqual( 0 ) )
+			if ( ShotPower < Ball.PowerStrokeThreshold )
 			{
 				if ( PowerArrow != null )
 				{

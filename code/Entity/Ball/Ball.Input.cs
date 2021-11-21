@@ -10,6 +10,7 @@ namespace Minigolf
 		/// </summary>
 		public float ShotPower { get; set; } = 0.0f;
 		public float LastShotPower { get; set; } = 0.0f;
+		public const float PowerStrokeThreshold = 0.01f;
 
 		public override void BuildInput( InputBuilder input )
 		{
@@ -23,7 +24,7 @@ namespace Minigolf
 				ShotPower = Math.Clamp( ShotPower - delta, 0, 1 );
 			}
 
-			if ( ShotPower >= 0.01f && !input.Down( InputButton.Attack1 ) )
+			if ( ShotPower >= PowerStrokeThreshold && !input.Down( InputButton.Attack1 ) )
 			{
 				Game.Stroke( Game.Current.BallCamera.Angles.yaw, ShotPower );
 				LastShotPower = ShotPower;
