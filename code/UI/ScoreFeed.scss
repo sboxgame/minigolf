@@ -43,7 +43,8 @@ scorefeedentry {
     right: 512px;
   }
   &:outro {
-    top: -256px;
+    top: -50px;
     transform: scale(2);
+    opacity: 0;
   }
 }
