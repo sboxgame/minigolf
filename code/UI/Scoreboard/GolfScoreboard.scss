@@ -1,274 +1,266 @@
-﻿golfscoreboard {
-    position: absolute;
-    z-index: 100;
-    width: 100%;
-    height: 100%;
+﻿@import "../Styles/_vars.scss";
+
+golfscoreboard {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  transition: all 0.1s ease-out;
+  transform: scale(1.05);
+  transform-origin: 50% 50%;
+  pointer-events: none;
+
+  .scoreboard-title {
+    color: white;
+  }
+
+  &.open {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+  }
+
+  .scoreboard-container {
+    min-width: 60%;
+    font-family: Poppins;
+    font-size: 20px;
+    color: white;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    background-color: rgba( 0, 0, 0, 0.9 );
-    transition: all 0.1s ease-out;
-    transform: scale( 1.05 );
-    transform-origin: 50% 50%;
-    pointer-events: none;
+  }
 
-    .scoreboard-title {
-        color: white;
-    }
+  .scoreboard-title {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 16px;
+    text-shadow: 1px 1px 5px rgba(black, 0.8);
+  }
 
-    &.open {
-        opacity: 1;
-        transform: scale( 1 );
-        pointer-events: all;
-    }
+  .scoreboard {
+    background-color: rgba($dark-grey, 0.9);
+    box-shadow: 0 5px 20px rgba(#000, 0.5);
+    border-radius: 8px;
+    flex-direction: column;
+  }
 
-    .scoreboard-container {
-        min-width: 60%;
-        font-family: Poppins;
-        font-size: 20px;
-        font-weight: 500;
-        color: white;
-        flex-direction: column;
-        // overflow: hidden;
-        // align-items: center;
-    }
+  .scoreboard-info {
+    margin-top: 8px;
+    flex-direction: row-reverse;
 
-    .scoreboard-title {
-        font-family: Poppins;
-        font-size: 32px;
-        font-weight: 700;
-        color: white;
-        margin-bottom: 16px;
-        text-shadow: 1px 1px 5px rgba( black, 0.8 );
-    }
+    > div {
+      margin-right: 20px;
 
-    .scoreboard {
-        background-color: rgba(0, 0, 0, 0.4);
-        padding: 8px;
-        border-radius: 8px;
-        flex-direction: column;
-    }
+      > text {
+        font-size: 16px;
+        font-weight: 400;
+        text-shadow: 1px 1px 3px rgba(black, 0.4);
 
-    .scoreboard-info {
-        margin-top: 8px;
-        flex-direction: row-reverse;
-
-        > div {
-            margin-right: 16px;
-
-            > text {
-                font-size: 16px;
-                font-weight: 400;
-                text-shadow: 1px 1px 3px rgba( black, 0.4 );
-            }
+        &.subtext {
+          color: $light-blue;
+          margin-right: 8px;
         }
+      }
     }
+  }
 
-    text {
-        text-align: center;
-        white-space: nowrap;
-    }
+  text {
+    text-align: center;
+    white-space: nowrap;
+    text-shadow: 0 2 0 #000;
+    text-stroke: 2px #000;
+  }
 
-    .headers {
-        flex-direction: column;
+  label {
+    text-shadow: 0 2 0 #000;
+    text-stroke: 2px #000;
+  }
+
+  .headers {
+    padding: 8px 0;
+    flex-direction: column;
+    flex-grow: 1;
+
+    > div {
+      margin: 2px 0px;
+      &.hole {
+        .active {
+          color: #fff;
+          background-color: $primary;
+          border-radius: 4px 4px 0px 0px;
+          opacity: 1;
+        }
+      }
+
+      &.par {
+        .active {
+          color: #fff;
+          background-color: $dark-blue;
+          border-radius: 0px 0px 4px 4px;
+          opacity: 1;
+        }
+      }
+
+      // This is the row label: Hole / Par:
+      > text {
+        color: $light-blue;
         flex-grow: 1;
-
-        > div {
-            &.hole {
-                .active {
-                    background-color: rgba( white, 0.1 );
-                    border-radius: 4px 4px 0px 0px;
-                }
-            }
-
-            &.par {
-                .active {
-                    background-color: rgba( white, 0.1 );
-                    border-radius: 0px 0px 4px 4px;
-                }
-            }
-
-            margin: 2px 0px;
-            // This is the row label: Hole / Par:
-            > text {
-                flex-grow: 1;
-                margin-right: 16px;
-                text-align: right;
-            }
-        }
-
-        .holes {
-            > div {
-                > label {
-                    width: 40px;
-                    text-align: center;
-                    // background-color: rgba(black, 0.5);
-
-                    &:nth-child(even) {
-                        // background-color: rgba(black, 0.25);
-                    }
-                }
-            }
-
-            .total {
-                width: 96px;
-                // background-color: rgba(black, 0.5);
-                text-transform: uppercase;
-                font-weight: 800;
-            }
-        }
+        margin-right: 16px;
+        text-align: right;
+      }
     }
 
-    .players {
-        margin-top: 16px;
-        flex-direction: column;
-        // background-color: rgba(255, 255, 0, 0.1);
-        // padding: 8px;
+    .holes {
+      > div {
+        > label {
+          color: $light-blue;
+          width: 40px;
+          text-align: center;
+          opacity: 0.5;
+        }
+      }
+
+      .total {
+        width: 96px;
+        text-transform: uppercase;
+      }
     }
+  }
+
+  .players {
+    //margin-top: 16px;
+    flex-direction: column;
+  }
 }
 
 scoreboardplayer {
-    flex-grow: 1;
-    background-color: rgba(0, 0, 0, 0.3);
+  flex-grow: 1;
+  background-color: rgba(0, 0, 0, 0.3);
 
-    &:nth-child(even) {
-        background-color: rgba(0, 0, 0, 0.6);
-
-        &.me {
-            background-color: rgba(limegreen, 0.3);
-        }
-    }
+  &:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.6);
 
     &.me {
-        background-color: rgba(white, 0.1);
+      background-color: rgba($green, 0.4);
+    }
+  }
 
-        .player .name {
-            font-weight: 700;
-        }
+  &:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  &.me {
+    background-color: rgba(white, 0.1);
+
+    .player .name {
+    }
+  }
+
+  label {
+    font-size: 20px;
+    color: white;
+    font-weight: 300;
+    text-shadow: 0 2 0 #000;
+    text-stroke: 2px #000;
+    border-radius: 4px;
+  }
+
+  .player {
+    flex-direction: row;
+    flex-grow: 1;
+    padding: 4px 8px;
+    align-items: center;
+
+    .position {
+      align-items: center;
+      justify-content: center;
+      margin-left: 8px;
+      margin-right: 16px;
+      font-size: 18px;
     }
 
-    &:first-child {
-        // border-top-left-radius: 4px;
-        // border-top-right-radius: 4px;
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
     }
 
-    &:last-child {
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
+    .name {
+      margin-left: 8px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
 
-        .active {
-            border-bottom-left-radius: 4px;
-            border-bottom-right-radius: 4px;
+  .scores {
+    align-items: center;
+
+    > div {
+      > label {
+        width: 40px;
+        text-align: center;
+        white-space: nowrap;
+
+        &.active {
+          background-color: $dark-grey;
+          font-weight: 500;
         }
+
+        &.below {
+          color: $green;
+        }
+
+        &.over {
+          color: rgb(255, 100, 100);
+        }
+      }
     }
 
-    label {
-        font-family: Poppins;
-        font-size: 20px;
-        color: white;
-        font-weight: 300;
+    .total {
+      width: 96px;
+      text-transform: uppercase;
+      font-weight: 800;
     }
-
-    .player {
-        flex-direction: row;
-        flex-grow: 1;
-        padding: 4px 8px;
-        align-items: center;
-
-        .position {
-            // background-color: rgb(109 93 0);
-            // border-radius: 50%;
-            // width: 32px;
-            // height: 32px;
-            align-items: center;
-            justify-content: center;
-            margin-left: 8px;
-            margin-right: 16px;
-            font-size: 18px;
-            // font-weight: 700;
-        }
-
-        .avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-        }
-
-        .name {
-            margin-left: 8px;
-            font-size: 16px;
-            font-weight: 500;
-        }
-    }
-
-    .scores {
-        align-items: center;
-
-        > div {
-            > label {
-                width: 40px;
-                text-align: center;
-                white-space: nowrap;
-                // background-color: rgba(black, 0.5);
-
-                &.active {
-                    background-color: rgba(white, 0.1);
-                    font-weight: 500;
-                }
-
-                &.below {
-                    color: limegreen;
-                }
-
-                &.over {
-                    color: rgb(255, 100, 100);
-                }
-            }
-        }
-
-        .total {
-            width: 96px;
-            // background-color: rgba(black, 0.5);
-            text-transform: uppercase;
-            font-weight: 800;
-        }
-    }
+  }
 }
 
 golfscoreboard {
-    &.timer--active .timer {
-        opacity: 1;
-    }
+  &.timer--active .timer {
+    opacity: 1;
+  }
 
-    .timer {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 32px;
-        align-items: center;
-        flex-direction: column;
-        opacity: 0;
-        transition: opacity 0.2s linear;
+  .timer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 32px;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.2s linear;
 
-        div {
-            text {
-                font-family: Poppins;
-                font-size: 48px;
-                font-weight: 800;
-                color: white;
-                text-stroke: 8px black;
-            }
+    div {
+      text {
+        font-size: 48px;
+        font-weight: 800;
+        color: white;
+        text-stroke: 8px black;
+      }
 
-            &:last-child {
-                margin-top: -8px;
+      &:last-child {
+        margin-top: -8px;
 
-                text {
-                    text-transform: uppercase;
-                    font-size: 24px;
-                    font-weight: 300;
-                }
-            }
+        text {
+          text-transform: uppercase;
+          font-size: 24px;
+          font-weight: 300;
         }
+      }
     }
+  }
 }

@@ -1,43 +1,43 @@
-﻿<link rel="stylesheet" href="/UI/Scoreboard/GolfScoreboard.scss">
+﻿<link rel="stylesheet" href="/UI/Scoreboard/GolfScoreboard.scss" />
 
 <div>
-    <div class="timer">
-        <div><text @text="TimerTimeLeft"></text></div>
-        <div><text @text="TimerTimeUntil"></text></div>
-    </div>
+  <div class="timer">
+    <div><text @text="TimerTimeLeft"></text></div>
+    <div><text @text="TimerTimeUntil"></text></div>
+  </div>
 
-    <div class="scoreboard-container">
-        <div class="scoreboard-title">
-            <text>minigolf</text>
-        </div>
-        <div class="scoreboard">
-            <div class="headers">
-                <div class="hole">
-                    <text>Hole</text>
-                    <div class="holes">
-                        <div @ref="HoleHeadersPanel"></div>
-                        <text class="total">Total</text>
-                    </div>
-                </div>
-                <div class="par">
-                    <text>Par</text>
-                    <div class="holes">
-                        <div @ref="ParHeadersPanel"></div>
-                        <text class="total">24</text>
-                    </div>
-                </div>
-            </div>
-            <div @ref="PlayersPanel" class="players"></div>
-        </div>
-        <div class="scoreboard-info">
-            <div>
-                <text>Players: </text>
-                <text @text="PlayerCount">8</text>
-            </div>
-            <div>
-                <text>Map: </text>
-                <text @text="MapName">local.map</text>
-            </div>
-        </div>
+  <div class="scoreboard-container">
+    <div class="scoreboard-title">
+      <text>minigolf</text>
     </div>
+    <div class="scoreboard">
+      <div class="headers">
+        <div class="hole">
+          <text>Hole</text>
+          <div class="holes">
+            <div @ref="HoleHeadersPanel"></div>
+            <text class="total">Total</text>
+          </div>
+        </div>
+        <div class="par">
+          <text>Par</text>
+          <div class="holes">
+            <div @ref="ParHeadersPanel"></div>
+            <text class="total">24</text>
+          </div>
+        </div>
+      </div>
+      <div @ref="PlayersPanel" class="players"></div>
+    </div>
+    <div class="scoreboard-info">
+      <div>
+        <text class="subtext">Players: </text>
+        <text @text="PlayerCount">8</text>
+      </div>
+      <div>
+        <text class="subtext">Map: </text>
+        <text @text="MapName">local.map</text>
+      </div>
+    </div>
+  </div>
 </div>
