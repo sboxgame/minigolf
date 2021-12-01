@@ -1,54 +1,49 @@
 ﻿scorefeed {
-    position: absolute;
-    top: 0;
-    right: 0;
-    // background-color: rgba(red, 0.1);
-    width: 512px;
-    height: 256px;
-    padding: 32px;
-    flex-direction: column;
-    align-items: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 512px;
+  height: 256px;
+  padding: 32px;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 scorefeedentry {
-    align-items: center;
-    flex-direction: row-reverse;
+  align-items: center;
+  flex-direction: row-reverse;
 
-    image {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        margin-left: 8px;
+  image {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-left: 8px;
+  }
+
+  label {
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    margin-right: 4px;
+    text-shadow: 0 3px 0 black;
+    text-stroke: 2px black;
+
+    &.score {
+      color: yellow;
     }
 
-    label {
-        color: white;
-        font-family: Poppins;
-        font-weight: 500;
-        text-shadow: 1px 1px 2px rgba( black, 0.7 );
-        font-size: 20px;
-        margin-right: 4px;
-
-        &.score {
-            color: yellow;
-        }
-
-        &.holeinone {
-            // text-shadow: 
-            text-transform: uppercase;
-        }
+    &.holeinone {
+      text-transform: uppercase;
     }
+  }
 
-    transition: all 1s ease-out;
-    // transform: scale( 1 );
+  transition: all 1s ease-out;
 
-    &:intro {
-        right: 512px;
-        // transform: scale( 0 );
-    }
-    // When the element is deleted make it double in size before being deleted.
-    &:outro {
-        top: -256px;
-        // transform: scale( 2 );
-    }
+  &:intro {
+    right: 512px;
+  }
+  &:outro {
+    top: -256px;
+    transform: scale(2);
+  }
 }
