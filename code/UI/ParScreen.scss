@@ -1,61 +1,79 @@
-﻿parscreen {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
+﻿@import "./Styles/_vars.scss";
+
+parscreen {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba($dark-grey, 0.9);
+  backdrop-filter-blur: 32px;
+  transition: all 0.25s ease-in;
+  z-index: 5000;
+
+  &:intro,
+  &:outro {
+    opacity: 0;
+  }
+
+  &:intro {
+    .label {
+      transform: rotate(20deg) scale(0.1);
+      opacity: 0;
+    }
+  }
+
+  &:outro {
+    .label {
+      transform: rotate(-20deg) scale(4);
+      opacity: 0;
+    }
+  }
+
+  label {
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .score {
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    background-color: rgba(black, 0.8);
-    transition: all 0.25s ease-in;
-    z-index: 5000;
-
-    &:intro, &:outro {
-        opacity: 0;
-    }
-
-    &:intro {
-        label.score {
-            transform: rotate( 3deg ) scale(0.1);
-        }
-    }
 
     label {
-        color: white;
-        font-family: Poppins;
-        font-weight: 700;
-        text-transform: uppercase;
+      font-weight: 900;
+      color: $green;
+      font-size: 144px;
+      transform: rotate(-4deg) scale(1);
+      transition: all 0.25s linear;
+      text-transform: uppercase;
+      margin-bottom: -56px;
+      text-shadow: 0 14 0 black;
+      text-stroke: 10px black;
+      opacity: 1;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
-    .score {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        label {
-            transform: rotate( -3deg ) scale(1);
-            transition: all 0.25s linear;
-            color: #efa307;
-            font-size: 144px;
-            text-stroke: 16px #732a00;
-            margin-bottom: -64px;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
-
-        &.hole-in-one {
-            label:nth-child(2) {
-                font-size: 100px;
-            }
-        }
+    &.hole-in-one {
+      label:nth-child(2) {
+        font-size: 100px;
+      }
     }
+  }
 
-    label.hole {
-        font-size: 42px;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
-        margin-top: -20px;
-    }
+  label.hole {
+    font-size: 42px;
+    text-shadow: 0 4 0 black;
+    text-stroke: 6px black;
+    margin-top: -20px;
+  }
 }
