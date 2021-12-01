@@ -22,14 +22,14 @@ parscreen {
   }
 
   &:intro {
-    .label {
+    label {
       transform: rotate(20deg) scale(0.1);
       opacity: 0;
     }
   }
 
   &:outro {
-    .label {
+    label {
       transform: rotate(-20deg) scale(4);
       opacity: 0;
     }
