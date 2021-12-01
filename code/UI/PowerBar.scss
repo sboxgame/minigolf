@@ -21,7 +21,6 @@ powerbar {
     }
 
     text {
-      font-family: $font-title;
       text-shadow: 0 3 0 black;
       text-stroke: 4px black;
     }
@@ -31,7 +30,7 @@ powerbar {
     flex-direction: row;
     border-radius: 20px;
     width: 320px;
-    height: 30px;
+    height: 16px;
 
     .bar-container {
       background-color: rgba($dark-grey, 0.9);
@@ -45,7 +44,7 @@ powerbar {
     .bar {
       background: linear-gradient(to right, $green, $light-green);
       box-shadow: 0 5px 10px rgba(#000, 0.5);
-      height: 30px;
+      height: 16px;
       border-radius: 20px 0 0 20px;
       opacity: 0;
 
@@ -60,7 +59,6 @@ powerbar {
 
       .last-power-label {
         bottom: -18px;
-        font-family: $font-title;
         text-shadow: 0 2 0 black;
         text-stroke: 2px black;
         font-size: 12px;
