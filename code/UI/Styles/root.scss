@@ -1,76 +1,93 @@
-﻿hud {
-    background-color: rgba( #000, 0 );
-    transition: background-color 0.8s ease-in;
+﻿@import "./_vars.scss";
 
-    &.fade {
-        transition: background-color 0.3s ease-out;
-        background-color: rgba( #000, 0.8 );
-    }
+hud {
+  background-color: rgba(#000, 0);
+  transition: background-color 0.8s ease-in;
 
-    &.devcamera {
-        display: none;
-    }
+  &.fade {
+    transition: background-color 0.3s ease-out;
+    background-color: rgba(#000, 0.8);
+  }
 
-    &.state--playing {
-        .state-playing {
-            opacity: 1;
-        }
+  &.devcamera {
+    display: none;
+  }
+
+  &.state--playing {
+    .state-playing {
+      opacity: 1;
     }
+  }
+}
+
+text,
+label {
+  font-family: $font-title;
 }
 
 div.title {
-    position: absolute;
-    left: 100px;
-    top: 100px;
-    flex-direction: column;
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  flex-direction: column;
 
-    text {
-        font-family: Poppins;
-        font-size: 50px;
-        font-weight: 900;
-        color: white;
-        text-shadow: 5px 5px 50px rgba( black, 0.8 );
+  text {
+    font-size: 50px;
+    font-weight: 900;
+    color: white;
+    text-shadow: 5px 5px 50px rgba(black, 0.8);
 
-        &:last-child {
-            font-size: 32px;
-            font-weight: 700;
-        }
+    &:last-child {
+      font-size: 32px;
+      font-weight: 700;
     }
+  }
 }
 
 .freecam {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 16px;
-    align-items: center;
-    flex-direction: column;
-    opacity: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($dark-grey, 0.9);
+  backdrop-filter-blur: 32px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 16px 0;
+  opacity: 0;
+  align-items: center;
+  flex-direction: row;
+  opacity: 0;
+  text-shadow: 0 6px 0 black;
+  text-stroke: 6px black;
+  transition: all 0.2s ease;
 
-    &.freecam--active {
-        opacity: 1;
-    }
+  &.freecam--active {
+    opacity: 1;
+  }
 
-    text {
-        font-family: Poppins;
-        font-size: 56px;
-        color: yellow;
-        text-stroke: 6px black;
-        font-weight: 600;
-    }
+  text {
+    font-size: 42px;
+    color: $red;
+  }
 
-    text.timer {
-        margin-top: -16px;
-        font-size: 32px;
-    }
+  text.timer {
+    color: #fff;
+    margin-top: 10px;
+    font-size: 32px;
+    text-shadow: 0 4 0 black;
+    text-stroke: 6px black;
+    min-width: 140px;
+    text-align: center;
+  }
 }
 
 .state-playing {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.8s ease-in;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
 }

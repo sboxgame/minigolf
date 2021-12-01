@@ -7,6 +7,8 @@ namespace Minigolf
 	public partial class PowerBar : Panel
 	{
 		Panel Bar { get; set; }
+		Label Value { get; set; }
+		Label LastPowerAmount { get; set; }
 		Panel LastPower { get; set; }
 
 		public override void Tick()
@@ -15,6 +17,14 @@ namespace Minigolf
 
 			Bar.Style.Width = Length.Percent( ball.ShotPower * 100 );
 			Bar.Style.Dirty();
+			Bar.SetClass( "is-visible", ball.ShotPower > 0.0f );
+
+			var PowerAmount = ball.ShotPower * 100;
+			Value.Text = PowerAmount.ToString("#0") + "%";
+
+			var lastPowerAmount = ball.LastShotPower * 100;
+			LastPowerAmount.Text = lastPowerAmount.ToString("#0") + "%";
+
 
 			if ( ball.LastShotPower > 0.0f )
 			{

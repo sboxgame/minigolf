@@ -8,17 +8,15 @@ using System.Threading.Tasks;
 
 namespace Minigolf
 {
+	[UseTemplate]
 	public partial class OutOfBounds : Panel
 	{
 		float DeleteTime;
 
 		public OutOfBounds()
 		{
-			StyleSheet.Load("/ui/OutOfBounds.scss");
 
-			Add.Label( "Out" );
-			Add.Label( "Of" );
-			Add.Label( "Bounds" );
+	
 
 			DeleteTime = RealTime.Now + 2.0f;
 		}

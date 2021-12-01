@@ -1,9 +1,17 @@
-﻿<link rel="stylesheet" href="/UI/PowerBar.scss">
+﻿<link rel="stylesheet" href="/UI/PowerBar.scss" />
 
 <div>
-    <text>Power</text>
-    <div>
-        <div @ref="Bar" class="bar"></div>
-        <div @ref="LastPower" class="lastpower"><div></div></div>
+  <div class="powerbar-header">
+    <text class="title">Power</text>
+    <text class="value" @ref="value">0%</text>
+  </div>
+  <div class="powerbar-container">
+    <div class="bar-container">
+      <div @ref="Bar" class="bar"></div>
     </div>
+    <div class="last-power-container" @ref="LastPower">
+      <text @ref="LastPowerAmount" class="last-power-label">0</text>
+      <div class="last-power-icon"></div>
+    </div>
+  </div>
 </div>
