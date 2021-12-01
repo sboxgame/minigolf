@@ -6,30 +6,31 @@ using System.Threading.Tasks;
 
 namespace Minigolf
 {
+	[UseTemplate]
 	public partial class HoleScore : Panel
 	{
 		public static HoleScore Current;
 
-		private Label strokeLabel;
-		private Label parLabel;
-		private Label holeLabel;
+		private Label strokeLabel  { get; set; }
+		private Label parLabel  { get; set; }
+		private Label holeLabel  { get; set; }
 
 		public HoleScore()
 		{
 			Current = this;
 
-			StyleSheet.Load("/ui/HoleScore.scss");
+			// StyleSheet.Load("/ui/HoleScore.scss");
 
-			var strokeContainer = Add.Panel("stroke");
-			strokeLabel = strokeContainer.Add.Label("0");
+			// var strokeContainer = Add.Panel("stroke");
+			// strokeLabel = strokeContainer.Add.Label("0");
 
-			var parContainer = Add.Panel("par");
-			parContainer.Add.Label("PAR", "first" );
-			parLabel = parContainer.Add.Label("0", "last");
+			// var parContainer = Add.Panel("par");
+			// parContainer.Add.Label("PAR", "first" );
+			// parLabel = parContainer.Add.Label("0", "last");
 
-			var holeContainer = Add.Panel("hole");
-			holeContainer.Add.Label("HOLE", "first");
-			holeLabel = holeContainer.Add.Label("0", "last");
+			// var holeContainer = Add.Panel("hole");
+			// holeContainer.Add.Label("HOLE", "first");
+			// holeLabel = holeContainer.Add.Label("0", "last");
 		}
 
 		public override void Tick()
