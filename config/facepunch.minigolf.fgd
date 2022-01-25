@@ -138,6 +138,24 @@ metadata
 ]
 
 //
+// Facepunch.Minigolf.Entities.Trap
+//
+@SolidClass base(BaseProperties_facepunch_minigolf) tags( Trigger ) 
+metadata
+{
+	auto_apply_material = "materials/editor/minigolf_wall/minigolf_trap.vmat"
+}
+= minigolf_trap : ""
+[
+	particle(resource:vpcf) : "Particle Effect" : "particles/gameplay/ball_water_splash/ball_water_splash.vpcf" : ""
+	soundname(sound) : "Sound Name" : "minigolf.ball_in_water" : "Name of the sound to play."
+	particle_tint(color255) : "Particle Tint" :  : ""
+	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+
+	input SetColor(string) : "Sets the color of this entity. Format is '255 255 255 255'."
+]
+
+//
 // Facepunch.Minigolf.Entities.Water
 //
 @SolidClass base(BaseProperties_facepunch_minigolf) tags( Trigger ) 
