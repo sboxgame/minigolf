@@ -1,4 +1,13 @@
 {
-    "ident": "facepunch.minigolf",
-    "sharedassets": "*.*"
+  "SharedAssets": "*.*",
+  "Title": "Minigolf",
+  "Type": "game",
+  "Org": "facepunch",
+  "Ident": "minigolf",
+  "Schema": 1,
+  "HasAssets": true,
+  "AssetsPath": "",
+  "HasCode": true,
+  "CodePath": "code",
+  "RootNamespace": "Minigolf"
 }
