@@ -1,55 +1,53 @@
-﻿using System.Collections.Generic;
-using Sandbox;
+﻿using Sandbox;
 
-namespace Minigolf
+namespace Facepunch.Minigolf.Entities;
+
+/// <summary>
+/// Bounds of a hole.
+/// </summary>
+[Library( "minigolf_hole_bounds" )]
+[Hammer.Solid]
+[Hammer.AutoApplyMaterial( "materials/editor/minigolf_wall/minigolf_hole_bounds.vmat" )]
+[Hammer.VisGroup( Hammer.VisGroup.Trigger )]
+public partial class HoleBounds : ModelEntity
 {
 	/// <summary>
-	/// Bounds of a hole.
+	/// Which hole this hole is on.
 	/// </summary>
-	[Library( "minigolf_hole_bounds" )]
-	[Hammer.Solid]
-	[Hammer.AutoApplyMaterial( "materials/editor/minigolf_wall/minigolf_hole_bounds.vmat" )]
-	[Hammer.VisGroup( Hammer.VisGroup.Trigger )]
-	public partial class HoleBounds : ModelEntity
+	[Property]
+	public int HoleNumber { get; set; }
+
+	public override void Spawn()
 	{
-		/// <summary>
-		/// Which hole this hole is on.
-		/// </summary>
-		[Property]
-		public int HoleNumber { get; set; }
+		base.Spawn();
 
-		public override void Spawn()
-		{
-			base.Spawn();
+		SetupPhysicsFromModel( PhysicsMotionType.Static );
+		CollisionGroup = CollisionGroup.Trigger;
+		EnableSolidCollisions = false;
+		EnableTouch = true;
 
-			SetupPhysicsFromModel( PhysicsMotionType.Static );
-			CollisionGroup = CollisionGroup.Trigger;
-			EnableSolidCollisions = false;
-			EnableTouch = true;
+		Transmit = TransmitType.Never;
+	}
 
-			Transmit = TransmitType.Never;
-		}
+	public override void StartTouch(Entity other)
+	{
+		if ( Game.Current.Course.CurrentHole.Number != HoleNumber )
+			return;
 
-		public override void StartTouch(Entity other)
-		{
-			if ( Game.Current.Course.CurrentHole.Number != HoleNumber )
-				return;
+		if ( other is not Ball ball )
+			return;
 
-			if ( other is not Ball ball )
-				return;
+		Game.Current.UpdateBallInBounds( ball, true );
+	}
 
-			Game.Current.UpdateBallInBounds( ball, true );
-		}
+	public override void EndTouch(Entity other)
+	{
+		if ( Game.Current.Course.CurrentHole.Number != HoleNumber )
+			return;
 
-		public override void EndTouch(Entity other)
-		{
-			if ( Game.Current.Course.CurrentHole.Number != HoleNumber )
-				return;
+		if ( other is not Ball ball )
+			return;
 
-			if ( other is not Ball ball )
-				return;
-
-			Game.Current.UpdateBallInBounds( ball, false );
-		}
+		Game.Current.UpdateBallInBounds( ball, false );
 	}
 }

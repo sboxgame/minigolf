@@ -1,64 +1,63 @@
 ﻿using Sandbox;
 
-namespace Minigolf
+namespace Facepunch.Minigolf.Entities;
+
+public partial class PowerArrow : RenderEntity
 {
-	public partial class PowerArrow : RenderEntity
+	public Material Material = Material.Load( "materials/minigolf.arrow.vmat" );
+
+	public Vector3 Direction = Vector3.Zero;
+	public float Power = 0.0f;
+
+	protected void DrawArrow( SceneObject obj, Vector3 startPos, Vector3 endPos, Vector3 direction, Vector3 size, Color color )
 	{
-		public Material Material = Material.Load( "materials/minigolf.arrow.vmat" );
+		// vbos are drawn relative to world position
+		startPos -= Position;
+		endPos -= Position;
 
-		public Vector3 Direction = Vector3.Zero;
-		public float Power = 0.0f;
+		var vertexBuffer = Render.GetDynamicVB( true );
 
-		protected void DrawArrow( SceneObject obj, Vector3 startPos, Vector3 endPos, Vector3 direction, Vector3 size, Color color )
-		{
-			// vbos are drawn relative to world position
-			startPos -= Position;
-			endPos -= Position;
+		// Line
+		Vertex a = new( startPos - size, Vector3.Up, Vector3.Right, new Vector4( 0, 1, 0, 0 ) );
+		Vertex b = new( startPos + size, Vector3.Up, Vector3.Right, new Vector4( 1, 1, 0, 0 ) );
+		Vertex c = new( endPos + size, Vector3.Up, Vector3.Right, new Vector4( 1, 0, 0, 0 ) );
+		Vertex d = new( endPos - size, Vector3.Up, Vector3.Right, new Vector4( 0, 0, 0, 0 ) );
 
-			var vertexBuffer = Render.GetDynamicVB( true );
+		vertexBuffer.Add( a );
+		vertexBuffer.Add( b );
+		vertexBuffer.Add( c );
+		vertexBuffer.Add( d );
 
-			// Line
-			Vertex a = new( startPos - size, Vector3.Up, Vector3.Right, new Vector4( 0, 1, 0, 0 ) );
-			Vertex b = new( startPos + size, Vector3.Up, Vector3.Right, new Vector4( 1, 1, 0, 0 ) );
-			Vertex c = new( endPos + size, Vector3.Up, Vector3.Right, new Vector4( 1, 0, 0, 0 ) );
-			Vertex d = new( endPos - size, Vector3.Up, Vector3.Right, new Vector4( 0, 0, 0, 0 ) );
+		vertexBuffer.AddTriangleIndex( 4, 3, 2 );
+		vertexBuffer.AddTriangleIndex( 2, 1, 4 );
 
-			vertexBuffer.Add( a );
-			vertexBuffer.Add( b );
-			vertexBuffer.Add( c );
-			vertexBuffer.Add( d );
+		// Add the arrow tip
+		Vertex e = new( endPos + size * 1.75f, Vector3.Up, Vector3.Right, new Vector4( 1, 0, 0, 0 ) );
+		Vertex f = new( endPos - size * 1.75f, Vector3.Up, Vector3.Right, new Vector4( 0, 0, 0, 0 ) );
+		Vertex g = new( endPos + direction * 8, Vector3.Up, Vector3.Right, new Vector4( 1, 0, 0, 0 ) );
 
-			vertexBuffer.AddTriangleIndex( 4, 3, 2 );
-			vertexBuffer.AddTriangleIndex( 2, 1, 4 );
+		vertexBuffer.Add( e );
+		vertexBuffer.Add( f );
+		vertexBuffer.Add( g );
+		vertexBuffer.AddTriangleIndex( 1, 2, 3 );
 
-			// Add the arrow tip
-			Vertex e = new( endPos + size * 1.75f, Vector3.Up, Vector3.Right, new Vector4( 1, 0, 0, 0 ) );
-			Vertex f = new( endPos - size * 1.75f, Vector3.Up, Vector3.Right, new Vector4( 0, 0, 0, 0 ) );
-			Vertex g = new( endPos + direction * 8, Vector3.Up, Vector3.Right, new Vector4( 1, 0, 0, 0 ) );
+		Render.Set( "color", color );
 
-			vertexBuffer.Add( e );
-			vertexBuffer.Add( f );
-			vertexBuffer.Add( g );
-			vertexBuffer.AddTriangleIndex( 1, 2, 3 );
+		vertexBuffer.Draw( Material );
+	}
 
-			Render.Set( "color", color );
+	public override void DoRender( SceneObject obj )
+	{
+		if ( Power.AlmostEqual(0.0f) )
+			return;
 
-			vertexBuffer.Draw( Material );
-		}
+		Render.SetLighting( obj );
 
-		public override void DoRender( SceneObject obj )
-		{
-			if ( Power.AlmostEqual(0.0f) )
-				return;
+		var startPos = Position;
+		var endPos = Position + Direction * Power * 100;
+		var size = Vector3.Cross( Direction, Vector3.Up ) * 3f;
 
-			Render.SetLighting( obj );
-
-			var startPos = Position;
-			var endPos = Position + Direction * Power * 100;
-			var size = Vector3.Cross( Direction, Vector3.Up ) * 3f;
-
-			var color = ColorConvert.HSLToRGB( 120 - (int)(Power * Power * 120), 1.0f, 0.5f );
-			DrawArrow( obj, startPos, endPos, Direction, size, color );
-		}
+		var color = ColorConvert.HSLToRGB( 120 - (int)(Power * Power * 120), 1.0f, 0.5f );
+		DrawArrow( obj, startPos, endPos, Direction, size, color );
 	}
 }

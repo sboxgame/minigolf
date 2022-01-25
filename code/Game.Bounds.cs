@@ -1,75 +1,76 @@
-using System;
-using System.Collections.Generic;
 using Sandbox;
+using System.Collections.Generic;
 
-namespace Minigolf
+using Facepunch.Minigolf.Entities;
+using Facepunch.Minigolf.UI;
+
+namespace Facepunch.Minigolf;
+
+public partial class Game
 {
-	public partial class Game
+	[ServerVar( "minigolf_check_bounds" )]
+	public static bool CheckBounds { get; set; } = true;
+
+	[ServerVar( "minigolf_bounds_forgiveness" )]
+	public static float BoundsForgiveness { get; set; } = 3.0f;
+
+	public enum OutOfBoundsType
 	{
-		[ServerVar( "minigolf_check_bounds" )]
-		public static bool CheckBounds { get; set; } = true;
+		Normal,
+		Water,
+		Fire
+	}
 
-		[ServerVar( "minigolf_bounds_forgiveness" )]
-		public static float BoundsForgiveness { get; set; } = 3.0f;
+	Dictionary<Ball, float> OutOfBoundsBalls = new();
 
-		public enum OutOfBoundsType
+	public void UpdateBallInBounds( Ball ball, bool inBounds )
+	{
+		if ( inBounds && OutOfBoundsBalls.ContainsKey( ball ) )
 		{
-			Normal,
-			Water,
-			Fire
+			OutOfBoundsBalls.Remove( ball );
 		}
 
-		Dictionary<Ball, float> OutOfBoundsBalls = new();
-
-		public void UpdateBallInBounds( Ball ball, bool inBounds )
+		if ( !inBounds )
 		{
-			if ( inBounds && OutOfBoundsBalls.ContainsKey( ball ) )
+			OutOfBoundsBalls[ball] = Time.Now;
+		}
+	}
+
+	[Event.Tick]
+	private void CheckBoundsTimes()
+	{
+		var copy = new Dictionary<Ball, float>(OutOfBoundsBalls);
+		foreach ( var ball in copy.Keys )
+		{
+			if ( !ball.IsValid() || ball.Cupped )
 			{
 				OutOfBoundsBalls.Remove( ball );
+				continue;
 			}
 
-			if ( !inBounds )
+			var time = copy[ball] + BoundsForgiveness;
+			if ( Time.Now > time )
 			{
-				OutOfBoundsBalls[ball] = Time.Now;
+				OutOfBoundsBalls.Remove( ball );
+				BallOutOfBounds( ball, OutOfBoundsType.Normal );
 			}
 		}
+	}
 
-		[Event.Tick]
-		private void CheckBoundsTimes()
-		{
-			var copy = new Dictionary<Ball, float>(OutOfBoundsBalls);
-			foreach ( var ball in copy.Keys )
-			{
-				if ( !ball.IsValid() || ball.Cupped )
-				{
-					OutOfBoundsBalls.Remove( ball );
-					continue;
-				}
+	public void BallOutOfBounds(Ball ball, OutOfBoundsType type)
+    {
+		if ( IsClient )
+			return;
 
-				var time = copy[ball] + BoundsForgiveness;
-				if ( Time.Now > time )
-				{
-					OutOfBoundsBalls.Remove( ball );
-					BallOutOfBounds( ball, OutOfBoundsType.Normal );
-				}
-			}
-		}
+		ResetBall( ball.Client );
 
-		public void BallOutOfBounds(Ball ball, OutOfBoundsType type)
-        {
-			if ( IsClient )
-				return;
+		// Tell the ball owner his balls are out of bounds
+		ClientBallOutOfBounds( To.Single(ball) );
+	}
 
-			ResetBall( ball.Client );
-
-			// Tell the ball owner his balls are out of bounds
-			ClientBallOutOfBounds( To.Single(ball) );
-		}
-
-		[ClientRpc]
-		public void ClientBallOutOfBounds()
-		{
-			Local.Hud.AddChild<OutOfBounds>();
-		}
+	[ClientRpc]
+	public void ClientBallOutOfBounds()
+	{
+		Local.Hud.AddChild<OutOfBounds>();
 	}
 }
