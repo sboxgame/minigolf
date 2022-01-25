@@ -1,10 +1,8 @@
 ﻿<link rel="stylesheet" href="/UI/Styles/root.scss">
 
 <div>
-    <div class="ui-container">
-        <chatbox></chatbox>
-        <voicelist></voicelist>
-    </div>
+    <chatbox></chatbox>
+    <voicelist></voicelist>
 
     <waitingscreen @ref="WaitingScreen"></waitingscreen>
 
@@ -17,15 +15,15 @@
 
         <holescore></holescore>
         <powerbar></powerbar>
-        <div class="controls-help">
-            <ButtonHint name="View"></ButtonHint>
-            <ButtonHint name="Reload"></ButtonHint>
-            <ButtonHint name="Score"></ButtonHint>
-            <ButtonHint name="Attack1"></ButtonHint>
+        <div class="control-hints">
+            <div class="hint"><text>Free Cam</text><buttonhint name="View"/></div>
+            <div class="hint"><text>Reset Ball</text><buttonhint name="Reload"/></div>
+            <div class="hint"><text>Stroke</text><buttonhint name="Attack1"/></div>
+            <div class="hint"><text>Scoreboard</text><buttonhint name="Score" /></div>
         </div>
         <holemarker></holemarker>
         <scorefeed></scorefeed>
     </div>
 
     <golfscoreboard></golfscoreboard>
- </div>
+</div>
