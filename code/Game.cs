@@ -1,233 +1,86 @@
-using System.Linq;
 using Sandbox;
 
-namespace Minigolf
+using Facepunch.Minigolf.Entities;
+using Facepunch.Minigolf.UI;
+
+namespace Facepunch.Minigolf;
+
+public partial class Game : Sandbox.Game
 {
-	[Library( "Minigolf" ), Hammer.Skip] // TODO: This is a hacky way to set our currently playing properly.
-	public partial class Game : GameBase
+	public static new Game Current => Sandbox.Game.Current as Game;
+
+	public Game()
 	{
-		public static Game Current { get; protected set; }
-		public Hud Hud { get; private set; }
-
-		public Game()
+		if ( IsServer )
 		{
-			Current = this;
-			Transmit = TransmitType.Always;
-
-			if ( IsServer )
-			{
-				AddToPrecache();
-				Course = new();
-			}
-
-			if ( IsClient )
-			{
-				Hud = new Hud();
-				Local.Hud = Hud;
-			}
+			AddToPrecache();
+			Course = new();
 		}
 
-		public override void Shutdown()
+		if ( IsClient )
 		{
-			if ( Current == this )
-			{
-				Current = null;
-			}
+			Local.Hud = new GolfRootPanel();
 		}
+	}
 
-		protected override void OnDestroy()
+	public override void ClientJoined( Client cl )
+	{
+		Log.Info( $"\"{cl.Name}\" has joined the game" );
+
+		if ( State == GameState.Playing )
 		{
-			base.OnDestroy();
+			cl.SetValue( "late", true );
+			ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined late, they will not be eligible for scoring.", $"avatar:{ cl.PlayerId }" );
 
-			if ( Local.Hud == Hud )
-			{
-				Local.Hud = null;
-			}
-
-			Hud?.Delete();
-			Hud = null;
+			// Just give them shitty scores on each hole for now
+			for ( int i = 0; i < Course._currentHole; i++ )
+				cl.SetInt( $"par_{ i }", Course.Holes[i].Par + 1 );
 		}
-
-		public override void ClientJoined( Client cl )
+		else
 		{
-			Log.Info( $"\"{cl.Name}\" has joined the game" );
+			ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined", $"avatar:{ cl.PlayerId }" );
+		}
+	}
 
-			if ( State == GameState.Playing )
-			{
-				cl.SetValue( "late", true );
-				ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined late, they will not be eligible for scoring.", $"avatar:{ cl.PlayerId }" );
+	public override bool CanHearPlayerVoice(Client source, Client dest) => true;
 
-				// Just give them shitty scores on each hole for now
-				for ( int i = 0; i < Course._currentHole; i++ )
-					cl.SetInt( $"par_{ i }", Course.Holes[i].Par + 1 );
-			}
+	public override void PostLevelLoaded()
+	{
+		StartTime = Time.Now + 60.0f;
+		Course.LoadFromMap();
+	}
+
+	public override void BuildInput( InputBuilder input )
+	{
+		Host.AssertClient();
+
+		Event.Run( "buildinput", input );
+
+		// todo: pass to spectate
+
+		if ( input.Pressed( InputButton.View ) && Local.Pawn.IsValid() && !(Local.Pawn as Ball).InPlay && !(Local.Pawn as Ball).Cupped && FreeCamTimeLeft > 0.0f )
+		{
+			if ( FreeCamera == null )
+				FreeCamera = new FreeCamera();
 			else
-			{
-				ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined", $"avatar:{ cl.PlayerId }" );
-			}
-		}
-		
-		public override void ClientDisconnect( Client cl, NetworkDisconnectionReason reason )
-		{
-			Log.Info( $"\"{cl.Name}\" has left the game ({reason})" );
-			ChatBox.AddInformation( To.Everyone, $"{cl.Name} has left ({reason})", $"avatar:{cl.PlayerId}" );
-
-			if ( cl.Pawn.IsValid() )
-			{
-				cl.Pawn.Delete();
-				cl.Pawn = null;
-			}
-		}
-
-		public override bool CanHearPlayerVoice( Client source, Client dest )
-		{
-			return true;
-		}
-
-		public override void PostLevelLoaded()
-		{
-			StartTime = Time.Now + 60.0f;
-			Course.LoadFromMap();
-		}
-
-		public ICamera FindActiveCamera()
-		{
-			// If the game hasn't started yet show our "cinematic" camera
-			if ( State == GameState.WaitingForPlayers )
-			{
-				// todo: cache ref and fuckin ICamera it up
-				var cameraEnt = Entity.All.OfType<StartCamera>().First();
-				if ( cameraEnt == null )
-					return null;
-
-				StaticCamera camera = new( cameraEnt.Position, cameraEnt.Rotation.Angles(), cameraEnt.FOV );
-				return camera;
-			}
-
-			if ( FreeCamera != null )
-			{
-				if ( Local.Pawn is Ball balll && !balll.InPlay && !balll.Cupped && FreeCamTimeLeft > 0.0f )
-				{
-					return FreeCamera;
-				}
-
 				FreeCamera = null;
-			}
-
-			if ( Local.Pawn is Ball ball && !ball.Cupped )
-			{
-				HoleEndCamera = null;
-				BallCamera.Ball = ball;
-				return BallCamera;
-			}
-
-			if ( HoleEndCamera == null )
-			{
-				HoleEndCamera = new( Course.CurrentHole.GoalPosition );
-			}
-
-			return HoleEndCamera;
-
-			// if they have no pawn and the game is active, they must be a spectator
-
-			// HoleEndCamera used if there's no spectating going on I guess
-
-			return null;
 		}
 
-		// HoleEndCamera is displayed:
-		// 1. After user cups ball
-		// 2. After all users have cupped ball
-		// 3. On return to lobby
-		HoleEndCamera HoleEndCamera;
+		// the camera is the primary method here
+		var camera = FindActiveCamera();
+		camera?.BuildInput( input );
 
-		public FollowBallCamera BallCamera = new();
-		public FreeCamera FreeCamera { get; set; }
-		public float FreeCamTimeLeft { get; set; } = 30.0f;
+		Local.Pawn?.BuildInput( input );
+	}
 
-		[Event.Frame]
-		public void TickFreeCamTimeLeft()
+	public override void Simulate( Client cl )
+	{
+		base.Simulate( cl );
+
+		if ( cl.Pawn is Ball ball && !ball.Cupped )
 		{
-			if ( FreeCamera != null )
-				FreeCamTimeLeft -= RealTime.Delta;
-		}
-
-		public override void BuildInput( InputBuilder input )
-		{
-			Host.AssertClient();
-
-			Event.Run( "buildinput", input );
-
-			// todo: pass to spectate
-
-			if ( input.Pressed( InputButton.View ) && Local.Pawn.IsValid() && !(Local.Pawn as Ball).InPlay && !(Local.Pawn as Ball).Cupped && FreeCamTimeLeft > 0.0f )
-			{
-				if ( FreeCamera == null )
-					FreeCamera = new FreeCamera();
-				else
-					FreeCamera = null;
-			}
-
-			// the camera is the primary method here
-			var camera = FindActiveCamera();
-			camera?.BuildInput( input );
-
-			Local.Pawn?.BuildInput( input );
-		}
-
-		public override CameraSetup BuildCamera( CameraSetup camSetup )
-		{
-			var cam = FindActiveCamera();
-			cam?.Build( ref camSetup );
-
-			PostCameraSetup( ref camSetup );
-
-			return camSetup;
-		}
-
-		public override void OnVoicePlayed( long steamId, float level )
-		{
-			VoiceList.Current?.OnVoicePlayed( steamId, level );
-		}
-
-		/// <summary>
-		/// Called each tick.
-		/// Serverside: Called for each client every tick
-		/// Clientside: Called for each tick for local client. Can be called multiple times per tick.
-		/// </summary>
-		public override void Simulate( Client cl )
-		{
-			if ( !cl.Pawn.IsValid() ) return;
-
-			// Block Simulate from running clientside
-			// if we're not predictable.
-			if ( !cl.Pawn.IsAuthority ) return;
-
-			cl.Pawn.Simulate( cl );
-
-			if ( cl.Pawn is Ball ball && !ball.Cupped )
-			{
-				if ( Input.Pressed( InputButton.Reload ) )
-					ResetBall( cl );
-			}
-		}
-
-		/// <summary>
-		/// Called each frame on the client only to simulate things that need to be updated every frame. An example
-		/// of this would be updating their local pawn's look rotation so it updates smoothly instead of at tick rate.
-		/// </summary>
-		public override void FrameSimulate( Client cl )
-		{
-			Host.AssertClient();
-
-			if ( !cl.Pawn.IsValid() ) return;
-
-			// Block Simulate from running clientside
-			// if we're not predictable.
-			// matt: do we use FrameSimulateclientside
-			if ( !cl.Pawn.IsAuthority ) return;
-
-			cl.Pawn?.FrameSimulate( cl );
+			if ( Input.Pressed( InputButton.Reload ) )
+				ResetBall( cl );
 		}
 	}
 }

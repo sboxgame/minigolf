@@ -1,0 +1,31 @@
+﻿<link rel="stylesheet" href="/UI/Styles/root.scss">
+
+<div>
+    <div class="ui-container">
+        <chatbox></chatbox>
+        <voicelist></voicelist>
+    </div>
+
+    <waitingscreen @ref="WaitingScreen"></waitingscreen>
+
+    <!-- All of this will be hidden unless we are in game play -->
+    <div class="state-playing">
+        <div class="freecam" @ref="Freecam">
+            <text>Freecam</text>
+            <text class="timer" @text="FreecamTime">00:30</text>
+        </div>
+
+        <holescore></holescore>
+        <powerbar></powerbar>
+        <div class="controls-help">
+            <ButtonHint name="View"></ButtonHint>
+            <ButtonHint name="Reload"></ButtonHint>
+            <ButtonHint name="Score"></ButtonHint>
+            <ButtonHint name="Attack1"></ButtonHint>
+        </div>
+        <holemarker></holemarker>
+        <scorefeed></scorefeed>
+    </div>
+
+    <golfscoreboard></golfscoreboard>
+ </div>

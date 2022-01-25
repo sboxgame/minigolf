@@ -1,83 +1,82 @@
 ﻿using System;
 using Sandbox;
 
-namespace Minigolf
+namespace Facepunch.Minigolf;
+
+public class FreeCamera : Camera
 {
-	public class FreeCamera : Camera
+	Angles LookAngles;
+	Vector3 MoveInput;
+
+	Vector3 TargetPos;
+	Rotation TargetRot;
+
+	float MoveSpeed;
+	float LerpMode = 0;
+
+	public FreeCamera()
 	{
-		Angles LookAngles;
-		Vector3 MoveInput;
+		TargetPos = CurrentView.Position;
+		TargetRot = CurrentView.Rotation;
 
-		Vector3 TargetPos;
-		Rotation TargetRot;
+		Position = TargetPos;
+		Rotation = TargetRot;
+		LookAngles = Rotation.Angles();
+	}
 
-		float MoveSpeed;
-		float LerpMode = 0;
+	public override void Update()
+	{
+		var player = Local.Client;
+		if ( player == null ) return;
 
-		public FreeCamera()
+		var tr = Trace.Ray( Position, Position + Rotation.Forward * 4096 ).UseHitboxes().Run();
+
+		// DebugOverlay.Box( tr.EndPos, Vector3.One * -1, Vector3.One, Color.Red );
+
+		Viewer = null;
 		{
-			TargetPos = CurrentView.Position;
-			TargetRot = CurrentView.Rotation;
+			var lerpTarget = tr.EndPos.Distance( Position );
 
-			Position = TargetPos;
-			Rotation = TargetRot;
-			LookAngles = Rotation.Angles();
+			DoFPoint = lerpTarget;// DoFPoint.LerpTo( lerpTarget, Time.Delta * 10 );
 		}
 
-		public override void Update()
-		{
-			var player = Local.Client;
-			if ( player == null ) return;
+		FreeMove();
+	}
 
-			var tr = Trace.Ray( Position, Position + Rotation.Forward * 4096 ).UseHitboxes().Run();
+	public override void BuildInput( InputBuilder input )
+	{
+		MoveInput = input.AnalogMove;
 
-			// DebugOverlay.Box( tr.EndPos, Vector3.One * -1, Vector3.One, Color.Red );
+		MoveSpeed = 1;
+		if ( input.Down( InputButton.Run ) ) MoveSpeed = 5;
+		if ( input.Down( InputButton.Duck ) ) MoveSpeed = 0.2f;
 
-			Viewer = null;
-			{
-				var lerpTarget = tr.EndPos.Distance( Position );
+		if ( input.Down( InputButton.Slot1 ) ) LerpMode = 0.0f;
+		if ( input.Down( InputButton.Slot2 ) ) LerpMode = 0.5f;
+		if ( input.Down( InputButton.Slot3 ) ) LerpMode = 0.9f;
 
-				DoFPoint = lerpTarget;// DoFPoint.LerpTo( lerpTarget, Time.Delta * 10 );
-			}
+		if ( input.Down( InputButton.Use ) )
+			DoFBlurSize = Math.Clamp( DoFBlurSize + (Time.Delta * 3.0f), 0.0f, 100.0f );
 
-			FreeMove();
-		}
+		if ( input.Down( InputButton.Menu ) )
+			DoFBlurSize = Math.Clamp( DoFBlurSize - (Time.Delta * 3.0f), 0.0f, 100.0f );
 
-		public override void BuildInput( InputBuilder input )
-		{
-			MoveInput = input.AnalogMove;
+		LookAngles += input.AnalogLook;
+		LookAngles.roll = 0;
 
-			MoveSpeed = 1;
-			if ( input.Down( InputButton.Run ) ) MoveSpeed = 5;
-			if ( input.Down( InputButton.Duck ) ) MoveSpeed = 0.2f;
+		input.ClearButton( InputButton.Attack1 );
 
-			if ( input.Down( InputButton.Slot1 ) ) LerpMode = 0.0f;
-			if ( input.Down( InputButton.Slot2 ) ) LerpMode = 0.5f;
-			if ( input.Down( InputButton.Slot3 ) ) LerpMode = 0.9f;
+		input.StopProcessing = true;
+	}
 
-			if ( input.Down( InputButton.Use ) )
-				DoFBlurSize = Math.Clamp( DoFBlurSize + (Time.Delta * 3.0f), 0.0f, 100.0f );
+	void FreeMove()
+	{
+		var mv = MoveInput.Normal * 300 * RealTime.Delta * Rotation * MoveSpeed;
 
-			if ( input.Down( InputButton.Menu ) )
-				DoFBlurSize = Math.Clamp( DoFBlurSize - (Time.Delta * 3.0f), 0.0f, 100.0f );
+		TargetRot = Rotation.From( LookAngles );
+		TargetPos += mv;
 
-			LookAngles += input.AnalogLook;
-			LookAngles.roll = 0;
-
-			input.ClearButton( InputButton.Attack1 );
-
-			input.StopProcessing = true;
-		}
-
-		void FreeMove()
-		{
-			var mv = MoveInput.Normal * 300 * RealTime.Delta * Rotation * MoveSpeed;
-
-			TargetRot = Rotation.From( LookAngles );
-			TargetPos += mv;
-
-			Position = Vector3.Lerp( Position, TargetPos, 10 * RealTime.Delta * (1 - LerpMode) );
-			Rotation = Rotation.Slerp( Rotation, TargetRot, 10 * RealTime.Delta * (1 - LerpMode) );
-		}
+		Position = Vector3.Lerp( Position, TargetPos, 10 * RealTime.Delta * (1 - LerpMode) );
+		Rotation = Rotation.Slerp( Rotation, TargetRot, 10 * RealTime.Delta * (1 - LerpMode) );
 	}
 }

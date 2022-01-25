@@ -1,76 +1,75 @@
 ﻿using Sandbox;
 
-namespace Minigolf
+namespace Facepunch.Minigolf.Entities;
+
+public partial class Ball : ModelEntity
 {
-	public partial class Ball : ModelEntity
+	[ServerVar( "minigolf_ball_debug" )]
+	public static bool Debug { get; set; } = false;
+	[Net] public bool InPlay { get; set; } = false;
+	[Net] public bool Cupped { get; set; } = false;
+	[Net] public Angles Direction { get; set; }
+	public Vector3 LastPosition { get; set; }
+	public Angles LastAngles { get; set; }
+
+	static readonly Model Model = Model.Load( "models/golf_ball.vmdl" );
+
+	public bool InWater = false;
+
+	public override void Spawn()
 	{
-		[ServerVar( "minigolf_ball_debug" )]
-		public static bool Debug { get; set; } = false;
-		[Net] public bool InPlay { get; set; } = false;
-		[Net] public bool Cupped { get; set; } = false;
-		[Net] public Angles Direction { get; set; }
-		public Vector3 LastPosition { get; set; }
-		public Angles LastAngles { get; set; }
+		base.Spawn();
 
-		static readonly Model Model = Model.Load( "models/golf_ball.vmdl" );
+		SetModel( Model );
+		SetupPhysicsFromModel( PhysicsMotionType.Static, false );
 
-		public bool InWater = false;
+		CollisionGroup = CollisionGroup.Debris;
+		EnableTraceAndQueries = false;
 
-		public override void Spawn()
-		{
-			base.Spawn();
+		Transmit = TransmitType.Always;
 
-			SetModel( Model );
-			SetupPhysicsFromModel( PhysicsMotionType.Static, false );
+		Predictable = false;
 
-			CollisionGroup = CollisionGroup.Debris;
-			EnableTraceAndQueries = false;
+		Tags.Add( "golf_ball" );
+	}
 
-			Transmit = TransmitType.Always;
+	public override void ClientSpawn()
+	{
+		base.ClientSpawn();
 
-			Predictable = false;
+		CreateParticles();
+	}
 
-			Tags.Add( "golf_ball" );
-		}
+	public void Cup( bool holeInOne = false )
+	{
+		if ( Cupped ) return;
 
-		public override void ClientSpawn()
-		{
-			base.ClientSpawn();
+		Cupped = true;
 
-			CreateParticles();
-		}
+		var sound = PlaySound( "minigolf.sink_into_cup" );
+		sound.SetVolume( 1.0f );
+		sound.SetPitch( Rand.Float(0.75f, 1.25f) );
+	}
 
-		public void Cup( bool holeInOne = false )
-		{
-			if ( Cupped ) return;
+	public void ResetPosition( Vector3 position, Angles direction )
+	{
+		Position = position;
+		Velocity = Vector3.Zero;
+		ResetInterpolation();
 
-			Cupped = true;
+		InPlay = false;
+		Cupped = false;
+		InWater = false;
 
-			var sound = PlaySound( "minigolf.sink_into_cup" );
-			sound.SetVolume( 1.0f );
-			sound.SetPitch( Rand.Float(0.75f, 1.25f) );
-		}
+		Direction = direction;
 
-		public void ResetPosition( Vector3 position, Angles direction )
-		{
-			Position = position;
-			Velocity = Vector3.Zero;
-			ResetInterpolation();
+		// Tell the player we reset the ball
+		PlayerResetPosition( To.Single(this), position, direction );
+	}
 
-			InPlay = false;
-			Cupped = false;
-			InWater = false;
-
-			Direction = direction;
-
-			// Tell the player we reset the ball
-			PlayerResetPosition( To.Single(this), position, direction );
-		}
-
-		[ClientRpc]
-		protected void PlayerResetPosition( Vector3 position, Angles angles )
-		{
-			Game.Current.BallCamera.Angles = new (14, angles.yaw, 0);
-		}
+	[ClientRpc]
+	protected void PlayerResetPosition( Vector3 position, Angles angles )
+	{
+		Game.Current.BallCamera.Angles = new (14, angles.yaw, 0);
 	}
 }

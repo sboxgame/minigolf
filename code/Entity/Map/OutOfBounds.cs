@@ -1,70 +1,67 @@
-﻿using System.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Sandbox;
-using Sandbox.Internal;
 
-namespace Minigolf
+namespace Facepunch.Minigolf.Entities;
+
+[Library( "minigolf_out_of_bounds", Description = "Out of bounds" )]
+[Hammer.Solid]
+[Hammer.AutoApplyMaterial( "materials/editor/minigolf_wall/minigolf_out_of_bounds.vmat" )]
+[Hammer.VisGroup( Hammer.VisGroup.Trigger )]
+public partial class OutOfBoundsArea : ModelEntity
 {
-	[Library( "minigolf_out_of_bounds", Description = "Out of bounds" )]
-	[Hammer.Solid]
-	[Hammer.AutoApplyMaterial( "materials/editor/minigolf_wall/minigolf_out_of_bounds.vmat" )]
-	[Hammer.VisGroup( Hammer.VisGroup.Trigger )]
-	public partial class OutOfBoundsArea : ModelEntity
+	/// <summary>
+	/// When the ball enters this out of bounds area, how much time until we declare out of bounds?
+	/// </summary>
+	[Property(Title = "Forgiveness Time")]
+	public int ForgiveTime { get; set; } = 3;
+
+	public IEnumerable<Ball> TouchingBalls => touchingBalls;
+	private readonly List<Ball> touchingBalls = new();
+
+	public override void Spawn()
 	{
-		/// <summary>
-		/// When the ball enters this out of bounds area, how much time until we declare out of bounds?
-		/// </summary>
-		[Property(Title = "Forgiveness Time")]
-		public int ForgiveTime { get; set; } = 3;
+		base.Spawn();
 
-		public IEnumerable<Ball> TouchingBalls => touchingBalls;
-		private readonly List<Ball> touchingBalls = new();
+		SetupPhysicsFromModel( PhysicsMotionType.Static );
+		CollisionGroup = CollisionGroup.Trigger;
+		EnableSolidCollisions = false;
+		EnableTouch = true;
 
-		public override void Spawn()
+		Transmit = TransmitType.Never;
+	}
+
+	public override void StartTouch( Entity other )
+	{
+		base.StartTouch( other );
+
+		if ( other is Ball ball )
 		{
-			base.Spawn();
+			AddTouchingBall( ball );
 
-			SetupPhysicsFromModel( PhysicsMotionType.Static );
-			CollisionGroup = CollisionGroup.Trigger;
-			EnableSolidCollisions = false;
-			EnableTouch = true;
-
-			Transmit = TransmitType.Never;
+			// TODO: forgiveness time
+			Game.Current.BallOutOfBounds( ball, Game.OutOfBoundsType.Normal );
 		}
+	}
 
-		public override void StartTouch( Entity other )
-		{
-			base.StartTouch( other );
+	public override void EndTouch( Entity other )
+	{
+		base.EndTouch( other );
 
-			if ( other is Ball ball )
-			{
-				AddTouchingBall( ball );
+		if ( other is not Ball )
+			return;
 
-				// TODO: forgiveness time
-				Game.Current.BallOutOfBounds( ball, Game.OutOfBoundsType.Normal );
-			}
-		}
+		var ball = other as Ball;
 
-		public override void EndTouch( Entity other )
-		{
-			base.EndTouch( other );
+		if ( touchingBalls.Contains( ball ) )
+			touchingBalls.Remove( ball );
+	}
 
-			if ( other is not Ball )
-				return;
+	protected void AddTouchingBall( Ball ball )
+	{
+		if ( !ball.IsValid() )
+			return;
 
-			var ball = other as Ball;
-
-			if ( touchingBalls.Contains( ball ) )
-				touchingBalls.Remove( ball );
-		}
-
-		protected void AddTouchingBall( Ball ball )
-		{
-			if ( !ball.IsValid() )
-				return;
-
-			if ( !touchingBalls.Contains( ball ) )
-				touchingBalls.Add( ball );
-		}
+		if ( !touchingBalls.Contains( ball ) )
+			touchingBalls.Add( ball );
 	}
 }

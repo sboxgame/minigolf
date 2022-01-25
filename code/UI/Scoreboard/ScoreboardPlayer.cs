@@ -6,61 +6,60 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Minigolf
+namespace Facepunch.Minigolf.UI;
+
+public partial class ScoreboardPlayer : Panel
 {
-	public partial class ScoreboardPlayer : Panel
-	{
-		public Label PlayerName { get; set; }
-		public Image PlayerAvatar { get; set; }
-		public Panel ScoresPanel { get; set; }
+	public Label PlayerName { get; set; }
+	public Image PlayerAvatar { get; set; }
+	public Panel ScoresPanel { get; set; }
 		
-		Label TotalScoreLabel { get; set; }
+	Label TotalScoreLabel { get; set; }
 
-		public Client Client { get; private set; }
+	public Client Client { get; private set; }
 
-		Dictionary<int, Label> Scores = new();
+	Dictionary<int, Label> Scores = new();
 
-		public ScoreboardPlayer( Client client, Panel panel ) : base( panel )
+	public ScoreboardPlayer( Client client, Panel panel ) : base( panel )
+	{
+		Client = client;
+		SetClass( "me", Local.Client == Client );
+
+		SetTemplate( "/UI/Scoreboard/ScoreboardPlayer.html" );
+	}
+
+	protected override void PostTemplateApplied()
+	{
+		PlayerName.Text = Client.Name;
+		PlayerAvatar.Texture = Texture.Load( $"avatar:{Client.PlayerId}" );
+
+		foreach ( var pnl in Scores.Values )
+			pnl.Delete();
+
+		Scores.Clear();
+
+		for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
 		{
-			Client = client;
-			SetClass( "me", Local.Client == Client );
+			Scores[i] = ScoresPanel.Add.Label( $"-" );
+		}
+	}
 
-			SetTemplate( "/UI/Scoreboard/ScoreboardPlayer.html" );
+	public override void Tick()
+	{
+		for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
+		{
+			if ( Game.Current.Course._currentHole < i )
+				continue;
+
+			var par = Client.GetPar( i );
+			var holePar = Game.Current.Course.Holes[i].Par;
+
+			Scores[i].Text = $"{ par }";
+			Scores[i].SetClass( "active", Game.Current.Course._currentHole == i );
+			Scores[i].SetClass( "below", par < holePar );
+			Scores[i].SetClass( "over", par > holePar );
 		}
 
-		protected override void PostTemplateApplied()
-		{
-			PlayerName.Text = Client.Name;
-			PlayerAvatar.Texture = Texture.Load( $"avatar:{Client.PlayerId}" );
-
-			foreach ( var pnl in Scores.Values )
-				pnl.Delete();
-
-			Scores.Clear();
-
-			for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
-			{
-				Scores[i] = ScoresPanel.Add.Label( $"-" );
-			}
-		}
-
-		public override void Tick()
-		{
-			for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
-			{
-				if ( Game.Current.Course._currentHole < i )
-					continue;
-
-				var par = Client.GetPar( i );
-				var holePar = Game.Current.Course.Holes[i].Par;
-
-				Scores[i].Text = $"{ par }";
-				Scores[i].SetClass( "active", Game.Current.Course._currentHole == i );
-				Scores[i].SetClass( "below", par < holePar );
-				Scores[i].SetClass( "over", par > holePar );
-			}
-
-			TotalScoreLabel.Text = $"{ Client.GetTotalPar() }";
-		}
+		TotalScoreLabel.Text = $"{ Client.GetTotalPar() }";
 	}
 }

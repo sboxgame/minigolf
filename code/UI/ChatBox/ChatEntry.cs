@@ -2,32 +2,31 @@
 using Sandbox.UI;
 using Sandbox.UI.Construct;
 
-namespace NewGame
+namespace Facepunch.Minigolf.UI;
+
+public partial class ChatEntry : Panel
 {
-	public partial class ChatEntry : Panel
+	public Label NameLabel { get; internal set; }
+	public Label Message { get; internal set; }
+	public Image Avatar { get; internal set; }
+
+	public RealTimeSince TimeSinceBorn = 0;
+
+	public ChatEntry()
 	{
-		public Label NameLabel { get; internal set; }
-		public Label Message { get; internal set; }
-		public Image Avatar { get; internal set; }
+		Avatar = Add.Image();
+		NameLabel = Add.Label( "Name", "name" );
+		Message = Add.Label( "Message", "message" );
+	}
 
-		public RealTimeSince TimeSinceBorn = 0;
+	public override void Tick()
+	{
+		base.Tick();
 
-		public ChatEntry()
+		if ( TimeSinceBorn > 10 )
 		{
-			Avatar = Add.Image();
-			NameLabel = Add.Label( "Name", "name" );
-			Message = Add.Label( "Message", "message" );
-		}
-
-		public override void Tick()
-		{
-			base.Tick();
-
-			if ( TimeSinceBorn > 10 )
-			{
-				AddClass( "old" );
-				// Delete();
-			}
+			AddClass( "old" );
+			// Delete();
 		}
 	}
 }
