@@ -1,5 +1,5 @@
 
-@BaseClass = BaseProperties_minigolf
+@BaseClass = BaseProperties_facepunch_minigolf
 [
 	parentname(target_destination) [ group="Hierarchy" ] : "Parent" : : "The name of this entity's parent in the movement hierarchy. Entities with parents move with their parent."
 	parentAttachmentName(parentAttachment) [ group="Hierarchy" ] : "Parent Model Bone/Attachment Name" : : "The name of the bone or attachment to attach to on the entity's parent in the movement hierarchy. Use !bonemerge to use bone-merge style attachment."
@@ -14,9 +14,9 @@
 ]
 
 //
-// Minigolf.BallSpawnpoint
+// Facepunch.Minigolf.Entities.BallSpawnpoint
 //
-@PointClass base(BaseProperties_minigolf) drawangles() editormodel( "models/golf_ball.vmdl" ) 
+@PointClass base(BaseProperties_facepunch_minigolf) drawangles() editormodel( "models/golf_ball.vmdl" ) 
 metadata
 {
 	entity_tool_name = "Ball spawn point"
@@ -27,36 +27,33 @@ metadata
 	holenumber(integer) : "Hole Number" : 0 : "What hole number this spawnpoint belongs to."
 	holename(string) : "Hole Name" : "Untitled Hole" : "The name of this hole, this is displayed in-game."
 	holepar(integer) : "Hole Par" : 3 : "How many strokes should this hole be done in."
-	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
 ]
 
 //
-// Minigolf.HoleCamera
+// Facepunch.Minigolf.Entities.HoleCamera
 //
-@PointClass base(BaseProperties_minigolf) editormodel( "models/editor/camera.vmdl" ) = minigolf_hole_camera : "Minigolf Hole Camera"
+@PointClass base(BaseProperties_facepunch_minigolf) editormodel( "models/editor/camera.vmdl" ) = minigolf_hole_camera : "Minigolf Hole Camera"
 [
 	hole_number(integer) : "Hole Number" : 1 : "Which hole this camera is for"
-	fov(float) : "FOV" : 90 : "Field of view in degrees"
-	znear(float) : "Znear" : 4 : "Distance to the near plane"
-	zfar(float) : "Zfar" : 10000 : "Distance to the far plane"
-	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+	fov(float) : "FOV" : "90" : "Field of view in degrees"
+	znear(float) : "Znear" : "4" : "Distance to the near plane"
+	zfar(float) : "Zfar" : "10000" : "Distance to the far plane"
 ]
 
 //
-// Minigolf.StartCamera
+// Facepunch.Minigolf.Entities.StartCamera
 //
-@PointClass base(BaseProperties_minigolf) editormodel( "models/editor/camera.vmdl" ) frustum_boundless( "FOV", "ZNear", "ZFar" ) = minigolf_start_camera : "Minigolf Start Camera"
+@PointClass base(BaseProperties_facepunch_minigolf) editormodel( "models/editor/camera.vmdl" ) frustum_boundless( "FOV", "ZNear", "ZFar" ) = minigolf_start_camera : "Minigolf Start Camera"
 [
-	fov(float) : "FOV" : 90 : "Field of view"
-	znear(float) : "Znear" : 4 : "Distance to the near plane"
-	zfar(float) : "Zfar" : 10000 : "Distance to the far plane"
-	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+	fov(float) : "FOV" : "90" : "Field of view"
+	znear(float) : "Znear" : "4" : "Distance to the near plane"
+	zfar(float) : "Zfar" : "10000" : "Distance to the far plane"
 ]
 
 //
-// Minigolf.FlagBase
+// Facepunch.Minigolf.Entities.FlagBase
 //
-@PointClass base(BaseProperties_minigolf) editormodel( "models/minigolf_flag.vmdl" ) = minigolf_flag_base : "Minigolf Flag Base"
+@PointClass base(BaseProperties_facepunch_minigolf) editormodel( "models/minigolf_flag.vmdl" ) = minigolf_flag_base : "Minigolf Flag Base"
 [
 	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
 
@@ -64,9 +61,9 @@ metadata
 ]
 
 //
-// Minigolf.HoleBounds
+// Facepunch.Minigolf.Entities.HoleBounds
 //
-@SolidClass base(BaseProperties_minigolf) tags( Trigger ) 
+@SolidClass base(BaseProperties_facepunch_minigolf) tags( Trigger ) 
 metadata
 {
 	auto_apply_material = "materials/editor/minigolf_wall/minigolf_hole_bounds.vmat"
@@ -80,9 +77,9 @@ metadata
 ]
 
 //
-// Minigolf.HoleGoal
+// Facepunch.Minigolf.Entities.HoleGoal
 //
-@SolidClass base(BaseProperties_minigolf) tags( Trigger ) 
+@SolidClass base(BaseProperties_facepunch_minigolf) tags( Trigger ) 
 metadata
 {
 	auto_apply_material = "materials/tools/toolstrigger.vmat"
@@ -98,17 +95,16 @@ metadata
 ]
 
 //
-// Minigolf.HoleSign
+// Facepunch.Minigolf.Entities.HoleSign
 //
-@PointClass base(BaseProperties_minigolf) drawangles() iconsprite( "editor/snd_event.vmat" ) = minigolf_hole_sign : "Minigolf Sign Pole"
+@PointClass base(BaseProperties_facepunch_minigolf) drawangles() iconsprite( "editor/snd_event.vmat" ) = minigolf_hole_sign : "Minigolf Sign Pole"
 [
-	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
 ]
 
 //
-// Minigolf.OutOfBoundsArea
+// Facepunch.Minigolf.Entities.OutOfBoundsArea
 //
-@SolidClass base(BaseProperties_minigolf) tags( Trigger ) 
+@SolidClass base(BaseProperties_facepunch_minigolf) tags( Trigger ) 
 metadata
 {
 	auto_apply_material = "materials/editor/minigolf_wall/minigolf_out_of_bounds.vmat"
@@ -122,9 +118,9 @@ metadata
 ]
 
 //
-// Minigolf.SpeedBoost
+// Facepunch.Minigolf.Entities.SpeedBoost
 //
-@SolidClass base(BaseProperties_minigolf) drawangles( "Direction" ) 
+@SolidClass base(BaseProperties_facepunch_minigolf) drawangles( "Direction" ) 
 metadata
 {
 	auto_apply_material = "materials/tools/toolstrigger.vmat"
@@ -133,8 +129,8 @@ metadata
 }
 = minigolf_speed_boost : "A trigger brush that applies a constant velocity to golf balls."
 [
-	acceleration(float) : "Acceleration" : 100 : "How much velocity will be applied across each second. This is divided and applied each tick."
-	maxvelocity(float) : "Max Velocity" : 1000 : "If the ball is going faster then this (towards the direction vector), don't apply the acceleration. Set to 0 to disable."
+	acceleration(float) : "Acceleration" : "100" : "How much velocity will be applied across each second. This is divided and applied each tick."
+	maxvelocity(float) : "Max Velocity" : "1000" : "If the ball is going faster then this (towards the direction vector), don't apply the acceleration. Set to 0 to disable."
 	direction(angle) : "Direction (Pitch Yaw Roll)" :  : "The direction the ball will move, when told to."
 	enable_shadows(boolean) { group = "Rendering" } : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
 
@@ -142,9 +138,9 @@ metadata
 ]
 
 //
-// Minigolf.Water
+// Facepunch.Minigolf.Entities.Water
 //
-@SolidClass base(BaseProperties_minigolf) tags( Trigger ) 
+@SolidClass base(BaseProperties_facepunch_minigolf) tags( Trigger ) 
 metadata
 {
 	auto_apply_material = "materials/editor/minigolf_wall/minigolf_water.vmat"
