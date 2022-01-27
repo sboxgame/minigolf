@@ -11,6 +11,7 @@ public struct MoveHelper
 	public Entity WallEntity;
 	public Vector3 HitWallPos;
 
+	public Vector3 GroundVelocity;
 	public float GroundBounce;
 	public float WallBounce;
 	public float MaxStandableAngle;
@@ -20,6 +21,7 @@ public struct MoveHelper
 	{
 		Velocity = velocity;
 		Position = position;
+		GroundVelocity = Vector3.Zero;
 		GroundBounce = 0.0f;
 		WallBounce = 0.0f;
 		MaxStandableAngle = 10.0f;
@@ -50,6 +52,12 @@ public struct MoveHelper
 		HitWall = false;
 		WallEntity = null;
 		HitWallPos = Vector3.Zero;
+
+		//
+		// Probably should be done with the moveplanes
+		// But let's KISS until there's a case where we need it. 
+		//
+		Position += GroundVelocity * timestep;
 
 		using var moveplanes = new VelocityClipPlanes( Velocity );
 
