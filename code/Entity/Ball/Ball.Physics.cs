@@ -50,10 +50,16 @@ public partial class Ball
 		mover.GroundBounce = 0.25f; // TODO: Get from ground surface?
 		mover.WallBounce = 0.5f;
 
+		var groundTrace = mover.TraceDirection(Vector3.Down * 0.5f);
+
+		if ( groundTrace.Entity.IsValid() )
+        {
+			mover.GroundVelocity = groundTrace.Entity.Velocity;
+		}
+
 		// Apply gravity
 		mover.Velocity += Vector3.Down * 800 * Time.Delta;
 
-		var groundTrace = mover.TraceDirection( Vector3.Down * 0.5f );
 		if ( groundTrace.Hit && groundTrace.Normal.Angle( Vector3.Up ) < 1.0f )
 		{
 			mover.Velocity = ProjectOntoPlane( mover.Velocity, groundTrace.Normal );
@@ -85,6 +91,7 @@ public partial class Ball
 		}
 
 		Position = mover.Position;
+		BaseVelocity = mover.GroundVelocity;
 		Velocity = mover.Velocity;
 
 		// Rotate the ball
