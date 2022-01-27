@@ -8,4 +8,22 @@
 			m_name = "preview"
 		},
 	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/gameplay/hole_in_one/v2/hole_in_one_single.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/gameplay/hole_in_one/v2/hole_in_one_single.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/gameplay/hole_in_one/v2/hole_in_one_single.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/gameplay/hole_in_one/v2/hole_in_one_single.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/gameplay/hole_in_one/v2/hole_in_one_single.vpcf"
+		},
+	]
 }
