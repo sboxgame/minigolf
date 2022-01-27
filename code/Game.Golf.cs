@@ -43,7 +43,7 @@ public partial class Game
 		// Boop
 		if ( ball.Client.GetPar() == 1 )
 		{
-			Particles.Create( "particles/gameplay/hole_in_one/hole_in_one.vpcf", Course.CurrentHole.GoalPosition + Vector3.Up * 16.0f );
+			Particles.Create( "particles/gameplay/hole_in_one/v2/hole_in_one.vpcf", Course.CurrentHole.GoalPosition + Vector3.Up * 16.0f );
 		}
 		else
 		{
