@@ -5,6 +5,7 @@
 	m_nSnapshotControlPoint = 6
 	m_hSnapshot = resource:"particles/particles/gameplay/flag_number/flag_snapshot/flag_vsnap_2.vsnap"
 	m_bShouldSort = false
+	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_controlPointConfigurations = 
 	[
 		{
@@ -226,7 +227,7 @@
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 3.0
+				m_flLiteralValue = 5.0
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
@@ -550,6 +551,8 @@
 					m_Stops = [  ]
 				}
 			}
+			m_bFlipNormal = true
+			m_bDistanceAlpha = true
 		},
 	]
 	m_Children = 
