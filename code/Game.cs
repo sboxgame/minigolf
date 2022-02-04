@@ -23,6 +23,15 @@ public partial class Game : Sandbox.Game
 		}
 	}
 
+	[Event.Hotload]
+	private void OnHotload()
+    {
+		// sometings fucked with BaseNetworkable during hotload, data gets lost
+		// just make a new Course for now to avoid nre spam
+		if ( IsClient ) return;
+		Course.LoadFromMap();
+    }
+
 	public override void ClientJoined( Client cl )
 	{
 		Log.Info( $"\"{cl.Name}\" has joined the game" );
