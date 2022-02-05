@@ -12,8 +12,8 @@ public class CustomizationComponent : EntityComponent
 
 	public static string EnsembleJson
 	{
-		get => Cookie.Get( "customization.ensemble", string.Empty );
-		set => Cookie.Set( "customization.ensemble", value );
+		get => Cookie.Get(Global.GameName + ".customization.ensemble", string.Empty );
+		set => Cookie.Set(Global.GameName + ".customization.ensemble", value );
 	}
 
 	public List<CustomizationPart> Parts = new();
@@ -35,9 +35,14 @@ public class CustomizationComponent : EntityComponent
 		var cetgory = cfg.Categories.FirstOrDefault( x => x.DisplayName.Equals( category, StringComparison.OrdinalIgnoreCase ) );
 		if ( cetgory == null ) return null;
 
+		// look for equipped
 		var part = Parts.FirstOrDefault( x => x.CategoryId == cetgory.Id );
 
-		return part ?? cfg.Parts.FirstOrDefault( x => x.Id == cetgory.DefaultPartId );
+		// look for default
+		if ( part == null )
+			part = cfg.Parts.FirstOrDefault(x => x.Id == cetgory.DefaultPartId);
+
+		return part;
 	}
 
 	public void Equip( int id ) => Equip( Customization.Config.Parts.FirstOrDefault( x => x.Id == id ) );
@@ -62,7 +67,7 @@ public class CustomizationComponent : EntityComponent
 		if ( Host.IsClient )
 		{
 			EnsembleJson = Serialize();
-			EquipPartOnServer( part.Id );
+			EquipPartOnServer( Entity.NetworkIdent, part.Id );
 		}
 	}
 
@@ -82,7 +87,7 @@ public class CustomizationComponent : EntityComponent
 		if ( Host.IsClient )
 		{
 			EnsembleJson = Serialize();
-			UnequipPartOnServer( part.Id );
+			UnequipPartOnServer( Entity.NetworkIdent, part.Id );
 		}
 	}
 
@@ -139,24 +144,24 @@ public class CustomizationComponent : EntityComponent
 	}
 
 	[ServerCmd]
-	public static void EquipPartOnServer( int id )
+	public static void EquipPartOnServer( int entityId, int id )
 	{
-		var caller = ConsoleSystem.Caller;
-		if ( caller == null ) return;
+		var ent = Entity.FindByIndex(entityId);
+		if ( !ent.IsValid() ) return;
 
-		var cfg = caller.Components.Get<CustomizationComponent>();
+		var cfg = ent.Components.Get<CustomizationComponent>();
 		if ( cfg == null ) return;
 
 		cfg.Equip( id );
 	}
 
 	[ServerCmd]
-	public static void UnequipPartOnServer( int id )
+	public static void UnequipPartOnServer(int entityId, int id )
 	{
-		var caller = ConsoleSystem.Caller;
-		if ( caller == null ) return;
+		var ent = Entity.FindByIndex(entityId);
+		if ( !ent.IsValid() ) return;
 
-		var cfg = caller.Components.Get<CustomizationComponent>();
+		var cfg = ent.Components.Get<CustomizationComponent>();
 		if ( cfg == null ) return;
 
 		cfg.Unequip( id );

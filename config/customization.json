@@ -1,1 +1,1 @@
-{"CategoryIdAccumulator":1,"PartIdAccumulator":1,"Categories":[{"Id":1,"DisplayName":"Trails","IconPath":null,"DefaultPartId":0}],"Parts":[{"Id":1,"CategoryId":1,"DisplayName":"Default Trail","IconPath":null,"AssetPath":null}]}
+{"CategoryIdAccumulator":1,"PartIdAccumulator":2,"Categories":[{"Id":1,"DisplayName":"Trails","IconPath":null,"DefaultPartId":0}],"Parts":[{"Id":1,"CategoryId":1,"DisplayName":"Default","IconPath":null,"AssetPath":"particles/gameplay/ball_trail/ball_trail.vpcf"}]}

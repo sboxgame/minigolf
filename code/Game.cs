@@ -2,6 +2,7 @@ using Sandbox;
 
 using Facepunch.Minigolf.Entities;
 using Facepunch.Minigolf.UI;
+using Facepunch.Customization;
 
 namespace Facepunch.Minigolf;
 
@@ -35,6 +36,8 @@ public partial class Game : Sandbox.Game
 	public override void ClientJoined( Client cl )
 	{
 		Log.Info( $"\"{cl.Name}\" has joined the game" );
+
+		cl.Components.Create<CustomizationComponent>();
 
 		if ( State == GameState.Playing )
 		{
