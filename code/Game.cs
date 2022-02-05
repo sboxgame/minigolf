@@ -22,6 +22,8 @@ public partial class Game : Sandbox.Game
 		{
 			Local.Hud = new GolfRootPanel();
 		}
+
+		Customize.WatchForChanges = true;
 	}
 
 	[Event.Hotload]
@@ -37,7 +39,7 @@ public partial class Game : Sandbox.Game
 	{
 		Log.Info( $"\"{cl.Name}\" has joined the game" );
 
-		cl.Components.Create<CustomizationComponent>();
+		cl.Components.Create<CustomizeComponent>();
 
 		if ( State == GameState.Playing )
 		{

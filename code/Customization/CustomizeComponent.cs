@@ -7,13 +7,13 @@ using System.Text.Json.Serialization;
 
 namespace Facepunch.Customization;
 
-public class CustomizationComponent : EntityComponent
+public class CustomizeComponent : EntityComponent
 {
 
 	public static string EnsembleJson
 	{
-		get => Cookie.Get(Global.GameName + ".customization.ensemble", string.Empty );
-		set => Cookie.Set(Global.GameName + ".customization.ensemble", value );
+		get => Cookie.Get(Global.GameName + ".customize.ensemble", string.Empty );
+		set => Cookie.Set(Global.GameName + ".customize.ensemble", value );
 	}
 
 	public List<CustomizationPart> Parts = new();
@@ -30,7 +30,7 @@ public class CustomizationComponent : EntityComponent
 
 	public CustomizationPart GetEquippedPart( string category )
 	{
-		var cfg = Customization.Config;
+		var cfg = Customize.Config;
 
 		var cetgory = cfg.Categories.FirstOrDefault( x => x.DisplayName.Equals( category, StringComparison.OrdinalIgnoreCase ) );
 		if ( cetgory == null ) return null;
@@ -45,7 +45,7 @@ public class CustomizationComponent : EntityComponent
 		return part;
 	}
 
-	public void Equip( int id ) => Equip( Customization.Config.Parts.FirstOrDefault( x => x.Id == id ) );
+	public void Equip( int id ) => Equip( Customize.Config.Parts.FirstOrDefault( x => x.Id == id ) );
 	public void Equip( CustomizationPart part )
 	{
 		if ( part == null ) throw new Exception("Can't equip null");
@@ -71,7 +71,7 @@ public class CustomizationComponent : EntityComponent
 		}
 	}
 
-	public void Unequip( int id ) => Unequip( Customization.Config.Parts.FirstOrDefault( x => x.Id == id ) );
+	public void Unequip( int id ) => Unequip( Customize.Config.Parts.FirstOrDefault( x => x.Id == id ) );
 	public void Unequip( CustomizationPart part )
 	{
 		if ( part == null ) throw new Exception( "Can't equip null" );
@@ -116,7 +116,7 @@ public class CustomizationComponent : EntityComponent
 
 			foreach ( var entry in entries )
 			{
-				var item = Customization.Config.Parts.FirstOrDefault( x => x.Id == entry.Id );
+				var item = Customize.Config.Parts.FirstOrDefault( x => x.Id == entry.Id );
 				if ( item == null ) continue;
 				Equip( item );
 			}
@@ -149,7 +149,7 @@ public class CustomizationComponent : EntityComponent
 		var ent = Entity.FindByIndex(entityId);
 		if ( !ent.IsValid() ) return;
 
-		var cfg = ent.Components.Get<CustomizationComponent>();
+		var cfg = ent.Components.Get<CustomizeComponent>();
 		if ( cfg == null ) return;
 
 		cfg.Equip( id );
@@ -161,7 +161,7 @@ public class CustomizationComponent : EntityComponent
 		var ent = Entity.FindByIndex(entityId);
 		if ( !ent.IsValid() ) return;
 
-		var cfg = ent.Components.Get<CustomizationComponent>();
+		var cfg = ent.Components.Get<CustomizeComponent>();
 		if ( cfg == null ) return;
 
 		cfg.Unequip( id );

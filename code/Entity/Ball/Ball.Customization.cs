@@ -12,7 +12,7 @@ public partial class Ball
     [Event.Tick.Server]
     private void EnsureCustomization()
     {
-        var cc = Client.Components.GetOrCreate<CustomizationComponent>();
+        var cc = Client.Components.GetOrCreate<CustomizeComponent>();
 
         var hash = cc.GetPartsHash();
         if (hash == parthash) return;
@@ -23,7 +23,7 @@ public partial class Ball
 
     private void ApplyCustomization()
     {
-        var cc = Client.Components.GetOrCreate<CustomizationComponent>();
+        var cc = Client.Components.GetOrCreate<CustomizeComponent>();
 
         var trailpart = cc.GetEquippedPart("Trails");
         if (trailpart == null) return;

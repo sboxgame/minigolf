@@ -2,7 +2,7 @@
 
 namespace Facepunch.Customization;
 
-public partial class CustomizationConfig
+public partial class CustomizeConfig
 {
 
 	//public int CategoryIdAccumulator { get; set; }

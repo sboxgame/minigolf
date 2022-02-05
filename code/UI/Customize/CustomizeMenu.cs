@@ -12,6 +12,18 @@ public class CustomizeMenu : Panel
     public Panel SidebarCanvas { get; set; }
     public Panel ContentCanvas { get; set; }
 
+    public CustomizeMenu()
+    {
+        Customize.OnChanged += Build;
+    }
+
+    public override void OnDeleted()
+    {
+        base.OnDeleted();
+
+        Customize.OnChanged -= Build;
+    }
+
     private bool Open
     {
         get => HasClass("open");
@@ -38,7 +50,7 @@ public class CustomizeMenu : Panel
         SidebarCanvas?.DeleteChildren(true);
         ContentCanvas?.DeleteChildren(true);
 
-        var categories = Customization.Customization.Config.Categories;
+        var categories = Customization.Customize.Config.Categories;
         foreach(var cat in categories)
         {
             var btn = new Button(cat.DisplayName);
@@ -59,7 +71,7 @@ public class CustomizeMenu : Panel
     {
         ContentCanvas?.DeleteChildren(true);
 
-        var cfg = Customization.Customization.Config;
+        var cfg = Customization.Customize.Config;
         var parts = cfg.Parts.Where(x => x.CategoryId == category.Id);
 
         foreach(var part in parts)
@@ -67,7 +79,7 @@ public class CustomizeMenu : Panel
             var btn = new Button(part.DisplayName);
             ContentCanvas.AddChild(btn);
 
-            var cust = Local.Client.Components.Get<CustomizationComponent>();
+            var cust = Local.Client.Components.Get<CustomizeComponent>();
             btn.SetClass("equipped", cust.IsEquipped(part));
 
             btn.AddEventListener("onmousedown", () =>
