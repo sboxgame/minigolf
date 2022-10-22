@@ -1,6 +1,4 @@
-﻿using Sandbox;
-
-namespace Facepunch.Minigolf.Entities;
+﻿namespace Facepunch.Minigolf.Entities;
 
 public partial class PowerArrow : RenderEntity
 {
@@ -15,7 +13,8 @@ public partial class PowerArrow : RenderEntity
 		startPos -= Position;
 		endPos -= Position;
 
-		var vertexBuffer = Render.GetDynamicVB( true );
+		VertexBuffer vertexBuffer = new();
+		vertexBuffer.Init( true );
 
 		// Line
 		Vertex a = new( startPos - size, Vector3.Up, Vector3.Right, new Vector4( 0, 1, 0, 0 ) );
@@ -41,7 +40,7 @@ public partial class PowerArrow : RenderEntity
 		vertexBuffer.Add( g );
 		vertexBuffer.AddTriangleIndex( 1, 2, 3 );
 
-		Render.Attributes.Set( "color", color );
+		Graphics.Attributes.Set( "color", color );
 
 		vertexBuffer.Draw( Material );
 	}
@@ -51,7 +50,7 @@ public partial class PowerArrow : RenderEntity
 		if ( Power.AlmostEqual(0.0f) )
 			return;
 
-		Render.SetupLighting( obj );
+		Graphics.SetupLighting( obj );
 
 		var startPos = Position;
 		var endPos = Position + Direction * Power * 100;

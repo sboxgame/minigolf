@@ -26,14 +26,13 @@ public partial class Trap : ModelEntity
 		var PhysGroup = SetupPhysicsFromModel( PhysicsMotionType.Static );
 		PhysGroup?.SetSurface( "water" );
 
-		ClearCollisionLayers();
-		AddCollisionLayer( CollisionLayer.Water );
-		AddCollisionLayer( CollisionLayer.Trigger );
 		EnableSolidCollisions = false;
 		EnableTouch = true;
 		EnableTouchPersists = false;
 
 		Transmit = TransmitType.Never;
+
+		Tags.Add( "water", "trigger" );
 	}
 
 	public override void StartTouch( Entity other )

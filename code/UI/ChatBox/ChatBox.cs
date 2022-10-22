@@ -23,12 +23,13 @@ public partial class ChatBox : Panel
 		Input.AddEventListener( "onblur", () => Close() );
 		Input.AcceptsFocus = true;
 		Input.AllowEmojiReplace = true;
-
-		Sandbox.Hooks.Chat.OnOpenChat += Open;
 	}
 
 	public override void Tick()
 	{
+		if ( Sandbox.Input.Pressed( InputButton.Chat ) )
+			Open();
+
 		//Input.CaretColor = new Color( 0.1714f, 0.831f, 0.5292f );
 
 		base.Tick();

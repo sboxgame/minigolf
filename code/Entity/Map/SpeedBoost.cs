@@ -34,11 +34,12 @@ public partial class SpeedBoost : ModelEntity
 		base.Spawn();
 
 		SetupPhysicsFromModel( PhysicsMotionType.Static );
-		CollisionGroup = CollisionGroup.Trigger;
 		EnableSolidCollisions = false;
 		EnableTouch = true;
 		EnableDrawing = false;
 		Transmit = TransmitType.Never;
+
+		Tags.Add( "trigger" );
 	}
 
 	public override void StartTouch( Entity other )
@@ -58,12 +59,12 @@ public partial class SpeedBoost : ModelEntity
 	[Event.Physics.PreStep]
 	public void ApplyForce()
 	{
-		var acceleration = Acceleration / ( Global.TickRate * Global.PhysicsSubSteps );
+		var acceleration = Acceleration / ( Global.TickRate * Map.Physics.SubSteps );
 
 		foreach( var ball in Balls )
 		{
 			if ( MaxVelocity != 0 && ball.Velocity.Length >= MaxVelocity ) continue;
-			ball.Velocity += Direction.Direction * acceleration;
+			ball.Velocity += Direction.Forward * acceleration;
 		}
 	}
 }

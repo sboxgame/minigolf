@@ -1,6 +1,4 @@
-﻿using Sandbox;
-
-namespace Facepunch.Minigolf;
+﻿namespace Facepunch.Minigolf;
 
 public struct MoveHelper
 {
@@ -28,10 +26,7 @@ public struct MoveHelper
 
 		// Hit everything but other balls
 		Trace = Trace.Ray( 0, 0 )
-			.WorldAndEntities()
-			.HitLayer( CollisionLayer.Solid, true )
-			.HitLayer( CollisionLayer.PLAYER_CLIP, true )
-			.HitLayer( CollisionLayer.GRATE, true )
+			.WithAnyTags( "solid", "playerclip", "passbullets", "player" )
 			.WithoutTags( "golf_ball" );
 	}
 

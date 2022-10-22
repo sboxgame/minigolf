@@ -24,7 +24,6 @@ public partial class Ball : ModelEntity
 
 		SetupPhysicsFromModel( PhysicsMotionType.Keyframed, false );
 
-		CollisionGroup = CollisionGroup.Debris;
 		EnableTraceAndQueries = false;
 
 		Transmit = TransmitType.Always;

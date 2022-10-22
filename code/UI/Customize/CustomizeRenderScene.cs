@@ -65,11 +65,11 @@ internal class CustomizeRenderScene : Panel
 		ScenePanel = Add.ScenePanel( SceneWorld, Vector3.Zero, Rotation.From( CameraAngle ), 75 );
 		ScenePanel.Style.Width = Length.Percent( 100 );
 		ScenePanel.Style.Height = Length.Percent( 100 );
-		ScenePanel.CameraPosition = golfball.Rotation.Forward * 32f + Vector3.Up * 3f;
-		ScenePanel.CameraRotation = Rotation.LookAt( golfball.Rotation.Backward ).RotateAroundAxis( Vector3.Forward, -90 );
-		CameraAngle = ScenePanel.CameraRotation.Angles();
+		ScenePanel.Camera.Position = golfball.Rotation.Forward * 32f + Vector3.Up * 3f;
+		ScenePanel.Camera.Rotation = Rotation.LookAt( golfball.Rotation.Backward ).RotateAroundAxis( Vector3.Forward, -90 );
+		CameraAngle = ScenePanel.Camera.Rotation.Angles();
 
-		new SceneLight( SceneWorld, ScenePanel.CameraPosition + Vector3.Up * 5 + Vector3.Right * 2, 200, Color.White );
+		new SceneLight( SceneWorld, ScenePanel.Camera.Position + Vector3.Up * 5 + Vector3.Right * 2, 200, Color.White );
 		new SceneLight( SceneWorld, Vector3.Down * 50 + Vector3.Left * 20, 200, Color.White.Darken( .25f ) );
 
 		var cc = Local.Client.Components.Get<CustomizeComponent>();

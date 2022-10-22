@@ -13,8 +13,6 @@ public partial class FlagBase : ModelEntity
 
 		Model = FlagModel;
 
-		MoveType = MoveType.None;
-		CollisionGroup = CollisionGroup.Never;
 		PhysicsEnabled = false;
 		UsePhysicsCollision = false;
 

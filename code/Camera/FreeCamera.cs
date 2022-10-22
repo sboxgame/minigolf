@@ -28,17 +28,8 @@ public class FreeCamera : CameraMode
 	{
 		var player = Local.Client;
 		if ( player == null ) return;
-
-		var tr = Trace.Ray( Position, Position + Rotation.Forward * 4096 ).UseHitboxes().Run();
-
-		// DebugOverlay.Box( tr.EndPosition, Vector3.One * -1, Vector3.One, Color.Red );
-
+		
 		Viewer = null;
-		{
-			var lerpTarget = tr.EndPosition.Distance( Position );
-
-			DoFPoint = lerpTarget;// DoFPoint.LerpTo( lerpTarget, Time.Delta * 10 );
-		}
 
 		FreeMove();
 	}
@@ -54,12 +45,6 @@ public class FreeCamera : CameraMode
 		if ( input.Down( InputButton.Slot1 ) ) LerpMode = 0.0f;
 		if ( input.Down( InputButton.Slot2 ) ) LerpMode = 0.5f;
 		if ( input.Down( InputButton.Slot3 ) ) LerpMode = 0.9f;
-
-		if ( input.Down( InputButton.Use ) )
-			DoFBlurSize = Math.Clamp( DoFBlurSize + (Time.Delta * 3.0f), 0.0f, 100.0f );
-
-		if ( input.Down( InputButton.Menu ) )
-			DoFBlurSize = Math.Clamp( DoFBlurSize - (Time.Delta * 3.0f), 0.0f, 100.0f );
 
 		LookAngles += input.AnalogLook;
 		LookAngles.roll = 0;
