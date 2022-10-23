@@ -12,6 +12,10 @@ public partial class Game
 
 	public override CameraMode FindActiveCamera()
 	{
+		// You can use dev cam
+		var devCam = Local.Client.Components.Get<DevCamera>();
+		if ( devCam != null ) return devCam;
+
 		// If the game hasn't started yet show our "cinematic" starting camera
 		if ( State == GameState.WaitingForPlayers )
 		{
