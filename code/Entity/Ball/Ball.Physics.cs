@@ -45,7 +45,7 @@ public partial class Ball
 	public virtual void Move()
 	{
 		var mover = new MoveHelper( Position, Velocity );
-		mover.Trace = mover.Trace.Radius( 3.0f ).Ignore( this );
+		mover.Trace = mover.Trace.Radius( 1.5f ).Ignore( this );
 		mover.MaxStandableAngle = 50.0f;
 		mover.GroundBounce = 0.25f; // TODO: Get from ground surface?
 		mover.WallBounce = 0.5f;

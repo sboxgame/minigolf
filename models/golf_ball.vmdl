@@ -13,8 +13,8 @@
 						_class = "PhysicsShapeSphere"
 						parent_bone = ""
 						surface_prop = "minigolf.ball"
-						collision_prop = "default"
-						radius = 3.0
+						collision_tags = "solid"
+						radius = 1.5
 						center = [ 0.0, 0.0, 0.0 ]
 					},
 				]
@@ -32,7 +32,7 @@
 						angles = [ 0.0, 0.0, 0.0 ]
 						max_u = 1.0
 						max_v = 1.0
-						radius = 3.0
+						radius = 1.5
 						segments_u = 32
 						segments_v = 32
 					},
@@ -75,5 +75,6 @@
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
+		base_model_name = ""
 	}
 }
