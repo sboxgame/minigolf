@@ -81,8 +81,9 @@ public partial class Game : Sandbox.Game
 		Event.Run( "buildinput", input );
 
 		// todo: pass to spectate
+		var ball = Local.Pawn as Ball;
 
-		if ( input.Pressed( InputButton.View ) && Local.Pawn.IsValid() && !(Local.Pawn as Ball).InPlay && !(Local.Pawn as Ball).Cupped && FreeCamTimeLeft > 0.0f )
+		if ( input.Pressed( InputButton.View ) && Local.Pawn.IsValid() && !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f )
 		{
 			if ( FreeCamera == null )
 				FreeCamera = new FreeCamera();
