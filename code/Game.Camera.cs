@@ -9,6 +9,7 @@ namespace Facepunch.Minigolf;
 public partial class Game
 {
 	Entity StartCameraEntity { get; set; }
+	IEnumerable<Ball> ActiveBalls => All.OfType<Ball>().Where( ball => !ball.Cupped );
 
 	public override CameraMode FindActiveCamera()
 	{
@@ -47,9 +48,15 @@ public partial class Game
 
 		// Must be a spectator ( no ball pawn )
 
-		// TODO: Actually spectate
+		// TODO: Allow more freedom in spectate, cycle between players, etc
+		if ( FollowBallCamera == null )
+		{
+			FollowBallCamera = new();
+		}
 
-		return null;
+		FollowBallCamera.Target = ActiveBalls.FirstOrDefault();
+
+		return FollowBallCamera;
 	}
 
 	// HoleEndCamera is displayed:
@@ -58,6 +65,7 @@ public partial class Game
 	// 3. On return to lobby
 	HoleEndCamera HoleEndCamera;
 
+	public FollowBallCamera FollowBallCamera { get; set; }
 	public FreeCamera FreeCamera { get; set; }
 	public float FreeCamTimeLeft { get; set; } = 30.0f;
 

@@ -57,7 +57,7 @@ public partial class Game : Sandbox.Game
 			Facepunch.Minigolf.UI.ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined late, they will not be eligible for scoring.", $"avatar:{ cl.PlayerId }" );
 
 			// Just give them shitty scores on each hole for now
-			for ( int i = 0; i < Course._currentHole; i++ )
+			for ( int i = 0; i <= Course._currentHole; i++ )
 				cl.SetInt( $"par_{ i }", Course.Holes[i].Par + 1 );
 		}
 		else
@@ -81,8 +81,9 @@ public partial class Game : Sandbox.Game
 		Event.Run( "buildinput", input );
 
 		// todo: pass to spectate
+		var ball = Local.Pawn as Ball;
 
-		if ( input.Pressed( InputButton.View ) && Local.Pawn.IsValid() && !(Local.Pawn as Ball).InPlay && !(Local.Pawn as Ball).Cupped && FreeCamTimeLeft > 0.0f )
+		if ( input.Pressed( InputButton.View ) && Local.Pawn.IsValid() && !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f )
 		{
 			if ( FreeCamera == null )
 				FreeCamera = new FreeCamera();

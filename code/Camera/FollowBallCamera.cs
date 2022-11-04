@@ -21,7 +21,8 @@ public class FollowBallCamera : CameraMode
 	public float MaxDistance => 300.0f;
 	public float DistanceStep => 10.0f;
 
-	public Ball Ball => Entity as Ball;
+	public Ball Ball => Target is null ? Entity as Ball : Target;
+	public Ball Target { get; set; }
 
 	public override bool CanAddToEntity(Entity entity)
 	{
@@ -72,7 +73,7 @@ public class FollowBallCamera : CameraMode
 	public override void BuildInput( InputBuilder input )
 	{
 		// We take control of the camera when the ball is cupped.
-		if ( Ball.Cupped )
+		if ( Ball is null || Ball.Cupped )
 			return;
 
 		Distance = Math.Clamp( Distance + (-input.MouseWheel * DistanceStep), MinDistance, MaxDistance );
