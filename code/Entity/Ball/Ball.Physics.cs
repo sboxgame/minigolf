@@ -115,10 +115,15 @@ public partial class Ball
 	void ImpactEffects( Vector3 pos, float speed )
 	{
 		// Collision sound happens at this point, not entity
-		var soundName = $"minigolf.ball_impact_on_concrete{ Rand.Int( 1, 4 ) }";
+		var tr = Trace.Ray( pos, pos + Rotation.Forward * 20 )
+		.Radius( 1 )
+		.Ignore( this )
+		.Run();
+
+		var soundName = tr.Surface.Sounds.ImpactHard;
 		var sound = Sound.FromWorld( soundName, pos );
-		sound.SetVolume( 0.2f + Math.Clamp( speed / 1250.0f, 0.0f, 0.8f ) );
-		sound.SetPitch( 0.5f + Math.Clamp( speed / 1250.0f, 0.0f, 0.5f ) );
+		sound.SetVolume( 1f + Math.Clamp( speed / 1250.0f, 0.0f, 0.8f ) );
+		sound.SetPitch( 1f + Math.Clamp( speed / 1250.0f, 0.0f, 0.5f ) );
 
 		var particle = Particles.Create( "particles/gameplay/ball_hit/ball_hit.vpcf", pos );
 		particle.Destroy( false );

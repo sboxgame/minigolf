@@ -14,12 +14,16 @@
 						remaps = 
 						[
 							{
-								from = "cube.vmat"
+								from = "glass.vmat"
+								to = "materials/hats/hat_glass.vmat"
+							},
+							{
+								from = "cube.005.vmat"
 								to = "materials/hats/hat_palette.vmat"
 							},
 							{
-								from = "glass.vmat"
-								to = "materials/hats/hat_glass.vmat"
+								from = "cube.006.vmat"
+								to = "materials/hats/hat_palette.vmat"
 							},
 						]
 						use_global_default = false
@@ -53,5 +57,6 @@
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
+		base_model_name = ""
 	}
 }

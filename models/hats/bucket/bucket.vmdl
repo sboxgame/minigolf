@@ -14,7 +14,7 @@
 						remaps = 
 						[
 							{
-								from = ""
+								from = "material.001.vmat"
 								to = "materials/hats/hat_metal_palette.vmat"
 							},
 						]
@@ -52,5 +52,6 @@
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
+		base_model_name = ""
 	}
 }
