@@ -54,7 +54,7 @@ public class FollowBallCamera : CameraMode
 
 		var center = Ball.Position + Vector3.Up * 80;
 		var distance = 150.0f * Ball.Scale;
-		var targetPos = center + Input.Rotation.Forward * -distance;
+		var targetPos = center + Ball.ViewAngles.ToRotation().Forward * -distance;
 
 		var tr = Trace.Ray( center, targetPos )
 			.Ignore( Ball )
@@ -70,22 +70,22 @@ public class FollowBallCamera : CameraMode
 		}
 	}
 
-	public override void BuildInput( InputBuilder input )
+	public override void BuildInput()
 	{
 		// We take control of the camera when the ball is cupped.
 		if ( Ball is null || Ball.Cupped )
 			return;
 
-		Distance = Math.Clamp( Distance + (-input.MouseWheel * DistanceStep), MinDistance, MaxDistance );
+		Distance = Math.Clamp( Distance + (-Input.MouseWheel * DistanceStep), MinDistance, MaxDistance );
 
-		TargetAngles.yaw += input.AnalogLook.yaw;
+		TargetAngles.yaw += Input.AnalogLook.yaw;
 
-		if ( !input.Down( InputButton.PrimaryAttack ) )
-			TargetAngles.pitch += input.AnalogLook.pitch;
+		if ( !Input.Down( InputButton.PrimaryAttack ) )
+			TargetAngles.pitch += Input.AnalogLook.pitch;
 
 		TargetAngles = TargetAngles.Normal;
 
-		if ( !input.Down( InputButton.PrimaryAttack ) )
+		if ( !Input.Down( InputButton.PrimaryAttack ) )
 			TargetAngles.pitch = TargetAngles.pitch.Clamp( 0, 89 );
 	}
 

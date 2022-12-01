@@ -14,7 +14,7 @@ public class StaticCamera : CameraMode
 		camSetup.Rotation = Entity.Rotation;
 	}
 
-	public override void BuildInput( InputBuilder builder ) { }
+	public override void BuildInput() { }
 
     public override void Update() { }
 }

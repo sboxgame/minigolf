@@ -11,19 +11,34 @@ public partial class Ball
 	public float ShotPower { get; set; } = 0.0f;
 	public float LastShotPower { get; set; } = 0.0f;
 
-	public override void BuildInput( InputBuilder input )
+	[ClientInput] public Angles ViewAngles { get; set; }
+
+	public override void BuildInput()
 	{
+		var look = Input.AnalogLook;
+
+		if ( ViewAngles.pitch > 90f || ViewAngles.pitch < -90f )
+		{
+			look = look.WithYaw( look.yaw * -1f );
+		}
+
+		var viewAngles = ViewAngles;
+		viewAngles += look;
+		viewAngles.pitch = viewAngles.pitch.Clamp( -89f, 89f );
+		viewAngles.roll = 0f;
+		ViewAngles = viewAngles.Normal;
+
 		// If we're in play, don't do anything.
 		if ( InPlay )
 			return;
 
-		if ( input.Down( InputButton.PrimaryAttack ) )
+		if ( Input.Down( InputButton.PrimaryAttack ) )
 		{
-			float delta = input.AnalogLook.pitch * RealTime.Delta;
+			float delta = Input.AnalogLook.pitch * RealTime.Delta;
 			ShotPower = Math.Clamp( ShotPower - delta, 0, 1 );
 		}
 
-		if ( ShotPower >= 0.01f && !input.Down( InputButton.PrimaryAttack ) )
+		if ( ShotPower >= 0.01f && !Input.Down( InputButton.PrimaryAttack ) )
 		{
 			Game.Stroke( Camera.Rotation.Yaw(), ShotPower );
 			LastShotPower = ShotPower;

@@ -79,9 +79,9 @@ public class CustomizeMenu : Panel
 	}
 
 	[Event.BuildInput]
-	private void OnBuildInput( InputBuilder b )
+	private void OnBuildInput()
 	{
-		if ( b.Pressed( InputButton.Menu ) )
+		if ( Input.Pressed( InputButton.Menu ) )
 		{
 			Open = !Open;
 		}

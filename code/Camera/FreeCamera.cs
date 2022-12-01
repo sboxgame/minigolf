@@ -34,24 +34,23 @@ public class FreeCamera : CameraMode
 		FreeMove();
 	}
 
-	public override void BuildInput( InputBuilder input )
+	public override void BuildInput()
 	{
-		MoveInput = input.AnalogMove;
+		MoveInput = Input.AnalogMove;
 
 		MoveSpeed = 1;
-		if ( input.Down( InputButton.Run ) ) MoveSpeed = 5;
-		if ( input.Down( InputButton.Duck ) ) MoveSpeed = 0.2f;
+		if ( Input.Down( InputButton.Run ) ) MoveSpeed = 5;
+		if ( Input.Down( InputButton.Duck ) ) MoveSpeed = 0.2f;
 
-		if ( input.Down( InputButton.Slot1 ) ) LerpMode = 0.0f;
-		if ( input.Down( InputButton.Slot2 ) ) LerpMode = 0.5f;
-		if ( input.Down( InputButton.Slot3 ) ) LerpMode = 0.9f;
+		if ( Input.Down( InputButton.Slot1 ) ) LerpMode = 0.0f;
+		if ( Input.Down( InputButton.Slot2 ) ) LerpMode = 0.5f;
+		if ( Input.Down( InputButton.Slot3 ) ) LerpMode = 0.9f;
 
-		LookAngles += input.AnalogLook;
+		LookAngles += Input.AnalogLook;
 		LookAngles.roll = 0;
 
-		input.ClearButton( InputButton.PrimaryAttack );
-
-		input.StopProcessing = true;
+		Input.ClearButton( InputButton.PrimaryAttack );
+		Input.StopProcessing = true;
 	}
 
 	void FreeMove()
