@@ -45,5 +45,5 @@ public class HoleEndCamera : CameraMode
 		camSetup.Rotation = Rotation;
 	}
 
-	public override void BuildInput( InputBuilder input ) { }
+	public override void BuildInput() { }
 }

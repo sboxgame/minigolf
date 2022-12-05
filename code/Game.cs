@@ -74,16 +74,16 @@ public partial class Game : Sandbox.Game
 		Course.LoadFromMap();
 	}
 
-	public override void BuildInput( InputBuilder input )
+	public override void BuildInput()
 	{
 		Host.AssertClient();
 
-		Event.Run( "buildinput", input );
+		Event.Run( "buildinput" );
 
 		// todo: pass to spectate
 		var ball = Local.Pawn as Ball;
 
-		if ( input.Pressed( InputButton.View ) && Local.Pawn.IsValid() && !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f )
+		if ( Input.Pressed( InputButton.View ) && Local.Pawn.IsValid() && !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f )
 		{
 			if ( FreeCamera == null )
 				FreeCamera = new FreeCamera();
@@ -93,9 +93,9 @@ public partial class Game : Sandbox.Game
 
 		// the camera is the primary method here
 		var camera = FindActiveCamera();
-		camera?.BuildInput( input );
+		camera?.BuildInput();
 
-		Local.Pawn?.BuildInput( input );
+		Local.Pawn?.BuildInput();
 	}
 
 	public override void Simulate( Client cl )
