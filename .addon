@@ -30,6 +30,10 @@
     "GameCategory": "Sports",
     "ControlModes": {
       "Keyboard": true
-    }
+    },
+    "CsProjName": "",
+    "Summary": "\u26F3 Play competitive multiplayer Minigolf with your friends.",
+    "Description": "\u26F3\u26F3\u26F3 Play competitive multiplayer Minigolf with your friends. \u26F3\u26F3\u26F3\r\n",
+    "Public": true
   }
 }
