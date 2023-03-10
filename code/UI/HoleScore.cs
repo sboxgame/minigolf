@@ -8,7 +8,7 @@ namespace Facepunch.Minigolf.UI;
 [UseTemplate]
 public partial class HoleScore : Panel
 {
-	string Stroke => $"{ Sandbox.Game.LocalClient.GetPar() }";
-	string Par => $"{ Game.Current.Course.CurrentHole.Par }";
-	string Hole => $"{ Game.Current.Course.CurrentHole.Number }";
+	public string Stroke => $"{ Sandbox.Game.LocalClient.GetPar() }";
+	public string Par => $"{ Game.Current.Course.CurrentHole.Par }";
+	public string Hole => $"{ Game.Current.Course.CurrentHole.Number }";
 }
