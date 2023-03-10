@@ -16,7 +16,7 @@ public partial class BallNameTag : WorldPanel
 
 		PanelBounds = new Rect( 0, -80, 800, 160 );
 
-		Add.Image( $"avatar:{ owner.Client.PlayerId }" );
+		Add.Image( $"avatar:{ owner.Client.SteamId }" );
 		Add.Label( owner.Client.Name );
 
 		StyleSheet.Load( "/Entity/WorldUI/BallNameTag.scss" );

@@ -3,7 +3,7 @@ using Sandbox;
 
 namespace Facepunch.Minigolf;
 
-public class FreeCamera : CameraMode
+public class FreeCamera : BaseCamera
 {
 	Angles LookAngles;
 	Vector3 MoveInput;
@@ -16,20 +16,20 @@ public class FreeCamera : CameraMode
 
 	public FreeCamera()
 	{
-		TargetPos = CurrentView.Position;
-		TargetRot = CurrentView.Rotation;
+		TargetPos = Camera.Position;
+		TargetRot = Camera.Rotation;
 
-		Position = TargetPos;
-		Rotation = TargetRot;
-		LookAngles = Rotation.Angles();
+		Camera.Position = TargetPos;
+		Camera.Rotation = TargetRot;
+		LookAngles = Camera.Rotation.Angles();
 	}
 
 	public override void Update()
 	{
-		var player = Local.Client;
+		var player = Sandbox.Game.LocalClient;
 		if ( player == null ) return;
 		
-		Viewer = null;
+		Camera.FirstPersonViewer = null;
 
 		FreeMove();
 	}
@@ -55,12 +55,12 @@ public class FreeCamera : CameraMode
 
 	void FreeMove()
 	{
-		var mv = MoveInput.Normal * 300 * RealTime.Delta * Rotation * MoveSpeed;
+		var mv = MoveInput.Normal * 300 * RealTime.Delta * Camera.Rotation * MoveSpeed;
 
 		TargetRot = Rotation.From( LookAngles );
 		TargetPos += mv;
 
-		Position = Vector3.Lerp( Position, TargetPos, 10 * RealTime.Delta * (1 - LerpMode) );
-		Rotation = Rotation.Slerp( Rotation, TargetRot, 10 * RealTime.Delta * (1 - LerpMode) );
+		Camera.Position = Vector3.Lerp( Camera.Position, TargetPos, 10 * RealTime.Delta * (1 - LerpMode) );
+		Camera.Rotation = Rotation.Slerp( Camera.Rotation, TargetRot, 10 * RealTime.Delta * (1 - LerpMode) );
 	}
 }

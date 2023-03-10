@@ -25,7 +25,7 @@ public partial class HoleMarker : Panel
 		var hole = Game.Current.Course.CurrentHole;
 		if ( hole == null ) return;
 
-		if ( Local.Pawn is not Ball ball ) return;
+		if ( Sandbox.Game.LocalPawn is not Ball ball ) return;
 
 		var distance = ball.Position.Distance( hole.GoalPosition + Vector3.Up * 8 ) * 0.02;
 
@@ -38,7 +38,7 @@ public partial class HoleMarker : Panel
 		// if ( CurrentView.Rotation.Forward.Dot( lookDir ) < 0.5 )
 		// 	return;
 
-		float dist = labelPos.Distance( CurrentView.Position );
+		float dist = labelPos.Distance( Camera.Position );
 		// var objectSize = 0.05f / dist / (2.0f * MathF.Tan( (CurrentView.FieldOfView / 2.0f).DegreeToRadian() )) * 3000.0f;
 		var objectSize = 0.5f;
 

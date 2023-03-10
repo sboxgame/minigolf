@@ -59,7 +59,7 @@ public partial class Game
 
 	public void BallOutOfBounds(Ball ball, OutOfBoundsType type)
     {
-		if ( IsClient )
+		if ( Sandbox.Game.IsClient )
 			return;
 
 		ResetBall( ball.Client );
@@ -71,6 +71,6 @@ public partial class Game
 	[ClientRpc]
 	public void ClientBallOutOfBounds()
 	{
-		Local.Hud.AddChild<OutOfBounds>();
+		Sandbox.Game.RootPanel.AddChild<OutOfBounds>();
 	}
 }

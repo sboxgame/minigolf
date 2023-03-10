@@ -26,8 +26,8 @@ public partial class Ball
 		// y = 2.78(0.5x + 0.1)^2
 		power = 2.78f * MathF.Pow( 0.5f * power + 0.1f, 2.0f );
 
-		var sound = "minigolf.swing" + Rand.Int( 1, 3 );
-		Sound.FromWorld( sound, Position ).SetVolume( 1.0f + power ).SetPitch( Rand.Float( 0.8f, 1.2f ) );
+		var sound = "minigolf.swing" + Sandbox.Game.Random.Int( 1, 3 );
+		Sound.FromWorld( sound, Position ).SetVolume( 1.0f + power ).SetPitch( Sandbox.Game.Random.Float( 0.8f, 1.2f ) );
 
 		Direction = direction.EulerAngles;
 

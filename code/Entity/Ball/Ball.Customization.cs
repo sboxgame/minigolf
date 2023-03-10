@@ -15,13 +15,13 @@ public partial class Ball
 
 	private void CleanupCustomization()
 	{
-		if ( IsServer )
+		if ( Sandbox.Game.IsServer )
 		{
 			if ( Hat.IsValid() ) Hat.Delete();
 			if ( trail != null ) trail.Destroy();
 		}
 
-		if ( IsClient )
+		if ( Sandbox.Game.IsClient )
 		{
 			if ( localhat.IsValid() ) localhat.Delete();
 		}

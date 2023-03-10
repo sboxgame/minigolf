@@ -17,7 +17,7 @@ public partial class Course : BaseNetworkable
 
 	public void LoadFromMap()
 	{
-		Host.AssertServer();
+		Sandbox.Game.AssertServer();
 		Holes.Clear();
 		
 		foreach ( var hole in Entity.All.OfType<BallSpawnpoint>().OrderBy( ent => ent.HoleNumber ) )

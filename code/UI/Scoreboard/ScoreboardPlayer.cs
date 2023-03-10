@@ -1,5 +1,4 @@
 using Sandbox;
-using Sandbox.Hooks;
 using Sandbox.UI;
 using Sandbox.UI.Construct;
 using System;
@@ -16,14 +15,14 @@ public partial class ScoreboardPlayer : Panel
 		
 	Label TotalScoreLabel { get; set; }
 
-	public Client Client { get; private set; }
+	public IClient Client { get; private set; }
 
 	Dictionary<int, Label> Scores = new();
 
-	public ScoreboardPlayer( Client client, Panel panel ) : base( panel )
+	public ScoreboardPlayer( IClient client, Panel panel ) : base( panel )
 	{
 		Client = client;
-		SetClass( "me", Local.Client == Client );
+		SetClass( "me", Sandbox.Game.LocalClient == Client );
 
 		SetTemplate( "/UI/Scoreboard/ScoreboardPlayer.html" );
 	}
@@ -31,7 +30,7 @@ public partial class ScoreboardPlayer : Panel
 	protected override void PostTemplateApplied()
 	{
 		PlayerName.Text = Client.Name;
-		PlayerAvatar.Texture = Texture.Load( $"avatar:{Client.PlayerId}" );
+		PlayerAvatar.Texture = Texture.Load( $"avatar:{Client.SteamId}" );
 
 		foreach ( var pnl in Scores.Values )
 			pnl.Delete();

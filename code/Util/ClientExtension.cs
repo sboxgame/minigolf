@@ -4,14 +4,14 @@ namespace Facepunch.Minigolf;
 
 public static partial class ClientExtensions
 {
-	public static Entity GetEntity( this Client self ) => Entity.FindByIndex( self.NetworkIdent );
-	public static bool IsHost( this Client self ) => Global.IsListenServer && self.NetworkIdent == 1;
-	public static int GetPar( this Client self, int hole ) => self.GetInt( $"par_{hole}" );
-	public static void AddPar( this Client self, int hole ) => self.AddInt( $"par_{hole}" );
-	public static int GetPar( this Client self ) => self.GetPar( Game.Current.Course._currentHole );
-	public static void AddPar( this Client self ) => self.AddPar( Game.Current.Course._currentHole );
+	public static Entity GetEntity( this IClient self ) => Entity.FindByIndex( self.NetworkIdent );
+	public static bool IsHost( this IClient self ) => Sandbox.Game.IsListenServer && self.NetworkIdent == 1;
+	public static int GetPar( this IClient self, int hole ) => self.GetInt( $"par_{hole}" );
+	public static void AddPar( this IClient self, int hole ) => self.AddInt( $"par_{hole}" );
+	public static int GetPar( this IClient self ) => self.GetPar( Game.Current.Course._currentHole );
+	public static void AddPar( this IClient self ) => self.AddPar( Game.Current.Course._currentHole );
 
-	public static int GetTotalPar( this Client self )
+	public static int GetTotalPar( this IClient self )
 	{
 		int total = 0;
 

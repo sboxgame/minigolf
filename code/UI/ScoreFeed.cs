@@ -12,11 +12,11 @@ public partial class ScoreFeed : Panel
 	{
 		public RealTimeSince AddedTimeSince;
 
-		public ScoreFeedEntry( Panel parent, Client cl, int par, int score ) : base( parent )
+		public ScoreFeedEntry( Panel parent, IClient cl, int par, int score ) : base( parent )
 		{
 			// todo: hole in one
 
-			Add.Image( $"avatarbig:{cl.PlayerId}", "avatar" );
+			Add.Image( $"avatarbig:{cl.SteamId}", "avatar" );
 			if ( score == 1 )
 			{
 				Add.Label( "Hole-in-One", "score holeinone" );
@@ -47,7 +47,7 @@ public partial class ScoreFeed : Panel
 		StyleSheet.Load( "/ui/ScoreFeed.scss" );
 	}
 
-	public void AddEntry( Client cl, int par, int score )
+	public void AddEntry( IClient cl, int par, int score )
 	{
 		_ = new ScoreFeedEntry( this, cl, par, score );
 		Sound.FromScreen( "minigolf.award" ).SetVolume( 0.5f );
@@ -56,7 +56,7 @@ public partial class ScoreFeed : Panel
 	[ConCmd.Client("minigolf_score_test")]
 	public static void AddTest()
 	{
-		Instance.AddEntry( Local.Client, 3, 3 );
+		Instance.AddEntry( Sandbox.Game.LocalClient, 3, 3 );
 		Sound.FromScreen( "minigolf.award" ).SetVolume(0.5f);
 	}
 }

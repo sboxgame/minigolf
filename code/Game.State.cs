@@ -31,10 +31,10 @@ partial class Game
 	{
 		State = GameState.Playing;
 
-		GameServices.StartGame();
+		// GameServices.StartGame();
 
 		// Spawn balls for all clients
-		foreach ( var cl in Client.All )
+		foreach ( var cl in Sandbox.Game.Clients )
 		{
 			var ball = new Ball();
 			cl.Pawn = ball;
@@ -46,18 +46,18 @@ partial class Game
 	{
 		State = GameState.EndOfGame;
 
-		var clients = Client.All.OrderBy( cl => cl.GetTotalPar() ).ToList();
-		for ( int i = 0; i < clients.Count; i++ )
-		{
-			// Don't score late comers
-			if ( clients[i].GetValue<bool>( "late", false ) )
-				continue;
+		//var clients = Sandbox.Game.Clients.OrderBy( cl => cl.GetTotalPar() ).ToList();
+		//for ( int i = 0; i < clients.Count; i++ )
+		//{
+		//	// Don't score late comers
+		//	if ( clients[i].GetValue<bool>( "late", false ) )
+		//		continue;
 
-			var result = i == 0 ? GameplayResult.Win : GameplayResult.Lose;
-			clients[i].SetGameResult( result, clients[i].GetTotalPar() );
-		}
+		//	//var result = i == 0 ? GameplayResult.Win : GameplayResult.Lose;
+		//	//clients[i].SetGameResult( result, clients[i].GetTotalPar() );
+		//}
 
-		GameServices.EndGame();
+		////GameServices.EndGame();
 
 		GolfScoreboard.SetOpen( To.Everyone, true );
 		ReturnToLobbyTime = Time.Now + 15.0f;
@@ -91,7 +91,7 @@ partial class Game
 		// await GameTask.DelaySeconds( 5.0f );
 
 		// Respawn all pawns
-		foreach ( var cl in Client.All )
+		foreach ( var cl in Sandbox.Game.Clients )
 		{
 			cl.Pawn = new Ball();
 			(cl.Pawn as Ball).ResetPosition( Course.CurrentHole.SpawnPosition, Course.CurrentHole.SpawnAngles );
@@ -106,7 +106,7 @@ partial class Game
 		if ( State != GameState.WaitingForPlayers ) return;
 		if ( StartTime == 0 ) return; // Level not loaded yet
 			
-		if ( Time.Now >= StartTime || Client.All.Count >= LobbyCount )
+		if ( Time.Now >= StartTime || Sandbox.Game.Clients.Count >= LobbyCount )
 			StartGame();
 
 	}
@@ -118,8 +118,8 @@ partial class Game
 		if ( IsHoleEnding ) return;
 
 		// Check if all playing clients have putted their ball
-		var WaitingForClientsCount = Client.All.Count;
-		foreach ( var cl in Client.All )
+		var WaitingForClientsCount = Sandbox.Game.Clients.Count;
+		foreach ( var cl in Sandbox.Game.Clients )
 		{
 			if ( !cl.Pawn.IsValid() )
 				WaitingForClientsCount--;
@@ -135,7 +135,7 @@ partial class Game
 		if ( State != GameState.EndOfGame ) return;
 		if ( Time.Now < ReturnToLobbyTime ) return;
 
-		Client.All.ToList().ForEach( cl => cl.Kick() );
+		Sandbox.Game.Clients.ToList().ForEach( cl => cl.Kick() );
 	}
 
 	[ConCmd.Admin( "minigolf_force_start" )]
@@ -158,7 +158,7 @@ partial class Game
 	public static void SkipToHole( int hole )
 	{
 		Current.Course._currentHole = hole;
-		foreach ( var cl in Client.All )
+		foreach ( var cl in Sandbox.Game.Clients )
 		{
 			Current.ResetBall( cl );
 		}

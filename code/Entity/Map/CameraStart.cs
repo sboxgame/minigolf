@@ -23,9 +23,7 @@ public partial class HoleCamera : Entity
 	public override void ClientSpawn()
 	{
 		var camera = Components.Create<StaticCamera>();
-		camera.FieldOfView = FOV;
-		camera.ZNear = ZNear;
-		camera.ZFar = ZFar;
+		camera.FOV = FOV;
 	}
 }
 
@@ -49,8 +47,6 @@ public partial class StartCamera : Entity
 	public override void ClientSpawn()
 	{
 		var camera = Components.Create<StaticCamera>();
-		camera.FieldOfView = FOV;
-		camera.ZNear = ZNear;
-		camera.ZFar = ZFar;
+		camera.FOV = FOV;
 	}
 }

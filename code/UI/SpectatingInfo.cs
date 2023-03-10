@@ -18,7 +18,7 @@ public class SpectatingInfo : Panel
 		if ( camera is null )
 			return;
 
-		var ball = Local.Pawn as Ball;
+		var ball = Sandbox.Game.LocalClient as Ball;
 		var target = camera.Target;
 		SetClass( "show", target is not null && ball is null );
 

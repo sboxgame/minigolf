@@ -78,7 +78,7 @@ public class CustomizeMenu : Panel
 		}
 	}
 
-	[Event.BuildInput]
+	[Event.Client.BuildInput]
 	private void OnBuildInput()
 	{
 		if ( Input.Pressed( InputButton.Menu ) )

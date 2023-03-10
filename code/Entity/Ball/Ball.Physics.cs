@@ -10,11 +10,11 @@ public partial class Ball
 
 	static float PowerMultiplier => 2500.0f;
 
-	public override void Simulate( Client cl )
+	public override void Simulate( IClient cl )
 	{
 		base.Simulate( cl );
 
-		if ( IsServer )
+		if ( Sandbox.Game.IsServer )
 		{
 			using ( Prediction.Off() )
 			{

@@ -38,7 +38,7 @@ public partial class HoleGoal : BaseTrigger
 
 	public override void StartTouch( Entity other )
 	{
-		if ( IsClient ) return;
+		if ( Sandbox.Game.IsClient ) return;
 
 		if ( other is not Ball ball )
 			return;

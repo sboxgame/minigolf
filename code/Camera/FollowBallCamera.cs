@@ -6,7 +6,7 @@ using Facepunch.Minigolf.Entities;
 
 namespace Facepunch.Minigolf;
 
-public class FollowBallCamera : CameraMode
+public class FollowBallCamera : BaseCamera
 {
 	private List<MiniProp> viewblockers = new();
 
@@ -30,27 +30,20 @@ public class FollowBallCamera : CameraMode
 		return entity is Ball;
 	}
 
-	public override void Build( ref CameraSetup camSetup )
-	{
-		base.Build( ref camSetup );
-		camSetup.Position = Position;
-		camSetup.Rotation = Rotation;
-	}
-
 	public override void Update()
 	{
 		if ( !Ball.IsValid() ) return;
 
 		UpdateViewBlockers( Ball );
 
-		Position = Ball.Position + Vector3.Up * (24 + (Ball.CollisionBounds.Center.z * Ball.Scale));
+		Camera.Position = Ball.Position + Vector3.Up * (24 + (Ball.CollisionBounds.Center.z * Ball.Scale));
 		TargetRotation = Rotation.From( TargetAngles );
 
-		Rotation = Rotation.Slerp( Rotation, TargetRotation, RealTime.Delta * 10.0f );
+		Camera.Rotation = Rotation.Slerp( Camera.Rotation, TargetRotation, RealTime.Delta * 10.0f );
 		TargetDistance = TargetDistance.LerpTo( Distance, RealTime.Delta * 5.0f );
-		Position += Rotation.Backward * TargetDistance;
+		Camera.Position += Camera.Rotation.Backward * TargetDistance;
 
-		FieldOfView = 80.0f;
+		Camera.FieldOfView = 80.0f;
 
 		var center = Ball.Position + Vector3.Up * 80;
 		var distance = 150.0f * Ball.Scale;
@@ -97,7 +90,7 @@ public class FollowBallCamera : CameraMode
 		}
 		viewblockers.Clear();
 
-		var traces = Trace.Sphere( 3f, CurrentView.Position, pawn.Position ).RunAll();
+		var traces = Trace.Sphere( 3f, Camera.Position, pawn.Position ).RunAll();
 
 		if ( traces == null ) return;
 

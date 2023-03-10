@@ -2,7 +2,7 @@ global using Sandbox;
 global using Sandbox.UI;
 global using Sandbox.UI.Construct;
 global using Sandbox.Component;
-global using SandboxEditor;
+global using Editor;
 
 global using System;
 global using System.Collections.Generic;
@@ -16,21 +16,21 @@ using Facepunch.Customization;
 
 namespace Facepunch.Minigolf;
 
-public partial class Game : Sandbox.Game
+public partial class Game : Sandbox.GameManager
 {
-	public static new Game Current => Sandbox.Game.Current as Game;
+	public static new Game Current => Sandbox.GameManager.Current as Game;
 
 	public Game()
 	{
-		if ( IsServer )
+		if ( Sandbox.Game.IsServer )
 		{
 			AddToPrecache();
 			Course = new();
 		}
 
-		if ( IsClient )
+		if ( Sandbox.Game.IsClient )
 		{
-			Local.Hud = new GolfRootPanel();
+			Sandbox.Game.RootPanel = new GolfRootPanel();
 		}
 
 		Customize.WatchForChanges = true;
@@ -41,11 +41,11 @@ public partial class Game : Sandbox.Game
     {
 		// sometings fucked with BaseNetworkable during hotload, data gets lost
 		// just make a new Course for now to avoid nre spam
-		if ( IsClient ) return;
+		if ( Sandbox.Game.IsClient ) return;
 		Course.LoadFromMap();
     }
 
-	public override void ClientJoined( Client cl )
+	public override void ClientJoined( IClient cl )
 	{
 		Log.Info( $"\"{cl.Name}\" has joined the game" );
 
@@ -54,7 +54,7 @@ public partial class Game : Sandbox.Game
 		if ( State == GameState.Playing )
 		{
 			cl.SetValue( "late", true );
-			Facepunch.Minigolf.UI.ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined late, they will not be eligible for scoring.", $"avatar:{ cl.PlayerId }" );
+			Facepunch.Minigolf.UI.ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined late, they will not be eligible for scoring.", $"avatar:{ cl.SteamId }" );
 
 			// Just give them shitty scores on each hole for now
 			for ( int i = 0; i <= Course._currentHole; i++ )
@@ -62,11 +62,11 @@ public partial class Game : Sandbox.Game
 		}
 		else
 		{
-			Facepunch.Minigolf.UI.ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined", $"avatar:{ cl.PlayerId }" );
+			Facepunch.Minigolf.UI.ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined", $"avatar:{ cl.SteamId }" );
 		}
 	}
 
-	public override bool CanHearPlayerVoice(Client source, Client dest) => true;
+	public override bool CanHearPlayerVoice( IClient source, IClient dest ) => true;
 
 	public override void PostLevelLoaded()
 	{
@@ -76,17 +76,17 @@ public partial class Game : Sandbox.Game
 
 	public override void BuildInput()
 	{
-		Host.AssertClient();
+		Sandbox.Game.AssertClient();
 
 		Event.Run( "buildinput" );
 
 		// todo: pass to spectate
-		var ball = Local.Pawn as Ball;
+		var ball = Sandbox.Game.LocalPawn as Ball;
 
-		if ( Input.Pressed( InputButton.View ) && Local.Pawn.IsValid() && !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f )
+		if ( Input.Pressed( InputButton.View ) && Sandbox.Game.LocalPawn.IsValid() && !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f )
 		{
 			if ( FreeCamera == null )
-				FreeCamera = new FreeCamera();
+				FreeCamera = Components.GetOrCreate<FreeCamera>();
 			else
 				FreeCamera = null;
 		}
@@ -94,11 +94,12 @@ public partial class Game : Sandbox.Game
 		// the camera is the primary method here
 		var camera = FindActiveCamera();
 		camera?.BuildInput();
+		camera?.Update();
 
-		Local.Pawn?.BuildInput();
+		ball?.BuildInput();
 	}
 
-	public override void Simulate( Client cl )
+	public override void Simulate( IClient cl )
 	{
 		base.Simulate( cl );
 

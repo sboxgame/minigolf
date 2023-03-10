@@ -21,7 +21,7 @@ public partial class Ball
 	{
 		base.OnNewModel( model );
 
-		if ( IsClient )
+		if ( Sandbox.Game.IsClient )
 		{
 			NameTag = new BallNameTag( this );
 		}
@@ -29,7 +29,7 @@ public partial class Ball
 
 	protected override void OnDestroy()
 	{
-		if ( IsClient )
+		if ( Sandbox.Game.IsClient )
 		{
 			NameTag?.Delete();
 			PowerArrow?.Delete();
@@ -41,7 +41,7 @@ public partial class Ball
 	private void CreateParticles()
 	{
 		// Create all particles clientside, this gives us authority over them to set control points clientside.
-		Host.AssertClient();
+		Sandbox.Game.AssertClient();
 
 		var ballRadius = CollisionBounds.Size.z / 2;
 
@@ -52,7 +52,7 @@ public partial class Ball
 		Circle.SetPosition( 1, Vector3.Down * ballRadius + Vector3.Up * 0.01f );
 	}
 
-	[Event.Frame]
+	[Event.Client.Frame]
 	private void Frame()
 	{
 		DownTrace = Trace.Ray( Position, Position + Vector3.Down * (CollisionBounds.Size.z) ).WithoutTags( "golf_ball" ).Run();
@@ -75,7 +75,7 @@ public partial class Ball
 			Circle = null;
 		}
 
-		if ( Local.Pawn == this )
+		if ( Sandbox.Game.LocalPawn == this )
 		{
 			AdjustArrow();
 		}
@@ -98,7 +98,7 @@ public partial class Ball
 		if ( !PowerArrow.IsValid() )
 			PowerArrow = new();
 
-		var direction = Angles.AngleVector( new Angles( 0, Camera.Rotation.Yaw(), 0 ) );
+		var direction = Angles.AngleVector( new Angles( 0, Sandbox.Camera.Rotation.Yaw(), 0 ) );
 
 		var ballRadius = CollisionBounds.Size.z / 2;
 		PowerArrow.Position = Position + Vector3.Down * ballRadius + Vector3.Up * 0.01f + direction * 5.0f;

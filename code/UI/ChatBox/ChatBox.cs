@@ -92,7 +92,7 @@ public partial class ChatBox : Panel
 		Current?.AddEntry( name, message, avatar );
 
 		// Only log clientside if we're not the listen server host
-		if ( !Global.IsListenServer )
+		if ( !Sandbox.Game.IsListenServer )
 		{
 			Log.Info( $"{name}: {message}" );
 		}
@@ -113,14 +113,14 @@ public partial class ChatBox : Panel
 	[ConCmd.Server( "say" )]
 	public static void Say( string message )
 	{
-		Assert.NotNull( ConsoleSystem.Caller );
+		if ( ConsoleSystem.Caller == null ) return;
 
 		// todo - reject more stuff
 		if ( message.Contains( '\n' ) || message.Contains( '\r' ) )
 			return;
 
 		Log.Info( $"{ConsoleSystem.Caller}: {message}" );
-		AddChatEntry( To.Everyone, $"{ConsoleSystem.Caller.Name}", message, $"avatar:{ConsoleSystem.Caller.PlayerId}" );
+		AddChatEntry( To.Everyone, $"{ConsoleSystem.Caller.Name}", message, $"avatar:{ConsoleSystem.Caller.SteamId}" );
 	}
 }
 

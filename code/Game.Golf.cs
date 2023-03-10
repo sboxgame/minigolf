@@ -23,7 +23,7 @@ public partial class Game
 	/// <param name="hole"></param>
 	public void CupBall( Ball ball, int hole )
     {
-		Host.AssertServer();
+		Sandbox.Game.AssertServer();
 
 		// Make sure the hole they cupped in is the current one...
 		if ( hole != Course.CurrentHole.Number )
@@ -32,7 +32,8 @@ public partial class Game
 			return;
 		}
 
-		GameServices.RecordEvent( ball.Client, $"Cupped hole { Course.CurrentHole.Number }", ball.Client.GetPar() );
+		// TODO - This is gone
+		// GameServices.RecordEvent( ball.Client, $"Cupped hole { Course.CurrentHole.Number }", ball.Client.GetPar() );
 
 		// Tell the ball entity it has been cupped, stops input and does fx.
 		ball.Cup();
@@ -71,13 +72,13 @@ public partial class Game
 		var client = ball.Client;
 		ScoreFeed.Instance.AddEntry( client, Course.CurrentHole.Par, score );
 
-		if ( Local.Client == client )
+		if ( Sandbox.Game.LocalClient == client )
 			ParScreen.Show( Course.CurrentHole.Number, Course.CurrentHole.Par, score );
 	}
 
-	protected void ResetBall( Client cl )
+	protected void ResetBall( IClient cl )
 	{
-		if ( IsClient )
+		if ( Sandbox.Game.IsClient )
 			return;
 
 		var SpawnPosition = Course.CurrentHole.SpawnPosition;

@@ -23,7 +23,7 @@ internal partial class MiniProp : ModelEntity
 		EnableAllCollisions = Solid;
 	}
 
-	[Event.Frame]
+	[Event.Client.Frame]
 	private void OnFrame()
 	{
 		if ( !CameraFade ) return;

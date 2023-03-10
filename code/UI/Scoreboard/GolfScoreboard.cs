@@ -1,11 +1,9 @@
 ﻿using Sandbox;
-using Sandbox.Hooks;
 using Sandbox.UI;
 using Sandbox.UI.Construct;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 
 namespace Facepunch.Minigolf.UI;
 
@@ -18,8 +16,8 @@ public partial class GolfScoreboard : Panel
 	public bool ForceOpen;
 
 	// Bindings for HTML
-	public string MapName => Global.MapName;
-	public string PlayerCount => Client.All.Count.ToString();
+	public string MapName => Sandbox.Game.Server.MapIdent;
+	public string PlayerCount => Sandbox.Game.Clients.Count.ToString();
 	public int CurrentHoleNumber => Game.Current.Course.CurrentHole.Number;
 	public string CurrentHoleName => Game.Current.Course.CurrentHole.Name;
 
@@ -50,7 +48,7 @@ public partial class GolfScoreboard : Panel
 	Panel HoleHeadersPanel { get; set; }
 	Panel ParHeadersPanel { get; set; }
 
-	Dictionary<Client, ScoreboardPlayer> Players = new();
+	Dictionary<IClient, ScoreboardPlayer> Players = new();
 
 	public GolfScoreboard()
 	{
@@ -107,13 +105,13 @@ public partial class GolfScoreboard : Panel
 		else if ( Game.Current.State == GameState.Playing )
 			SetClass( "open", Input.Down( InputButton.Score ) );
 
-		foreach ( var client in Client.All.Except( Players.Keys ) )
+		foreach ( var client in Sandbox.Game.Clients.Except( Players.Keys ) )
 		{
 			var entry = AddClient( client );
 			Players[client] = entry;
 		}
 
-		foreach ( var client in Players.Keys.Except( Client.All ) )
+		foreach ( var client in Players.Keys.Except( Sandbox.Game.Clients ) )
 		{
 			if ( Players.TryGetValue( client, out var row ) )
 			{
@@ -126,7 +124,7 @@ public partial class GolfScoreboard : Panel
 		PlayersPanel.SortChildren<ScoreboardPlayer>( ( p ) => p.Client.GetTotalPar() );
 	}
 
-	protected ScoreboardPlayer AddClient( Client cl )
+	protected ScoreboardPlayer AddClient( IClient cl )
 	{
 		var pnl = new ScoreboardPlayer( cl, PlayersPanel );
 		PlayersPanel.AddChild( pnl );

@@ -1,4 +1,6 @@
-﻿namespace Facepunch.Minigolf.Entities;
+﻿using Sandbox;
+
+namespace Facepunch.Minigolf.Entities;
 
 /// <summary>
 /// A trigger brush that applies a constant velocity to golf balls.
@@ -59,7 +61,7 @@ public partial class SpeedBoost : ModelEntity
 	[Event.Physics.PreStep]
 	public void ApplyForce()
 	{
-		var acceleration = Acceleration / ( Global.TickRate * Map.Physics.SubSteps );
+		var acceleration = Acceleration / ( Sandbox.Game.TickRate * Sandbox.Game.PhysicsWorld.SubSteps );
 
 		foreach( var ball in Balls )
 		{

@@ -40,7 +40,7 @@ internal class CustomizeRenderScene : Panel
 			}
 		}
 
-		var cc = Local.Client.Components.Get<CustomizeComponent>();
+		var cc = Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>();
 		if ( cc == null ) return;
 
 		var newhash = cc.GetPartsHash();
@@ -72,7 +72,7 @@ internal class CustomizeRenderScene : Panel
 		new SceneLight( SceneWorld, ScenePanel.Camera.Position + Vector3.Up * 5 + Vector3.Right * 2, 200, Color.White );
 		new SceneLight( SceneWorld, Vector3.Down * 50 + Vector3.Left * 20, 200, Color.White.Darken( .25f ) );
 
-		var cc = Local.Client.Components.Get<CustomizeComponent>();
+		var cc = Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>();
 		var skinpart = cc.GetEquippedPart( "Skins" );
 		if ( skinpart != null && !string.IsNullOrEmpty( skinpart.AssetPath ) )
 		{

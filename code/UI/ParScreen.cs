@@ -71,6 +71,6 @@ public partial class ParScreen : Panel
 	[ConCmd.Client( "minigolf_debug_testscore" )]
 	public static void Show( int hole, int par, int strokes )
 	{
-		Local.Hud.AddChild( new ParScreen( hole, par, strokes ) );
+		Sandbox.Game.RootPanel.AddChild( new ParScreen( hole, par, strokes ) );
 	}
 }

@@ -12,8 +12,8 @@ public class CustomizeComponent : EntityComponent
 
 	public static string EnsembleJson
 	{
-		get => Cookie.Get(Global.GameIdent + ".customize.ensemble", string.Empty );
-		set => Cookie.Set(Global.GameIdent + ".customize.ensemble", value );
+		get => Cookie.Get(Game.Server.GameIdent + ".customize.ensemble", string.Empty );
+		set => Cookie.Set(Game.Server.GameIdent + ".customize.ensemble", value );
 	}
 
 	public List<CustomizationPart> Parts = new();
@@ -22,7 +22,7 @@ public class CustomizeComponent : EntityComponent
 	{
 		base.OnActivate();
 
-		if ( Entity.IsClient )
+		if ( Sandbox.Game.IsClient )
 		{
 			Deserialize( EnsembleJson );
 		}
@@ -64,7 +64,7 @@ public class CustomizeComponent : EntityComponent
 
 		Parts.Add( part );
 
-		if ( Host.IsClient )
+		if ( Sandbox.Game.IsClient )
 		{
 			EnsembleJson = Serialize();
 			EquipPartOnServer( Entity.NetworkIdent, part.Id );
@@ -84,7 +84,7 @@ public class CustomizeComponent : EntityComponent
 
 		Parts.Remove( part );
 
-		if ( Host.IsClient )
+		if ( Sandbox.Game.IsClient )
 		{
 			EnsembleJson = Serialize();
 			UnequipPartOnServer( Entity.NetworkIdent, part.Id );

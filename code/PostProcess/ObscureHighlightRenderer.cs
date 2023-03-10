@@ -18,7 +18,7 @@ internal class ObscureHighlightRenderer : RenderHook
 
 	public static void RenderEffect()
 	{
-		if ( Local.Pawn is not Ball ball ) return;
+		if ( Sandbox.Game.LocalPawn is not Ball ball ) return;
 
 		var shapeMat = Material.FromShader( "HighlightObject.vfx" );
 		var screenMat = Material.FromShader( "HighlightPostProcess.vfx" );
@@ -32,7 +32,7 @@ internal class ObscureHighlightRenderer : RenderHook
 		//
 		Graphics.RenderTarget = rt;
 
-		Graphics.Clear( Color.Black, true, true );
+		Graphics.Clear( Color.Black, true, true, false );
 		Graphics.Render( ball.SceneObject, material: shapeMat );
 
 		Graphics.RenderTarget = null;

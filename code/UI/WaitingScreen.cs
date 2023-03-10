@@ -8,14 +8,14 @@ namespace Facepunch.Minigolf.UI;
 
 public partial class WaitingScreenClient : Panel
 {		
-	public Client Client { get; set; }
+	public IClient Client { get; set; }
 	public Image Avatar { get; set; }
 	public bool Loaded { get; set; }
 
-	public WaitingScreenClient( Client cl )
+	public WaitingScreenClient( IClient cl )
 	{
 		Client = cl;
-		Avatar = Add.Image( $"avatarbig:{cl.PlayerId}" );
+		Avatar = Add.Image( $"avatarbig:{cl.SteamId}" );
 	}
 
 	public override void Tick()
@@ -36,7 +36,7 @@ public partial class WaitingScreen : Panel
 
 	// Bindables for HTML:
 	public string StartingTimeLeft => $"{ Math.Max(0, Game.Current.StartTime - Time.Now ).CeilToInt() }";
-	public string PlayerCount => $"{Client.All.Count}";
+	public string PlayerCount => $"{Sandbox.Game.Clients.Count}";
 	public string MaxPlayers => $"{ Game.Current.LobbyCount }";
 
 	public override void Tick()
@@ -49,7 +49,7 @@ public partial class WaitingScreen : Panel
 		}
 
 		// Add any new clients that aren't already in the list
-		foreach ( var client in Client.All )
+		foreach ( var client in Sandbox.Game.Clients )
 		{
 			if ( PlayersContainer.Children.OfType<WaitingScreenClient>().Any( panel => panel.Client == client ) ) continue;
 			PlayersContainer.AddChild( new WaitingScreenClient( client ) );

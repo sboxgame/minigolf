@@ -11,21 +11,21 @@ public partial class Game
 	Entity StartCameraEntity { get; set; }
 	IEnumerable<Ball> ActiveBalls => All.OfType<Ball>().Where( ball => !ball.Cupped );
 
-	public override CameraMode FindActiveCamera()
+	public virtual BaseCamera FindActiveCamera()
 	{
 		// You can use dev cam
-		var devCam = Local.Client.Components.Get<DevCamera>();
-		if ( devCam != null ) return devCam;
+		var devCam = Sandbox.Game.LocalClient.Components.Get<DevCamera>();
+		if ( devCam != null ) return null;
 
 		// If the game hasn't started yet show our "cinematic" starting camera
 		if ( State == GameState.WaitingForPlayers )
 		{
 			if ( !StartCameraEntity.IsValid() ) StartCameraEntity = Entity.All.OfType<StartCamera>().First();
-			return StartCameraEntity.Components.Get<CameraMode>();
+			return StartCameraEntity.Components.Get<BaseCamera>();
 		}
 
 		// Pawn will only be set whilst we're in play ( e.g not spectating, or in between holes )
-		if ( Local.Pawn is Ball ball )
+		if ( Sandbox.Game.LocalPawn is Ball ball )
         {
 			if ( FreeCamera != null )
 			{
@@ -69,7 +69,7 @@ public partial class Game
 	public FreeCamera FreeCamera { get; set; }
 	public float FreeCamTimeLeft { get; set; } = 30.0f;
 
-	[Event.Frame]
+	[Event.Client.Frame]
 	public void TickFreeCamTimeLeft()
 	{
 		if ( FreeCamera != null )

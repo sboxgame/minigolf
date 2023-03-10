@@ -15,7 +15,7 @@ public partial class PowerBar : Panel
 
 	public override void Tick()
 	{
-		if ( Local.Pawn is not Ball ball ) return;
+		if ( Sandbox.Game.LocalClient is not Ball ball ) return;
 
 		Bar.Style.Width = Length.Percent( ball.ShotPower * 100 );
 		Bar.Style.Dirty();

@@ -49,7 +49,7 @@ public partial class Ball : ModelEntity
 
 		var sound = PlaySound( "minigolf.sink_into_cup" );
 		sound.SetVolume( 1.0f );
-		sound.SetPitch( Rand.Float(0.75f, 1.25f) );
+		sound.SetPitch( Sandbox.Game.Random.Float( 0.75f, 1.25f ) );
 	}
 
 	public void ResetPosition( Vector3 position, Angles direction )
@@ -72,7 +72,7 @@ public partial class Ball : ModelEntity
 	protected void PlayerResetPosition( Vector3 position, Angles angles )
 	{
 		Camera.TargetAngles = new(14, angles.yaw, 0);
-		Camera.Rotation = Rotation.From( 14, angles.yaw, 0 );
+		//Camera.Rotation = Rotation.From( 14, angles.yaw, 0 );
 	}
 
 }

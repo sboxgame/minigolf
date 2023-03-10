@@ -20,7 +20,7 @@ internal class CustomizePartIcon : Button
 	{
 		base.Tick();
 
-		var cust = Local.Client.Components.Get<CustomizeComponent>();
+		var cust = Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>();
 		SetClass( "equipped", cust.IsEquipped( Part ) );
 	}
 
@@ -28,7 +28,7 @@ internal class CustomizePartIcon : Button
 	{
 		base.OnClick( e );
 
-		var cust = Local.Client.Components.Get<CustomizeComponent>();
+		var cust = Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>();
 		cust.Equip( Part );
 	}
 
