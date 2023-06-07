@@ -14,7 +14,7 @@ public class SpectatingInfo : Panel
 
 	public override void Tick()
 	{
-		var camera = Game.Current.FollowBallCamera;
+		var camera = MinigolfGame.Current.FollowBallCamera;
 		if ( camera is null )
 			return;
 

@@ -21,8 +21,8 @@ public partial class HoleMarker : Panel
 
 	public override void Tick()
 	{
-		if ( Game.Current == null) return;
-		var hole = Game.Current.Course.CurrentHole;
+		if ( MinigolfGame.Current == null) return;
+		var hole = MinigolfGame.Current.Course.CurrentHole;
 		if ( hole == null ) return;
 
 		if ( Sandbox.Game.LocalPawn is not Ball ball ) return;

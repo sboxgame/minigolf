@@ -17,23 +17,23 @@ public partial class HoleBounds : BaseTrigger
 
 	public override void StartTouch(Entity other)
 	{
-		if ( Game.Current.Course.CurrentHole.Number != HoleNumber )
+		if ( MinigolfGame.Current.Course.CurrentHole.Number != HoleNumber )
 			return;
 
 		if ( other is not Ball ball )
 			return;
 
-		Game.Current.UpdateBallInBounds( ball, true );
+		MinigolfGame.Current.UpdateBallInBounds( ball, true );
 	}
 
 	public override void EndTouch(Entity other)
 	{
-		if ( Game.Current.Course.CurrentHole.Number != HoleNumber )
+		if ( MinigolfGame.Current.Course.CurrentHole.Number != HoleNumber )
 			return;
 
 		if ( other is not Ball ball )
 			return;
 
-		Game.Current.UpdateBallInBounds( ball, false );
+		MinigolfGame.Current.UpdateBallInBounds( ball, false );
 	}
 }

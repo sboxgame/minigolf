@@ -43,6 +43,6 @@ public partial class HoleGoal : BaseTrigger
 		if ( other is not Ball ball )
 			return;
 
-		Game.Current.CupBall( ball, HoleNumber );
+		MinigolfGame.Current.CupBall( ball, HoleNumber );
 	}
 }

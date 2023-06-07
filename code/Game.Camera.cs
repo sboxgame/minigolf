@@ -6,7 +6,7 @@ using Facepunch.Minigolf.UI;
 
 namespace Facepunch.Minigolf;
 
-public partial class Game
+public partial class MinigolfGame
 {
 	Entity StartCameraEntity { get; set; }
 	IEnumerable<Ball> ActiveBalls => All.OfType<Ball>().Where( ball => !ball.Cupped );

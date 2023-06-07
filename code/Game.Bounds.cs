@@ -6,7 +6,7 @@ using Facepunch.Minigolf.UI;
 
 namespace Facepunch.Minigolf;
 
-public partial class Game
+public partial class MinigolfGame
 {
 	[ConVar.Server( "minigolf_check_bounds" )]
 	public static bool CheckBounds { get; set; } = true;

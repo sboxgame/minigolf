@@ -42,7 +42,7 @@ public partial class Water : ModelEntity
 				return;
 
 			if ( other is Ball ball )
-					Game.Current.BallOutOfBounds( ball, Game.OutOfBoundsType.Water );
+					MinigolfGame.Current.BallOutOfBounds( ball, MinigolfGame.OutOfBoundsType.Water );
 		};
 		task.Invoke();
 	}

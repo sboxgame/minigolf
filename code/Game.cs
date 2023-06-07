@@ -16,13 +16,13 @@ using Facepunch.Customization;
 
 namespace Facepunch.Minigolf;
 
-public partial class Game : Sandbox.GameManager
+public partial class MinigolfGame : Sandbox.GameManager
 {
-	public static new Game Current => Sandbox.GameManager.Current as Game;
+	public static new MinigolfGame Current => Sandbox.GameManager.Current as MinigolfGame;
 
-	public Game()
+	public MinigolfGame()
 	{
-		if ( Sandbox.Game.IsServer )
+		if ( Game.IsServer )
 		{
 			AddToPrecache();
 			Course = new();
@@ -83,7 +83,7 @@ public partial class Game : Sandbox.GameManager
 		// todo: pass to spectate
 		var ball = Sandbox.Game.LocalPawn as Ball;
 
-		if ( Input.Pressed( InputButton.View ) && Sandbox.Game.LocalPawn.IsValid() && !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f )
+		if ( Input.Pressed( "view" ) && Sandbox.Game.LocalPawn.IsValid() && !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f )
 		{
 			if ( FreeCamera == null )
 				FreeCamera = Components.GetOrCreate<FreeCamera>();
@@ -105,7 +105,7 @@ public partial class Game : Sandbox.GameManager
 
 		if ( cl.Pawn is Ball ball && !ball.Cupped )
 		{
-			if ( Input.Pressed( InputButton.Reload ) )
+			if ( Input.Pressed( "reload" ) )
 				ResetBall( cl );
 		}
 	}

@@ -13,7 +13,7 @@ public enum GameState
 	EndOfGame
 }
 
-partial class Game
+partial class MinigolfGame
 {
 	[Net, Change( nameof( OnStateChanged ) )]
 	public GameState State { get; set; } = GameState.WaitingForPlayers;

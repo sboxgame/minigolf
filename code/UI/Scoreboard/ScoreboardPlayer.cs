@@ -37,7 +37,7 @@ public partial class ScoreboardPlayer : Panel
 
 		Scores.Clear();
 
-		for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
+		for ( int i = 0; i < MinigolfGame.Current.Course.Holes.Count; i++ )
 		{
 			Scores[i] = ScoresPanel.Add.Label( $"-" );
 		}
@@ -45,16 +45,16 @@ public partial class ScoreboardPlayer : Panel
 
 	public override void Tick()
 	{
-		for ( int i = 0; i < Game.Current.Course.Holes.Count; i++ )
+		for ( int i = 0; i < MinigolfGame.Current.Course.Holes.Count; i++ )
 		{
-			if ( Game.Current.Course._currentHole < i )
+			if ( MinigolfGame.Current.Course._currentHole < i )
 				continue;
 
 			var par = Client.GetPar( i );
-			var holePar = Game.Current.Course.Holes[i].Par;
+			var holePar = MinigolfGame.Current.Course.Holes[i].Par;
 
 			Scores[i].Text = $"{ par }";
-			Scores[i].SetClass( "active", Game.Current.Course._currentHole == i );
+			Scores[i].SetClass( "active", MinigolfGame.Current.Course._currentHole == i );
 			Scores[i].SetClass( "below", par < holePar );
 			Scores[i].SetClass( "over", par > holePar );
 		}

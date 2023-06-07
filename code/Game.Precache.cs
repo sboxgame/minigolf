@@ -2,7 +2,7 @@
 
 namespace Facepunch.Minigolf;
 
-public partial class Game
+public partial class MinigolfGame
 {
 	static void AddToPrecache()
 	{

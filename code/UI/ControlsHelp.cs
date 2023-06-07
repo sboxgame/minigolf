@@ -8,7 +8,7 @@ namespace Facepunch.Minigolf.UI;
 [Library]
 public class ButtonHint : Panel
 {
-	InputButton InputButton { get; set; }
+	string Button { get; set; }
 	Image ImageGlyph { get; init; }
 
 	public ButtonHint()
@@ -21,12 +21,12 @@ public class ButtonHint : Panel
         base.SetProperty(name, value);
 
 		if ( name == "name" )
-			InputButton = System.Enum.Parse<InputButton>(value, true);
+			Button = value;
 	}
 
     public override void Tick()
 	{
-		ImageGlyph.Texture = Input.GetGlyph( InputButton, InputGlyphSize.Small, GlyphStyle.Light.WithNeutralColorABXY() );
+		ImageGlyph.Texture = Input.GetGlyph( Button, InputGlyphSize.Small, GlyphStyle.Light.WithNeutralColorABXY() );
 		ImageGlyph.Style.Width = ImageGlyph.Texture.Width;
 		ImageGlyph.Style.Height = ImageGlyph.Texture.Height;
 	}

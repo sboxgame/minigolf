@@ -35,9 +35,9 @@ public partial class WaitingScreen : Panel
 	Panel PlayersContainer { get; set; }
 
 	// Bindables for HTML:
-	public string StartingTimeLeft => $"{ Math.Max(0, Game.Current.StartTime - Time.Now ).CeilToInt() }";
+	public string StartingTimeLeft => $"{ Math.Max(0, MinigolfGame.Current.StartTime - Time.Now ).CeilToInt() }";
 	public string PlayerCount => $"{Sandbox.Game.Clients.Count}";
-	public string MaxPlayers => $"{ Game.Current.LobbyCount }";
+	public string MaxPlayers => $"{ MinigolfGame.Current.LobbyCount }";
 
 	public override void Tick()
 	{

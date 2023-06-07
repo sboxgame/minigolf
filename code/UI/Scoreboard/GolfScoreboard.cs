@@ -18,16 +18,16 @@ public partial class GolfScoreboard : Panel
 	// Bindings for HTML
 	public string MapName => Sandbox.Game.Server.MapIdent;
 	public string PlayerCount => Sandbox.Game.Clients.Count.ToString();
-	public int CurrentHoleNumber => Game.Current.Course.CurrentHole.Number;
-	public string CurrentHoleName => Game.Current.Course.CurrentHole.Name;
+	public int CurrentHoleNumber => MinigolfGame.Current.Course.CurrentHole.Number;
+	public string CurrentHoleName => MinigolfGame.Current.Course.CurrentHole.Name;
 
 	public string TimerTimeLeft {
 		get
 		{
-			if ( Game.Current.State == GameState.EndOfGame )
-				return $"00:{ Math.Max( 0, (int)MathF.Floor( Game.Current.ReturnToLobbyTime - Time.Now ) ).ToString( "D2" ) }";
-			if ( Game.Current.IsHoleEnding )
-				return $"00:{ Math.Max( 0, (int)MathF.Floor( Game.Current.NextHoleTime - Time.Now ) ).ToString( "D2" ) }";
+			if ( MinigolfGame.Current.State == GameState.EndOfGame )
+				return $"00:{ Math.Max( 0, (int)MathF.Floor( MinigolfGame.Current.ReturnToLobbyTime - Time.Now ) ).ToString( "D2" ) }";
+			if ( MinigolfGame.Current.IsHoleEnding )
+				return $"00:{ Math.Max( 0, (int)MathF.Floor( MinigolfGame.Current.NextHoleTime - Time.Now ) ).ToString( "D2" ) }";
 			return "";
 		}
 	}
@@ -35,9 +35,9 @@ public partial class GolfScoreboard : Panel
 	{
 		get
 		{
-			if ( Game.Current.State == GameState.EndOfGame )
+			if ( MinigolfGame.Current.State == GameState.EndOfGame )
 				return "Return To Lobby";
-			if ( Game.Current.IsHoleEnding )
+			if ( MinigolfGame.Current.IsHoleEnding )
 				return "Next Hole";
 
 			return "";
@@ -57,13 +57,13 @@ public partial class GolfScoreboard : Panel
 
 	protected override void PostTemplateApplied()
 	{
-		if ( Game.Current.Course == null || Game.Current.Course.Holes.Count == 0 )
+		if ( MinigolfGame.Current.Course == null || MinigolfGame.Current.Course.Holes.Count == 0 )
 			return;
 
 		HoleHeadersPanel.DeleteChildren( true );
 		ParHeadersPanel.DeleteChildren( true );
 
-		var holes = Game.Current.Course.Holes;
+		var holes = MinigolfGame.Current.Course.Holes;
 		for ( int i = 0; i < holes.Count; i++ )
 		{
 			HoleHeadersPanel.Add.Label( $"{ holes[i].Number }" );
@@ -80,7 +80,7 @@ public partial class GolfScoreboard : Panel
 	public override void Tick()
 	{
 		// Some shitty code
-		SetClass( "timer--active", Game.Current.State == GameState.EndOfGame || Game.Current.IsHoleEnding );
+		SetClass( "timer--active", MinigolfGame.Current.State == GameState.EndOfGame || MinigolfGame.Current.IsHoleEnding );
 
 		// Hacky hack
 		if ( HoleHeadersPanel.Children.Count() == 0 )
@@ -90,20 +90,20 @@ public partial class GolfScoreboard : Panel
 			return;
 		}
 
-		var holes = Game.Current.Course.Holes;
+		var holes = MinigolfGame.Current.Course.Holes;
 		for ( int i = 0; i < holes.Count; i++ )
 		{
 			var hole = HoleHeadersPanel.GetChild( i ) as Label;
 			var par = ParHeadersPanel.GetChild( i ) as Label;
 
-			hole.SetClass( "active", Game.Current.Course._currentHole == i );
-			par.SetClass( "active", Game.Current.Course._currentHole == i );
+			hole.SetClass( "active", MinigolfGame.Current.Course._currentHole == i );
+			par.SetClass( "active", MinigolfGame.Current.Course._currentHole == i );
 		}
 
 		if ( ForceOpen )
 			SetClass( "open", true );
-		else if ( Game.Current.State == GameState.Playing )
-			SetClass( "open", Input.Down( InputButton.Score ) );
+		else if ( MinigolfGame.Current.State == GameState.Playing )
+			SetClass( "open", Input.Down( "score" ) );
 
 		foreach ( var client in Sandbox.Game.Clients.Except( Players.Keys ) )
 		{

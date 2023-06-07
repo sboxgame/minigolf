@@ -23,7 +23,7 @@ public partial class OutOfBoundsArea : BaseTrigger
 			AddTouchingBall( ball );
 
 			// TODO: forgiveness time
-			Game.Current.BallOutOfBounds( ball, Game.OutOfBoundsType.Normal );
+			MinigolfGame.Current.BallOutOfBounds( ball, MinigolfGame.OutOfBoundsType.Normal );
 		}
 	}
 

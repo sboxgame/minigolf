@@ -27,7 +27,7 @@ public partial class ChatBox : Panel
 
 	public override void Tick()
 	{
-		if ( Sandbox.Input.Pressed( InputButton.Chat ) )
+		if ( Sandbox.Input.Pressed( "chat" ) )
 			Open();
 
 		//Input.CaretColor = new Color( 0.1714f, 0.831f, 0.5292f );

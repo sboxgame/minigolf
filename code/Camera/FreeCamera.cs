@@ -39,17 +39,17 @@ public class FreeCamera : BaseCamera
 		MoveInput = Input.AnalogMove;
 
 		MoveSpeed = 1;
-		if ( Input.Down( InputButton.Run ) ) MoveSpeed = 5;
-		if ( Input.Down( InputButton.Duck ) ) MoveSpeed = 0.2f;
+		if ( Input.Down( "run" ) ) MoveSpeed = 5;
+		if ( Input.Down( "duck" ) ) MoveSpeed = 0.2f;
 
-		if ( Input.Down( InputButton.Slot1 ) ) LerpMode = 0.0f;
-		if ( Input.Down( InputButton.Slot2 ) ) LerpMode = 0.5f;
-		if ( Input.Down( InputButton.Slot3 ) ) LerpMode = 0.9f;
+		if ( Input.Down( "slot1" ) ) LerpMode = 0.0f;
+		if ( Input.Down( "slot2" ) ) LerpMode = 0.5f;
+		if ( Input.Down( "slot3" ) ) LerpMode = 0.9f;
 
 		LookAngles += Input.AnalogLook;
 		LookAngles.roll = 0;
 
-		Input.ClearButton( InputButton.PrimaryAttack );
+		Input.Clear( "attack1" );
 		Input.StopProcessing = true;
 	}
 

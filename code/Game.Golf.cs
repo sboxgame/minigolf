@@ -5,7 +5,7 @@ using Facepunch.Minigolf.UI;
 
 namespace Facepunch.Minigolf;
 
-public partial class Game
+public partial class MinigolfGame
 {
 	[Net] public Course Course { get; set; }
 

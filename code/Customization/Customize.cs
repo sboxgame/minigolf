@@ -45,7 +45,7 @@ public static class Customize
 
 	private static TimeSince tsdirtycheck;
 
-	[Event.Tick]
+	[GameEvent.Tick]
 	private static async void CheckForChange()
     {
 		if ( !WatchForChanges ) return;
