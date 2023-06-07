@@ -40,8 +40,10 @@ public partial class MinigolfGame
 			// Their ball is cupped, lets do the hole end camera cinematic
 			if ( HoleEndCamera == null )
 			{
-				HoleEndCamera = new( Course.CurrentHole.GoalPosition );
+				HoleEndCamera = new();
 			}
+
+			HoleEndCamera.HolePosition = Course.CurrentHole.GoalPosition;
 
 			return HoleEndCamera;
 		}

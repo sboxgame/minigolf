@@ -7,17 +7,12 @@ public class HoleEndCamera : BaseCamera
 	Vector3 TargetPosition;
 	Rotation TargetRotation;
 
-	Vector3 HolePosition;
+	public Vector3 HolePosition { get; set; }
 
 	float LerpSpeed => 4.0f;
 	float DistanceAwayFromHole => 250.0f;
 
 	float Rot = 0.0f;
-
-	public HoleEndCamera( Vector3 holePosition )
-	{
-		HolePosition = holePosition;
-	}
 
     public override void Update()
     {
