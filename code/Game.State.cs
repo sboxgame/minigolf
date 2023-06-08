@@ -23,8 +23,7 @@ partial class MinigolfGame
 
 	public void OnStateChanged( GameState oldState, GameState newState )
 	{
-		Event.Run( "minigolf.state.changed", newState );
-		// Pass to HUD?
+		Event.Run( MinigolfEvent.StateChange, newState );
 	}
 
 	public void StartGame()
@@ -105,7 +104,7 @@ partial class MinigolfGame
 	{
 		if ( State != GameState.WaitingForPlayers ) return;
 		if ( StartTime == 0 ) return; // Level not loaded yet
-			
+
 		if ( Time.Now >= StartTime || Sandbox.Game.Clients.Count >= LobbyCount )
 			StartGame();
 

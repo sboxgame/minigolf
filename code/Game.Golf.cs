@@ -9,7 +9,7 @@ public partial class MinigolfGame
 {
 	[Net] public Course Course { get; set; }
 
-	public void OnBallStoppedMoving(Ball ball)
+	public void OnBallStoppedMoving( Ball ball )
 	{
 		// if ( CheckBounds && !ball.Cupped && !Course.CurrentHole.InBounds(ball) )
 		// 	BallOutOfBounds(ball, OutOfBoundsType.Normal);
@@ -22,7 +22,7 @@ public partial class MinigolfGame
 	/// <param name="ball"></param>
 	/// <param name="hole"></param>
 	public void CupBall( Ball ball, int hole )
-    {
+	{
 		Sandbox.Game.AssertServer();
 
 		// Make sure the hole they cupped in is the current one...
@@ -69,16 +69,12 @@ public partial class MinigolfGame
 	[ClientRpc]
 	protected void CuppedBall( Ball ball, int score )
 	{
-		var client = ball.Client;
-		ScoreFeed.Instance.AddEntry( client, Course.CurrentHole.Par, score );
-
-		if ( Sandbox.Game.LocalClient == client )
-			ParScreen.Show( Course.CurrentHole.Number, Course.CurrentHole.Par, score );
+		Event.Run( MinigolfEvent.PlayerScored, ball.Client, Course.CurrentHole, score );
 	}
 
 	protected void ResetBall( IClient cl )
 	{
-		if ( Sandbox.Game.IsClient )
+		if ( Game.IsClient )
 			return;
 
 		var SpawnPosition = Course.CurrentHole.SpawnPosition;

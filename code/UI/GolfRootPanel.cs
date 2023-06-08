@@ -23,7 +23,7 @@ public partial class GolfRootPanel : RootPanel
 			WaitingScreen?.Delete( false );
 	}
 
-	[Event( "minigolf.state.changed" )]
+	[MinigolfEvent.StateChange]
 	public void OnGameStateChanged( GameState state )
 	{
 		if ( state != GameState.WaitingForPlayers )

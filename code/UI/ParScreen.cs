@@ -1,9 +1,4 @@
-﻿using Sandbox;
-using Sandbox.UI;
-using Sandbox.UI.Construct;
-using System.Collections.Generic;
-
-namespace Facepunch.Minigolf.UI;
+﻿namespace Facepunch.Minigolf.UI;
 
 public partial class ParScreen : Panel
 {
@@ -46,10 +41,10 @@ public partial class ParScreen : Panel
 		}
 		else
 		{
-			score.AddClass( $"score--{ par - strokes }" );
+			score.AddClass( $"score--{par - strokes}" );
 
-			var text = ScoreText.GetValueOrDefault( par - strokes, $"WTF { par - strokes}" );
-			foreach ( var line in text.Split(' ') )
+			var text = ScoreText.GetValueOrDefault( par - strokes, $"WTF {par - strokes}" );
+			foreach ( var line in text.Split( ' ' ) )
 			{
 				score.Add.Label( line );
 			}
@@ -68,9 +63,16 @@ public partial class ParScreen : Panel
 		}
 	}
 
-	[ConCmd.Client( "minigolf_debug_testscore" )]
-	public static void Show( int hole, int par, int strokes )
+	[MinigolfEvent.PlayerScored]
+	private static void OnPlayerScore( IClient client, HoleInfo hole, int score )
 	{
-		Sandbox.Game.RootPanel.AddChild( new ParScreen( hole, par, strokes ) );
+		if ( Game.LocalClient.IsOwnedByLocalClient )
+			Show( hole.Number, hole.Par, score );
+	}
+
+	[ConCmd.Client( "minigolf_debug_testscore" )]
+	private static void Show( int hole, int par, int strokes )
+	{
+		Game.RootPanel.AddChild( new ParScreen( hole, par, strokes ) );
 	}
 }
