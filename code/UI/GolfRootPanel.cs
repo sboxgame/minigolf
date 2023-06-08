@@ -1,6 +1,3 @@
-using Sandbox;
-using Sandbox.UI;
-
 namespace Facepunch.Minigolf.UI;
 
 [UseTemplate]
@@ -9,7 +6,7 @@ public partial class GolfRootPanel : RootPanel
 	public WaitingScreen WaitingScreen { get; set; }
 
 	public Panel Freecam { get; set; }
-	public string FreecamTime => $"00:{ MinigolfGame.Current.FreeCamTimeLeft.CeilToInt().ToString( "D2" ) }";
+	public string FreecamTime => $"00:{MinigolfGame.Current.FreeCamTimeLeft.CeilToInt().ToString( "D2" )}";
 
 	public override void Tick()
 	{
