@@ -28,22 +28,19 @@ public partial class MinigolfGame : Sandbox.GameManager
 			Course = new();
 		}
 
-		if ( Sandbox.Game.IsClient )
-		{
-			Sandbox.Game.RootPanel = new GolfRootPanel();
-		}
+		if ( Game.IsClient )
+			Game.RootPanel = new GolfRootPanel();
 
 		Customize.WatchForChanges = true;
 	}
 
 	[Event.Hotload]
 	private void OnHotload()
-    {
+	{
 		// sometings fucked with BaseNetworkable during hotload, data gets lost
 		// just make a new Course for now to avoid nre spam
-		if ( Sandbox.Game.IsClient ) return;
-		Course.LoadFromMap();
-    }
+		if ( !Game.IsClient ) Course.LoadFromMap();
+	}
 
 	public override void ClientJoined( IClient cl )
 	{
@@ -54,15 +51,15 @@ public partial class MinigolfGame : Sandbox.GameManager
 		if ( State == GameState.Playing )
 		{
 			cl.SetValue( "late", true );
-			Facepunch.Minigolf.UI.ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined late, they will not be eligible for scoring.", $"avatar:{ cl.SteamId }" );
+			UI.ChatBox.AddInformation( To.Everyone, $"{cl.Name} has joined late, they will not be eligible for scoring.", $"avatar:{cl.SteamId}" );
 
 			// Just give them shitty scores on each hole for now
 			for ( int i = 0; i <= Course._currentHole; i++ )
-				cl.SetInt( $"par_{ i }", Course.Holes[i].Par + 1 );
+				cl.SetInt( $"par_{i}", Course.Holes[i].Par + 1 );
 		}
 		else
 		{
-			Facepunch.Minigolf.UI.ChatBox.AddInformation( To.Everyone, $"{ cl.Name } has joined", $"avatar:{ cl.SteamId }" );
+			UI.ChatBox.AddInformation( To.Everyone, $"{cl.Name} has joined", $"avatar:{cl.SteamId}" );
 		}
 	}
 
