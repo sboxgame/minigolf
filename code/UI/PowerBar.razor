@@ -1,35 +1,35 @@
 @using Facepunch.Minigolf.Entities
 
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet( "/UI/PowerBar.scss" )]
+@attribute [StyleSheet("/UI/PowerBar.scss")]
 
 @if (Game.LocalPawn is not Ball ball) return;
 
 <root>
-  <div class="powerbar-header">
-    <text class="title">Power</text>
-    <text class="value">@FormatShotPower(ball.ShotPower)</text>
-  </div>
-  <div class="powerbar-container">
-    <div class="bar-container">
-      <div class="bar @(ball.ShotPower > 0.0f ? "is-visible" : "")" style="width: @Length.Percent( ball.ShotPower * 100 );"></div>
-    </div>
-    <div class="last-power-container" style="left: @Length.Percent( ball.LastShotPower * 100 );">
-      <text class="last-power-label">@FormatShotPower(ball.LastShotPower)</text>
-      <div class="last-power-icon"></div>
-    </div>
-  </div>
+	<div class="powerbar-header">
+		<text class="title">Power</text>
+		<text class="value">@FormatShotPower(ball.ShotPower)</text>
+	</div>
+	<div class="powerbar-container">
+		<div class="bar-container">
+			<div class="bar @(ball.ShotPower > 0.0f ? "is-visible" : "")" style="width: @Length.Percent( ball.ShotPower * 100 );"></div>
+		</div>
+		<div class="last-power-container" style="left: @Length.Percent( ball.LastShotPower * 100 );">
+			<text class="last-power-label">@FormatShotPower(ball.LastShotPower)</text>
+			<div class="last-power-icon"></div>
+		</div>
+	</div>
 </root>
 
 @code {
-    private string FormatShotPower(float shotPower)
-    {
-        return String.Format("{0:0%}", shotPower);
-    }
+	private string FormatShotPower(float shotPower)
+	{
+		return String.Format("{0:0%}", shotPower);
+	}
 
-    protected override int BuildHash()
-    {
-        var localBall = Game.LocalPawn as Ball;
-        return HashCode.Combine(localBall?.ShotPower, localBall?.LastShotPower);
-    }
+	protected override int BuildHash()
+	{
+		var localBall = Game.LocalPawn as Ball;
+		return HashCode.Combine(localBall?.ShotPower, localBall?.LastShotPower);
+	}
 }

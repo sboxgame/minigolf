@@ -3,60 +3,60 @@
 @namespace Facepunch.Minigolf.UI
 
 <root style="left: @Length.Fraction( screenPos.x ); top: @Length.Fraction( screenPos.y );">
-    <img src="/UI/hole_marker.png">
-    <label>@($"{holeDistance:0}m")</label>
+	<img src="/UI/hole_marker.png">
+	<label>@($"{holeDistance:0}m")</label>
 </root>
 
 @code {
-    private float holeDistance;
-    private Vector3 screenPos;
+	private float holeDistance;
+	private Vector3 screenPos;
 
-    public HoleMarker()
-    {
-        var transform = new PanelTransform();
-		transform.AddTranslateY( Length.Fraction( -1.0f ) );
-		transform.AddScale( 0.5f );
-		transform.AddTranslateX( Length.Fraction( -0.85f ) );
+	public HoleMarker()
+	{
+		var transform = new PanelTransform();
+		transform.AddTranslateY(Length.Fraction(-1.0f));
+		transform.AddScale(0.5f);
+		transform.AddTranslateX(Length.Fraction(-0.85f));
 
 		Style.Transform = transform;
-    }
+	}
 
 	public override void Tick()
 	{
-		if ( MinigolfGame.Current is null || Game.LocalPawn is not Ball ball ) 
-            return;
+		if (MinigolfGame.Current is null || Game.LocalPawn is not Ball ball)
+			return;
 
 		var hole = MinigolfGame.Current.Course.CurrentHole;
-		if ( hole is null ) 
-            return;
+		if (hole is null)
+			return;
 
-		holeDistance = ball.Position.Distance( hole.GoalPosition + Vector3.Up * 8 ) * 0.02f;
+		holeDistance = ball.Position.Distance(hole.GoalPosition + Vector3.Up * 8) * 0.02f;
 
 		var labelPos = hole.GoalPosition + Vector3.Up * 140;
 		screenPos = labelPos.ToScreen();
 	}
 
-    protected override int BuildHash() => HashCode.Combine(holeDistance, screenPos);
+	protected override int BuildHash() => HashCode.Combine(holeDistance, screenPos);
 }
 
 <style>
-  HoleMarker {
-    position: absolute;
-    flex-direction: column;
-    align-items: center;
+	HoleMarker {
+		position: absolute;
+		flex-direction: column;
+		align-items: center;
 
-    img {
-      width: 140px;
-      height: 140px;
-      background-image-tint: rgb(200, 255, 200);
-    }
+		img {
+			width: 140px;
+			height: 140px;
+			background-image-tint: rgb(200, 255, 200);
+		}
 
-    label {
-      color: white;
-      font-size: 32px;
-      text-shadow: 0 3px 0 black;
-      text-stroke: 6px black;
-      margin-top: -16px;
-    }
-  }
+		label {
+			color: white;
+			font-size: 32px;
+			text-shadow: 0 3px 0 black;
+			text-stroke: 6px black;
+			margin-top: -16px;
+		}
+	}
 </style>

@@ -1,36 +1,36 @@
 @using Facepunch.Minigolf.Entities
 
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet( "/UI/SpectatingInfo.scss" )]
+@attribute [StyleSheet("/UI/SpectatingInfo.scss")]
 
 @{
-    var text = GetSpectatingText();
-    if (string.IsNullOrEmpty(text))
-        return;
+	var text = GetSpectatingText();
+	if (string.IsNullOrEmpty(text))
+		return;
 
-    <root>
-        <label>@text</label>
-    </root>
+	<root>
+		<label>@text</label>
+	</root>
 }
 
 @code {
-    private string GetSpectatingText()
-    {
-        var text = string.Empty;
+	private string GetSpectatingText()
+	{
+		var text = string.Empty;
 
-        var camera = MinigolfGame.Current.FollowBallCamera;
-        if (camera is null)
-            return text;
+		var camera = MinigolfGame.Current.FollowBallCamera;
+		if (camera is null)
+			return text;
 
-        var ball = Sandbox.Game.LocalClient as Ball;
+		var ball = Sandbox.Game.LocalClient as Ball;
 		var target = camera.Target;
 
-        // If we don't have a target or we are still actively playing.
-        if (target is null || ball is not null)
-            return text;
+		// If we don't have a target or we are still actively playing.
+		if (target is null || ball is not null)
+			return text;
 
-        return $"Spectating {target.Client.Name}";
-    }
+		return $"Spectating {target.Client.Name}";
+	}
 
-    protected override int BuildHash() => HashCode.Combine(GetSpectatingText());
+	protected override int BuildHash() => HashCode.Combine(GetSpectatingText());
 }

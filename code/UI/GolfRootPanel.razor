@@ -1,33 +1,33 @@
 @namespace Facepunch.Minigolf.UI
 
 @inherits RootPanel
-@attribute [StyleSheet( "/UI/Styles/root.scss" )]
+@attribute [StyleSheet("/UI/Styles/root.scss")]
 
 <root class=@(IsPlaying ? "state--playing" : "")>
-    <chatbox></chatbox>
-    <voicelist></voicelist>
+	<chatbox></chatbox>
+	<voicelist></voicelist>
 
-    @if (!IsPlaying)
-    {
-        <waitingscreen></waitingscreen>
-    }
+	@if (!IsPlaying)
+	{
+		<waitingscreen></waitingscreen>
+	}
 
-    <!-- All of this will be hidden unless we are in game play -->
-    <div class="state-playing">
-        <freecamoverlay></freecamoverlay>
-        <holescore></holescore>
-        <powerbar></powerbar>
-        <controlhints></controlhints>
-        <holemarker></holemarker>
-        <scorefeed></scorefeed>
-    </div>
+	<!-- All of this will be hidden unless we are in game play -->
+	<div class="state-playing">
+		<freecamoverlay></freecamoverlay>
+		<holescore></holescore>
+		<powerbar></powerbar>
+		<controlhints></controlhints>
+		<holemarker></holemarker>
+		<scorefeed></scorefeed>
+	</div>
 
-    <spectatinginfo></spectatinginfo>
-    <golfscoreboard></golfscoreboard>
-    <customizemenu></customizemenu>
+	<spectatinginfo></spectatinginfo>
+	<golfscoreboard></golfscoreboard>
+	<customizemenu></customizemenu>
 </root>
 
 @code {
-    private bool IsPlaying => true;
-    protected override int BuildHash() => HashCode.Combine(IsPlaying);
+	private bool IsPlaying => true;
+	protected override int BuildHash() => HashCode.Combine(IsPlaying);
 }
