@@ -68,12 +68,12 @@ public class CustomizeMenu : Panel
 	{
 		PartsCanvas?.DeleteChildren( true );
 
-		var cfg = Customization.Customize.Config;
+		var cfg = Customize.Config;
 		var parts = cfg.Parts.Where( x => x.CategoryId == category.Id );
 
 		foreach ( var part in parts )
 		{
-			var btn = new CustomizePartIcon( part );
+			var btn = new UI.CustomizePartIcon( part );
 			PartsCanvas.AddChild( btn );
 		}
 	}

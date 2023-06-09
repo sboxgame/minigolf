@@ -1,0 +1,19 @@
+@using Facepunch.Customization
+
+@namespace Facepunch.Minigolf.UI
+@attribute [StyleSheet( "/UI/Customize/CustomizeMenu.scss" )]
+
+<root 
+    class="@(IsEquipped ? "equipped" : "")"
+    @onclick=@(() => { Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>().Equip(Part); })>
+    <div class="inner">
+        <label>@Part.DisplayName</label>
+    </div>
+</root>
+
+@code {
+    private bool IsEquipped => Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>().IsEquipped(Part);
+    private CustomizationPart Part { get; }
+	public CustomizePartIcon( CustomizationPart part ) => Part = part;
+    protected override int BuildHash() => HashCode.Combine(IsEquipped);
+}
