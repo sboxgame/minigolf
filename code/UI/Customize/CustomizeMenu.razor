@@ -1,0 +1,59 @@
+@using Facepunch.Customization
+
+@namespace Facepunch.Minigolf.UI
+@attribute [StyleSheet("/UI/Customize/CustomizeMenu.scss")]
+
+<root>
+	<div class="container">
+		<label class="heading">customize</label>
+		<div class="body">
+			<div class="content">
+				<div class="navbar">
+					@foreach (var tab in GetCategories())
+					{
+						<div class="tab @(tab == activeTab ? "active" : "")" Category=@tab @onclick=@(() => { activeTab = tab; })>
+							@tab.DisplayName
+						</div>
+					}
+				</div>
+				<div class="parts">
+					@foreach (var part in GetParts(activeTab))
+					{
+						<CustomizePartIcon Part=@part />
+					}
+				</div>
+			</div>
+			<div class="render">
+				<CustomizeRenderScene></CustomizeRenderScene>
+			</div>
+		</div>
+	</div>
+</root>
+
+@code {
+	private CustomizationCategory activeTab;
+
+	public CustomizeMenu()
+	{
+		activeTab = GetCategories().First();
+	}
+
+	private bool Open
+	{
+		get => HasClass("open");
+		set => SetClass("open", value);
+	}
+	private IEnumerable<CustomizationCategory> GetCategories() => Customize.Config.Categories;
+	private IEnumerable<CustomizationPart> GetParts(CustomizationCategory category) => Customize.Config.Parts.Where(x => x.CategoryId == category.Id);
+
+	public override void Tick()
+	{
+		if (Input.Pressed("menu"))
+			Open = !Open;
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine(activeTab);
+	}
+}

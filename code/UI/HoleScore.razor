@@ -1,0 +1,28 @@
+@namespace Facepunch.Minigolf.UI
+@attribute [StyleSheet("/UI/HoleScore.scss")]
+
+<root>
+	<div class="course-info">
+		<div class="info-container">
+			<label>Par</label>
+			<label class="value">@Par</label>
+		</div>
+
+		<div class="info-container">
+			<label>Hole</label>
+			<label class="value">@Hole</label>
+		</div>
+	</div>
+
+	<div class="stroke-ball">
+		<label>@Stroke</label>
+	</div>
+</root>
+
+@code {
+	public int Stroke => Sandbox.Game.LocalClient.GetPar();
+	public int Par => MinigolfGame.Current.Course.CurrentHole.Par;
+	public int Hole => MinigolfGame.Current.Course.CurrentHole.Number;
+
+	protected override int BuildHash() => HashCode.Combine(Stroke, Par, Hole);
+}

@@ -1,0 +1,12 @@
+@namespace Facepunch.Minigolf.UI
+@attribute [StyleSheet("/UI/FreeCamOverlay.scss")]
+
+<root class="@(MinigolfGame.Current.FreeCamera is not null ? "freecam--active" : "")">
+	<text>Freecam</text>
+	<text class="timer">@timeRemaining</text>
+</root>
+
+@code {
+	private string timeRemaining => $"00:{MinigolfGame.Current.FreeCamTimeLeft.CeilToInt().ToString("D2")}";
+	protected override int BuildHash() => HashCode.Combine(timeRemaining, MinigolfGame.Current?.FreeCamera);
+}

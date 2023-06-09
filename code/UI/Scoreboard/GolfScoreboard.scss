@@ -52,10 +52,10 @@ golfscoreboard {
     margin-top: 8px;
     flex-direction: row-reverse;
 
-    > div {
+    >div {
       margin-right: 20px;
 
-      > text {
+      >text {
         font-size: 16px;
         font-weight: 400;
         text-shadow: 1px 1px 3px rgba(black, 0.4);
@@ -85,8 +85,9 @@ golfscoreboard {
     flex-direction: column;
     flex-grow: 1;
 
-    > div {
+    >div {
       margin: 2px 0px;
+
       &.hole {
         .active {
           color: #fff;
@@ -106,7 +107,7 @@ golfscoreboard {
       }
 
       // This is the row label: Hole / Par:
-      > text {
+      >text {
         color: $light-blue;
         flex-grow: 1;
         margin-right: 16px;
@@ -115,8 +116,8 @@ golfscoreboard {
     }
 
     .holes {
-      > div {
-        > label {
+      >div {
+        >label {
           color: $light-blue;
           width: 40px;
           text-align: center;
@@ -157,8 +158,7 @@ scoreboardplayer {
   &.me {
     background-color: rgba(white, 0.1);
 
-    .player .name {
-    }
+    .player .name {}
   }
 
   label {
@@ -200,8 +200,8 @@ scoreboardplayer {
   .scores {
     align-items: center;
 
-    > div {
-      > label {
+    >div {
+      >label {
         width: 40px;
         text-align: center;
         white-space: nowrap;
@@ -230,10 +230,6 @@ scoreboardplayer {
 }
 
 golfscoreboard {
-  &.timer--active .timer {
-    opacity: 1;
-  }
-
   .timer {
     position: absolute;
     left: 0;
@@ -241,7 +237,6 @@ golfscoreboard {
     top: 32px;
     align-items: center;
     flex-direction: column;
-    opacity: 0;
     transition: opacity 0.2s linear;
 
     div {

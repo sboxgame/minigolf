@@ -1,0 +1,47 @@
+@namespace Facepunch.Minigolf.UI
+@attribute [StyleSheet("/UI/Scoreboard/GolfScoreboard.scss")]
+
+<root class=@(Game.LocalClient == Client ? "me" : "")>
+	<div class="player">
+		<text class="position">1</text>
+		<img src="avatar:@Client.SteamId" class="avatar" />
+		<text class="name">@Client.Name</text>
+	</div>
+	<div class="scores">
+		<div>
+			@for (int i = 0; i < MinigolfGame.Current.Course.Holes.Count; ++i)
+			{
+				if (MinigolfGame.Current.Course._currentHole < i)
+				{
+					<label>-</label>
+					continue;
+				}
+
+				var par = Client.GetPar(i);
+				var holePar = MinigolfGame.Current.Course.Holes[i].Par;
+				var isActive = MinigolfGame.Current.Course._currentHole == i;
+				var isBelow = par < holePar;
+				var isOver = par > holePar;
+
+				<label class="
+				@(isActive ? "active" : "")
+				@(isBelow ? "below" : "")
+				@(isOver ? "over" : "")">
+					@par
+				</label>
+			}
+		</div>
+		<text class="total">@Client.GetTotalPar()</text>
+	</div>
+</root>
+
+@code {
+	public IClient Client { get; set; }
+
+	protected override int BuildHash()
+	{
+		var holes = MinigolfGame.Current.Course.Holes;
+		var currentHole = MinigolfGame.Current.Course._currentHole;
+		return HashCode.Combine(Client.SteamId, Client.Name, holes.HashCombine((h => Client.GetPar(holes.IndexOf(h)))), currentHole);
+	}
+}

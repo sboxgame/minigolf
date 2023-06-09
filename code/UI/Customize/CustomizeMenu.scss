@@ -1,5 +1,4 @@
-﻿
-@import "../styles/_vars.scss";
+﻿@import "../styles/_vars.scss";
 
 CustomizeMenu {
     display: flex;
@@ -8,7 +7,7 @@ CustomizeMenu {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba( black .92 );
+    background-color: rgba(black .92);
     backdrop-filter: blur(10px);
     pointer-events: none;
     transition: opacity .15s linear;
@@ -45,14 +44,14 @@ CustomizeMenu {
 
         .content {
             flex-direction: column;
-            width: 600px;
+            width: 660px;
             margin-right: 10px;
 
             .navbar {
                 flex-direction: row;
                 padding-left: 10px;
 
-                CustomizePartTab {
+                .tab {
                     padding: 10px 20px;
                     border-radius: 5px 5px 0 0;
                     cursor: pointer;
@@ -62,7 +61,8 @@ CustomizeMenu {
                     background-color: $dark-grey;
                     transition: all .15s ease-in;
 
-                    &:hover, &.active {
+                    &:hover,
+                    &.active {
                         transform: scale(1.1);
                         color: $primary;
                     }
@@ -70,6 +70,7 @@ CustomizeMenu {
             }
 
             .parts {
+                overflow: scroll;
                 flex-direction: row;
                 flex-wrap: wrap;
                 background-color: $dark-grey;

@@ -1,0 +1,42 @@
+@namespace Facepunch.Minigolf.UI
+@attribute [StyleSheet("/UI/WaitingScreen.scss")]
+
+<root>
+	<div class="header">
+		<text>minigolf</text>
+		<text></text>
+	</div>
+
+	<div class="players">
+		@foreach (var client in Game.Clients)
+		{
+			<div class="waiting-screen-client">
+				<img src=@($"avatarbig:{client.SteamId}")>
+			</div>
+		}
+	</div>
+
+	<div class="waiting">
+		<div>
+			<text style="margin-right: 5px;">Waiting for</text>
+			<text class="count">@PlayerCount</text>
+			<text class="count">/</text>
+			<text class="count">@MaxPlayers</text>
+			<text style="margin-left: 5px;">players to load...</text>
+		</div>
+		<div>
+			<text>@($"(Starting anyway in {StartingTimeLeft} seconds)")</text>
+		</div>
+	</div>
+</root>
+
+@code {
+	public string StartingTimeLeft => $"{Math.Max(0, MinigolfGame.Current.StartTime - Time.Now).CeilToInt()}";
+	public int PlayerCount => Sandbox.Game.Clients.Count;
+	public int MaxPlayers => Game.Server.MaxPlayers;
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine(Game.Clients.HashCombine(c => c.SteamId), StartingTimeLeft, PlayerCount, MaxPlayers);
+	}
+}

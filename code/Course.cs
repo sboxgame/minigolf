@@ -1,14 +1,10 @@
-﻿using Sandbox;
-using System.Collections.Generic;
-using System.Linq;
-
-using Facepunch.Minigolf.Entities;
+﻿using Facepunch.Minigolf.Entities;
 
 namespace Facepunch.Minigolf;
 
 public partial class Course : BaseNetworkable
 {
-    [Net] public string Name { get; set; } = "Default";
+	[Net] public string Name { get; set; } = "Default";
 	[Net] public string Description { get; set; } = "Default Description";
 	[Net] public IList<HoleInfo> Holes { get; set; }
 
@@ -19,7 +15,7 @@ public partial class Course : BaseNetworkable
 	{
 		Sandbox.Game.AssertServer();
 		Holes.Clear();
-		
+
 		foreach ( var hole in Entity.All.OfType<BallSpawnpoint>().OrderBy( ent => ent.HoleNumber ) )
 		{
 			var goal = Entity.All.OfType<HoleGoal>().Where( x => x.HoleNumber == hole.HoleNumber ).First();
@@ -31,14 +27,14 @@ public partial class Course : BaseNetworkable
 			}
 
 			Holes.Add( new HoleInfo()
-				{
-					Number = hole.HoleNumber,
-					Name = hole.HoleName,
-					Par = hole.HolePar,
-					SpawnPosition = hole.Position,
-					SpawnAngles = hole.Rotation.Angles(),
-					GoalPosition = goal.Position,
-				}
+			{
+				Number = hole.HoleNumber,
+				Name = hole.HoleName,
+				Par = hole.HolePar,
+				SpawnPosition = hole.Position,
+				SpawnAngles = hole.Rotation.Angles(),
+				GoalPosition = goal.Position,
+			}
 			);
 		}
 
@@ -53,17 +49,14 @@ public partial class Course : BaseNetworkable
 		return _currentHole == Holes.Count - 1;
 	}
 
-    public void NextHole()
-    {
+	public void NextHole()
+	{
 		// are we on the last hole, don't advance ( this should be checked before calling this function )
 		if ( _currentHole == Holes.Count - 1 )
 			return;
 
-		_currentHole++;
-
-		// Run an event so we can pick this up anywhere in the code base.
-		Event.Run( "minigolf.advanced_hole", _currentHole );
-    }
+		Event.Run( MinigolfEvent.NextHole, ++_currentHole );
+	}
 }
 
 public partial class HoleInfo : BaseNetworkable

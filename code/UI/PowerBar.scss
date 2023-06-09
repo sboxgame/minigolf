@@ -1,6 +1,6 @@
 @import "./Styles/_vars.scss";
 
-powerbar {
+PowerBar {
   position: absolute;
   bottom: 32px;
   left: 64px;
@@ -15,6 +15,7 @@ powerbar {
       font-size: 26px;
       flex-grow: 1;
     }
+
     .value {
       font-size: 32px;
       color: #fff;
@@ -37,15 +38,13 @@ powerbar {
       backdrop-filter-blur: 32px;
       border-radius: 20px;
       width: 100%;
-      overflow: hidden;
       height: 100%;
     }
 
     .bar {
       background: linear-gradient(to right, $green, $light-green);
       box-shadow: 0 5px 10px rgba(#000, 0.5);
-      height: 16px;
-      border-radius: 20px 0 0 20px;
+      border-radius: 20px;
       opacity: 0;
 
       &.is-visible {
@@ -56,6 +55,7 @@ powerbar {
     .last-power-container {
       position: absolute;
       bottom: -4px;
+      width: 100px;
 
       .last-power-label {
         bottom: -18px;
@@ -64,14 +64,13 @@ powerbar {
         font-size: 12px;
         color: $green;
         position: absolute;
-        //left: -12px;
         transform: translateX(-50%);
       }
 
       .last-power-icon {
-        left: -6px;
+        left: -10px;
         top: -12px;
-        width: 12px;
+        width: 15px;
         height: 12px;
         position: absolute;
         background-image: url("/ui/arrow.png");

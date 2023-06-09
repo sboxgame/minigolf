@@ -1,0 +1,23 @@
+@namespace Facepunch.Minigolf.UI
+@attribute [StyleSheet("/UI/Styles/Scorescreen.scss")]
+
+<root class="scorescreen">
+	<label class="title"> Out </label>
+	<label class="title"> Of </label>
+	<label class="title"> Bounds </label>
+</root>
+
+@code {
+	private float deleteTime;
+
+	public OutOfBounds()
+	{
+		deleteTime = RealTime.Now + 2.0f;
+	}
+
+	public override void Tick()
+	{
+		if (RealTime.Now > deleteTime)
+			Delete(false);
+	}
+}

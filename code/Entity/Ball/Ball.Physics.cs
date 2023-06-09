@@ -50,10 +50,10 @@ public partial class Ball
 		mover.GroundBounce = 0.25f; // TODO: Get from ground surface?
 		mover.WallBounce = 0.5f;
 
-		var groundTrace = mover.TraceDirection(Vector3.Down * 0.5f);
+		var groundTrace = mover.TraceDirection( Vector3.Down * 0.5f );
 
 		if ( groundTrace.Entity.IsValid() )
-        {
+		{
 			mover.GroundVelocity = groundTrace.Entity.Velocity;
 		}
 
@@ -129,7 +129,7 @@ public partial class Ball
 		particle.Destroy( false );
 	}
 
-	[Event.Tick.Server]
+	[GameEvent.Tick.Server]
 	protected void CheckInPlay()
 	{
 		// InPlay = false;
