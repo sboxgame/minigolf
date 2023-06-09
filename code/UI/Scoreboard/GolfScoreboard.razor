@@ -1,0 +1,120 @@
+@namespace Facepunch.Minigolf.UI
+@attribute [StyleSheet( "/UI/Scoreboard/GolfScoreboard.scss" )]
+
+<root>
+  <div class="timer">
+    @{
+        if (!string.IsNullOrEmpty(TimerTimeLeft) || !string.IsNullOrEmpty(TimerTimeUntil))
+        {
+            <div><text>@TimerTimeLeft</text></div>
+            <div><text>@TimerTimeUntil</text></div>
+        }
+    }
+  </div>
+
+  <div class="scoreboard-container">
+    <div class="scoreboard-title">
+      <text>minigolf</text>
+    </div>
+    <div class="scoreboard">
+      <div class="headers">
+        <div class="hole">
+          <text>Hole</text>
+          <div class="holes">
+            <div>
+                @for (int i = 0; i < MinigolfGame.Current.Course.Holes.Count; ++i)
+                {
+                    var hole = MinigolfGame.Current.Course.Holes[i];
+                    <label class=@(i == MinigolfGame.Current.Course._currentHole ? "active" : "")>@hole.Number</label>
+                }
+            </div>
+            <text class="total">Total</text>
+          </div>
+        </div>
+        <div class="par">
+          <text>Par</text>
+          <div class="holes">
+            <div>
+                @for (int i = 0; i < MinigolfGame.Current.Course.Holes.Count; ++i)
+                {
+                    var hole = MinigolfGame.Current.Course.Holes[i];
+                    <label class=@(i == MinigolfGame.Current.Course._currentHole ? "active" : "")>@hole.Par</label>
+                }
+            </div>
+            <text class="total">24</text>
+          </div>
+        </div>
+      </div>
+      <div class="players">
+        @foreach(var client in Game.Clients)
+        {            
+            <ScoreboardPlayer Client=@client />
+        }
+      </div>
+    </div>
+    <div class="scoreboard-info">
+      <div>
+        <text class="subtext">Players: </text>
+        <text>@Sandbox.Game.Clients.Count</text>
+      </div>
+      <div>
+        <text class="subtext">Map: </text>
+        <text>@Sandbox.Game.Server.MapIdent</text>
+      </div>
+    </div>
+  </div>
+</root>
+
+@code {
+  static GolfScoreboard Current;
+	public bool ForceOpen;
+
+	public string TimerTimeLeft
+	{
+		get
+		{
+			if ( MinigolfGame.Current.State == GameState.EndOfGame )
+				return $"00:{Math.Max( 0, (int)MathF.Floor( MinigolfGame.Current.ReturnToLobbyTime - Time.Now ) ).ToString( "D2" )}";
+			if ( MinigolfGame.Current.IsHoleEnding )
+				return $"00:{Math.Max( 0, (int)MathF.Floor( MinigolfGame.Current.NextHoleTime - Time.Now ) ).ToString( "D2" )}";
+			return "";
+		}
+	}
+	public string TimerTimeUntil
+	{
+		get
+		{
+			if ( MinigolfGame.Current.State == GameState.EndOfGame )
+				return "Return To Lobby";
+			if ( MinigolfGame.Current.IsHoleEnding )
+				return "Next Hole";
+
+			return "";
+		}
+	}
+
+	public GolfScoreboard()
+	{
+		Current = this;
+	}
+
+	public override void Tick()
+	{
+		if ( ForceOpen )
+			SetClass( "open", true );
+		else if ( MinigolfGame.Current.State == GameState.Playing )
+			SetClass( "open", Input.Down( "score" ) );
+	}
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine(
+            Game.Clients.HashCombine(c => c.SteamId), 
+            Sandbox.Game.Server.MapIdent,
+            MinigolfGame.Current.Course.Holes.Count,
+            MinigolfGame.Current.Course._currentHole,
+            TimerTimeLeft.GetHashCode(),
+            TimerTimeUntil.GetHashCode()
+        );
+    }
+}
