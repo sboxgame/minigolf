@@ -66,7 +66,7 @@ public partial class ParScreen : Panel
 	[MinigolfEvent.PlayerScored]
 	private static void OnPlayerScore( IClient client, HoleInfo hole, int score )
 	{
-		if ( Game.LocalClient.IsOwnedByLocalClient )
+		if ( Game.LocalClient == client )
 			Show( hole.Number, hole.Par, score );
 	}
 

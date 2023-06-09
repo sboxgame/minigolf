@@ -21,13 +21,14 @@ public partial class GolfScoreboard : Panel
 	public int CurrentHoleNumber => MinigolfGame.Current.Course.CurrentHole.Number;
 	public string CurrentHoleName => MinigolfGame.Current.Course.CurrentHole.Name;
 
-	public string TimerTimeLeft {
+	public string TimerTimeLeft
+	{
 		get
 		{
 			if ( MinigolfGame.Current.State == GameState.EndOfGame )
-				return $"00:{ Math.Max( 0, (int)MathF.Floor( MinigolfGame.Current.ReturnToLobbyTime - Time.Now ) ).ToString( "D2" ) }";
+				return $"00:{Math.Max( 0, (int)MathF.Floor( MinigolfGame.Current.ReturnToLobbyTime - Time.Now ) ).ToString( "D2" )}";
 			if ( MinigolfGame.Current.IsHoleEnding )
-				return $"00:{ Math.Max( 0, (int)MathF.Floor( MinigolfGame.Current.NextHoleTime - Time.Now ) ).ToString( "D2" ) }";
+				return $"00:{Math.Max( 0, (int)MathF.Floor( MinigolfGame.Current.NextHoleTime - Time.Now ) ).ToString( "D2" )}";
 			return "";
 		}
 	}
@@ -66,8 +67,8 @@ public partial class GolfScoreboard : Panel
 		var holes = MinigolfGame.Current.Course.Holes;
 		for ( int i = 0; i < holes.Count; i++ )
 		{
-			HoleHeadersPanel.Add.Label( $"{ holes[i].Number }" );
-			ParHeadersPanel.Add.Label( $"{ holes[i].Par }" );
+			HoleHeadersPanel.Add.Label( $"{holes[i].Number}" );
+			ParHeadersPanel.Add.Label( $"{holes[i].Par}" );
 		}
 
 		// If this is from a hot reload, clear any existing names
@@ -126,7 +127,7 @@ public partial class GolfScoreboard : Panel
 
 	protected ScoreboardPlayer AddClient( IClient cl )
 	{
-		var pnl = new ScoreboardPlayer( cl, PlayersPanel );
+		var pnl = new ScoreboardPlayer() { Parent = PlayersPanel, Client = cl };
 		PlayersPanel.AddChild( pnl );
 		return pnl;
 	}
