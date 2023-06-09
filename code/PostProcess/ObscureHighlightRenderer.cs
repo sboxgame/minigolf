@@ -10,6 +10,7 @@ internal class ObscureHighlightRenderer : RenderHook
 {
 	public override void OnStage( SceneCamera target, Stage renderStage )
 	{
+		return;
 		if ( renderStage == Stage.AfterTransparent )
 		{
 			RenderEffect();

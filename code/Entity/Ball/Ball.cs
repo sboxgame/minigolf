@@ -32,6 +32,7 @@ public partial class Ball : ModelEntity
 
 		Tags.Add( "golf_ball" );
 	}
+	Glow glow;
 
 	public override void ClientSpawn()
 	{
@@ -39,6 +40,16 @@ public partial class Ball : ModelEntity
 
 		base.ClientSpawn();
 		CreateParticles();
+
+		glow = Components.GetOrCreate<Glow>();
+
+		glow.Enabled = true;
+		glow.Width = 0.25f;
+		glow.Color = new Color( 0.0f, 0.0f, 0.0f, 0.0f );
+		glow.ObscuredColor = Color.Transparent;
+		glow.InsideObscuredColor = Color.Black.WithAlpha( 0.72f );
+
+
 	}
 
 	public void Cup( bool holeInOne = false )
