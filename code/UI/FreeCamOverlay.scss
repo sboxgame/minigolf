@@ -1,0 +1,39 @@
+@import "./Styles/_vars.scss";
+
+FreeCamOverlay {
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($dark-grey, 0.9);
+    backdrop-filter-blur: 32px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 16px 0;
+    opacity: 0;
+    align-items: center;
+    flex-direction: row;
+    opacity: 0;
+    text-shadow: 0 6px 0 black;
+    text-stroke: 6px black;
+    transition: all 0.2s ease;
+
+    &.freecam--active {
+        opacity: 1;
+    }
+
+    text {
+        font-size: 42px;
+        color: $red;
+    }
+
+    text.timer {
+        color: #fff;
+        margin-top: 10px;
+        font-size: 32px;
+        text-shadow: 0 4 0 black;
+        text-stroke: 6px black;
+        min-width: 140px;
+        text-align: center;
+    }
+}
