@@ -4,7 +4,6 @@ SpectatingInfo {
     position: absolute;
     left: 64px;
     top: 64px;
-    opacity: 0;
 
     label {
         font-family: $font-title;
@@ -12,9 +11,5 @@ SpectatingInfo {
         color: $light-blue;
         text-shadow: 2 4 2 black;
         text-stroke: 6px black;
-    }
-
-    &.show {
-        opacity: 1;
     }
 }

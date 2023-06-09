@@ -26,7 +26,7 @@ public partial class MinigolfGame
 
 		// Pawn will only be set whilst we're in play ( e.g not spectating, or in between holes )
 		if ( Sandbox.Game.LocalPawn is Ball ball )
-        {
+		{
 			if ( FreeCamera != null )
 			{
 				if ( !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f ) return FreeCamera;
@@ -51,10 +51,7 @@ public partial class MinigolfGame
 		// Must be a spectator ( no ball pawn )
 
 		// TODO: Allow more freedom in spectate, cycle between players, etc
-		if ( FollowBallCamera == null )
-		{
-			FollowBallCamera = new();
-		}
+		FollowBallCamera ??= new();
 
 		FollowBallCamera.Target = ActiveBalls.FirstOrDefault();
 
