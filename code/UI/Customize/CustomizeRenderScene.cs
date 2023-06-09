@@ -64,10 +64,16 @@ internal class CustomizeRenderScene : Panel
 		ScenePanel.Camera.Rotation = Rotation.LookAt( golfball.Rotation.Backward ).RotateAroundAxis( Vector3.Forward, -90 );
 		CameraAngle = ScenePanel.Camera.Rotation.Angles();
 
-		new SceneLight( SceneWorld, ScenePanel.Camera.Position + Vector3.Up * 5 + Vector3.Right * 2, 200, Color.White );
-		new SceneLight( SceneWorld, Vector3.Down * 50 + Vector3.Left * 20, 200, Color.White.Darken( .25f ) );
+        var sun = new SceneSunLight(SceneWorld, Rotation.FromPitch(50), Color.White * 0.5f + Color.Cyan * 0.1f);
+        sun.ShadowsEnabled = true;
+        sun.SkyColor = Color.White * 0.15f + Color.Cyan * 0.25f;
 
-		var cc = Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>();
+        new SceneLight(SceneWorld, ScenePanel.Camera.Position + Vector3.Up * 5 + Vector3.Right * 2, 200, Color.White);
+        new SceneLight(SceneWorld, Vector3.Down * 50 + Vector3.Left * 20, 200, Color.White.Darken(.25f));
+
+        new SceneCubemap(SceneWorld, Texture.Load("textures/cubemaps/default.vtex"), BBox.FromPositionAndSize(Vector3.Zero, 1000));
+
+        var cc = Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>();
 		var skinpart = cc.GetEquippedPart( "Skins" );
 		if ( skinpart != null && !string.IsNullOrEmpty( skinpart.AssetPath ) )
 		{
