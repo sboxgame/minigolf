@@ -12,8 +12,7 @@
 </root>
 
 @code {
+    public CustomizationPart Part { get; set; }
     private bool IsEquipped => Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>().IsEquipped(Part);
-    private CustomizationPart Part { get; }
-	public CustomizePartIcon( CustomizationPart part ) => Part = part;
     protected override int BuildHash() => HashCode.Combine(IsEquipped);
 }
