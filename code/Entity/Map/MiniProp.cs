@@ -6,7 +6,7 @@
 [Title( "Prop (Minigolf Specific)" )]
 internal partial class MiniProp : ModelEntity
 {
-	[Net, Property("No Camera Collide", "The Unicycle camera will maintain its position when touching this prop")]
+	[Net, Property( "No Camera Collide", "The Unicycle camera will maintain its position when touching this prop" )]
 	public bool NoCameraCollide { get; set; }
 	[Net, Property( "Camera fade", "This prop will fade out when it's between the player and the camera" )]
 	public bool CameraFade { get; set; }
@@ -23,7 +23,7 @@ internal partial class MiniProp : ModelEntity
 		EnableAllCollisions = Solid;
 	}
 
-	[Event.Client.Frame]
+	[GameEvent.Client.Frame]
 	private void OnFrame()
 	{
 		if ( !CameraFade ) return;

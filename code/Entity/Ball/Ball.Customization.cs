@@ -31,7 +31,7 @@ public partial class Ball
 		localhat = null;
 	}
 
-	[Event.Tick.Server]
+	[GameEvent.Tick.Server]
 	private void EnsureCustomization()
 	{
 		var cc = Client.Components.GetOrCreate<CustomizeComponent>();
@@ -44,7 +44,7 @@ public partial class Ball
 	}
 
 	private Vector3 prevPosition;
-	[Event.Tick]
+	[GameEvent.Tick.Server]
 	private void MoveHat()
 	{
 		if ( !Hat.IsValid() ) return;

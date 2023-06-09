@@ -36,10 +36,10 @@ public partial class MinigolfGame
 		}
 	}
 
-	[Event.Tick]
+	[GameEvent.Tick]
 	private void CheckBoundsTimes()
 	{
-		var copy = new Dictionary<Ball, float>(OutOfBoundsBalls);
+		var copy = new Dictionary<Ball, float>( OutOfBoundsBalls );
 		foreach ( var ball in copy.Keys )
 		{
 			if ( !ball.IsValid() || ball.Cupped )
@@ -57,15 +57,15 @@ public partial class MinigolfGame
 		}
 	}
 
-	public void BallOutOfBounds(Ball ball, OutOfBoundsType type)
-    {
+	public void BallOutOfBounds( Ball ball, OutOfBoundsType type )
+	{
 		if ( Sandbox.Game.IsClient )
 			return;
 
 		ResetBall( ball.Client );
 
 		// Tell the ball owner his balls are out of bounds
-		ClientBallOutOfBounds( To.Single(ball) );
+		ClientBallOutOfBounds( To.Single( ball ) );
 	}
 
 	[ClientRpc]

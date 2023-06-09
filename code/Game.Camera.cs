@@ -68,7 +68,7 @@ public partial class MinigolfGame
 	public FreeCamera FreeCamera { get; set; }
 	public float FreeCamTimeLeft { get; set; } = 30.0f;
 
-	[Event.Client.Frame]
+	[GameEvent.Client.Frame]
 	public void TickFreeCamTimeLeft()
 	{
 		if ( FreeCamera != null )

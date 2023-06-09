@@ -16,7 +16,7 @@ public partial class BallNameTag : WorldPanel
 
 		PanelBounds = new Rect( 0, -80, 800, 160 );
 
-		Add.Image( $"avatar:{ owner.Client.SteamId }" );
+		Add.Image( $"avatar:{owner.Client.SteamId}" );
 		Add.Label( owner.Client.Name );
 
 		StyleSheet.Load( "/Entity/WorldUI/BallNameTag.scss" );
@@ -27,14 +27,14 @@ public partial class BallNameTag : WorldPanel
 
 	Angles CurrentDirection;
 
-	[Event.PreRender]
+	[GameEvent.PreRender]
 	void MoveNameTag()
 	{
 		// Don't tidy up here, it's the owner's responsibility
 		if ( !Owner.IsValid() )
 			return;
 
-		CurrentDirection = Angles.Lerp( CurrentDirection, Owner.Direction, RealTime.Delta * 4.0f ).WithRoll(0).WithPitch(0);
+		CurrentDirection = Angles.Lerp( CurrentDirection, Owner.Direction, RealTime.Delta * 4.0f ).WithRoll( 0 ).WithPitch( 0 );
 
 		var DownTrace = Trace.Ray( Owner.Position, Owner.Position + Vector3.Down * 34.0f ).WithoutTags( "golf_ball" ).Run();
 

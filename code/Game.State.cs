@@ -99,7 +99,7 @@ partial class MinigolfGame
 		IsHoleEnding = false;
 	}
 
-	[Event.Tick.Server]
+	[GameEvent.Tick.Server]
 	void ShouldStartGame()
 	{
 		if ( State != GameState.WaitingForPlayers ) return;
@@ -110,7 +110,7 @@ partial class MinigolfGame
 
 	}
 
-	[Event.Tick.Server]
+	[GameEvent.Tick.Server]
 	public void CheckRoundState()
 	{
 		if ( State != GameState.Playing ) return;
@@ -128,7 +128,7 @@ partial class MinigolfGame
 			EndHole();
 	}
 
-	[Event.Tick.Server]
+	[GameEvent.Tick.Server]
 	public void ReturnToLobby()
 	{
 		if ( State != GameState.EndOfGame ) return;

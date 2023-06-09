@@ -52,7 +52,7 @@ public partial class Ball
 		Circle.SetPosition( 1, Vector3.Down * ballRadius + Vector3.Up * 0.01f );
 	}
 
-	[Event.Client.Frame]
+	[GameEvent.Client.Frame]
 	private void Frame()
 	{
 		DownTrace = Trace.Ray( Position, Position + Vector3.Down * (CollisionBounds.Size.z) ).WithoutTags( "golf_ball" ).Run();

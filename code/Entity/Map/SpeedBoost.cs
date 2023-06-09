@@ -58,12 +58,12 @@ public partial class SpeedBoost : ModelEntity
 		Balls.Remove( ball );
 	}
 
-	[Event.Physics.PreStep]
+	[GameEvent.Physics.PreStep]
 	public void ApplyForce()
 	{
-		var acceleration = Acceleration / ( Sandbox.Game.TickRate * Sandbox.Game.PhysicsWorld.SubSteps );
+		var acceleration = Acceleration / (Game.TickRate * Game.PhysicsWorld.SubSteps);
 
-		foreach( var ball in Balls )
+		foreach ( var ball in Balls )
 		{
 			if ( MaxVelocity != 0 && ball.Velocity.Length >= MaxVelocity ) continue;
 			ball.Velocity += Direction.Forward * acceleration;
