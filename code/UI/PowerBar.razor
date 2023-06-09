@@ -3,7 +3,8 @@
 @namespace Facepunch.Minigolf.UI
 @attribute [StyleSheet("/UI/PowerBar.scss")]
 
-@if (Game.LocalPawn is not Ball ball) return;
+@if (Game.LocalPawn is not Ball ball) 
+	return;
 
 <root>
 	<div class="powerbar-header">

@@ -38,15 +38,13 @@ PowerBar {
       backdrop-filter-blur: 32px;
       border-radius: 20px;
       width: 100%;
-      overflow: hidden;
       height: 100%;
     }
 
     .bar {
       background: linear-gradient(to right, $green, $light-green);
       box-shadow: 0 5px 10px rgba(#000, 0.5);
-      height: 16px;
-      border-radius: 20px 0 0 20px;
+      border-radius: 20px;
       opacity: 0;
 
       &.is-visible {
