@@ -1,0 +1,24 @@
+@using Facepunch.Customization
+
+@namespace Facepunch.Minigolf.UI
+@attribute [StyleSheet( "/UI/Customize/CustomizeMenu.scss" )]
+
+<root @onclick=@(() => { Open(); })>
+    <label>@Category.DisplayName</label>
+</root>
+
+@code {
+    private CustomizationCategory Category { get; }
+	private static CustomizePartTab activeTab;
+
+	public CustomizePartTab( CustomizationCategory category ) => Category = category;
+
+	public void Open()
+	{
+		activeTab?.RemoveClass( "active" );
+		AddClass( "active" );
+		activeTab = this;
+
+		Ancestors.OfType<CustomizeMenu>().FirstOrDefault()?.BuildParts( Category );
+	}
+}

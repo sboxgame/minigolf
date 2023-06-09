@@ -53,7 +53,7 @@ public class CustomizeMenu : Panel
 		var oneopen = false;
 		foreach ( var cat in categories )
 		{
-			var btn = new CustomizePartTab( cat );
+			var btn = new UI.CustomizePartTab( cat );
 			TabsCanvas.AddChild( btn );
 
 			if ( !oneopen )
