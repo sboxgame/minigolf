@@ -44,7 +44,7 @@ CustomizeMenu {
 
         .content {
             flex-direction: column;
-            width: 600px;
+            width: 660px;
             margin-right: 10px;
 
             .navbar {
@@ -70,6 +70,7 @@ CustomizeMenu {
             }
 
             .parts {
+                overflow: scroll;
                 flex-direction: row;
                 flex-wrap: wrap;
                 background-color: $dark-grey;
