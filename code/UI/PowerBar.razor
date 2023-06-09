@@ -30,6 +30,6 @@
 	protected override int BuildHash()
 	{
 		var localBall = Game.LocalPawn as Ball;
-		return HashCode.Combine(localBall?.ShotPower, localBall?.LastShotPower);
+		return HashCode.Combine(Game.LocalPawn, localBall?.ShotPower, localBall?.LastShotPower);
 	}
 }
