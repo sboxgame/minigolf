@@ -108,7 +108,7 @@
 
 	protected override int BuildHash()
 	{
-		var clients = Game.Clients.HashCombine(c => c.SteamId);
+		var clients = Game.Clients.HashCombine(c => HashCode.Combine(c.SteamId, c.GetTotalPar()));
 		var mapIdent = Sandbox.Game.Server.MapIdent;
 		var holeCount = MinigolfGame.Current.Course.Holes.Count;
 		var currentHole = MinigolfGame.Current.Course._currentHole;
