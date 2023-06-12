@@ -25,5 +25,5 @@
 	public int Par => MinigolfGame.Current.Course.CurrentHole.Par;
 	public int Hole => MinigolfGame.Current.Course.CurrentHole.Number;
 
-	protected override int BuildHash() => HashCode.Combine(Stroke, Par, Hole);
+	protected override int BuildHash() =>  HashCode.Combine(Stroke, Par, Hole);
 }

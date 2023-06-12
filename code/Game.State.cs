@@ -156,7 +156,7 @@ partial class MinigolfGame
 	[ConCmd.Admin( "minigolf_skip_to" )]
 	public static void SkipToHole( int hole )
 	{
-		Current.Course._currentHole = hole;
+		Current.Course.CurrentHoleIndex = hole;
 		foreach ( var cl in Sandbox.Game.Clients )
 		{
 			Current.ResetBall( cl );

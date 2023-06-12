@@ -26,7 +26,7 @@
 							@for (int i = 0; i < MinigolfGame.Current.Course.Holes.Count; ++i)
 							{
 								var hole = MinigolfGame.Current.Course.Holes[i];
-								<label class=@(i == MinigolfGame.Current.Course._currentHole ? "active" : "")>@hole.Number</label>
+								<label class=@(i == MinigolfGame.Current.Course.CurrentHoleIndex ? "active" : "")>@hole.Number</label>
 							}
 						</div>
 						<text class="total">Total</text>
@@ -39,7 +39,7 @@
 							@for (int i = 0; i < MinigolfGame.Current.Course.Holes.Count; ++i)
 							{
 								var hole = MinigolfGame.Current.Course.Holes[i];
-								<label class=@(i == MinigolfGame.Current.Course._currentHole ? "active" : "")>@hole.Par</label>
+								<label class=@(i == MinigolfGame.Current.Course.CurrentHoleIndex ? "active" : "")>@hole.Par</label>
 							}
 						</div>
 						<text class="total">24</text>
@@ -112,7 +112,7 @@
 		var clients = Game.Clients.HashCombine(c => HashCode.Combine(c.SteamId, c.GetTotalPar()));
 		var mapIdent = Sandbox.Game.Server.MapIdent;
 		var holeCount = MinigolfGame.Current.Course.Holes.Count;
-		var currentHole = MinigolfGame.Current.Course._currentHole;
+		var currentHole = MinigolfGame.Current.Course.CurrentHoleIndex;
 
 		return HashCode.Combine(clients, mapIdent, holeCount, currentHole, TimerTimeLeft.GetHashCode(), TimerTimeUntil.GetHashCode());
 	}

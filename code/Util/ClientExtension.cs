@@ -8,8 +8,8 @@ public static partial class ClientExtensions
 	public static bool IsHost( this IClient self ) => Sandbox.Game.IsListenServer && self.NetworkIdent == 1;
 	public static int GetPar( this IClient self, int hole ) => self.GetInt( $"par_{hole}" );
 	public static void AddPar( this IClient self, int hole ) => self.AddInt( $"par_{hole}" );
-	public static int GetPar( this IClient self ) => self.GetPar( MinigolfGame.Current.Course._currentHole );
-	public static void AddPar( this IClient self ) => self.AddPar( MinigolfGame.Current.Course._currentHole );
+	public static int GetPar( this IClient self ) => self.GetPar( MinigolfGame.Current.Course.CurrentHoleIndex );
+	public static void AddPar( this IClient self ) => self.AddPar( MinigolfGame.Current.Course.CurrentHoleIndex );
 
 	public static int GetTotalPar( this IClient self )
 	{

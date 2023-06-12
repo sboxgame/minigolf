@@ -6,14 +6,14 @@ public partial class Course : BaseNetworkable
 {
 	[Net] public string Name { get; set; } = "Default";
 	[Net] public string Description { get; set; } = "Default Description";
-	[Net] public IList<HoleInfo> Holes { get; set; }
 
-	[Net] public int _currentHole { get; set; } = 0;
-	public HoleInfo CurrentHole => Holes[_currentHole];
+	[Net] public IList<HoleInfo> Holes { get; set; }
+	[Net] public int CurrentHoleIndex { get; set; } = 0;
+	public HoleInfo CurrentHole => Holes[CurrentHoleIndex];
 
 	public void LoadFromMap()
 	{
-		Sandbox.Game.AssertServer();
+		Game.AssertServer();
 		Holes.Clear();
 
 		foreach ( var hole in Entity.All.OfType<BallSpawnpoint>().OrderBy( ent => ent.HoleNumber ) )
@@ -46,16 +46,16 @@ public partial class Course : BaseNetworkable
 
 	public bool IsLastHole()
 	{
-		return _currentHole == Holes.Count - 1;
+		return CurrentHoleIndex == Holes.Count - 1;
 	}
 
 	public void NextHole()
 	{
 		// are we on the last hole, don't advance ( this should be checked before calling this function )
-		if ( _currentHole == Holes.Count - 1 )
+		if ( CurrentHoleIndex == Holes.Count - 1 )
 			return;
 
-		Event.Run( MinigolfEvent.NextHole, ++_currentHole );
+		Event.Run( MinigolfEvent.NextHole, ++CurrentHoleIndex );
 	}
 }
 
