@@ -1,10 +1,11 @@
 @using Facepunch.Minigolf.Entities
 
+@inherits Sandbox.UI.Panel
 @namespace Facepunch.Minigolf.UI
 
 <root style="left: @Length.Fraction( screenPos.x ); top: @Length.Fraction( screenPos.y );">
 	<img src="/UI/hole_marker.png">
-	<label>@($"{holeDistance:0}m")</label>
+	<label>@( $"{holeDistance:0}m" )</label>
 </root>
 
 @code {
@@ -14,29 +15,29 @@
 	public HoleMarker()
 	{
 		var transform = new PanelTransform();
-		transform.AddTranslateY(Length.Fraction(-1.0f));
-		transform.AddScale(0.5f);
-		transform.AddTranslateX(Length.Fraction(-0.85f));
+		transform.AddTranslateY( Length.Fraction( -1.0f ) );
+		transform.AddScale( 0.5f );
+		transform.AddTranslateX( Length.Fraction( -0.85f ) );
 
 		Style.Transform = transform;
 	}
 
 	public override void Tick()
 	{
-		if (MinigolfGame.Current is null || Game.LocalPawn is not Ball ball)
+		if ( MinigolfGame.Current is null || Game.LocalPawn is not Ball ball )
 			return;
 
 		var hole = MinigolfGame.Current.Course.CurrentHole;
-		if (hole is null)
+		if ( hole is null )
 			return;
 
-		holeDistance = ball.Position.Distance(hole.GoalPosition + Vector3.Up * 8) * 0.02f;
+		holeDistance = ball.Position.Distance( hole.GoalPosition + Vector3.Up * 8 ) * 0.02f;
 
 		var labelPos = hole.GoalPosition + Vector3.Up * 140;
 		screenPos = labelPos.ToScreen();
 	}
 
-	protected override int BuildHash() => HashCode.Combine(holeDistance, screenPos);
+	protected override int BuildHash() => HashCode.Combine( holeDistance, screenPos );
 }
 
 <style>

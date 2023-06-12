@@ -1,45 +1,48 @@
+@inherits Sandbox.UI.Panel
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet("/UI/ScoreFeed.scss")]
+@attribute [StyleSheet( "/UI/ScoreFeed.scss" )]
 
-<root />
+<root/>
 
 @code {
-	[ConCmd.Client("minigolf_score_test")]
+
+	[ConCmd.Client( "minigolf_score_test" )]
 	public static void AddTest()
 	{
-		Event.Run(MinigolfEvent.PlayerScored, Sandbox.Game.LocalClient, 3, 3);
+		Event.Run( MinigolfEvent.PlayerScored, Sandbox.Game.LocalClient, 3, 3 );
 	}
 
 	[MinigolfEvent.PlayerScored]
-	public void AddEntry(IClient cl, HoleInfo hole, int score)
+	public void AddEntry( IClient cl, HoleInfo hole, int score )
 	{
-		_ = new ScoreFeedEntry(this, cl, hole.Par, score);
-		Sound.FromScreen("minigolf.award").SetVolume(0.5f);
+		_ = new ScoreFeedEntry( this, cl, hole.Par, score );
+		Sound.FromScreen( "minigolf.award" ).SetVolume( 0.5f );
 	}
 
 	private class ScoreFeedEntry : Panel
 	{
 		private RealTimeSince addedTimeSince;
 
-		public ScoreFeedEntry(Panel parent, IClient cl, int par, int score) : base(parent)
+		public ScoreFeedEntry( Panel parent, IClient cl, int par, int score ) : base( parent )
 		{
-			Add.Image($"avatarbig:{cl.SteamId}", "avatar");
+			Add.Image( $"avatarbig:{cl.SteamId}", "avatar" );
 
-			if (score == 1)
-				Add.Label("Hole-in-One", "score holeinone");
+			if ( score == 1 )
+				Add.Label( "Hole-in-One", "score holeinone" );
 			else
-				Add.Label(ParScreen.ScoreText.GetValueOrDefault(par - score, $"{par - score} Over Par"), "score");
+				Add.Label( ParScreen.ScoreText.GetValueOrDefault( par - score, $"{par - score} Over Par" ), "score" );
 
-			Add.Label($"scored");
-			Add.Label($"{cl.Name}", "name");
+			Add.Label( $"scored" );
+			Add.Label( $"{cl.Name}", "name" );
 
 			addedTimeSince = 0;
 		}
 
 		public override void Tick()
 		{
-			if (addedTimeSince > 5.0f && !IsDeleting)
+			if ( addedTimeSince > 5.0f && !IsDeleting )
 				Delete();
 		}
 	}
+
 }

@@ -1,5 +1,6 @@
+@inherits Sandbox.UI.Panel
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet("/UI/Styles/Scorescreen.scss")]
+@attribute [StyleSheet( "/UI/Styles/Scorescreen.scss" )]
 
 <root class="scorescreen">
 	<label class="title"> Out </label>
@@ -17,7 +18,8 @@
 
 	public override void Tick()
 	{
-		if (RealTime.Now > deleteTime)
-			Delete(false);
+		if ( RealTime.Now > deleteTime )
+			Delete( false );
 	}
+
 }

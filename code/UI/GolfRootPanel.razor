@@ -1,13 +1,13 @@
 @namespace Facepunch.Minigolf.UI
 
 @inherits RootPanel
-@attribute [StyleSheet("/UI/Styles/root.scss")]
+@attribute [StyleSheet( "/UI/Styles/root.scss" )]
 
-<root class=@(IsPlaying ? "state--playing" : "")>
+<root class=@( IsPlaying ? "state--playing" : "" )>
 	<chatbox></chatbox>
 	<voicelist></voicelist>
 
-	@if (!IsPlaying)
+	@if ( !IsPlaying )
 	{
 		<waitingscreen></waitingscreen>
 	}
@@ -29,5 +29,5 @@
 
 @code {
 	private bool IsPlaying => true;
-	protected override int BuildHash() => HashCode.Combine(IsPlaying);
+	protected override int BuildHash() => HashCode.Combine( IsPlaying );
 }
