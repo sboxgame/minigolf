@@ -6,8 +6,15 @@
 	{
 		<img src="avatar:@SteamId" />
 	}
-	<label class="name" text=@Name />
-	<label class="msg" text=@Message />
+
+	@if (!string.IsNullOrEmpty(Name))
+	{
+		<label class="name" text=@Name />
+	}
+
+	<div>
+		<label class="msg" text=@Message />
+	</div>
 </root>
 
 @code
