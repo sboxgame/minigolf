@@ -1,0 +1,26 @@
+﻿@inherits Sandbox.UI.Panel
+@namespace Facepunch.Minigolf.UI
+
+<root>
+	<Image @ref=Avatar></Image>
+	<Label class="name" @ref=NameLabel>Name</Label>
+	<Label class="message" @ref=Message>Message</Label>
+</root>
+
+@code {
+
+	public Label NameLabel { get; private set; }
+	public Label Message { get; private set; }
+	public Image Avatar { get; private set; }
+
+	private readonly RealTimeSince _timeSinceBorn = 0;
+
+	public override void Tick()
+	{
+		base.Tick();
+
+		if ( _timeSinceBorn > 10 )
+			AddClass( "old" );
+	}
+
+}
