@@ -1,10 +1,9 @@
 @using Facepunch.Customization
 
-@inherits Sandbox.UI.Panel
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet( "/UI/Customize/CustomizeMenu.scss" )]
+@attribute [StyleSheet("/UI/Customize/CustomizeMenu.scss")]
 
-<root class="@( IsEquipped ? "equipped" : "" )" @onclick=@( () => { Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>().Equip( Part ); } )>
+<root class="@(IsEquipped ? "equipped" : "")" @onclick=@(() => { Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>().Equip(Part); })>
 	<div class="inner">
 		<label>@Part.DisplayName</label>
 	</div>
@@ -12,6 +11,6 @@
 
 @code {
 	public CustomizationPart Part { get; set; }
-	private bool IsEquipped => Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>().IsEquipped( Part );
-	protected override int BuildHash() => HashCode.Combine( IsEquipped );
+	private bool IsEquipped => Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>().IsEquipped(Part);
+	protected override int BuildHash() => HashCode.Combine(IsEquipped);
 }

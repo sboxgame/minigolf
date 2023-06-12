@@ -1,12 +1,11 @@
 @using Facepunch.Minigolf.Entities
 
-@inherits Sandbox.UI.Panel
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet( "/UI/SpectatingInfo.scss" )]
+@attribute [StyleSheet("/UI/SpectatingInfo.scss")]
 
 @{
 	var text = GetSpectatingText();
-	if ( string.IsNullOrEmpty( text ) )
+	if (string.IsNullOrEmpty(text))
 		return;
 
 	<root>
@@ -15,21 +14,20 @@
 }
 
 @code {
-
 	private string GetSpectatingText()
 	{
 		var text = string.Empty;
 
 		var camera = MinigolfGame.Current.FollowBallCamera;
-		if ( camera is null )
+		if (camera is null)
 			return text;
 
 		// If we don't have a target or we are following ourselves.
-		if ( !camera.Target.IsValid() || camera.Target.IsLocalPawn )
+		if (!camera.Target.IsValid() || camera.Target.IsLocalPawn)
 			return text;
 
 		return $"Spectating {camera.Target.Client?.Name}";
 	}
 
-	protected override int BuildHash() => HashCode.Combine( GetSpectatingText() );
+	protected override int BuildHash() => HashCode.Combine(GetSpectatingText());
 }

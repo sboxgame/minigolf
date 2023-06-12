@@ -1,18 +1,13 @@
-@inherits Sandbox.UI.Panel
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet( "/UI/Scoreboard/GolfScoreboard.scss" )]
+@attribute [StyleSheet("/UI/Scoreboard/GolfScoreboard.scss")]
 
 <root>
 	<div class="timer">
 		@{
-			if ( !string.IsNullOrEmpty( TimerTimeLeft ) || !string.IsNullOrEmpty( TimerTimeUntil ) )
+			if (!string.IsNullOrEmpty(TimerTimeLeft) || !string.IsNullOrEmpty(TimerTimeUntil))
 			{
-				<div>
-					<text>@TimerTimeLeft</text>
-				</div>
-				<div>
-					<text>@TimerTimeUntil</text>
-				</div>
+				<div><text>@TimerTimeLeft</text></div>
+				<div><text>@TimerTimeUntil</text></div>
 			}
 		}
 	</div>
@@ -27,10 +22,10 @@
 					<text>Hole</text>
 					<div class="holes">
 						<div>
-							@for ( int i = 0; i < MinigolfGame.Current.Course.Holes.Count; ++i )
+							@for (int i = 0; i < MinigolfGame.Current.Course.Holes.Count; ++i)
 							{
 								var hole = MinigolfGame.Current.Course.Holes[i];
-								<label class=@( i == MinigolfGame.Current.Course._currentHole ? "active" : "" )>@hole.Number</label>
+								<label class=@(i == MinigolfGame.Current.Course._currentHole ? "active" : "")>@hole.Number</label>
 							}
 						</div>
 						<text class="total">Total</text>
@@ -40,10 +35,10 @@
 					<text>Par</text>
 					<div class="holes">
 						<div>
-							@for ( int i = 0; i < MinigolfGame.Current.Course.Holes.Count; ++i )
+							@for (int i = 0; i < MinigolfGame.Current.Course.Holes.Count; ++i)
 							{
 								var hole = MinigolfGame.Current.Course.Holes[i];
-								<label class=@( i == MinigolfGame.Current.Course._currentHole ? "active" : "" )>@hole.Par</label>
+								<label class=@(i == MinigolfGame.Current.Course._currentHole ? "active" : "")>@hole.Par</label>
 							}
 						</div>
 						<text class="total">24</text>
@@ -51,9 +46,9 @@
 				</div>
 			</div>
 			<div class="players">
-				@foreach ( var client in Game.Clients.OrderBy( client => client.GetTotalPar() ) )
+				@foreach (var client in Game.Clients.OrderBy(client => client.GetTotalPar()))
 				{
-					<ScoreboardPlayer Client=@client/>
+					<ScoreboardPlayer Client=@client />
 				}
 			</div>
 		</div>
@@ -78,21 +73,20 @@
 	{
 		get
 		{
-			if ( MinigolfGame.Current.State == GameState.EndOfGame )
-				return $"00:{Math.Max( 0, (int)MathF.Floor( MinigolfGame.Current.ReturnToLobbyTime - Time.Now ) ).ToString( "D2" )}";
-			if ( MinigolfGame.Current.IsHoleEnding )
-				return $"00:{Math.Max( 0, (int)MathF.Floor( MinigolfGame.Current.NextHoleTime - Time.Now ) ).ToString( "D2" )}";
+			if (MinigolfGame.Current.State == GameState.EndOfGame)
+				return $"00:{Math.Max(0, (int)MathF.Floor(MinigolfGame.Current.ReturnToLobbyTime - Time.Now)).ToString("D2")}";
+			if (MinigolfGame.Current.IsHoleEnding)
+				return $"00:{Math.Max(0, (int)MathF.Floor(MinigolfGame.Current.NextHoleTime - Time.Now)).ToString("D2")}";
 			return "";
 		}
 	}
-
 	public string TimerTimeUntil
 	{
 		get
 		{
-			if ( MinigolfGame.Current.State == GameState.EndOfGame )
+			if (MinigolfGame.Current.State == GameState.EndOfGame)
 				return "Return To Lobby";
-			if ( MinigolfGame.Current.IsHoleEnding )
+			if (MinigolfGame.Current.IsHoleEnding)
 				return "Next Hole";
 
 			return "";
@@ -106,20 +100,19 @@
 
 	public override void Tick()
 	{
-		if ( ForceOpen )
-			SetClass( "open", true );
-		else if ( MinigolfGame.Current.State == GameState.Playing )
-			SetClass( "open", Input.Down( "score" ) );
+		if (ForceOpen)
+			SetClass("open", true);
+		else if (MinigolfGame.Current.State == GameState.Playing)
+			SetClass("open", Input.Down("score"));
 	}
 
 	protected override int BuildHash()
 	{
-		var clients = Game.Clients.HashCombine( c => HashCode.Combine( c.SteamId, c.GetTotalPar() ) );
+		var clients = Game.Clients.HashCombine(c => HashCode.Combine(c.SteamId, c.GetTotalPar()));
 		var mapIdent = Sandbox.Game.Server.MapIdent;
 		var holeCount = MinigolfGame.Current.Course.Holes.Count;
 		var currentHole = MinigolfGame.Current.Course._currentHole;
 
-		return HashCode.Combine( clients, mapIdent, holeCount, currentHole, TimerTimeLeft.GetHashCode(), TimerTimeUntil.GetHashCode() );
+		return HashCode.Combine(clients, mapIdent, holeCount, currentHole, TimerTimeLeft.GetHashCode(), TimerTimeUntil.GetHashCode());
 	}
-
 }
