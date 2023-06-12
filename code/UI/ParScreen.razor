@@ -1,9 +1,34 @@
-﻿namespace Facepunch.Minigolf.UI;
+﻿@inherits Sandbox.UI.Panel
+@namespace Facepunch.Minigolf.UI
+@attribute [StyleSheet( "/UI/ParScreen.scss" )]
 
-public partial class ParScreen : Panel
-{
-	public static readonly string HoleInOne = "Hole\nin\nOne";
-	public static readonly Dictionary<int, string> ScoreText = new Dictionary<int, string>
+<root>
+	@if ( Strokes == 1 )
+	{
+		<div class="score hole-in-one">
+			<label>Hole</label>
+			<label>in</label>
+			<label>One</label>
+		</div>
+	}
+	else
+	{
+		<div class="score @( $"score--{Score}" )">
+			@foreach ( var line in ScoreText.GetValueOrDefault( Score, $"WTF {Score}" ).Split( ' ' ) )
+			{
+				<label>@line</label>
+			}
+		</div>
+	}
+	<label class="hole">
+		@( $"Hole {Hole}" )
+	</label>
+</root>
+
+
+@code {
+
+	public static readonly Dictionary<int, string> ScoreText = new()
 	{
 		{ 4, "Condor" },
 		{ 3, "Double Eagle" },
@@ -22,42 +47,25 @@ public partial class ParScreen : Panel
 		{ -10, "Decuple Bogey" },
 	};
 
-	RealTimeSince CreatedAt;
+	readonly RealTimeSince _createdAt;
 	static float ShowScoreForLength => 3.0f;
+
+	private int Hole { get; }
+	private int Par { get; }
+	private int Strokes { get; }
+	private int Score => Par - Strokes;
 
 	public ParScreen( int hole, int par, int strokes )
 	{
-		StyleSheet.Load( "/ui/ParScreen.scss" );
-
-		var score = Add.Panel( "score" );
-
-		if ( strokes == 1 )
-		{
-			score.AddClass( "hole-in-one" );
-
-			score.Add.Label( "Hole" );
-			score.Add.Label( "in" );
-			score.Add.Label( "One" );
-		}
-		else
-		{
-			score.AddClass( $"score--{par - strokes}" );
-
-			var text = ScoreText.GetValueOrDefault( par - strokes, $"WTF {par - strokes}" );
-			foreach ( var line in text.Split( ' ' ) )
-			{
-				score.Add.Label( line );
-			}
-		}
-
-		Add.Label( $"Hole {hole}", "hole" );
-
-		CreatedAt = 0;
+		Hole = hole;
+		Par = par;
+		Strokes = strokes;
+		_createdAt = 0;
 	}
 
 	public override void Tick()
 	{
-		if ( CreatedAt > ShowScoreForLength && !IsDeleting )
+		if ( _createdAt > ShowScoreForLength && !IsDeleting )
 		{
 			Delete();
 		}
@@ -75,4 +83,5 @@ public partial class ParScreen : Panel
 	{
 		Game.RootPanel.AddChild( new ParScreen( hole, par, strokes ) );
 	}
+
 }
