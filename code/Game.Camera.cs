@@ -74,4 +74,11 @@ public partial class MinigolfGame
 		if ( FreeCamera != null )
 			FreeCamTimeLeft -= RealTime.Delta;
 	}
+
+	[ClientRpc]
+	public void ResetFreeCamera()
+	{
+		var freeCam = Components.GetOrCreate<FreeCamera>();
+		freeCam.Stale = true;
+	}
 }

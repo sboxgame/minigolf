@@ -14,21 +14,22 @@ public class FreeCamera : BaseCamera
 	float MoveSpeed;
 	float LerpMode = 0;
 
+	public bool Stale { get; set; } = true;
+
 	public FreeCamera()
 	{
-		TargetPos = Camera.Position;
-		TargetRot = Camera.Rotation;
-
-		Camera.Position = TargetPos;
-		Camera.Rotation = TargetRot;
-		LookAngles = Camera.Rotation.Angles();
+		Reset();
 	}
 
 	public override void Update()
 	{
-		var player = Sandbox.Game.LocalClient;
-		if ( player == null ) return;
-		
+		var player = Game.LocalClient;
+		if ( player == null ) 
+			return;
+
+		if ( Stale ) 
+			Reset();
+
 		Camera.FirstPersonViewer = null;
 
 		FreeMove();
@@ -51,6 +52,19 @@ public class FreeCamera : BaseCamera
 
 		Input.Clear( "attack1" );
 		Input.StopProcessing = true;
+	}
+
+	void Reset()
+	{
+		TargetPos = Camera.Position;
+		TargetRot = Camera.Rotation;
+
+		Camera.Position = TargetPos;
+		Camera.Rotation = TargetRot;
+
+		LookAngles = Camera.Rotation.Angles();
+
+		Stale = false;
 	}
 
 	void FreeMove()
