@@ -1,8 +1,8 @@
 ﻿namespace Facepunch.Minigolf.UI;
 
-public partial class ChatBox
+public partial class TextChat
 {
-	[ConCmd.Client( "chat_add", CanBeCalledFromServer = true )]
+	[ConCmd.Client( "golfchat_add", CanBeCalledFromServer = true )]
 	public static void AddChatEntry( string name, string message, string avatar = null )
 	{
 		Current?.AddEntry( name, message, avatar );
@@ -12,22 +12,23 @@ public partial class ChatBox
 			Log.Info( $"{name}: {message}" );
 	}
 
-	[ConCmd.Client( "chat_addinfo", CanBeCalledFromServer = true )]
+	[ConCmd.Client( "golfchat_addinfo", CanBeCalledFromServer = true )]
 	public static void AddInformation( string message, string avatar = null )
 	{
 		Current?.AddEntry( null, message, avatar );
 	}
 
-	[ConCmd.Client( "chat_twitch", CanBeCalledFromServer = true )]
+	[ConCmd.Client( "golfchat_twitch", CanBeCalledFromServer = true )]
 	public static void AddTwitch( string user, string message )
 	{
 		Current?.AddEntry( user, message, "ui/twitch.jpg" );
 	}
 
-	[ConCmd.Server( "say" )]
+	[ConCmd.Server( "golf_say" )]
 	private static void Say( string message )
 	{
-		if ( ConsoleSystem.Caller == null ) return;
+		if ( ConsoleSystem.Caller == null )
+			return;
 
 		// todo - reject more stuff
 		if ( message.Contains( '\n' ) || message.Contains( '\r' ) )
