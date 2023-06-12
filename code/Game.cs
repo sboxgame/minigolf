@@ -51,7 +51,7 @@ public partial class MinigolfGame : Sandbox.GameManager
 		if ( State == GameState.Playing )
 		{
 			cl.SetValue( "late", true );
-			TextChat.AddInformation( To.Everyone, $"{cl.Name} has joined late, they will not be eligible for scoring.", $"avatar:{cl.SteamId}" );
+			TextChat.AddInfoChatEntry( To.Everyone, $"{cl.Name} has joined late, they will not be eligible for scoring." );
 
 			// Just give them shitty scores on each hole for now
 			for ( int i = 0; i <= Course.CurrentHoleIndex; i++ )
@@ -59,7 +59,7 @@ public partial class MinigolfGame : Sandbox.GameManager
 		}
 		else
 		{
-			TextChat.AddInformation( To.Everyone, $"{cl.Name} has joined", $"avatar:{cl.SteamId}" );
+			TextChat.AddInfoChatEntry( To.Everyone, $"{cl.Name} has joined" );
 		}
 	}
 

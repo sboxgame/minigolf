@@ -1,40 +1,105 @@
-﻿namespace Facepunch.Minigolf.UI;
+namespace Facepunch.Minigolf.UI;
 
-public partial class TextChat
+public partial class TextChat : Panel
 {
-	[ConCmd.Client( "golfchat_add", CanBeCalledFromServer = true )]
-	public static void AddChatEntry( string name, string message, string avatar = null )
+	public struct ChatMessage
 	{
-		Current?.AddEntry( name, message, avatar );
-
-		// Only log clientside if we're not the listen server host
-		if ( !Game.IsListenServer )
-			Log.Info( $"{name}: {message}" );
+		public string Name;
+		public Color Color;
+		public string Message;
+		public long SteamId;
 	}
 
-	[ConCmd.Client( "golfchat_addinfo", CanBeCalledFromServer = true )]
-	public static void AddInformation( string message, string avatar = null )
+	private const int MaxItems = 100;
+	private const float MessageLifetime = 10f;
+
+	private Panel Canvas { get; set; }
+	private TextEntry Input { get; set; }
+
+	private readonly Queue<TextChatEntry> _entries = new();
+
+	protected override void OnAfterTreeRender( bool firstTime )
 	{
-		Current?.AddEntry( null, message, avatar );
+		base.OnAfterTreeRender( firstTime );
+
+		Canvas.PreferScrollToBottom = true;
+		Input.AcceptsFocus = true;
+		Input.AllowEmojiReplace = true;
 	}
 
-	[ConCmd.Client( "golfchat_twitch", CanBeCalledFromServer = true )]
-	public static void AddTwitch( string user, string message )
+	public override void Tick()
 	{
-		Current?.AddEntry( user, message, "ui/twitch.jpg" );
+		if ( Sandbox.Input.Pressed( "chat" ) )
+			Open();
 	}
 
-	[ConCmd.Server( "golf_say" )]
-	private static void Say( string message )
+	private void AddEntry( TextChatEntry entry )
 	{
-		if ( ConsoleSystem.Caller == null )
+		Canvas.AddChild( entry );
+		Canvas.TryScrollToBottom();
+
+		entry.BindClass( "stale", () => entry.Lifetime > MessageLifetime );
+
+		_entries.Enqueue( entry );
+		if ( _entries.Count > MaxItems )
+			_entries.Dequeue().Delete();
+	}
+
+	private void Open()
+	{
+		AddClass( "open" );
+		Input.Focus();
+		Canvas.TryScrollToBottom();
+	}
+
+	private void Close()
+	{
+		RemoveClass( "open" );
+		Input.Blur();
+		Input.Text = string.Empty;
+		Input.Label.SetCaretPosition( 0 );
+	}
+
+	private void Submit()
+	{
+		var message = Input.Text.Trim();
+		Input.Text = "";
+
+		Close();
+
+		if ( string.IsNullOrWhiteSpace( message ) )
 			return;
 
-		// todo - reject more stuff
+		SendChat( message );
+	}
+
+	[ConCmd.Server( "minigolf_say" )]
+	public static void SendChat( string message )
+	{
+		if ( !ConsoleSystem.Caller.IsValid() )
+			return;
+
 		if ( message.Contains( '\n' ) || message.Contains( '\r' ) )
 			return;
 
-		Log.Info( $"{ConsoleSystem.Caller}: {message}" );
-		AddChatEntry( To.Everyone, $"{ConsoleSystem.Caller.Name}", message, $"avatar:{ConsoleSystem.Caller.SteamId}" );
+		AddChatEntry( To.Everyone, ConsoleSystem.Caller.Name, message, ConsoleSystem.Caller.SteamId );
+	}
+
+	[ClientRpc]
+	public static void AddChatEntry( string name, string message, long steamId )
+	{
+		Event.Run( MinigolfEvent.ChatMessageSent, new ChatMessage() { Name = name, Message = message, SteamId = steamId } );
+	}
+
+	[ClientRpc]
+	public static void AddInfoChatEntry( string message )
+	{
+		Event.Run( MinigolfEvent.ChatMessageSent, new ChatMessage() { Message = message } );
+	}
+
+	[MinigolfEvent.ChatMessageSent]
+	private void OnChatMessage( ChatMessage chatMessage )
+	{
+		AddEntry( new TextChatEntry { Name = chatMessage.Name, Message = chatMessage.Message, SteamId = chatMessage.SteamId } );
 	}
 }

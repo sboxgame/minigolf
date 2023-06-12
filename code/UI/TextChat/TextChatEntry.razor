@@ -1,26 +1,19 @@
-﻿@inherits Sandbox.UI.Panel
 @namespace Facepunch.Minigolf.UI
+@attribute [StyleSheet("/UI/TextChat/TextChat.scss")]
 
 <root>
-	<Image @ref=Avatar></Image>
-	<Label class="name" @ref=NameLabel>Name</Label>
-	<Label class="message" @ref=Message>Message</Label>
+	@if (SteamId > 0)
+	{
+		<img src="avatar:@SteamId" />
+	}
+	<label class="name" text=@Name />
+	<label class="msg" text=@Message />
 </root>
 
-@code {
-
-	public Label NameLabel { get; private set; }
-	public Label Message { get; private set; }
-	public Image Avatar { get; private set; }
-
-	private readonly RealTimeSince _timeSinceBorn = 0;
-
-	public override void Tick()
-	{
-		base.Tick();
-
-		if (_timeSinceBorn > 10)
-			AddClass("old");
-	}
-
+@code
+{
+	public string Name { get; set; }
+	public string Message { get; set; }
+	public long SteamId { get; set; }
+	public TimeSince Lifetime { get; init; } = 0;
 }
