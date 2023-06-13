@@ -1,7 +1,3 @@
-using Sandbox;
-using System;
-using System.Collections.Generic;
-
 using Facepunch.Minigolf.Entities;
 
 namespace Facepunch.Minigolf;
@@ -73,12 +69,12 @@ public class FollowBallCamera : BaseCamera
 
 		TargetAngles.yaw += Input.AnalogLook.yaw;
 
-		if ( !Input.Down( "attack1" ) )
+		if ( !Input.Down( InputActions.Attack1 ) )
 			TargetAngles.pitch += Input.AnalogLook.pitch;
 
 		TargetAngles = TargetAngles.Normal;
 
-		if ( !Input.Down( "attack1" ) )
+		if ( !Input.Down( InputActions.Attack1 ) )
 			TargetAngles.pitch = TargetAngles.pitch.Clamp( 0, 89 );
 	}
 

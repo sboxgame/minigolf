@@ -85,7 +85,7 @@ public partial class MinigolfGame : Sandbox.GameManager
 		// todo: pass to spectate
 		var ball = Sandbox.Game.LocalPawn as Ball;
 
-		if ( Input.Pressed( "view" ) && Sandbox.Game.LocalPawn.IsValid() && !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f )
+		if ( Input.Pressed( InputActions.View ) && Sandbox.Game.LocalPawn.IsValid() && !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f )
 		{
 			if ( FreeCamera == null )
 				FreeCamera = Components.GetOrCreate<FreeCamera>();
@@ -110,11 +110,11 @@ public partial class MinigolfGame : Sandbox.GameManager
 	public override void Simulate( IClient cl )
 	{
 		base.Simulate( cl );
+		if ( cl.Pawn is not Ball ball )
+			return;
 
-		if ( cl.Pawn is Ball ball && !ball.Cupped )
-		{
-			if ( Input.Pressed( "reload" ) )
-				ResetBall( cl );
-		}
+		if ( !ball.Cupped && Input.Pressed( InputActions.Reload ) )
+			ResetBall( cl );
 	}
 }
+

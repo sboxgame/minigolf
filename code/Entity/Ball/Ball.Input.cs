@@ -32,13 +32,13 @@ public partial class Ball
 		if ( InPlay )
 			return;
 
-		if ( Input.Down( "attack1" ) )
+		if ( Input.Down( InputActions.Attack1 ) )
 		{
 			float delta = Input.AnalogLook.pitch * RealTime.Delta;
 			ShotPower = Math.Clamp( ShotPower - delta, 0, 1 );
 		}
 
-		if ( ShotPower >= 0.01f && !Input.Down( "attack1" ) )
+		if ( ShotPower >= 0.01f && !Input.Down( InputActions.Attack1 ) )
 		{
 			MinigolfGame.Stroke( Sandbox.Camera.Rotation.Yaw(), ShotPower );
 			LastShotPower = ShotPower;
