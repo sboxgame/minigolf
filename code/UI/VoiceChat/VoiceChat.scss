@@ -1,0 +1,47 @@
+@import "../Styles/_vars.scss";
+
+VoiceChat {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    flex-direction: column;
+    gap: 5px;
+}
+
+VoiceChatEntry {
+    background-color: rgba($dark-grey, 0.9);
+    align-items: center;
+    font-size: 14px;
+    width: 225px;
+    border-radius: 20px;
+    padding: 5px 5px;
+    transition: all 0.10s ease-out;
+
+    img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin: 0px 5px 0px 3px;
+    }
+
+    label {
+        color: $light-blue;
+        margin-right: 16px;
+        text-shadow: 0 2 0 $dark-blue;
+        text-stroke: 2px $dark-blue;
+        font-size: 20px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &:intro {
+        opacity: 0;
+        right: 20px;
+    }
+
+    &:outro {
+        opacity: 0;
+        left: -20px;
+    }
+}

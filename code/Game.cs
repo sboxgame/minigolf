@@ -65,6 +65,11 @@ public partial class MinigolfGame : Sandbox.GameManager
 
 	public override bool CanHearPlayerVoice( IClient source, IClient dest ) => true;
 
+	public override void OnVoicePlayed( IClient source )
+	{
+		VoiceChat.OnVoiceChat( source );
+	}
+
 	public override void PostLevelLoaded()
 	{
 		StartTime = Time.Now + 60.0f;

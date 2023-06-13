@@ -1,0 +1,26 @@
+@namespace Facepunch.Minigolf.UI
+@attribute [StyleSheet("/UI/VoiceChat/VoiceChat.scss")]
+
+<root />
+
+@code {
+	private static VoiceChat Instance { get; set; }
+
+	public VoiceChat() => Instance = this;
+
+	public static void OnVoiceChat(IClient client)
+	{
+		if (Instance is null)
+			return;
+
+		var entry = Instance.ChildrenOfType<VoiceChatEntry>().FirstOrDefault(x => x.Client.SteamId == client.SteamId);
+		entry ??= new VoiceChatEntry() { Client = client, Parent = Instance };
+		entry.OnVoicePlayed();
+	}
+
+	public override void Tick()
+	{
+		if (Voice.IsRecording)
+			OnVoiceChat(Game.LocalClient);
+	}
+}

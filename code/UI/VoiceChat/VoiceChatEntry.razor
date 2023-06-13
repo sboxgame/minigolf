@@ -1,0 +1,27 @@
+@namespace Facepunch.Minigolf.UI
+@attribute [StyleSheet("/UI/VoiceChat/VoiceChat.scss")]
+
+<root>
+	<img src="avatar:@Client.SteamId">
+	<div>
+		<label>@Client.Name</label>
+	</div>
+</root>
+
+@code {
+	public IClient Client { get; set; }
+
+	private RealTimeSince _timeSincePlayed;
+	private readonly float _voiceTimeout = 0.1f;
+
+	public void OnVoicePlayed() => _timeSincePlayed = 0;
+
+	public override void Tick()
+	{
+		var timeoutInv = 1 - (_timeSincePlayed / _voiceTimeout);
+		timeoutInv = MathF.Min(timeoutInv * 2.0f, 1.0f);
+
+		if (timeoutInv < 0 && !IsDeleting)
+			Delete();
+	}
+}
