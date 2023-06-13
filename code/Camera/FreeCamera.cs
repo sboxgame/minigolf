@@ -1,7 +1,4 @@
-﻿using System;
-using Sandbox;
-
-namespace Facepunch.Minigolf;
+﻿namespace Facepunch.Minigolf;
 
 public class FreeCamera : BaseCamera
 {
@@ -40,17 +37,17 @@ public class FreeCamera : BaseCamera
 		MoveInput = Input.AnalogMove;
 
 		MoveSpeed = 1;
-		if ( Input.Down( "run" ) ) MoveSpeed = 5;
-		if ( Input.Down( "duck" ) ) MoveSpeed = 0.2f;
+		if ( Input.Down( InputActions.Run ) ) MoveSpeed = 5;
+		if ( Input.Down( InputActions.Run ) ) MoveSpeed = 0.2f;
 
-		if ( Input.Down( "slot1" ) ) LerpMode = 0.0f;
-		if ( Input.Down( "slot2" ) ) LerpMode = 0.5f;
-		if ( Input.Down( "slot3" ) ) LerpMode = 0.9f;
+		if ( Input.Down( InputActions.Slot1 ) ) LerpMode = 0.0f;
+		if ( Input.Down( InputActions.Slot2 ) ) LerpMode = 0.5f;
+		if ( Input.Down( InputActions.Slot3 ) ) LerpMode = 0.9f;
 
 		LookAngles += Input.AnalogLook;
 		LookAngles.roll = 0;
 
-		Input.Clear( "attack1" );
+		Input.Clear( InputActions.Attack1 );
 		Input.StopProcessing = true;
 	}
 

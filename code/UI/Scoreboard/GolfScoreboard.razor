@@ -104,7 +104,7 @@
 		if (ForceOpen)
 			SetClass("open", true);
 		else if (MinigolfGame.Current.State == GameState.Playing)
-			SetClass("open", Input.Down("score"));
+			SetClass("open", Input.Down(InputActions.Score));
 	}
 
 	protected override int BuildHash()
