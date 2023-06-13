@@ -5,21 +5,32 @@ namespace Facepunch.Minigolf.Entities;
 
 public partial class Ball
 {
-	protected Vector3 _velocity;
-	public override Vector3 Velocity { get => _velocity; set => _velocity = value; }
-
 	static float PowerMultiplier => 2500.0f;
 
 	public override void Simulate( IClient cl )
 	{
 		base.Simulate( cl );
 
-		if ( Sandbox.Game.IsServer )
+
+		if ( Input.Down( InputActions.Attack1 ) )
 		{
-			using ( Prediction.Off() )
-			{
-				Move();
-			}
+			float delta = Input.AnalogLook.pitch * Time.Delta;
+			ShotPower = Math.Clamp( ShotPower - delta, 0, 1 );
+		}
+
+		if ( ShotPower >= 0.01f && !Input.Down( InputActions.Attack1 ) )
+		{
+			Stroke( Angles.AngleVector( new Angles( 0, Sandbox.Camera.Rotation.Yaw(), 0 ) ), ShotPower );
+			LastShotPower = ShotPower;
+			ShotPower = 0;
+		}
+
+		Move();
+
+		if ( Hat.IsValid() )
+		{
+			var target = Hat;
+			target.Position = Position + Vector3.Up * 2;
 		}
 	}
 
@@ -115,18 +126,18 @@ public partial class Ball
 	void ImpactEffects( Vector3 pos, float speed )
 	{
 		// Collision sound happens at this point, not entity
-		var tr = Trace.Ray( pos, pos + Rotation.Forward * 20 )
-		.Radius( 1 )
-		.Ignore( this )
-		.Run();
+		// var tr = Trace.Ray( pos, pos + Rotation.Forward * 20 )
+		// .Radius( 1 )
+		// .Ignore( this )
+		// .Run();
 
-		var soundName = tr.Surface.Sounds.ImpactHard;
-		var sound = Sound.FromWorld( soundName, pos );
-		sound.SetVolume( 1f + Math.Clamp( speed / 1250.0f, 0.0f, 0.8f ) );
-		sound.SetPitch( 1f + Math.Clamp( speed / 1250.0f, 0.0f, 0.5f ) );
+		// var soundName = tr.Surface.Sounds.ImpactHard;
+		// var sound = Sound.FromWorld( soundName, pos );
+		// sound.SetVolume( 1f + Math.Clamp( speed / 1250.0f, 0.0f, 0.8f ) );
+		// sound.SetPitch( 1f + Math.Clamp( speed / 1250.0f, 0.0f, 0.5f ) );
 
-		var particle = Particles.Create( "particles/gameplay/ball_hit/ball_hit.vpcf", pos );
-		particle.Destroy( false );
+		// var particle = Particles.Create( "particles/gameplay/ball_hit/ball_hit.vpcf", pos );
+		// particle.Destroy( false );
 	}
 
 	[GameEvent.Tick.Server]

@@ -28,7 +28,7 @@ public partial class Ball : ModelEntity
 
 		Transmit = TransmitType.Always;
 
-		Predictable = false;
+		Predictable = true;
 
 		Tags.Add( "golf_ball" );
 	}
@@ -76,13 +76,13 @@ public partial class Ball : ModelEntity
 		Direction = direction;
 
 		// Tell the player we reset the ball
-		PlayerResetPosition( To.Single(this), position, direction );
+		PlayerResetPosition( To.Single( this ), position, direction );
 	}
 
 	[ClientRpc]
 	protected void PlayerResetPosition( Vector3 position, Angles angles )
 	{
-		Camera.TargetAngles = new(14, angles.yaw, 0);
+		Camera.TargetAngles = new( 14, angles.yaw, 0 );
 		//Camera.Rotation = Rotation.From( 14, angles.yaw, 0 );
 	}
 

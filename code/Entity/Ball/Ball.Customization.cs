@@ -43,30 +43,6 @@ public partial class Ball
 		ApplyCustomization();
 	}
 
-	private Vector3 prevPosition;
-	[GameEvent.Tick.Server]
-	private void MoveHat()
-	{
-		if ( !Hat.IsValid() ) return;
-
-		if ( IsLocalPawn && !localhat.IsValid() )
-		{
-			Hat.RenderColor = Color.Transparent;
-			localhat = new AnimatedEntity( Hat.GetModelName() );
-		}
-
-		var target = IsLocalPawn ? localhat : Hat;
-		target.Position = Position + Vector3.Up * 2;
-
-		var dir = Position - prevPosition;
-		prevPosition = Position;
-
-		if ( dir.IsNearlyZero() ) return;
-
-		var targetAngles = Vector3.VectorAngle( dir );
-		target.Rotation = Rotation.Lerp( target.Rotation, Rotation.From( targetAngles ), 5f * Time.Delta );
-	}
-
 	private void ApplyCustomization()
 	{
 		var cc = Client.Components.GetOrCreate<CustomizeComponent>();
@@ -88,6 +64,7 @@ public partial class Ball
 		if ( hatpart != null )
 		{
 			Hat = new AnimatedEntity( hatpart.AssetPath );
+			Hat.Owner = Client.Pawn as Entity;
 		}
 
 		var skinpart = cc.GetEquippedPart( "Skins" );
