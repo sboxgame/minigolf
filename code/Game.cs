@@ -101,6 +101,12 @@ public partial class MinigolfGame : Sandbox.GameManager
 		ball?.BuildInput();
 	}
 
+	[MinigolfEvent.NextHole]
+	private void OnHoleChange( int hole )
+	{
+		ResetFreeCamera( To.Everyone );
+	}
+
 	public override void Simulate( IClient cl )
 	{
 		base.Simulate( cl );
