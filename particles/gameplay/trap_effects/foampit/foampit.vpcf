@@ -776,7 +776,6 @@
 	[
 		{
 			_class = "C_OP_WorldTraceConstraint"
-			m_CollisionGroupName = "DEBRIS"
 		},
 	]
 	m_Renderers = 
@@ -786,7 +785,7 @@
 			m_ModelList = 
 			[
 				{
-					m_model = resource:"models/maya_testcube_100.vmdl"
+					m_model = resource:"models/dev/box.vmdl"
 				},
 			]
 			m_hOverrideMaterial = resource:"materials/dev/normal_test.vmat"
