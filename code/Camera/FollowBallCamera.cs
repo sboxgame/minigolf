@@ -20,7 +20,7 @@ public class FollowBallCamera : BaseCamera
 	public Ball Ball => Target is null ? Entity as Ball : Target;
 	public Ball Target { get; set; }
 
-	public override bool CanAddToEntity(Entity entity)
+	public override bool CanAddToEntity( Entity entity )
 	{
 		// Can only work on your balls
 		return entity is Ball;

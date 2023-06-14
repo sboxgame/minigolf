@@ -16,6 +16,8 @@ public partial class Ball : ModelEntity
 
 	[BindComponent] public FollowBallCamera Camera { get; }
 
+	private Glow glow;
+
 	public override void Spawn()
 	{
 		base.Spawn();
@@ -32,7 +34,6 @@ public partial class Ball : ModelEntity
 
 		Tags.Add( "golf_ball" );
 	}
-	Glow glow;
 
 	public override void ClientSpawn()
 	{
@@ -76,13 +77,13 @@ public partial class Ball : ModelEntity
 		Direction = direction;
 
 		// Tell the player we reset the ball
-		PlayerResetPosition( To.Single(this), position, direction );
+		PlayerResetPosition( To.Single( this ), position, direction );
 	}
 
 	[ClientRpc]
 	protected void PlayerResetPosition( Vector3 position, Angles angles )
 	{
-		Camera.TargetAngles = new(14, angles.yaw, 0);
+		Camera.TargetAngles = new( 14, angles.yaw, 0 );
 		//Camera.Rotation = Rotation.From( 14, angles.yaw, 0 );
 	}
 

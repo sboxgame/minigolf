@@ -19,7 +19,7 @@ public partial class Ball
 
 		InPlay = true;
 
-		direction = direction.Normal.WithZ(0);
+		direction = direction.Normal.WithZ( 0 );
 		power = Math.Clamp( power, 0, 1 );
 
 		// gradient the power, smaller shots have less power

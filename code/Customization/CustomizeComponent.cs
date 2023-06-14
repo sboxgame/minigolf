@@ -1,8 +1,4 @@
-﻿using Sandbox;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Facepunch.Customization;
@@ -12,8 +8,8 @@ public class CustomizeComponent : EntityComponent
 
 	public static string EnsembleJson
 	{
-		get => Cookie.Get(Game.Server.GameIdent + ".customize.ensemble", string.Empty );
-		set => Cookie.Set(Game.Server.GameIdent + ".customize.ensemble", value );
+		get => Cookie.Get( Game.Server.GameIdent + ".customize.ensemble", string.Empty );
+		set => Cookie.Set( Game.Server.GameIdent + ".customize.ensemble", value );
 	}
 
 	public List<CustomizationPart> Parts = new();
@@ -40,7 +36,7 @@ public class CustomizeComponent : EntityComponent
 
 		// look for default
 		if ( part == null )
-			part = cfg.Parts.FirstOrDefault(x => x.Id == cetgory.DefaultPartId);
+			part = cfg.Parts.FirstOrDefault( x => x.Id == cetgory.DefaultPartId );
 
 		return part;
 	}
@@ -48,7 +44,7 @@ public class CustomizeComponent : EntityComponent
 	public void Equip( int id ) => Equip( Customize.Config.Parts.FirstOrDefault( x => x.Id == id ) );
 	public void Equip( CustomizationPart part )
 	{
-		if ( part == null ) throw new Exception("Can't equip null");
+		if ( part == null ) throw new Exception( "Can't equip null" );
 
 		if ( Parts.Contains( part ) )
 		{
@@ -146,7 +142,7 @@ public class CustomizeComponent : EntityComponent
 	[ConCmd.Server]
 	public static void EquipPartOnServer( int entityId, int id )
 	{
-		var ent = Entity.FindByIndex(entityId);
+		var ent = Entity.FindByIndex( entityId );
 		if ( !ent.IsValid() ) return;
 
 		var cfg = ent.Components.Get<CustomizeComponent>();
@@ -156,9 +152,9 @@ public class CustomizeComponent : EntityComponent
 	}
 
 	[ConCmd.Server]
-	public static void UnequipPartOnServer(int entityId, int id )
+	public static void UnequipPartOnServer( int entityId, int id )
 	{
-		var ent = Entity.FindByIndex(entityId);
+		var ent = Entity.FindByIndex( entityId );
 		if ( !ent.IsValid() ) return;
 
 		var cfg = ent.Components.Get<CustomizeComponent>();
@@ -168,4 +164,3 @@ public class CustomizeComponent : EntityComponent
 	}
 
 }
-

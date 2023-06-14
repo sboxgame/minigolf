@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Facepunch.Customization;
+﻿namespace Facepunch.Customization;
 
 public partial class CustomizeConfig
 {

@@ -1,6 +1,6 @@
 ﻿namespace Facepunch.Minigolf.Entities;
 
-[Library( "minigolf_flag_base")]
+[Library( "minigolf_flag_base" )]
 [HammerEntity, EditorModel( "models/minigolf_flag.vmdl" )]
 [Title( "Flag Pole" )]
 public partial class FlagBase : ModelEntity

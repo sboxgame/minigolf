@@ -47,7 +47,7 @@ public partial class PowerArrow : RenderEntity
 
 	public override void DoRender( SceneObject obj )
 	{
-		if ( Power.AlmostEqual(0.0f) )
+		if ( Power.AlmostEqual( 0.0f ) )
 			return;
 
 		Graphics.SetupLighting( obj );

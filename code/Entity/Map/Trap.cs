@@ -15,8 +15,8 @@ public partial class Trap : ModelEntity
 	[Property( "soundName" ), FGDType( "sound" )]
 	public string SoundName { get; set; } = "minigolf.ball_in_water";
 
-	[Property("Particle Tint" )]
-	[Net] public Color ParticleTint { get; set; }= Color.Black;
+	[Property( "Particle Tint" )]
+	[Net] public Color ParticleTint { get; set; } = Color.Black;
 
 
 	public override void Spawn()
@@ -55,7 +55,7 @@ public partial class Trap : ModelEntity
 				return;
 
 			if ( other is Ball ball )
-					MinigolfGame.Current.BallOutOfBounds( ball, MinigolfGame.OutOfBoundsType.Water );
+				MinigolfGame.Current.BallOutOfBounds( ball, MinigolfGame.OutOfBoundsType.Water );
 		};
 		task.Invoke();
 	}

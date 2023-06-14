@@ -15,7 +15,7 @@ public partial class HoleBounds : BaseTrigger
 	[Property]
 	public int HoleNumber { get; set; }
 
-	public override void StartTouch(Entity other)
+	public override void StartTouch( Entity other )
 	{
 		if ( MinigolfGame.Current.Course.CurrentHole.Number != HoleNumber )
 			return;
@@ -26,7 +26,7 @@ public partial class HoleBounds : BaseTrigger
 		MinigolfGame.Current.UpdateBallInBounds( ball, true );
 	}
 
-	public override void EndTouch(Entity other)
+	public override void EndTouch( Entity other )
 	{
 		if ( MinigolfGame.Current.Course.CurrentHole.Number != HoleNumber )
 			return;

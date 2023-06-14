@@ -1,6 +1,4 @@
-﻿using Sandbox;
-
-namespace Facepunch.Minigolf;
+﻿namespace Facepunch.Minigolf;
 
 public static partial class ClientExtensions
 {

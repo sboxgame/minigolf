@@ -8,7 +8,7 @@ public partial class OutOfBoundsArea : BaseTrigger
 	/// <summary>
 	/// When the ball enters this out of bounds area, how much time until we declare out of bounds?
 	/// </summary>
-	[Property(Title = "Forgiveness Time")]
+	[Property( Title = "Forgiveness Time" )]
 	public int ForgiveTime { get; set; } = 3;
 
 	public IEnumerable<Ball> TouchingBalls => touchingBalls;

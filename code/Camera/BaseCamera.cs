@@ -1,4 +1,3 @@
-
 namespace Facepunch.Minigolf;
 
 public partial class BaseCamera : EntityComponent

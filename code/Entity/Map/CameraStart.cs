@@ -1,6 +1,6 @@
 ﻿namespace Facepunch.Minigolf.Entities;
 
-[Library( "minigolf_hole_camera")]
+[Library( "minigolf_hole_camera" )]
 [HammerEntity, EditorModel( "models/editor/camera.vmdl" )]
 [Title( "Hole Camera" )]
 public partial class HoleCamera : Entity

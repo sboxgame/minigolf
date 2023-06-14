@@ -23,7 +23,7 @@ internal class ObscureHighlightRenderer : RenderHook
 
 		var shapeMat = Material.FromShader( "HighlightObject.vfx" );
 		var screenMat = Material.FromShader( "HighlightPostProcess.vfx" );
-		
+
 		Graphics.GrabDepthTexture( "DepthTexture" );
 
 		using var rt = RenderTarget.GetTemporary();

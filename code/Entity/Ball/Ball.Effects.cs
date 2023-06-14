@@ -1,7 +1,4 @@
-﻿using System;
-using Sandbox;
-
-namespace Facepunch.Minigolf.Entities;
+﻿namespace Facepunch.Minigolf.Entities;
 
 public partial class Ball
 {

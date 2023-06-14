@@ -1,6 +1,4 @@
-﻿using Sandbox;
-
-namespace Facepunch.Minigolf;
+﻿namespace Facepunch.Minigolf;
 
 /// <summary>
 /// A simple camera component that turns any entity into a camera itself.
@@ -11,7 +9,7 @@ public class StaticCamera : BaseCamera
 	public Rotation Rotation;
 	public float FOV = 80;
 
-    public override void Update()
+	public override void Update()
 	{
 		Camera.Position = Position;
 		Camera.Rotation = Rotation;

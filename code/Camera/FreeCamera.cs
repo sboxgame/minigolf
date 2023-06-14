@@ -21,10 +21,10 @@ public class FreeCamera : BaseCamera
 	public override void Update()
 	{
 		var player = Game.LocalClient;
-		if ( player == null ) 
+		if ( player == null )
 			return;
 
-		if ( Stale ) 
+		if ( Stale )
 			Reset();
 
 		Camera.FirstPersonViewer = null;

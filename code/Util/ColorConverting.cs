@@ -1,8 +1,7 @@
 ﻿namespace Facepunch.Minigolf;
 
-static class ColorConvert
+public static class ColorConvert
 {
-
 	public static Color HSLToRGB( int h, float s, float l )
 	{
 		float r = 0;

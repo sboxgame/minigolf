@@ -47,16 +47,15 @@ public static class Customize
 
 	[GameEvent.Tick]
 	private static async void CheckForChange()
-    {
+	{
 		if ( !WatchForChanges ) return;
 		if ( tsdirtycheck < 1 ) return;
 		tsdirtycheck = 0;
 
-		if( await IsDirty() )
-        {
+		if ( await IsDirty() )
+		{
 			await LoadConfig();
 			OnChanged?.Invoke();
 		}
 	}
-
 }
