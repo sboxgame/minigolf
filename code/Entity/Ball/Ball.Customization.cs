@@ -13,9 +13,11 @@ public partial class Ball
 	public AnimatedEntity Hat { get; set; }
 	private AnimatedEntity localhat;
 
+	private Vector3 prevPosition;
+
 	private void CleanupCustomization()
 	{
-		if ( Sandbox.Game.IsServer )
+		if ( Game.IsServer )
 		{
 			if ( Hat.IsValid() ) Hat.Delete();
 			if ( trail != null ) trail.Destroy();
@@ -43,11 +45,10 @@ public partial class Ball
 		ApplyCustomization();
 	}
 
-	private Vector3 prevPosition;
-	[GameEvent.Tick.Server]
 	private void MoveHat()
 	{
-		if ( !Hat.IsValid() ) return;
+		if ( !Hat.IsValid() )
+			return;
 
 		if ( IsLocalPawn && !localhat.IsValid() )
 		{
@@ -61,7 +62,8 @@ public partial class Ball
 		var dir = Position - prevPosition;
 		prevPosition = Position;
 
-		if ( dir.IsNearlyZero() ) return;
+		if ( dir.IsNearlyZero() )
+			return;
 
 		var targetAngles = Vector3.VectorAngle( dir );
 		target.Rotation = Rotation.Lerp( target.Rotation, Rotation.From( targetAngles ), 5f * Time.Delta );
@@ -92,9 +94,7 @@ public partial class Ball
 
 		var skinpart = cc.GetEquippedPart( "Skins" );
 		if ( skinpart != null )
-		{
 			SetSkinOnClient( To.Everyone, NetworkIdent, skinpart.AssetPath );
-		}
 	}
 
 	[ClientRpc]
@@ -107,9 +107,9 @@ public partial class Ball
 	public static void SetSkinOnClient( int ballIdent, string assetPath )
 	{
 		var ball = Entity.FindByIndex( ballIdent );
-		if ( ball is not Ball b ) return;
+		if ( ball is not Ball b )
+			return;
 
 		b.SetMaterialOverride( assetPath );
 	}
-
 }

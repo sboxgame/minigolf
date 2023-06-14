@@ -21,6 +21,8 @@ public partial class Ball
 				Move();
 			}
 		}
+
+		MoveHat();
 	}
 
 	static Vector3 ProjectOntoPlane( Vector3 v, Vector3 normal, float overBounce = 1.0f )
