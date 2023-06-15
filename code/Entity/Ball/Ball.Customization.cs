@@ -88,8 +88,7 @@ public partial class Ball
 		}
 
 		var skinItem = cc.GetEquippedItem( CustomizationItem.CategoryType.Skin );
-		if ( skinItem != null )
-			SetSkinOnClient( To.Everyone, NetworkIdent, skinItem.SkinTexture );
+		SetSkinOnClient( To.Everyone, NetworkIdent, skinItem is not null ? skinItem.SkinTexture : defaultSkin );
 	}
 
 	[ClientRpc]

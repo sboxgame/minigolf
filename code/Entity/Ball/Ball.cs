@@ -17,12 +17,14 @@ public partial class Ball : ModelEntity
 	[BindComponent] public FollowBallCamera Camera { get; }
 
 	private Glow glow;
+	private string defaultSkin;
 
 	public override void Spawn()
 	{
 		base.Spawn();
 
 		Model = GolfBallModel;
+		defaultSkin = GolfBallModel.Materials.FirstOrDefault().ResourcePath;
 
 		SetupPhysicsFromModel( PhysicsMotionType.Keyframed, false );
 
