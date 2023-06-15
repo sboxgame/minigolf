@@ -1240,7 +1240,7 @@
 			}
 			m_bGammaCorrectVertexColors = false
 			m_bSaturateColorPreAlphaBlend = false
-			m_hTexture = resource:"particles/trails/sprites/clouds/cloud_trail.vtex"
+			m_hTexture = resource:"particles/sprites/trails/clouds/cloud_trail.vtex"
 		},
 		{
 			_class = "C_OP_RenderSprites"
@@ -1342,7 +1342,7 @@
 			}
 			m_bGammaCorrectVertexColors = false
 			m_bSaturateColorPreAlphaBlend = false
-			m_hTexture = resource:"particles/trails/sprites/clouds/cloud_trail.vtex"
+			m_hTexture = resource:"particles/sprites/trails/clouds/cloud_trail.vtex"
 		},
 	]
 	m_Children = 
