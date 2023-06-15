@@ -1,0 +1,7 @@
+{
+  "Category": "Skin",
+  "Icon": "materials/ballskins/gold/gold_golf_ball.vmat.png",
+  "HatModel": null,
+  "SkinTexture": "materials/ballskins/gold/gold_golf_ball.vmat",
+  "TrailParticle": null
+}
