@@ -3,9 +3,8 @@ using Facepunch.Customization;
 
 namespace Facepunch.Minigolf;
 
-internal class CustomizeRenderScene : Panel
+internal class CustomizationRenderScene : Panel
 {
-
 	private ScenePanel ScenePanel;
 	private SceneWorld SceneWorld;
 	private Angles CameraAngle;
@@ -35,10 +34,10 @@ internal class CustomizeRenderScene : Panel
 			}
 		}
 
-		var cc = Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>();
+		var cc = Game.LocalClient.Components.Get<CustomizationComponent>();
 		if ( cc == null ) return;
 
-		var newhash = cc.GetPartsHash();
+		var newhash = cc.GetItemHash();
 		if ( newhash == hash ) return;
 
 		hash = newhash;
@@ -64,33 +63,33 @@ internal class CustomizeRenderScene : Panel
 		ScenePanel.Camera.Rotation = Rotation.LookAt( golfball.Rotation.Backward ).RotateAroundAxis( Vector3.Forward, -90 );
 		CameraAngle = ScenePanel.Camera.Rotation.Angles();
 
-        var sun = new SceneSunLight(SceneWorld, Rotation.FromPitch(50), Color.White * 0.5f + Color.Cyan * 0.1f);
-        sun.ShadowsEnabled = true;
-        sun.SkyColor = Color.White * 0.15f + Color.Cyan * 0.25f;
+		var sun = new SceneSunLight( SceneWorld, Rotation.FromPitch( 50 ), Color.White * 0.5f + Color.Cyan * 0.1f );
+		sun.ShadowsEnabled = true;
+		sun.SkyColor = Color.White * 0.15f + Color.Cyan * 0.25f;
 
-        new SceneLight(SceneWorld, ScenePanel.Camera.Position + Vector3.Up * 5 + Vector3.Right * 2, 200, Color.White);
-        new SceneLight(SceneWorld, Vector3.Down * 50 + Vector3.Left * 20, 200, Color.White.Darken(.25f));
+		new SceneLight( SceneWorld, ScenePanel.Camera.Position + Vector3.Up * 5 + Vector3.Right * 2, 200, Color.White );
+		new SceneLight( SceneWorld, Vector3.Down * 50 + Vector3.Left * 20, 200, Color.White.Darken( .25f ) );
 
-        new SceneCubemap(SceneWorld, Texture.Load("textures/cubemaps/default.vtex"), BBox.FromPositionAndSize(Vector3.Zero, 1000));
+		new SceneCubemap( SceneWorld, Texture.Load( "textures/cubemaps/default.vtex" ), BBox.FromPositionAndSize( Vector3.Zero, 1000 ) );
 
-        var cc = Sandbox.Game.LocalClient.Components.Get<CustomizeComponent>();
-		var skinpart = cc.GetEquippedPart( "Skins" );
-		if ( skinpart != null && !string.IsNullOrEmpty( skinpart.AssetPath ) )
+		var cc = Sandbox.Game.LocalClient.Components.Get<CustomizationComponent>();
+		var skinItem = cc.GetEquippedItem( CustomizationItem.CategoryType.Skin );
+		if ( skinItem != null && !string.IsNullOrEmpty( skinItem.SkinTexture ) )
 		{
-			var skin = Material.Load( $"{skinpart.AssetPath}" );
+			var skin = Material.Load( skinItem.SkinTexture );
 			golfball.SetMaterialOverride( skin );
 		}
 
-		var hatpart = cc.GetEquippedPart( "Hats" );
-		if ( hatpart != null && !string.IsNullOrEmpty( hatpart.AssetPath ) )
+		var hatItem = cc.GetEquippedItem( CustomizationItem.CategoryType.Hat );
+		if ( hatItem != null && !string.IsNullOrEmpty( hatItem.HatModel ) )
 		{
-			new SceneModel( SceneWorld, hatpart.AssetPath, Transform.Zero.WithScale( modelscale ).WithPosition( Vector3.Up * 2.35f * modelscale ) );
+			new SceneModel( SceneWorld, hatItem.HatModel, Transform.Zero.WithScale( modelscale ).WithPosition( Vector3.Up * 2.35f * modelscale ) );
 		}
 
-		var trailpart = cc.GetEquippedPart( "Trails" );
-		if ( trailpart != null && !string.IsNullOrEmpty( trailpart.AssetPath ) )
+		var trailItem = cc.GetEquippedItem( CustomizationItem.CategoryType.Trail );
+		if ( trailItem != null && !string.IsNullOrEmpty( trailItem.TrailParticle ) )
 		{
-			new SceneParticles( SceneWorld, trailpart.AssetPath );
+			new SceneParticles( SceneWorld, trailItem.TrailParticle );
 		}
 	}
 

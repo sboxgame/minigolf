@@ -1,0 +1,7 @@
+{
+  "Category": "Hat",
+  "Icon": "models/hats/cone/cone.vmdl.png",
+  "HatModel": "models/hats/cone/cone.vmdl",
+  "SkinTexture": null,
+  "TrailParticle": null
+}

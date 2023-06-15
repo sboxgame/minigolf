@@ -30,8 +30,6 @@ public partial class MinigolfGame : Sandbox.GameManager
 
 		if ( Game.IsClient )
 			Game.RootPanel = new GolfRootPanel();
-
-		Customize.WatchForChanges = true;
 	}
 
 	[Event.Hotload]
@@ -46,7 +44,7 @@ public partial class MinigolfGame : Sandbox.GameManager
 	{
 		Log.Info( $"\"{cl.Name}\" has joined the game" );
 
-		cl.Components.Create<CustomizeComponent>();
+		cl.Components.Create<CustomizationComponent>();
 
 		if ( State == GameState.Playing )
 		{
@@ -78,14 +76,14 @@ public partial class MinigolfGame : Sandbox.GameManager
 
 	public override void BuildInput()
 	{
-		Sandbox.Game.AssertClient();
+		Game.AssertClient();
 
 		Event.Run( "buildinput" );
 
 		// todo: pass to spectate
-		var ball = Sandbox.Game.LocalPawn as Ball;
+		var ball = Game.LocalPawn as Ball;
 
-		if ( Input.Pressed( InputActions.View ) && Sandbox.Game.LocalPawn.IsValid() && !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f )
+		if ( Input.Pressed( InputActions.View ) && Game.LocalPawn.IsValid() && !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f )
 		{
 			if ( FreeCamera == null )
 				FreeCamera = Components.GetOrCreate<FreeCamera>();
