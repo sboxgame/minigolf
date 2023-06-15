@@ -44,7 +44,7 @@ CustomizationMenu {
 
         .content {
             flex-direction: column;
-            width: 660px;
+            width: 40%;
             margin-right: 10px;
 
             .navbar {
@@ -88,8 +88,9 @@ CustomizationMenu {
 }
 
 CustomizationItemIcon {
-    width: 115px;
+    width: 25%;
     height: 115px;
+    aspect-ratio: 1;
     padding: 8px;
 
     .inner {
