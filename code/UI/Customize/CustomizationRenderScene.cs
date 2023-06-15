@@ -8,8 +8,18 @@ internal class CustomizationRenderScene : Panel
 	private ScenePanel ScenePanel;
 	private SceneWorld SceneWorld;
 	private Angles CameraAngle;
+	private Vector3 CameraPosition => Rotation.From( CameraAngle ).Forward * -30f;
 
 	private int hash;
+	private bool isDragging;
+
+	public override void OnButtonEvent( ButtonEvent e )
+	{
+		if ( e.Button == "mouseleft" )
+			isDragging = e.Pressed;
+
+		base.OnButtonEvent( e );
+	}
 
 	public override void OnHotloaded()
 	{
@@ -56,12 +66,9 @@ internal class CustomizationRenderScene : Panel
 		var modelscale = 3f;
 		var golfball = new SceneModel( SceneWorld, "models/golf_ball.vmdl", Transform.Zero.WithScale( modelscale ) );
 
-		ScenePanel = Add.ScenePanel( SceneWorld, Vector3.Zero, Rotation.From( CameraAngle ), 75 );
+		ScenePanel = Add.ScenePanel( SceneWorld, CameraPosition, Rotation.From( CameraAngle ), 75 );
 		ScenePanel.Style.Width = Length.Percent( 100 );
 		ScenePanel.Style.Height = Length.Percent( 100 );
-		ScenePanel.Camera.Position = golfball.Rotation.Forward * 32f + Vector3.Up * 3f;
-		ScenePanel.Camera.Rotation = Rotation.LookAt( golfball.Rotation.Backward ).RotateAroundAxis( Vector3.Forward, -90 );
-		CameraAngle = ScenePanel.Camera.Rotation.Angles();
 
 		var sun = new SceneSunLight( SceneWorld, Rotation.FromPitch( 50 ), Color.White * 0.5f + Color.Cyan * 0.1f );
 		sun.ShadowsEnabled = true;
@@ -93,4 +100,20 @@ internal class CustomizationRenderScene : Panel
 		}
 	}
 
+	[Event.Client.Frame]
+	private void OnFrame()
+	{
+		if ( ScenePanel == null )
+			return;
+
+		if ( isDragging )
+		{
+			CameraAngle.pitch += Mouse.Delta.y * .5f;
+			CameraAngle.yaw -= Mouse.Delta.x * .5f;
+			CameraAngle.pitch = CameraAngle.pitch.Clamp( 0, 75 );
+		}
+
+		ScenePanel.Camera.Position = ScenePanel.Camera.Position.LerpTo( CameraPosition, 10f * Time.Delta );
+		ScenePanel.Camera.Rotation = Rotation.Lerp( ScenePanel.Camera.Rotation, Rotation.From( CameraAngle ), 15f * Time.Delta );
+	}
 }
