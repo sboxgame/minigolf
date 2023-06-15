@@ -28,9 +28,4 @@ public class CustomizationItem : GameResource
 	{
 		return ResourceLibrary.GetAll<CustomizationItem>().FirstOrDefault( x => x.ResourceName == resourceName );
 	}
-
-	public static CustomizationItem FindDefaultItem( CategoryType category )
-	{
-		return ResourceLibrary.GetAll<CustomizationItem>().FirstOrDefault( x => x.Category == category );
-	}
 }

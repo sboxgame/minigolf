@@ -1,0 +1,7 @@
+{
+  "Category": "Hat",
+  "Icon": "models/hats/coolglasses/coolglasses.vmdl.png",
+  "HatModel": "models/hats/coolglasses/coolglasses.vmdl",
+  "SkinTexture": null,
+  "TrailParticle": null
+}

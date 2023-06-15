@@ -22,11 +22,9 @@ public class CustomizationComponent : EntityComponent
 		}
 	}
 
-	public CustomizationItem GetEquippedItem( CustomizationItem.CategoryType type )
+	public CustomizationItem GetEquippedItem( CustomizationItem.CategoryType category )
 	{
-		var result = Items.FirstOrDefault( x => x.Category == type );
-		result ??= CustomizationItem.FindDefaultItem( type );
-		return result;
+		return Items.FirstOrDefault( x => x.Category == category );
 	}
 
 	public void Equip( string resourceName ) => Equip( CustomizationItem.Find( resourceName ) );
@@ -109,7 +107,7 @@ public class CustomizationComponent : EntityComponent
 
 	public int GetItemHash()
 	{
-		int hash = 0;
+		int hash = Items.GetHashCode();
 		foreach ( var item in Items )
 		{
 			hash = HashCode.Combine( hash, item.ResourceName );

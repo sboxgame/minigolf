@@ -1,0 +1,7 @@
+{
+  "Category": "Hat",
+  "Icon": "models/hats/fez/fez.vmdl.png",
+  "HatModel": "models/hats/fez/fez.vmdl",
+  "SkinTexture": null,
+  "TrailParticle": null
+}
