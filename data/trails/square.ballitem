@@ -1,0 +1,7 @@
+{
+  "Category": "Trail",
+  "Icon": "particles/gameplay/ball_trail/custom/square_ball_trail.vpcf.png",
+  "HatModel": null,
+  "SkinTexture": null,
+  "TrailParticle": "particles/gameplay/ball_trail/custom/square_ball_trail.vpcf"
+}

@@ -1,0 +1,7 @@
+{
+  "Category": "Hat",
+  "Icon": "models/hats/bucket/bucket.vmdl.png",
+  "HatModel": "models/hats/bucket/bucket.vmdl",
+  "SkinTexture": null,
+  "TrailParticle": null
+}

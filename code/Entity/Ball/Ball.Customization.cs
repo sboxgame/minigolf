@@ -1,19 +1,17 @@
 ﻿using Facepunch.Customization;
-using Sandbox;
 
 namespace Facepunch.Minigolf.Entities;
 
 public partial class Ball
 {
-
-	private int parthash = -1;
-	private Particles trail;
-
 	[Net]
 	public AnimatedEntity Hat { get; set; }
 	private AnimatedEntity localhat;
 
 	private Vector3 prevPosition;
+
+	private int itemHash = -1;
+	private Particles trail;
 
 	private void CleanupCustomization()
 	{
@@ -36,12 +34,12 @@ public partial class Ball
 	[GameEvent.Tick.Server]
 	private void EnsureCustomization()
 	{
-		var cc = Client.Components.GetOrCreate<CustomizeComponent>();
+		var cc = Client.Components.GetOrCreate<CustomizationComponent>();
 
-		var hash = cc.GetPartsHash();
-		if ( hash == parthash ) return;
+		var hash = cc.GetItemHash();
+		if ( hash == itemHash ) return;
 
-		parthash = hash;
+		itemHash = hash;
 		ApplyCustomization();
 	}
 
@@ -71,30 +69,27 @@ public partial class Ball
 
 	private void ApplyCustomization()
 	{
-		var cc = Client.Components.GetOrCreate<CustomizeComponent>();
-
-		// todo: could use an ez mode for setting skins and models
-		// especially for client/local pawn stuff like hat..
+		var cc = Client.Components.GetOrCreate<CustomizationComponent>();
 
 		CleanupCustomization();
 		CleanupCustomizationOnClient();
 
-		var trailpart = cc.GetEquippedPart( "Trails" );
-		if ( trailpart != null )
+		var trailItem = cc.GetEquippedItem( CustomizationItem.CategoryType.Trail );
+		if ( trailItem != null )
 		{
-			trail = Particles.Create( trailpart.AssetPath, this );
+			trail = Particles.Create( trailItem.TrailParticle, this );
 			trail.SetPosition( 1, Vector3.One ); // Color
 		}
 
-		var hatpart = cc.GetEquippedPart( "Hats" );
-		if ( hatpart != null )
+		var hatItem = cc.GetEquippedItem( CustomizationItem.CategoryType.Hat );
+		if ( hatItem != null )
 		{
-			Hat = new AnimatedEntity( hatpart.AssetPath );
+			Hat = new AnimatedEntity( hatItem.HatModel );
 		}
 
-		var skinpart = cc.GetEquippedPart( "Skins" );
-		if ( skinpart != null )
-			SetSkinOnClient( To.Everyone, NetworkIdent, skinpart.AssetPath );
+		var skinItem = cc.GetEquippedItem( CustomizationItem.CategoryType.Skin );
+		if ( skinItem != null )
+			SetSkinOnClient( To.Everyone, NetworkIdent, skinItem.SkinTexture );
 	}
 
 	[ClientRpc]

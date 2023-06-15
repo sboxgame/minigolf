@@ -1,0 +1,7 @@
+{
+  "Category": "Hat",
+  "Icon": "models/hats/propeller_hat/propeller_hat.vmdl.png",
+  "HatModel": "models/hats/propeller_hat/propeller_hat.vmdl",
+  "SkinTexture": null,
+  "TrailParticle": null
+}

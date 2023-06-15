@@ -1,0 +1,7 @@
+{
+  "Category": "Skin",
+  "Icon": "materials/ballskins/hoverball/hover_golf_ball.vmat.png",
+  "HatModel": null,
+  "SkinTexture": "materials/ballskins/hoverball/hover_golf_ball.vmat",
+  "TrailParticle": null
+}

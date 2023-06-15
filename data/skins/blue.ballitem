@@ -1,0 +1,7 @@
+{
+  "Category": "Skin",
+  "Icon": "materials/ballskins/blue/blue_golf_ball.vmat.png",
+  "HatModel": "models/citizen_clothes/jacket/puffer_jacket/models/puffer_jacket_blue.vmdl",
+  "SkinTexture": "materials/ballskins/blue/blue_golf_ball.vmat",
+  "TrailParticle": null
+}

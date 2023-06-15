@@ -1,0 +1,150 @@
+﻿@import "../styles/_vars.scss";
+
+CustomizationMenu {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(black .92);
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+    transition: opacity .15s linear;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 9999;
+
+    &.open {
+        pointer-events: all;
+        opacity: 1;
+    }
+
+    .container {
+        width: 80%;
+        height: 70%;
+        flex-direction: column;
+
+        .body {
+            flex-grow: 1;
+            flex-direction: row;
+        }
+
+        .heading {
+            display: none;
+            color: white;
+            font-family: $font-title;
+            font-size: 32px;
+            color: white;
+            margin-bottom: 16px;
+            text-shadow: 1px 1px 5px rgba(black, 0.8);
+        }
+
+        .content {
+            flex-direction: column;
+            width: 660px;
+            margin-right: 10px;
+
+            .navbar {
+                flex-direction: row;
+                padding-left: 10px;
+
+                .tab {
+                    padding: 10px 20px;
+                    border-radius: 5px 5px 0 0;
+                    cursor: pointer;
+                    text-shadow: 1px 1px 5px rgba(black, 0.8);
+                    font-size: 20px;
+                    margin-right: 10px;
+                    background-color: $dark-grey;
+                    transition: all .15s ease-in;
+
+                    &:hover,
+                    &.active {
+                        transform: scale(1.1);
+                        color: $primary;
+                    }
+                }
+            }
+
+            .items {
+                overflow: scroll;
+                flex-direction: row;
+                flex-wrap: wrap;
+                background-color: $dark-grey;
+                padding: 10px;
+                border-radius: 5px;
+                flex-grow: 1;
+            }
+        }
+
+        .render {
+            flex-grow: 1;
+            border-radius: 5px;
+        }
+    }
+}
+
+CustomizationItemIcon {
+    width: 115px;
+    height: 115px;
+    padding: 8px;
+
+    .inner {
+        flex-grow: 1;
+        border-radius: 5px;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        transition: all .15s ease-in;
+        box-shadow: 4px 4px 1px $dark-blue;
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            height: 95%;
+            width: 95%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            border-radius: 5px;
+        }
+
+        Label {
+            position: absolute;
+            bottom: 4px;
+            left: 12px;
+            transition: all .05s linear;
+            font-size: 12px;
+        }
+
+        &:hover {
+            background-color: rgba($primary .5);
+            transform: scale(1.1);
+
+            Label {
+                left: 4px;
+                font-size: 14px;
+            }
+        }
+    }
+
+    &.equipped .inner {
+        background-color: rgba($primary .5);
+        transform: scale(1.1);
+
+        Label {
+            left: 4px;
+        }
+    }
+}
+
+CustomizeRenderScene {
+    border-radius: 5px;
+    padding: 10px;
+
+    ScenePanel {
+        border-radius: 5px;
+    }
+}

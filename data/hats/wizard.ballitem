@@ -1,0 +1,7 @@
+{
+  "Category": "Hat",
+  "Icon": "models/hats/wizard/wizard.vmdl.png",
+  "HatModel": "models/hats/wizard/wizard.vmdl",
+  "SkinTexture": null,
+  "TrailParticle": null
+}

@@ -1,0 +1,58 @@
+@using Facepunch.Customization
+
+@inherits Sandbox.UI.Panel
+@namespace Facepunch.Minigolf.UI
+@attribute [StyleSheet("/UI/Customize/CustomizationMenu.scss")]
+
+<root>
+	<div class="container">
+		<label class="heading">customize</label>
+		<div class="body">
+			<div class="content">
+				<div class="navbar">
+					@foreach (var tab in Enum.GetValues<CustomizationItem.CategoryType>())
+					{
+						<div class="tab @(tab == activeCategory ? "active" : "")" Category=@tab @onclick=@(() => { activeCategory = tab; })>
+							@($"{tab}s")
+						</div>
+					}
+				</div>
+				<div class="items">
+					@foreach (var item in GetItems(activeCategory))
+					{
+						<CustomizationItemIcon Item=@item />
+					}
+				</div>
+			</div>
+			<div class="render">
+				<CustomizationRenderScene></CustomizationRenderScene>
+			</div>
+		</div>
+	</div>
+</root>
+
+@code {
+	private CustomizationItem.CategoryType activeCategory = Enum.GetValues<CustomizationItem.CategoryType>().First();
+
+	private bool Open
+	{
+		get => HasClass("open");
+		set => SetClass("open", value);
+	}
+
+	private IEnumerable<CustomizationItem> GetItems(CustomizationItem.CategoryType category)
+	{
+		return ResourceLibrary.GetAll<CustomizationItem>().Where(item => item.Category == category);
+	}
+
+	public override void Tick()
+	{
+		if (Input.Pressed(InputActions.Menu))
+			Open = !Open;
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine(activeCategory);
+	}
+}
