@@ -34,8 +34,10 @@ public partial class BallNameTag : WorldPanel
 		if ( !Owner.IsValid() )
 			return;
 
-		CurrentDirection = Angles.Lerp( CurrentDirection, Owner.Direction, RealTime.Delta * 4.0f ).WithRoll( 0 ).WithPitch( 0 );
-
+		// TODO: redo this
+		// CurrentDirection = Angles.Lerp( CurrentDirection, Owner.Direction, RealTime.Delta * 4.0f ).WithRoll( 0 ).WithPitch( 0 );
+		CurrentDirection = Angles.Lerp( CurrentDirection, Angles.Random, RealTime.Delta * 4.0f ).WithRoll( 0 ).WithPitch( 0 );
+		
 		var DownTrace = Trace.Ray( Owner.Position, Owner.Position + Vector3.Down * 34.0f ).WithoutTags( "golf_ball" ).Run();
 
 		Position = DownTrace.EndPosition + Vector3.Up * 0.1f;
