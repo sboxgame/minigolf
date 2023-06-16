@@ -37,7 +37,7 @@ partial class MinigolfGame
 		{
 			var ball = new Ball();
 			cl.Pawn = ball;
-			ball.ResetPosition( Course.CurrentHole.SpawnPosition, Course.CurrentHole.SpawnAngles );
+			ball.Movement.ResetPosition( Course.CurrentHole.SpawnPosition, Course.CurrentHole.SpawnAngles );
 		}
 	}
 
@@ -93,7 +93,7 @@ partial class MinigolfGame
 		foreach ( var cl in Sandbox.Game.Clients )
 		{
 			cl.Pawn = new Ball();
-			(cl.Pawn as Ball).ResetPosition( Course.CurrentHole.SpawnPosition, Course.CurrentHole.SpawnAngles );
+			(cl.Pawn as Ball).Movement.ResetPosition( Course.CurrentHole.SpawnPosition, Course.CurrentHole.SpawnAngles );
 		}
 
 		IsHoleEnding = false;

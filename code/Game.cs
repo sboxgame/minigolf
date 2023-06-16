@@ -3,13 +3,11 @@ global using Sandbox.UI;
 global using Sandbox.UI.Construct;
 global using Sandbox.Component;
 global using Editor;
-
 global using System;
 global using System.Collections.Generic;
 global using System.Linq;
 global using System.ComponentModel;
 global using System.Threading.Tasks;
-
 using Facepunch.Minigolf.Entities;
 using Facepunch.Minigolf.UI;
 using Facepunch.Customization;
@@ -18,8 +16,8 @@ namespace Facepunch.Minigolf;
 
 public partial class MinigolfGame : Sandbox.GameManager
 {
-	public static new MinigolfGame Current => Sandbox.GameManager.Current as MinigolfGame;
-
+	public new static MinigolfGame Current => Sandbox.GameManager.Current as MinigolfGame;
+	
 	public MinigolfGame()
 	{
 		if ( Game.IsServer )
@@ -49,7 +47,8 @@ public partial class MinigolfGame : Sandbox.GameManager
 		if ( State == GameState.Playing )
 		{
 			cl.SetValue( "late", true );
-			TextChat.AddInfoChatEntry( To.Everyone, $"{cl.Name} has joined late, they will not be eligible for scoring." );
+			TextChat.AddInfoChatEntry( To.Everyone,
+				$"{cl.Name} has joined late, they will not be eligible for scoring." );
 
 			// Just give them shitty scores on each hole for now
 			for ( int i = 0; i <= Course.CurrentHoleIndex; i++ )
@@ -83,7 +82,8 @@ public partial class MinigolfGame : Sandbox.GameManager
 		// todo: pass to spectate
 		var ball = Game.LocalPawn as Ball;
 
-		if ( Input.Pressed( InputActions.View ) && Game.LocalPawn.IsValid() && !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f )
+		if ( Input.Pressed( InputActions.View ) && Game.LocalPawn.IsValid() && !ball.InPlay && !ball.Cupped &&
+		     FreeCamTimeLeft > 0.0f )
 		{
 			if ( FreeCamera == null )
 				FreeCamera = Components.GetOrCreate<FreeCamera>();
@@ -115,4 +115,3 @@ public partial class MinigolfGame : Sandbox.GameManager
 			ResetBall( cl );
 	}
 }
-

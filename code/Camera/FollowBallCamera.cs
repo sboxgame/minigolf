@@ -1,9 +1,11 @@
 using Facepunch.Minigolf.Entities;
+using Facepunch.Minigolf.Entities.Desktop;
 
 namespace Facepunch.Minigolf;
 
 public class FollowBallCamera : BaseCamera
 {
+	[Ball.ComponentDependency] private DesktopInputComponent DesktopInput { get; set; }
 	private List<MiniProp> viewblockers = new();
 
 	// should only need TargetRotation but I'm shit
@@ -43,7 +45,7 @@ public class FollowBallCamera : BaseCamera
 
 		var center = Ball.Position + Vector3.Up * 80;
 		var distance = 150.0f * Ball.Scale;
-		var targetPos = center + Ball.ViewAngles.ToRotation().Forward * -distance;
+		var targetPos = center + DesktopInput.ViewAngles.ToRotation().Forward * -distance;
 
 		var tr = Trace.Ray( center, targetPos )
 			.Ignore( Ball )

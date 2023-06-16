@@ -1,13 +1,17 @@
+using Facepunch.Minigolf.Entities;
+
 namespace Facepunch.Minigolf;
 
-public partial class BaseCamera : EntityComponent
+public partial class BaseCamera : Ball.Component
 {
-	public virtual void Update()
+	public sealed override void FrameSimulate( IClient cl )
 	{
-		//
+		base.FrameSimulate( cl );
+
+		Update();
 	}
 
-	public virtual void BuildInput()
+	public virtual void Update()
 	{
 		//
 	}

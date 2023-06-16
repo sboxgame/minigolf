@@ -1,39 +1,72 @@
-﻿namespace Facepunch.Minigolf.Entities;
+﻿using Facepunch.Minigolf.Entities.Desktop;
+
+namespace Facepunch.Minigolf.Entities;
 
 public partial class Ball : ModelEntity
 {
-	[ConVar.Server( "minigolf_ball_debug" )]
-	public static bool Debug { get; set; } = false;
-	[Net] public bool InPlay { get; set; } = false;
-	[Net] public bool Cupped { get; set; } = false;
-	[Net] public Angles Direction { get; set; }
-	public Vector3 LastPosition { get; set; }
-	public Angles LastAngles { get; set; }
+	[AttributeUsage( AttributeTargets.Property )]
+	public class ComponentDependency : Attribute
+	{
+	}
 
-	static readonly Model GolfBallModel = Model.Load( "models/golf_ball.vmdl" );
+	public class Component : EntityComponent<Ball>
+	{
+		public virtual void Simulate( IClient cl ) { }
+		public virtual void FrameSimulate( IClient cl ) { }
+		public virtual void SharedSimulate( IClient cl, bool frame ) { }
+		public virtual void BuildInput() { }
 
-	public bool InWater = false;
+		protected Ball Ball => Entity;
 
+		protected Vector3 Position
+		{
+			get => Entity.Position;
+			set => Entity.Position = value;
+		}
+
+		protected Vector3 Velocity
+		{
+			get => Entity.Velocity;
+			set => Entity.Velocity = value;
+		}
+
+		protected Rotation Rotation
+		{
+			get => Entity.Rotation;
+			set => Entity.Rotation = value;
+		}
+
+		protected Transform Transform => Entity.Transform;
+	}
+
+	public static readonly Model GolfBallModel = Model.Load( "models/golf_ball.vmdl" );
 	[BindComponent] public FollowBallCamera Camera { get; }
 
-	private Glow glow;
-	private string defaultSkin;
+	public IInputComponent Input { get; private set; }
+	public IMovementComponent Movement { get; private set; }
+
+	[Net, Predicted] public bool InWater { get; set; }
+	[Net, Predicted] public bool InPlay { get; set; }
+	[Net, Predicted] public bool Cupped { get; set; }
+
+	private Glow _glow;
+	private string _defaultSkin;
 
 	public override void Spawn()
 	{
 		base.Spawn();
 
+		_defaultSkin = GolfBallModel.Materials.FirstOrDefault().ResourcePath;
+
 		Model = GolfBallModel;
-		defaultSkin = GolfBallModel.Materials.FirstOrDefault().ResourcePath;
-
-		SetupPhysicsFromModel( PhysicsMotionType.Keyframed, false );
-
-		EnableTraceAndQueries = false;
+		SetupPhysicsFromModel( PhysicsMotionType.Keyframed );
 
 		Transmit = TransmitType.Always;
+		EnableTraceAndQueries = false;
+		Predictable = true;
 
-		Predictable = false;
-
+		Input = Components.Create<DesktopInputComponent>();
+		
 		Tags.Add( "golf_ball" );
 	}
 
@@ -42,51 +75,35 @@ public partial class Ball : ModelEntity
 		Components.Create<FollowBallCamera>();
 
 		base.ClientSpawn();
-		CreateParticles();
 
-		glow = Components.GetOrCreate<Glow>();
+		_glow = Components.GetOrCreate<Glow>();
 
-		glow.Enabled = true;
-		glow.Width = 0.25f;
-		glow.Color = new Color( 0.0f, 0.0f, 0.0f, 0.0f );
-		glow.ObscuredColor = Color.Transparent;
-		glow.InsideObscuredColor = Color.Black.WithAlpha( 0.72f );
-
-
+		_glow.Enabled = true;
+		_glow.Width = 0.25f;
+		_glow.Color = new Color( 0.0f, 0.0f, 0.0f, 0.0f );
+		_glow.ObscuredColor = Color.Transparent;
+		_glow.InsideObscuredColor = Color.Black.WithAlpha( 0.72f );
 	}
 
-	public void Cup( bool holeInOne = false )
+	public override void Simulate( IClient cl )
 	{
-		if ( Cupped ) return;
+		base.Simulate( cl );
 
-		Cupped = true;
-
-		var sound = PlaySound( "minigolf.sink_into_cup" );
-		sound.SetVolume( 1.0f );
-		sound.SetPitch( Sandbox.Game.Random.Float( 0.75f, 1.25f ) );
+		foreach ( var component in Components.GetAll<Component>() )
+		{
+			component.Simulate( cl );
+			component.SharedSimulate( cl, false );
+		}
 	}
 
-	public void ResetPosition( Vector3 position, Angles direction )
+	public override void FrameSimulate( IClient cl )
 	{
-		Position = position;
-		Velocity = Vector3.Zero;
-		ResetInterpolation();
+		base.FrameSimulate( cl );
 
-		InPlay = false;
-		Cupped = false;
-		InWater = false;
-
-		Direction = direction;
-
-		// Tell the player we reset the ball
-		PlayerResetPosition( To.Single( this ), position, direction );
+		foreach ( var component in Components.GetAll<Component>() )
+		{
+			component.FrameSimulate( cl );
+			component.SharedSimulate( cl, true );
+		}
 	}
-
-	[ClientRpc]
-	protected void PlayerResetPosition( Vector3 position, Angles angles )
-	{
-		Camera.TargetAngles = new( 14, angles.yaw, 0 );
-		//Camera.Rotation = Rotation.From( 14, angles.yaw, 0 );
-	}
-
 }

@@ -36,7 +36,7 @@ public partial class MinigolfGame
 		// GameServices.RecordEvent( ball.Client, $"Cupped hole { Course.CurrentHole.Number }", ball.Client.GetPar() );
 
 		// Tell the ball entity it has been cupped, stops input and does fx.
-		ball.Cup();
+		//ball.Cup();
 
 		// Let all players know the ball has been cupped.
 		CuppedBall( To.Everyone, ball, ball.Client.GetPar() );
@@ -82,34 +82,16 @@ public partial class MinigolfGame
 
 		if ( cl.Pawn.IsValid() && cl.Pawn is Ball ball )
 		{
-			if ( !ball.LastPosition.IsNearlyZero() && !ball.LastPosition.IsNaN )
+			if ( !ball.Movement.LastPosition.IsNearlyZero() && !ball.Movement.LastPosition.IsNaN )
 			{
-				SpawnPosition = ball.LastPosition;
-				SpawnAngles = ball.LastAngles;
+				SpawnPosition = ball.Movement.LastPosition;
+				SpawnAngles = ball.Movement.LastAngles;
 			}
 
 			cl.Pawn.Delete();
 		}
 
 		cl.Pawn = new Ball();
-		(cl.Pawn as Ball).ResetPosition( SpawnPosition, SpawnAngles );
-	}
-
-	// fuck it do this somewhere else and keep score?
-	[ConCmd.Server]
-	public static void Stroke( float yaw, float power )
-	{
-		var client = ConsoleSystem.Caller;
-		if ( client == null ) return;
-
-		if ( ConsoleSystem.Caller.Pawn is not Ball ball )
-			return;
-
-		if ( ball.InPlay )
-			return;
-
-		client.AddPar();
-
-		ball.Stroke( Angles.AngleVector( new Angles( 0, yaw, 0 ) ), power );
+		(cl.Pawn as Ball).Movement.ResetPosition( SpawnPosition, SpawnAngles );
 	}
 }
