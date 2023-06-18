@@ -27,9 +27,9 @@ public partial class MinigolfGame
 			OutOfBoundsBalls.Remove( ball );
 		}
 
-		if ( !inBounds )
+		if ( !inBounds && !OutOfBoundsBalls.ContainsKey( ball ) )
 		{
-			OutOfBoundsBalls[ball] = Time.Now - forgiveTime;
+			OutOfBoundsBalls[ball] = Time.Now + forgiveTime;
 		}
 	}
 
