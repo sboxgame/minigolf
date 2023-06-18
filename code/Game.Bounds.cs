@@ -1,6 +1,3 @@
-using Sandbox;
-using System.Collections.Generic;
-
 using Facepunch.Minigolf.Entities;
 using Facepunch.Minigolf.UI;
 
@@ -23,7 +20,7 @@ public partial class MinigolfGame
 
 	Dictionary<Ball, float> OutOfBoundsBalls = new();
 
-	public void UpdateBallInBounds( Ball ball, bool inBounds )
+	public void UpdateBallInBounds( Ball ball, bool inBounds, int forgiveTime = 0 )
 	{
 		if ( inBounds && OutOfBoundsBalls.ContainsKey( ball ) )
 		{
@@ -32,7 +29,7 @@ public partial class MinigolfGame
 
 		if ( !inBounds )
 		{
-			OutOfBoundsBalls[ball] = Time.Now;
+			OutOfBoundsBalls[ball] = Time.Now - forgiveTime;
 		}
 	}
 

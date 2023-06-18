@@ -21,9 +21,7 @@ public partial class OutOfBoundsArea : BaseTrigger
 		if ( other is Ball ball )
 		{
 			AddTouchingBall( ball );
-
-			// TODO: forgiveness time
-			MinigolfGame.Current.BallOutOfBounds( ball, MinigolfGame.OutOfBoundsType.Normal );
+			MinigolfGame.Current.UpdateBallInBounds( ball, false, ForgiveTime );
 		}
 	}
 
