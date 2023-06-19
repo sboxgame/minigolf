@@ -20,6 +20,11 @@ TextChat {
     width: 100%;
     border-radius: 30px;
     margin-top: 5px;
+
+    label {
+      word-break: break-all;
+      white-space: normal;
+    }
   }
 
   .canvas {
