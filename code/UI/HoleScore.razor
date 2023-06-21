@@ -22,7 +22,7 @@
 </root>
 
 @code {
-	public int Stroke => Sandbox.Game.LocalClient.GetPar();
+	public int Stroke => Game.LocalClient.GetPar();
 	public int Par => MinigolfGame.Current.Course.CurrentHole.Par;
 	public int Hole => MinigolfGame.Current.Course.CurrentHole.Number;
 

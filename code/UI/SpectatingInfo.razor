@@ -22,7 +22,7 @@
 		if ( camera is null )
 			return text;
 
-	// If we don't have a target or we are following ourselves.
+		@* If we don't have a target or we are following ourselves. *@
 		if ( !camera.Target.IsValid() || camera.Target.IsLocalPawn )
 			return text;
 

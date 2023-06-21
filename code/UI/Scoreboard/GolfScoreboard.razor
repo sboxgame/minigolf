@@ -54,7 +54,7 @@
 			<div class="players">
 				@foreach ( var client in Game.Clients.OrderBy( client => client.GetTotalPar() ) )
 				{
-					<ScoreboardPlayer Client=@client/>
+					<ScoreboardPlayer Client=@client />
 				}
 			</div>
 		</div>
