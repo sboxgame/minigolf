@@ -1,12 +1,12 @@
-﻿@inherits Sandbox.UI.Panel
-@namespace Facepunch.Minigolf.UI
+﻿@namespace Facepunch.Minigolf.UI
+
+@inherits Sandbox.UI.Panel
 
 <root>
 	<Image @ref=ImageRef></Image>
 </root>
 
 @code {
-
 	string Button { get; set; }
 
 	public Image ImageRef { get; set; }
@@ -25,5 +25,4 @@
 		ImageRef.Style.Width = ImageRef.Texture.Width;
 		ImageRef.Style.Height = ImageRef.Texture.Height;
 	}
-
 }

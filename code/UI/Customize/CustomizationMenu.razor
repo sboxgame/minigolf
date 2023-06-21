@@ -1,8 +1,9 @@
 @using Facepunch.Customization
 
-@inherits Sandbox.UI.Panel
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet("/UI/Customize/CustomizationMenu.scss")]
+
+@inherits Sandbox.UI.Panel
+@attribute [StyleSheet( "/UI/Customize/CustomizationMenu.scss" )]
 
 <root>
 	<div class="container">
@@ -10,17 +11,17 @@
 		<div class="body">
 			<div class="content">
 				<div class="navbar">
-					@foreach (var tab in Enum.GetValues<CustomizationItem.CategoryType>())
+					@foreach ( var tab in Enum.GetValues<CustomizationItem.CategoryType>() )
 					{
-						<div class="tab @(tab == activeCategory ? "active" : "")" Category=@tab @onclick=@(() => { activeCategory = tab; })>
-							@($"{tab}s")
+						<div class="tab @( tab == activeCategory ? "active" : "" )" Category=@tab @onclick=@( () => { activeCategory = tab; } )>
+							@( $"{tab}s" )
 						</div>
 					}
 				</div>
 				<div class="items">
-					@foreach (var item in GetItems(activeCategory))
+					@foreach ( var item in GetItems( activeCategory ) )
 					{
-						<CustomizationItemIcon Item=@item />
+						<CustomizationItemIcon Item=@item/>
 					}
 				</div>
 			</div>
@@ -36,23 +37,23 @@
 
 	private bool Open
 	{
-		get => HasClass("open");
-		set => SetClass("open", value);
+		get => HasClass( "open" );
+		set => SetClass( "open", value );
 	}
 
-	private IEnumerable<CustomizationItem> GetItems(CustomizationItem.CategoryType category)
+	private IEnumerable<CustomizationItem> GetItems( CustomizationItem.CategoryType category )
 	{
-		return ResourceLibrary.GetAll<CustomizationItem>().Where(item => item.Category == category);
+		return ResourceLibrary.GetAll<CustomizationItem>().Where( item => item.Category == category );
 	}
 
 	public override void Tick()
 	{
-		if (Input.Pressed(InputActions.Menu))
+		if ( Input.Pressed( InputActions.Menu ) )
 			Open = !Open;
 	}
 
 	protected override int BuildHash()
 	{
-		return HashCode.Combine(activeCategory);
+		return HashCode.Combine( activeCategory );
 	}
 }

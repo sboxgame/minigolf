@@ -1,26 +1,27 @@
-@inherits Sandbox.UI.Panel
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet("/UI/ControlHints.scss")]
+
+@inherits Sandbox.UI.Panel
+@attribute [StyleSheet( "/UI/ControlHints.scss" )]
 
 <root>
 	<div class="hint">
 		<text>Customise Menu</text>
-		<buttonhint name="Menu" />
+		<buttonhint name="Menu"/>
 	</div>
 	<div class="hint">
 		<text>Free Cam</text>
-		<buttonhint name=@InputActions.View />
+		<buttonhint name=@InputActions.View/>
 	</div>
 	<div class="hint">
 		<text>Reset Ball</text>
-		<buttonhint name=@InputActions.Reload />
+		<buttonhint name=@InputActions.Reload/>
 	</div>
 	<div class="hint">
 		<text>Stroke</text>
-		<buttonhint name=@InputActions.Attack1 />
+		<buttonhint name=@InputActions.Attack1/>
 	</div>
 	<div class="hint">
 		<text>Scoreboard</text>
-		<buttonhint name=@InputActions.Score />
+		<buttonhint name=@InputActions.Score/>
 	</div>
 </root>

@@ -1,5 +1,6 @@
-﻿@inherits Sandbox.UI.Panel
-@namespace Facepunch.Minigolf.UI
+﻿@namespace Facepunch.Minigolf.UI
+
+@inherits Sandbox.UI.Panel
 @attribute [StyleSheet( "/UI/ParScreen.scss" )]
 
 <root>
@@ -28,7 +29,7 @@
 
 @code {
 
-    public static readonly Dictionary<int, string> ScoreText = new()
+	public static readonly Dictionary<int, string> ScoreText = new()
 	{
 		{ 4, "Condor" },
 		{ 3, "Double Eagle" },
@@ -47,36 +48,36 @@
 		{ -10, "Decuple Bogey" },
 	};
 
-    readonly RealTimeSince _createdAt;
-    static float ShowScoreForLength => 3.0f;
+	readonly RealTimeSince _createdAt;
+	static float ShowScoreForLength => 3.0f;
 
-    private int Hole { get; }
-    private int Par { get; }
-    private int Strokes { get; }
-    private int Score => Par - Strokes;
+	private int Hole { get; }
+	private int Par { get; }
+	private int Strokes { get; }
+	private int Score => Par - Strokes;
 
-    public ParScreen( int hole, int par, int strokes )
-    {
-        Hole = hole;
-        Par = par;
-        Strokes = strokes;
-        _createdAt = 0;
-    }
+	public ParScreen( int hole, int par, int strokes )
+	{
+		Hole = hole;
+		Par = par;
+		Strokes = strokes;
+		_createdAt = 0;
+	}
 
-    public override void Tick()
-    {
-        if ( _createdAt > ShowScoreForLength && !IsDeleting )
-        {
-            Delete();
-        }
-    }
+	public override void Tick()
+	{
+		if ( _createdAt > ShowScoreForLength && !IsDeleting )
+		{
+			Delete();
+		}
+	}
 
-    [MinigolfEvent.PlayerScored]
-    private static async void OnPlayerScore( IClient client, HoleInfo hole, int score )
-    {
-        // Delay so the player can enjoy the little particle effects before the score screen appears.
-        await GameTask.DelaySeconds( 0.5f );
-        if ( Game.LocalClient == client )
+	[MinigolfEvent.PlayerScored]
+	private static async void OnPlayerScore( IClient client, HoleInfo hole, int score )
+	{
+	// Delay so the player can enjoy the little particle effects before the score screen appears.
+		await GameTask.DelaySeconds( 0.5f );
+		if ( Game.LocalClient == client )
 			Show( hole.Number, hole.Par, score );
 	}
 
