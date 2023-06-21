@@ -1,13 +1,15 @@
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet("/UI/TextChat/TextChat.scss")]
+
+@inherits Sandbox.UI.Panel
+@attribute [StyleSheet( "/UI/TextChat/TextChat.scss" )]
 
 <root>
-	@if (SteamId > 0)
+	@if ( SteamId > 0 )
 	{
 		<img src="avatar:@SteamId" />
 	}
 
-	@if (!string.IsNullOrEmpty(Name))
+	@if ( !string.IsNullOrEmpty( Name ) )
 	{
 		<label class="name" text=@Name />
 	}

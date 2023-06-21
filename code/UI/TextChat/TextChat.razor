@@ -1,7 +1,9 @@
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet("/UI/TextChat/TextChat.scss")]
+
+@inherits Sandbox.UI.Panel
+@attribute [StyleSheet( "/UI/TextChat/TextChat.scss" )]
 
 <root>
-	<div class="canvas" @ref=Canvas />
+	<div class="canvas" @ref=Canvas></div>
 	<TextEntry @ref=Input onsubmit=@Submit onblur=@Close />
 </root>

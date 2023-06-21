@@ -1,5 +1,7 @@
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet("/UI/VoiceChat/VoiceChat.scss")]
+
+@inherits Sandbox.UI.Panel
+@attribute [StyleSheet( "/UI/VoiceChat/VoiceChat.scss" )]
 
 <root />
 
@@ -8,19 +10,19 @@
 
 	public VoiceChat() => Instance = this;
 
-	public static void OnVoiceChat(IClient client)
+	public static void OnVoiceChat( IClient client )
 	{
-		if (Instance is null)
+		if ( Instance is null )
 			return;
 
-		var entry = Instance.ChildrenOfType<VoiceChatEntry>().FirstOrDefault(x => x.Client.SteamId == client.SteamId);
+		var entry = Instance.ChildrenOfType<VoiceChatEntry>().FirstOrDefault( x => x.Client.SteamId == client.SteamId );
 		entry ??= new VoiceChatEntry() { Client = client, Parent = Instance };
 		entry.OnVoicePlayed();
 	}
 
 	public override void Tick()
 	{
-		if (Voice.IsRecording)
-			OnVoiceChat(Game.LocalClient);
+		if ( Voice.IsRecording )
+			OnVoiceChat( Game.LocalClient );
 	}
 }

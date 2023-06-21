@@ -88,7 +88,8 @@ public partial class TextChat : Panel
 	[ClientRpc]
 	public static void AddChatEntry( string name, string message, long steamId )
 	{
-		Event.Run( MinigolfEvent.ChatMessageSent, new ChatMessage() { Name = name, Message = message, SteamId = steamId } );
+		Event.Run( MinigolfEvent.ChatMessageSent,
+			new ChatMessage() { Name = name, Message = message, SteamId = steamId } );
 	}
 
 	[ClientRpc]
@@ -100,6 +101,9 @@ public partial class TextChat : Panel
 	[MinigolfEvent.ChatMessageSent]
 	private void OnChatMessage( ChatMessage chatMessage )
 	{
-		AddEntry( new TextChatEntry { Name = chatMessage.Name, Message = chatMessage.Message, SteamId = chatMessage.SteamId } );
+		AddEntry( new TextChatEntry
+		{
+			Name = chatMessage.Name, Message = chatMessage.Message, SteamId = chatMessage.SteamId
+		} );
 	}
 }

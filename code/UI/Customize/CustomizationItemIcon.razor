@@ -1,10 +1,11 @@
 @using Facepunch.Customization
 
-@inherits Sandbox.UI.Panel
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet("/UI/Customize/CustomizationMenu.scss")]
 
-<root class="@(IsEquipped ? "equipped" : "")" @onclick=@(Click)>
+@inherits Sandbox.UI.Panel
+@attribute [StyleSheet( "/UI/Customize/CustomizationMenu.scss" )]
+
+<root class="@( IsEquipped ? "equipped" : "" )" @onclick=@( Click )>
 	<div class="inner">
 		<img src=@Item.Icon>
 		<label>@Item.ResourceName</label>
@@ -13,15 +14,15 @@
 
 @code {
 	public CustomizationItem Item { get; set; }
-	private bool IsEquipped => Sandbox.Game.LocalClient.Components.Get<CustomizationComponent>().IsEquipped(Item);
-	protected override int BuildHash() => HashCode.Combine(IsEquipped);
+	private bool IsEquipped => Sandbox.Game.LocalClient.Components.Get<CustomizationComponent>().IsEquipped( Item );
+	protected override int BuildHash() => HashCode.Combine( IsEquipped );
 
 	private void Click()
 	{
 		var cc = Game.LocalClient.Components.Get<CustomizationComponent>();
-		if (cc.IsEquipped(Item))
-			cc.Unequip(Item);
+		if ( cc.IsEquipped( Item ) )
+			cc.Unequip( Item );
 		else
-			cc.Equip(Item);
+			cc.Equip( Item );
 	}
 }

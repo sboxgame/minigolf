@@ -1,6 +1,7 @@
-@inherits Sandbox.UI.Panel
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet("/UI/HoleScore.scss")]
+
+@inherits Sandbox.UI.Panel
+@attribute [StyleSheet( "/UI/HoleScore.scss" )]
 
 <root>
 	<div class="course-info">
@@ -21,9 +22,9 @@
 </root>
 
 @code {
-	public int Stroke => Sandbox.Game.LocalClient.GetPar();
+	public int Stroke => Game.LocalClient.GetPar();
 	public int Par => MinigolfGame.Current.Course.CurrentHole.Par;
 	public int Hole => MinigolfGame.Current.Course.CurrentHole.Number;
 
-	protected override int BuildHash() =>  HashCode.Combine(Stroke, Par, Hole);
+	protected override int BuildHash() => HashCode.Combine( Stroke, Par, Hole );
 }

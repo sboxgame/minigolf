@@ -1,5 +1,7 @@
 @namespace Facepunch.Minigolf.UI
-@attribute [StyleSheet("/UI/VoiceChat/VoiceChat.scss")]
+
+@inherits Sandbox.UI.Panel
+@attribute [StyleSheet( "/UI/VoiceChat/VoiceChat.scss" )]
 
 <root>
 	<img src="avatar:@Client.SteamId">
@@ -19,9 +21,9 @@
 	public override void Tick()
 	{
 		var timeoutInv = 1 - (_timeSincePlayed / _voiceTimeout);
-		timeoutInv = MathF.Min(timeoutInv * 2.0f, 1.0f);
+		timeoutInv = MathF.Min( timeoutInv * 2.0f, 1.0f );
 
-		if (timeoutInv < 0 && !IsDeleting)
+		if ( timeoutInv < 0 && !IsDeleting )
 			Delete();
 	}
 }
