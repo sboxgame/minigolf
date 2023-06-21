@@ -1,0 +1,19 @@
+﻿@using Sandbox;
+@using Sandbox.Razor;
+@using Sandbox.UI;
+
+@inherits Panel
+
+<root>
+
+	<div class="ball"></div>
+	<label @ref="Label">@Content</label>
+	<div class="underline"></div>
+
+</root>
+
+
+@code {
+	public RenderFragment Content { get; set; }
+	public Label Label { get; set; }
+}

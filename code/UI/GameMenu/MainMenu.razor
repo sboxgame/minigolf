@@ -1,0 +1,25 @@
+﻿@using Sandbox;
+@using Sandbox.UI;
+
+@inherits RootPanel
+@implements Sandbox.Menu.IGameMenuPanel
+@attribute [StyleSheet]
+
+<root>
+	
+	<background />
+	<gradient />
+	
+	<main>
+
+		<menu>
+			<img src="/ui/minigolf_logo.png" class="logo" />
+
+			<MenuItem>Play</MenuItem>
+			<MenuItem>Settings</MenuItem>
+			<MenuItem>Quit</MenuItem>
+		</menu>
+		
+	</main>
+
+</root>

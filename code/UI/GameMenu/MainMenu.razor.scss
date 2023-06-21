@@ -1,0 +1,99 @@
+﻿$accent: #eda656;
+$green: #16261c;
+$text: #f4efec;
+$transition: all 150ms ease;
+
+MainMenu {
+    font-family: FredokaOne;
+    font-size: 24px;
+    font-weight: bolder;
+    color: $text;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+background, gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+background {
+    background-size: cover;
+    background-image: url( https://cdn.discordapp.com/attachments/1085759252330713158/1118206368298565632/sbox_0029.png );
+}
+
+gradient {
+    background: linear-gradient( to bottom, $green, rgba( $green, 0 ) );
+}
+
+main {
+    width: 1920px;
+    height: 1080px;
+    aspect-ratio: 1.66667;
+    align-items: center;
+}
+
+.logo {
+    width: 384px;
+    background-size: contain;
+    aspect-ratio: 2;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+menu {
+    flex-direction: column;
+    gap: 5px;
+    z-index: 10;
+    justify-content: flex-start;
+    align-items: flex-start;
+    filter: drop-shadow( 2px 2px 2px rgba( black, 0.1 ) );
+
+    MenuItem {
+        align-items: center;
+        transition: $transition;
+        padding: 5px 0;
+
+        .ball {
+            aspect-ratio: 1;
+            height: 0px;
+            border-radius: 100%;
+            opacity: 0;
+            transition: $transition;
+            background-image: url( ui/ball_icon.png );
+            background-size: cover;
+        }
+
+        .underline {
+            position: absolute;
+            height: 4px;
+            left: 0;
+            width: 0%;
+            bottom: -4px;
+            background-color: $accent;
+            border-radius: 100%;
+            transition: $transition;
+        }
+
+        &:hover {
+            .ball {
+                height: 24px;
+                opacity: 1;
+            }
+
+            .underline {
+                width: 100%;
+            }
+        }
+    }
+}
+
+* {
+    // border: 1px solid #f0f;
+}
