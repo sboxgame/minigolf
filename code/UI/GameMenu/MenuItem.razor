@@ -8,13 +8,17 @@
 <root>
 
 	<div class="ball"></div>
-	<label @ref="Label">@Content</label>
+	<span>
+		<label @ref="Label">@Title</label>
+		<label class="small" @ref="Label">@Description</label>
+	</span>
 	<div class="underline"></div>
 
 </root>
 
 
 @code {
-	public RenderFragment Content { get; set; }
+	public RenderFragment Title { get; set; }
+	public RenderFragment Description { get; set; }
 	public Label Label { get; set; }
 }

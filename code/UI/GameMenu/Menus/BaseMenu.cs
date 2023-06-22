@@ -7,7 +7,7 @@ public class BaseMenu : Panel, INavigatorPage
 		AddClass( "menu" );
 	}
 
-	public void GoTo( Type menu )
+	public void GoTo( MenuAttribute menu )
 	{
 		var name = "/" + menu.Name.ToLower();
 

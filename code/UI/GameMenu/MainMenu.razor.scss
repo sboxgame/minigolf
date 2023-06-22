@@ -12,7 +12,6 @@ MainMenu {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px;
 
     width: 100%;
     height: 100%;
@@ -44,33 +43,38 @@ gradient {
 main {
     width: 1920px;
     height: 1080px;
-    aspect-ratio: 1.66667;
     align-items: center;
-
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: stretch;
-
+    justify-content: space-between;
+    align-items: flex-start;
+    background-size: 400px 100%;
     gap: 50px;
 }
 
-footer {
-    width: 100%;
-    justify-content: space-between;
+left {
+    padding: 50px;
+    align-items: center;
+    flex-grow: 1;
+}
 
-    border-top: 1px solid rgba( white, 0.05 );
-    padding: 20px 5px;
+right {
+    width: 1820px; // 1920 - 100px
+    border-top: 1px solid rgba( white, 0.025 );
+    align-items: flex-start;
+    margin: 0 50px;
+    padding: 20px 0;
+    padding-bottom: 50px;
 
-    left, right {
+    span {
         gap: 10px;
         align-items: center;
     }
+}
 
-    .avatar {
-        border-radius: 100%;
-        width: 32px;
-        aspect-ratio: 1;
-    }
+img.avatar {
+    border-radius: 100%;
+    width: 32px;
+    aspect-ratio: 1;
 }
 
 .logo {
@@ -115,10 +119,15 @@ footer {
             transition: $transition;
         }
 
+        span {
+            flex-direction: column;
+        }
+
         &:hover {
             .ball {
                 height: 24px;
                 opacity: 1;
+                margin-right: 10px;
             }
 
             .underline {

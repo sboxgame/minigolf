@@ -12,23 +12,19 @@
 	<gradient />
 
 	<main>
+		
+		<left>
+			<menu>
+				<div class="navigator-canvas" slot="navigator-canvas" />
+			</menu>
+		</left>
 
-		<menu>
-			<div class="navigator-canvas" slot="navigator-canvas" />
-		</menu>
-
-		<footer>
-
-			<left>
-				<label class="small">This is where we put writing for some reason or another blah blah blah</label>
-			</left>
-
-			<right>
+		<right>
+			<span>
 				<img src="avatar:76561198128972602" class="avatar" />
 				<label class="small">Alex</label>
-			</right>
-
-		</footer>
+			</span>
+		</right>
 
 	</main>
 
@@ -40,7 +36,7 @@
 	public MainMenu()
 	{
 		DefaultUrl = "/";
-		
+
 		AddDestination("/", typeof(Home));
 		AddDestination("/play", typeof(Play));
 	}

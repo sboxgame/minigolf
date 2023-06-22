@@ -12,17 +12,22 @@
 	{
 		@foreach (var menu in Menus)
 		{
-			<MenuItem onclick="@(() => GoTo( typeof( Play )))">@menu.GetType().Name</MenuItem>
+			<MenuItem onclick="@(() => GoTo( menu ))">
+
+				<Title>@menu.Name</Title>
+				<Description>@menu.Description</Description>
+				
+			</MenuItem>
 		}				
 	}
 
 </root>
 
 @code {
-	public List<BaseMenu> Menus { get; set; }
+	public List<MenuAttribute> Menus { get; set; }
 
 	public Home()
 	{
-		Menus = TypeLibrary.GetTypes<BaseMenu>().Where(x => x.Name != nameof(BaseMenu) && x.Name != nameof(Home)).Select(x => x.Create<BaseMenu>()).ToList();
+		Menus = TypeLibrary.GetAttributes<MenuAttribute>().OrderBy( x => x.Order ).ToList();
 	}
 }
