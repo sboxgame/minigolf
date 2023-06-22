@@ -1,0 +1,28 @@
+﻿@using Sandbox;
+@using Sandbox.UI;
+
+@namespace Facepunch.Minigolf.UI
+@inherits BaseMenu
+
+<root>
+	
+	<img src="/ui/minigolf_logo.png" class="logo" />
+			
+	@if( Menus != null )
+	{
+		@foreach (var menu in Menus)
+		{
+			<MenuItem onclick="@(() => GoTo( typeof( Play )))">@menu.GetType().Name</MenuItem>
+		}				
+	}
+
+</root>
+
+@code {
+	public List<BaseMenu> Menus { get; set; }
+
+	public Home()
+	{
+		Menus = TypeLibrary.GetTypes<BaseMenu>().Where(x => x.Name != nameof(BaseMenu) && x.Name != nameof(Home)).Select(x => x.Create<BaseMenu>()).ToList();
+	}
+}

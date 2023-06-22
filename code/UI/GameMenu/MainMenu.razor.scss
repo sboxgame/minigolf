@@ -13,6 +13,9 @@ MainMenu {
     justify-content: center;
     align-items: center;
     padding: 50px;
+
+    width: 100%;
+    height: 100%;
 }
 
 label {
@@ -78,7 +81,7 @@ footer {
     background-repeat: no-repeat;
 }
 
-menu {
+.menu {
     flex-direction: column;
     gap: 5px;
     z-index: 10;
