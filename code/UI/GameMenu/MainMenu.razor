@@ -13,18 +13,17 @@
 
 	<main>
 		
-		<left>
-			<menu>
-				<div class="navigator-canvas" slot="navigator-canvas" />
-			</menu>
-		</left>
+		<body>
+			<Breadcrumbs />
+			<div class="navigator-canvas" slot="navigator-canvas" />
+		</body>
 
-		<right>
+		<footer>
 			<span>
 				<img src="avatar:76561198128972602" class="avatar" />
 				<label class="small">Alex</label>
 			</span>
-		</right>
+		</footer>
 
 	</main>
 
@@ -33,8 +32,19 @@
 @code {
 	public BaseMenu CurrentMenu => CurrentPanel as BaseMenu;
 
+	public static MainMenu Current { get; private set; }
+
+	public void GoTo( string url )
+	{
+		Log.Info("Navigating to " + url);
+		
+		Navigate(url);
+	}
+
 	public MainMenu()
 	{
+		Current = this;
+
 		DefaultUrl = "/";
 
 		AddDestination("/", typeof(Home));

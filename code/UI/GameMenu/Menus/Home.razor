@@ -5,21 +5,23 @@
 @inherits BaseMenu
 
 <root>
-	
-	<img src="/ui/minigolf_logo.png" class="logo" />
-			
-	@if( Menus != null )
-	{
-		@foreach (var menu in Menus)
-		{
-			<MenuItem onclick="@(() => GoTo( menu ))">
 
-				<Title>@menu.Name</Title>
-				<Description>@menu.Description</Description>
+	<column>
+		<img src="/ui/minigolf_logo.png" class="logo" />
+			
+		@if( Menus != null )
+		{
+			@foreach (var menu in Menus)
+			{
+				<MenuItem onclick="@(() => GoTo( menu ))">
+
+					<Title>@menu.Name</Title>
+					<Description>@menu.Description</Description>
 				
-			</MenuItem>
-		}				
-	}
+				</MenuItem>
+			}				
+		}
+	</column>
 
 </root>
 

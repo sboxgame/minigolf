@@ -10,10 +10,6 @@ public class BaseMenu : Panel, INavigatorPage
 	public void GoTo( MenuAttribute menu )
 	{
 		var name = "/" + menu.Name.ToLower();
-
-		Log.Info( "Navigating to " + name );
-
-		this.Delete();
-		this.Navigate( name );
+		MainMenu.Current.GoTo( name );
 	}
 }
