@@ -15,6 +15,12 @@ MainMenu {
     padding: 50px;
 }
 
+label {
+    &.small {
+        font-size: 16px;
+    }
+}
+
 background, gradient {
     position: absolute;
     top: 0;
@@ -37,6 +43,31 @@ main {
     height: 1080px;
     aspect-ratio: 1.66667;
     align-items: center;
+
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+
+    gap: 50px;
+}
+
+footer {
+    width: 100%;
+    justify-content: space-between;
+
+    border-top: 1px solid rgba( white, 0.05 );
+    padding: 20px 5px;
+
+    left, right {
+        gap: 10px;
+        align-items: center;
+    }
+
+    .avatar {
+        border-radius: 100%;
+        width: 32px;
+        aspect-ratio: 1;
+    }
 }
 
 .logo {
