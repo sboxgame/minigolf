@@ -24,17 +24,6 @@ public partial class Ball
 		}
 	}
 
-	protected override void OnDestroy()
-	{
-		if ( Sandbox.Game.IsClient )
-		{
-			NameTag?.Delete();
-			PowerArrow?.Delete();
-		}
-
-		CleanupCustomization();
-	}
-
 	private void CreateParticles()
 	{
 		// Create all particles clientside, this gives us authority over them to set control points clientside.

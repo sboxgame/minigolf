@@ -9,6 +9,7 @@ public partial class Ball : ModelEntity
 	[Net] public Angles Direction { get; set; }
 	public Vector3 LastPosition { get; set; }
 	public Angles LastAngles { get; set; }
+	public UI.VoiceChatWorldPanel VoiceChatWorldPanel { get; private set; }
 
 	static readonly Model GolfBallModel = Model.Load( "models/golf_ball.vmdl" );
 
@@ -52,7 +53,19 @@ public partial class Ball : ModelEntity
 		glow.ObscuredColor = Color.Transparent;
 		glow.InsideObscuredColor = Color.Black.WithAlpha( 0.72f );
 
+		VoiceChatWorldPanel = new UI.VoiceChatWorldPanel( this );
+	}
 
+	protected override void OnDestroy()
+	{
+		if ( Game.IsClient )
+		{
+			NameTag?.Delete();
+			PowerArrow?.Delete();
+			VoiceChatWorldPanel?.Delete();
+		}
+
+		CleanupCustomization();
 	}
 
 	public void Cup( bool holeInOne = false )
@@ -85,8 +98,7 @@ public partial class Ball : ModelEntity
 	[ClientRpc]
 	protected void PlayerResetPosition( Vector3 position, Angles angles )
 	{
-		Camera.TargetAngles = new( 14, angles.yaw, 0 );
+		Camera.TargetAngles = new(14, angles.yaw, 0);
 		//Camera.Rotation = Rotation.From( 14, angles.yaw, 0 );
 	}
-
 }

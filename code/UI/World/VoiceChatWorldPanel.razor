@@ -1,0 +1,40 @@
+﻿@namespace Facepunch.Minigolf.UI
+
+@inherits Sandbox.UI.WorldPanel
+@attribute [StyleSheet( "/UI/World/VoiceChatWorldPanel.scss" )]
+
+<root>
+	<label>volume_up</label>
+</root>
+
+@code {
+	private readonly float _voiceTimeout = 0.1f;
+	private readonly Entities.Ball _ball;
+	private RealTimeSince _timeSincePlayed;
+
+	public VoiceChatWorldPanel( Entities.Ball ball )
+	{
+		_ball = ball;
+	}
+
+	public void IsSpeaking()
+	{
+		_timeSincePlayed = 0;
+	}
+
+	public override void Tick()
+	{
+		if ( !_ball.IsValid() )
+			return;
+
+		var timeoutInv = 1 - (_timeSincePlayed / _voiceTimeout);
+		timeoutInv = MathF.Min( timeoutInv * 2.0f, 1.0f );
+
+		SetClass( "hide", timeoutInv < 0 );
+
+		var transform = Transform.Zero;
+		transform.Position = _ball.Position + (Vector3.Up * -5f);
+		transform.Rotation = transform.Rotation.RotateAroundAxis( Vector3.Up, Camera.Rotation.Yaw() );
+		Transform = transform;
+	}
+}

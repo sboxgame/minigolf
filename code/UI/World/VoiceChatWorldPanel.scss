@@ -1,0 +1,15 @@
+﻿VoiceChatWorldPanel {
+  justify-content: center;
+
+  label {
+    color: orange;
+    font-family: MaterialIcons;
+    font-size: 50px;
+    text-shadow: 2px 2px 0px rgba(black, 0.75);
+    transform: scaleX(-1);
+  }
+
+  &.hide {
+    opacity: 0;
+  }
+}

@@ -18,6 +18,9 @@
 		var entry = Instance.ChildrenOfType<VoiceChatEntry>().FirstOrDefault( x => x.Client.SteamId == client.SteamId );
 		entry ??= new VoiceChatEntry() { Client = client, Parent = Instance };
 		entry.OnVoicePlayed();
+
+		if ( client.Pawn is Entities.Ball ball )
+			ball.VoiceChatWorldPanel?.IsSpeaking();
 	}
 
 	public override void Tick()
