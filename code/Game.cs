@@ -3,13 +3,11 @@ global using Sandbox.UI;
 global using Sandbox.UI.Construct;
 global using Sandbox.Component;
 global using Editor;
-
 global using System;
 global using System.Collections.Generic;
 global using System.Linq;
 global using System.ComponentModel;
 global using System.Threading.Tasks;
-
 using Facepunch.Minigolf.Entities;
 using Facepunch.Minigolf.UI;
 using Facepunch.Customization;
@@ -25,7 +23,7 @@ public partial class MinigolfGame : Sandbox.GameManager
 		if ( Game.IsServer )
 		{
 			AddToPrecache();
-			Course = new();
+			Course = new Course();
 		}
 
 		if ( Game.IsClient )
@@ -78,24 +76,15 @@ public partial class MinigolfGame : Sandbox.GameManager
 	{
 		Game.AssertClient();
 
-		Event.Run( "buildinput" );
-
 		// todo: pass to spectate
 		var ball = Game.LocalPawn as Ball;
 
-		if ( Input.Pressed( InputActions.View ) && Game.LocalPawn.IsValid() && !ball.InPlay && !ball.Cupped && FreeCamTimeLeft > 0.0f )
-		{
-			if ( FreeCamera == null )
-				FreeCamera = Components.GetOrCreate<FreeCamera>();
-			else
-				FreeCamera = null;
-		}
+		if ( Input.Pressed( InputActions.View ) && Game.LocalPawn.IsValid() && ball.CanUseFreeCamera() )
+			FreeCamera = FreeCamera == null ? Components.GetOrCreate<FreeCamera>() : null;
 
-		// the camera is the primary method here
 		var camera = FindActiveCamera();
 		camera?.BuildInput();
 		camera?.Update();
-
 		ball?.BuildInput();
 	}
 
@@ -115,4 +104,3 @@ public partial class MinigolfGame : Sandbox.GameManager
 			ResetBall( cl );
 	}
 }
-

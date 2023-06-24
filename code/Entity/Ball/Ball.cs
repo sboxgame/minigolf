@@ -95,6 +95,11 @@ public partial class Ball : ModelEntity
 		PlayerResetPosition( To.Single( this ), position, direction );
 	}
 
+	public bool CanUseFreeCamera()
+	{
+		return !InPlay && !Cupped && FreeCamera.RemainingTime > 0.0f;
+	}
+
 	[ClientRpc]
 	protected void PlayerResetPosition( Vector3 position, Angles angles )
 	{

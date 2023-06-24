@@ -9,6 +9,6 @@
 </root>
 
 @code {
-	private string timeRemaining => $"00:{MinigolfGame.Current.FreeCamTimeLeft.CeilToInt().ToString( "D2" )}";
+	private string timeRemaining => $"00:{FreeCamera.RemainingTime.CeilToInt():D2}";
 	protected override int BuildHash() => HashCode.Combine( timeRemaining, MinigolfGame.Current?.FreeCamera );
 }
