@@ -1,7 +1,4 @@
-using Sandbox;
-using System.Linq;
 using Facepunch.Minigolf.Entities;
-using Facepunch.Minigolf.UI;
 
 namespace Facepunch.Minigolf;
 
