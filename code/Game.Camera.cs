@@ -38,7 +38,9 @@ public partial class MinigolfGame
 
 		// Must be a spectator ( no ball pawn )
 		FollowBallCamera ??= new FollowBallCamera();
-		FollowBallCamera.Target = ActiveBalls.FirstOrDefault();
+		if ( !FollowBallCamera.Target.IsValid() )
+			FollowBallCamera.Target = ActiveBalls.FirstOrDefault();
+
 		return FollowBallCamera;
 	}
 
