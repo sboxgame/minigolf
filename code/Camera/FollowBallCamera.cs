@@ -41,10 +41,6 @@ public class FollowBallCamera : BaseCamera
 
 	public override void BuildInput()
 	{
-		// We take control of the camera when the ball is cupped.
-		if ( Ball is null || Ball.Cupped )
-			return;
-
 		_distance = Math.Clamp( _distance + -Input.MouseWheel * DistanceStep, MinDistance, MaxDistance );
 
 		TargetAngles.yaw += Input.AnalogLook.yaw;
