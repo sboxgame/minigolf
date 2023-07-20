@@ -33,11 +33,12 @@ background, gradient {
 
 background {
     background-size: cover;
-    background-image: url( https://cdn.discordapp.com/attachments/1085759252330713158/1118206368298565632/sbox_0029.png );
+    background-image: url( https://files.facepunch.com/alexguthrie/1b2011b1/sbox_l9KTgMFaHv.jpg );
 }
 
 gradient {
-    background: linear-gradient( to bottom, $green, rgba( $green, 0 ) );
+    background: linear-gradient( to top, $green, rgba( $green, 0 ) );
+    opacity: 0.75;
 }
 
 main {
@@ -64,6 +65,7 @@ main {
 
 body {
     padding: 100px;
+    padding-bottom: 0;
     flex-grow: 1;
     width: 100%;
     flex-direction: column;
@@ -126,7 +128,7 @@ img.avatar {
     MenuItem {
         align-items: center;
         transition: $transition;
-        padding: 5px 0;
+        padding: 10px 0;
 
         .ball {
             aspect-ratio: 1;
