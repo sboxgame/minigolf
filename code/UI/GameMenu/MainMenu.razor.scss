@@ -167,6 +167,10 @@ img.avatar {
                 width: 100%;
             }
         }
+
+        &:active {
+            sound-in: minigolf.ui.button.press;
+        }
     }
 }
 
