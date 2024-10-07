@@ -3,16 +3,12 @@
   "Type": "game",
   "Org": "facepunch",
   "Ident": "minigolf",
-  "Tags": null,
   "Schema": 1,
-  "HasAssets": true,
-  "AssetsPath": "",
+  "IncludeSourceFiles": false,
   "Resources": "/config/*\n/fonts/*\n/ui/*",
-  "MenuResources": null,
-  "HasCode": true,
-  "CodePath": "code",
   "PackageReferences": [],
   "EditorReferences": null,
+  "IsWhitelistDisabled": false,
   "Metadata": {
     "MapList": [
       "facepunch.minigolf_green",

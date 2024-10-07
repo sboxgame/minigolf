@@ -1,0 +1,14 @@
+{
+	"Base": "default",
+	"Friction": 0.050000,
+	"Elasticity": 0.050000,
+	"Density": 100.000000,
+	"Thickness": -1.000000,
+	"Dampening": 0.000000,
+	"ImpactEffects":
+	{
+	},
+	"Sounds":
+	{
+	}
+}

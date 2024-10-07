@@ -1,12 +1,27 @@
-﻿# Sandbox
-code/*.csproj
-code/*.sln
-code/obj
-code/Properties
-.intermediate
-_bakeresourcecache
-tools_asset_info.bin
-tools_thumbnail_cache.bin
+﻿# This file describes files and paths that should not be tracked by Git version control
+# https://git-scm.com/docs/gitignore
+
+# Auto-generated code editor files
+.vs/*
+.vscode/*
+*.csproj
+obj
+bin
+Properties/*
+code/obj/*
+code/Properties/*
+
+# Standalone Builds
+Exports/*
+
+# Auto-generated asset related files
+.sbox/*
+*.generated.*
+*.*_c
+!*.shader_c
 *.los
-.vs/
-.vscode/
+
+*launchSettings.json
+*.sln
+
+*idea
