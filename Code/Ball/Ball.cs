@@ -16,6 +16,16 @@ public sealed class Ball : Component
 	public float PowerMultiplier { get; set; } = 2500.0f;
 
 	/// <summary>
+	/// The player's last position when they hit the ball
+	/// </summary>
+	public Vector3 LastPosition { get; set; }
+
+	/// <summary>
+	/// The player's last angles when they hit the ball
+	/// </summary>
+	public Angles LastAngles { get; set; }
+
+	/// <summary>
 	/// Hit your ball
 	/// </summary>
 	/// <param name="yaw"></param>
@@ -31,5 +41,31 @@ public sealed class Ball : Component
 		var force = direction * power * PowerMultiplier;
 		Rigidbody.ApplyForce( force );
 		GameObject.PlaySound( SwingSound );
+
+		// Store last known positions
+		LastPosition = WorldPosition;
+		LastAngles = new Angles( 0, yaw, 0 );	
+	}
+
+	/// <summary>
+	/// Reset the player's position to the last stroke spot
+	/// </summary>
+	public void ResetPosition()
+	{
+		ResetPosition( LastPosition, LastAngles );
+	}
+
+	public void ResetPosition( Vector3 position, Angles angles )
+	{
+		// Move the player
+		WorldPosition = position;
+
+		// Halt the player
+		Rigidbody.Velocity = 0;
+		Rigidbody.AngularVelocity = 0;
+
+		// This is the new info
+		LastPosition = position;
+		LastAngles = angles;
 	}
 }
