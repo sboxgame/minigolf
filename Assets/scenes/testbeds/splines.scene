@@ -1,0 +1,211 @@
+{
+  "__guid": "23b05eb8-b31a-4994-bcbb-041d21e1a7db",
+  "GameObjects": [
+    {
+      "__guid": "1e9ce886-2b29-4203-ad7f-d2c55ae7ed97",
+      "Flags": 0,
+      "Name": "Main Camera",
+      "Position": "854.0607,1391.013,1214.16",
+      "Rotation": "0.2400392,0.06756396,-0.9321864,0.262383",
+      "Components": [
+        {
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "a3232043-5bee-4f03-8b92-1ddb0d24ebba",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ]
+    },
+    {
+      "__guid": "724bf569-6403-456d-aa63-154f322be5df",
+      "Flags": 0,
+      "Name": "Directional Light",
+      "Position": "0,0,200",
+      "Rotation": "-0.2459842,0.5938582,0.2931525,0.7077327",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "2764f8d3-8d45-47d6-a9db-ddeeef91760b",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0,0,0,0"
+        }
+      ]
+    },
+    {
+      "__guid": "eb67e77b-643e-41fe-af6f-be539ddef67f",
+      "Flags": 0,
+      "Name": "2D Skybox",
+      "Position": "0,0,100",
+      "Tags": "skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "85eddb2b-c95c-4a34-a9e0-cb912e3d0c47",
+          "SkyIndirectLighting": true,
+          "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "8b98d6e4-6d3e-4ac9-8ece-181d050fbf26",
+      "Flags": 0,
+      "Name": "Object",
+      "Position": "-7.723498,0,0",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "SplineMesh",
+          "__guid": "7b55554f-1b90-4f60-b699-b427b4f08b1b",
+          "ControlPoints": [
+            {
+              "_type": "gameobject",
+              "go": "9c97e5db-aa72-4b74-8bc2-8d88e1518daa"
+            },
+            {
+              "_type": "gameobject",
+              "go": "ab51153b-89cb-4e04-afec-4731e3770c11"
+            },
+            {
+              "_type": "gameobject",
+              "go": "211a9ccc-8beb-4701-bca3-3eaed4d55968"
+            },
+            {
+              "_type": "gameobject",
+              "go": "0a952cb6-4de1-478a-bb74-ec9f4c46639a"
+            },
+            {
+              "_type": "gameobject",
+              "go": "e0ac8372-5c13-4dfb-8c52-3a4882f7d132"
+            },
+            {
+              "_type": "gameobject",
+              "go": "0a6ebb5b-a381-452d-b3a2-a7a316efffdc"
+            },
+            {
+              "_type": "gameobject",
+              "go": "b9c06c3e-a567-4d68-8dbe-e5bb351a787c"
+            }
+          ],
+          "ModelMaterial": "materials/dev/bright_100.vmat",
+          "RadialSegments": 64,
+          "Radius": 64,
+          "SplineBias": 0,
+          "SplineContinuity": 0,
+          "SplineInterpolation": 128,
+          "SplineTension": 0
+        },
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "8e2f97e6-2742-40c2-ba4a-8b2b63662d08",
+          "BodyGroups": 18446744073709551615,
+          "Model": "sbox_procedural_model.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "9c97e5db-aa72-4b74-8bc2-8d88e1518daa",
+          "Flags": 0,
+          "Name": "Point A",
+          "Position": "-0.0001468658,0,0",
+          "Enabled": true
+        },
+        {
+          "__guid": "ab51153b-89cb-4e04-afec-4731e3770c11",
+          "Flags": 0,
+          "Name": "Point B",
+          "Position": "479.4378,0,-119.5587",
+          "Enabled": true
+        },
+        {
+          "__guid": "211a9ccc-8beb-4701-bca3-3eaed4d55968",
+          "Flags": 0,
+          "Name": "Point C",
+          "Position": "1425.936,-0.7408447,-569.7457",
+          "Enabled": true
+        },
+        {
+          "__guid": "0a952cb6-4de1-478a-bb74-ec9f4c46639a",
+          "Flags": 0,
+          "Name": "Point D",
+          "Position": "1614.941,-1200.59,-569.0001",
+          "Enabled": true
+        },
+        {
+          "__guid": "e0ac8372-5c13-4dfb-8c52-3a4882f7d132",
+          "Flags": 0,
+          "Name": "Point E",
+          "Position": "2920.44,-1324.457,-568.9991",
+          "Enabled": true
+        },
+        {
+          "__guid": "0a6ebb5b-a381-452d-b3a2-a7a316efffdc",
+          "Flags": 0,
+          "Name": "Point F",
+          "Position": "2835.264,-114.2516,-569.0008",
+          "Enabled": true
+        },
+        {
+          "__guid": "b9c06c3e-a567-4d68-8dbe-e5bb351a787c",
+          "Flags": 0,
+          "Name": "Point G",
+          "Position": "2143.097,-50.16592,-1036.604",
+          "Enabled": true
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "splines",
+  "Description": "",
+  "ResourceVersion": 1,
+  "__references": [],
+  "IsValid": true,
+  "__version": 1
+}
