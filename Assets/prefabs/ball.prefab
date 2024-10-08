@@ -24,7 +24,7 @@
         "__guid": "7440ccd7-0280-4559-aa26-cc0ce005e38b",
         "AngularDamping": 1,
         "Gravity": true,
-        "LinearDamping": 0.1,
+        "LinearDamping": 0,
         "Locking": {},
         "MassCenterOverride": "0,0,0",
         "MassOverride": 0,
@@ -180,7 +180,8 @@
                   "t": 1,
                   "c": "1,1,1,1"
                 }
-              ]
+              ],
+              "alpha": []
             },
             "BloomCurve": [
               {
