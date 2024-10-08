@@ -62,7 +62,7 @@ public sealed class CameraController : Component
 		if ( IsSpectating || !Input.Down( "Attack1" ) )
 			_targetAngles.pitch = _targetAngles.pitch.Clamp( 0, 89 );
 
-		Camera.WorldPosition = Ball.WorldPosition + Vector3.Up * (UpAmount + (Ball.Rigidbody.PhysicsBody.GetBounds().Center.z * Ball.WorldScale));
+		Camera.WorldPosition = Ball.WorldPosition + Vector3.Up * UpAmount;
 		_targetRotation = Rotation.From( _targetAngles );
 
 		Camera.WorldRotation = Rotation.Slerp( Camera.WorldRotation, _targetRotation, Time.Delta * 10.0f );
