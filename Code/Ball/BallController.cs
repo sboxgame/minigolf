@@ -12,6 +12,22 @@ public sealed class BallController : Component
 	[Sync]
 	public float ShotPower { get; set; } = 0f;
 
+	/// <summary>
+	/// Is the ball in play (is it moving, making it so we can't control it)
+	/// </summary>
+	[Sync, Change( nameof( OnInPlayChanged ) )] 
+	public bool InPlay { get; set; }
+
+	/// <summary>
+	/// Called when the play mode of the ball changes, we're using this to post an event to the game manager
+	/// </summary>
+	/// <param name="before"></param>
+	/// <param name="after"></param>
+	private void OnInPlayChanged( bool before, bool after )
+	{
+		IGameEvent.Post( x => x.BallInPlay( Ball, after ) );
+	}
+
 	protected override void OnStart()
 	{
 		if ( IsProxy )
@@ -41,6 +57,18 @@ public sealed class BallController : Component
 		if ( IsProxy )
 			return;
 
+		if ( InPlay )
+		{
+			Arrow.GameObject.Enabled = false;
+
+			if ( Ball.Rigidbody.Velocity.Length < 5f )
+			{
+				InPlay = false;
+			}
+
+			return;
+		}
+
 		var direction = Angles.AngleVector( new Angles( 0, Scene.Camera.WorldRotation.Yaw(), 0 ) );
 		var ballRadius = Ball.Rigidbody.PhysicsBody.GetBounds().Size.z / 2;
 
@@ -61,14 +89,19 @@ public sealed class BallController : Component
 			var color = ColorConvert.HSLToRGB( 120 - (int)(ShotPower * ShotPower * 120), 1.0f, 0.5f );
 			Arrow.WorldPosition = WorldPosition + Vector3.Down * ballRadius + Vector3.Up * 0.01f + direction * 7.0f;
 			Arrow.Renderer.Tint = color;
+
 			// Build mesh, this sucks I think
 			Arrow.Build( direction, ShotPower );
 		}
 
 		if ( ShotPower > 0.0f && Input.Released( "Attack1" ) )
 		{
-			Ball.Stroke( Scene.Camera.WorldRotation.Yaw(), ShotPower );
+			InPlay = true;
 			ShotPower = 0f;
+
+			Ball.Stroke( Scene.Camera.WorldRotation.Yaw(), ShotPower );
+
+			IGameEvent.Post( x => x.BallStroke( Ball ) );
 		}
 	}
 }

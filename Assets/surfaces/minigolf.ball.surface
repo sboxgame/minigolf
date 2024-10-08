@@ -4,12 +4,15 @@
   "Description": null,
   "Friction": 0.05,
   "Elasticity": 0.2,
-  "Density": 150,
+  "Density": 3,
   "Thickness": -1,
-  "Dampening": 100,
+  "Dampening": 0,
   "BounceThreshold": 0,
   "ImpactEffects": {},
-  "ScrapeEffects": {},
+  "ScrapeEffects": {
+    "RoughnessFactor": 0.25,
+    "RoughThreshold": 0.5
+  },
   "Sounds": {},
   "Breakables": {},
   "Tags": null,

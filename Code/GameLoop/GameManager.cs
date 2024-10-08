@@ -1,6 +1,7 @@
 using System.Linq;
 
-public sealed class GameManager : Component, Component.INetworkListener, ISceneStartup
+public sealed class GameManager : Component, Component.INetworkListener,
+	ISceneStartup, IGameEvent
 {
 	void ISceneStartup.OnHostInitialize()
 	{
@@ -47,5 +48,24 @@ public sealed class GameManager : Component, Component.INetworkListener, ISceneS
 		playerGo.NetworkSpawn( channel );
 
 		IPlayerEvent.Post( x => x.OnSpawned( player ) );
+	}
+
+	/// <summary>
+	/// Called when the ball changes play mode
+	/// </summary>
+	/// <param name="ball"></param>
+	/// <param name="inPlay"></param>
+	void IGameEvent.BallInPlay( Ball ball, bool inPlay )
+	{
+		Log.Info( $"{ball} changed to {inPlay}" );
+	}
+
+	/// <summary>
+	/// Called when the ball gets hit
+	/// </summary>
+	/// <param name="ball"></param>
+	void IGameEvent.BallStroke( Ball ball )
+	{
+		Log.Info( $"{ball} struck" );
 	}
 }
