@@ -38,13 +38,6 @@
       ]
     },
     {
-      "__guid": "dd6ec7f8-288d-4492-a295-8e9c040f52bb",
-      "Flags": 0,
-      "Name": "Object",
-      "Position": "-1479.446,-744.3921,825.1334",
-      "Enabled": true
-    },
-    {
       "__guid": "63a458c2-7b6e-467a-ab50-425ed5ad2a04",
       "Flags": 0,
       "Name": "straight",
@@ -671,53 +664,6 @@
       "Enabled": true,
       "__Prefab": "prefabs/ball.prefab",
       "__PrefabVariables": {}
-    },
-    {
-      "__guid": "1c51cfa2-30f2-464c-98d9-b7d4376f1ac0",
-      "Flags": 0,
-      "Name": "Camera",
-      "Position": "-679.4228,-759.0539,146.0663",
-      "Rotation": "-0.1866801,0.1792704,0.6966994,0.669046",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.CameraComponent",
-          "__guid": "dc29625d-1bf3-42c0-b079-cb0276f9700d",
-          "BackgroundColor": "0.33333,0.46275,0.52157,1",
-          "ClearFlags": "All",
-          "FieldOfView": 60,
-          "IsMainCamera": true,
-          "Orthographic": false,
-          "OrthographicHeight": 1204,
-          "Priority": 1,
-          "RenderExcludeTags": "",
-          "RenderTags": "",
-          "TargetEye": "None",
-          "Viewport": "0,0,1,1",
-          "ZFar": 10000,
-          "ZNear": 10
-        },
-        {
-          "__type": "CameraController",
-          "__guid": "e2759cde-118f-4d87-a7f4-d92b453cff11",
-          "Ball": {
-            "_type": "component",
-            "component_id": "26f95d4e-f515-4465-92eb-1fced8f802c3",
-            "go": "b788cc96-b466-491b-87c5-df796d670bfa",
-            "component_type": "Ball"
-          },
-          "Camera": {
-            "_type": "component",
-            "component_id": "dc29625d-1bf3-42c0-b079-cb0276f9700d",
-            "go": "1c51cfa2-30f2-464c-98d9-b7d4376f1ac0",
-            "component_type": "CameraComponent"
-          },
-          "DistanceStep": 10,
-          "MaxDistance": 300,
-          "MinDistance": 100,
-          "UpAmount": 24
-        }
-      ]
     }
   ],
   "SceneProperties": {

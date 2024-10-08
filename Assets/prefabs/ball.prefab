@@ -2,8 +2,7 @@
   "RootObject": {
     "__guid": "476b1b4a-4184-4332-9e05-fd85af624ae2",
     "Flags": 0,
-    "Name": "Ball",
-    "Position": "-47.15673,128.4128,20.92825",
+    "Name": "ball",
     "Enabled": true,
     "Components": [
       {
@@ -57,6 +56,12 @@
           "component_id": "f14e8731-c6bd-4908-ac06-e33a7afd6cdc",
           "go": "4ecded68-63fc-4e13-880f-c23486714433",
           "component_type": "BallArrow"
+        },
+        "CameraController": {
+          "_type": "component",
+          "component_id": "97424b3c-8513-4dc6-9fff-5e4e1b5b61eb",
+          "go": "ac7b8cd5-6135-41c5-a9f0-78b414836490",
+          "component_type": "CameraController"
         }
       }
     ],
@@ -110,8 +115,55 @@
             "Tint": "1,1,1,1"
           }
         ]
+      },
+      {
+        "__guid": "ac7b8cd5-6135-41c5-a9f0-78b414836490",
+        "Flags": 0,
+        "Name": "Camera",
+        "Position": "-679.4228,-759.0539,146.0663",
+        "Rotation": "-0.1866801,0.1792704,0.6966994,0.669046",
+        "Components": [
+          {
+            "__type": "Sandbox.CameraComponent",
+            "__guid": "9bac30f1-a796-459c-b414-c1f555e02fdf",
+            "BackgroundColor": "0.33333,0.46275,0.52157,1",
+            "ClearFlags": "All",
+            "FieldOfView": 60,
+            "IsMainCamera": true,
+            "Orthographic": false,
+            "OrthographicHeight": 1204,
+            "Priority": 1,
+            "RenderExcludeTags": "",
+            "RenderTags": "",
+            "TargetEye": "None",
+            "Viewport": "0,0,1,1",
+            "ZFar": 10000,
+            "ZNear": 10
+          },
+          {
+            "__type": "CameraController",
+            "__guid": "97424b3c-8513-4dc6-9fff-5e4e1b5b61eb",
+            "Ball": {
+              "_type": "component",
+              "component_id": "17a459ff-756b-4a1a-9a80-dd7b584d894c",
+              "go": "476b1b4a-4184-4332-9e05-fd85af624ae2",
+              "component_type": "Ball"
+            },
+            "Camera": {
+              "_type": "component",
+              "component_id": "9bac30f1-a796-459c-b414-c1f555e02fdf",
+              "go": "ac7b8cd5-6135-41c5-a9f0-78b414836490",
+              "component_type": "CameraComponent"
+            },
+            "DistanceStep": 10,
+            "MaxDistance": 300,
+            "MinDistance": 100,
+            "UpAmount": 24
+          }
+        ]
       }
-    ]
+    ],
+    "__variables": []
   },
   "ShowInMenu": false,
   "MenuPath": null,

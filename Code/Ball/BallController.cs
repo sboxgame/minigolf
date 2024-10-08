@@ -6,11 +6,27 @@ public sealed class BallController : Component
 	[Property]
 	public BallArrow Arrow { get; set; }
 
+	[Property]
+	public CameraController CameraController { get; set; }
+
 	[Sync]
 	public float ShotPower { get; set; } = 0f;
 
 	protected override void OnStart()
 	{
+		if ( IsProxy )
+		{
+			CameraController.GameObject.Enabled = false;
+			Arrow.GameObject.Enabled = false;
+			return;
+		}
+
+		// Turn on the camera if we're in control
+		CameraController.GameObject.Enabled = true;
+		CameraController.GameObject.SetParent( null );
+		CameraController.GameObject.Name = $"Camera (linked to {Ball.GameObject})";
+		
+		// Arrow shouldn't be parented since the ball goes mental
 		Arrow.GameObject.SetParent( null );
 	}
 
