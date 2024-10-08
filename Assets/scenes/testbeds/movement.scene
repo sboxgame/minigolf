@@ -199,7 +199,12 @@
         },
         {
           "__type": "Ball",
-          "__guid": "17a459ff-756b-4a1a-9a80-dd7b584d894c"
+          "__guid": "17a459ff-756b-4a1a-9a80-dd7b584d894c",
+          "SwingSound": "sounds/swing/minigolf.swing1.sound"
+        },
+        {
+          "__type": "BallController",
+          "__guid": "410f4c7c-06c1-4f75-b3cc-8c61c6174492"
         }
       ]
     },
@@ -245,7 +250,8 @@
           },
           "DistanceStep": 10,
           "MaxDistance": 300,
-          "MinDistance": 100
+          "MinDistance": 100,
+          "UpAmount": 24
         }
       ]
     }

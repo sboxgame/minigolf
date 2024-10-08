@@ -1,6 +1,20 @@
 {
-	"sounds":
-	[
-		"sounds/swing/minigolf.swing1.vsnd"
-	]
+  "UI": false,
+  "Volume": "1",
+  "Pitch": "1",
+  "Decibels": 70,
+  "SelectionMode": "Random",
+  "Sounds": [
+    "sounds/swing/minigolf.swing1.vsnd",
+    "sounds/swing/minigolf.swing2.vsnd",
+    "sounds/swing/minigolf.swing3.vsnd"
+  ],
+  "Occlusion": false,
+  "AirAbsorption": true,
+  "Transmission": true,
+  "OcclusionRadius": 64,
+  "DistanceAttenuation": true,
+  "__references": [],
+  "IsValid": true,
+  "__version": 0
 }
