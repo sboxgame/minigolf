@@ -97,9 +97,9 @@ public sealed class BallController : Component
 		if ( ShotPower > 0.0f && Input.Released( "Attack1" ) )
 		{
 			InPlay = true;
-			ShotPower = 0f;
 
 			Ball.Stroke( Scene.Camera.WorldRotation.Yaw(), ShotPower );
+			ShotPower = 0f;
 
 			IGameEvent.Post( x => x.BallStroke( Ball ) );
 		}
