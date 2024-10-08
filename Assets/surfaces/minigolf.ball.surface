@@ -6,7 +6,7 @@
   "Elasticity": 0.2,
   "Density": 150,
   "Thickness": -1,
-  "RollingResistance": 0.04,
+  "RollingResistance": 0.025,
   "BounceThreshold": 0,
   "ImpactEffects": {},
   "ScrapeEffects": {

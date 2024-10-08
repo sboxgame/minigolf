@@ -72,5 +72,7 @@ public sealed class GameManager : Component, Component.INetworkListener,
 	void IGameEvent.OnGoal( Ball ball, HoleGoal goal )
 	{
 		Log.Info( $"{ball} hit {goal}" );
+
+		Sound.Play( "minigolf.sink_into_cup", goal.WorldPosition );
 	}
 }
