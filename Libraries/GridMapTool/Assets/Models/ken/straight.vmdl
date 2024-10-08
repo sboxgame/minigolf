@@ -70,6 +70,7 @@
 							exception_list = 
 							[
 								"Scene",
+								"straight",
 							]
 						}
 					},
