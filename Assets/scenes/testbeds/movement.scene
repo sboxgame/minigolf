@@ -75,7 +75,7 @@
           "__guid": "863bda44-ac33-4be0-aba3-7b180a806c31",
           "Ball": {
             "_type": "component",
-            "component_id": "17a459ff-756b-4a1a-9a80-dd7b584d894c",
+            "component_id": "45f2509e-7e1c-4046-aa0e-30dde4e6d6c2",
             "go": "476b1b4a-4184-4332-9e05-fd85af624ae2",
             "component_type": "Ball"
           },
@@ -97,7 +97,6 @@
       "Flags": 0,
       "Name": "Box",
       "Position": "800,-528,-0.00003051758",
-      "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.MeshComponent",

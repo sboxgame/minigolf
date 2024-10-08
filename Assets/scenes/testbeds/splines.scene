@@ -105,11 +105,11 @@
             }
           ],
           "ModelMaterial": "materials/dev/bright_100.vmat",
-          "RadialSegments": 64,
+          "RadialSegments": 10,
           "Radius": 64,
           "SplineBias": 0,
           "SplineContinuity": 0,
-          "SplineInterpolation": 128,
+          "SplineInterpolation": 16,
           "SplineTension": 0
         },
         {
@@ -153,7 +153,7 @@
           "__guid": "0a952cb6-4de1-478a-bb74-ec9f4c46639a",
           "Flags": 0,
           "Name": "Point D",
-          "Position": "1614.941,-1200.59,-569.0001",
+          "Position": "1509.265,-769.1984,-230.1589",
           "Enabled": true
         },
         {
@@ -167,7 +167,7 @@
           "__guid": "0a6ebb5b-a381-452d-b3a2-a7a316efffdc",
           "Flags": 0,
           "Name": "Point F",
-          "Position": "2835.264,-114.2516,-569.0008",
+          "Position": "3288.852,-859.843,-992.5624",
           "Enabled": true
         },
         {

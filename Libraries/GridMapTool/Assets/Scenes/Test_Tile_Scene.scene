@@ -1,0 +1,336 @@
+{
+  "__guid": "862cbcf5-bfcc-433e-9db1-fc4948f3b47b",
+  "GameObjects": [
+    {
+      "__guid": "dc9a01e4-ce43-4a8b-b035-acd383f15262",
+      "Flags": 0,
+      "Name": "Sun",
+      "Position": "285.6799,822.649,643.4822",
+      "Rotation": "0.3464704,0.2151882,-0.7756222,0.4817287",
+      "Tags": "light,light_directional",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "e57b4799-18a8-425e-9583-99804f256079",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1.90099,1.98218,2,1",
+          "Shadows": true,
+          "SkyColor": "0.18317,0.18317,0.18317,1"
+        }
+      ]
+    },
+    {
+      "__guid": "5e7b0aae-efce-40a5-b486-51d5b519a6ef",
+      "Flags": 0,
+      "Name": "2D Skybox",
+      "Tags": "skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "b43b0df3-2de9-465b-87d7-37940a32bff3",
+          "SkyIndirectLighting": true,
+          "SkyMaterial": "materials/sky/sky_002.vmat",
+          "Tint": "0.20792,0.20792,0.20792,1"
+        }
+      ]
+    },
+    {
+      "__guid": "dfdca58b-c20a-4151-afd5-cf5cd2274110",
+      "Flags": 0,
+      "Name": "Man",
+      "Position": "-28.30168,0,0",
+      "Tags": "collection",
+      "Enabled": true,
+      "Components": [
+        {
+          "__version": 0,
+          "__type": "ModelMerge",
+          "__enabled": false
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "ad285f85-fd60-429c-8ed7-9d9fc7788aa0",
+          "Flags": 0,
+          "Name": "block",
+          "Position": "64,0,0",
+          "Tags": "gridtile",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "7748dc18-5eac-4798-8d73-bf241edcdd4f",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/ken/block.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "98c0f4da-d445-44c1-8936-3f54a72493b1",
+              "IsTrigger": false,
+              "Model": "models/ken/block.vmdl",
+              "Static": false
+            }
+          ]
+        },
+        {
+          "__guid": "55027ed1-2396-4073-92ba-7b33f5773b17",
+          "Flags": 0,
+          "Name": "block",
+          "Position": "192,0,0",
+          "Tags": "gridtile",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "bc609c84-f0af-4513-87a1-a4b579222494",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/ken/block.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "764b1729-9eeb-43c6-a0d4-1ce43fb2148a",
+              "IsTrigger": false,
+              "Model": "models/ken/block.vmdl",
+              "Static": false
+            }
+          ]
+        },
+        {
+          "__guid": "cd2d1abc-eaa8-4c2b-924d-0350cb6e1d12",
+          "Flags": 0,
+          "Name": "block",
+          "Position": "192,128,0",
+          "Tags": "gridtile",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "145dd698-e218-49fc-a187-a98ddc238529",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/ken/block.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "e8b4b13b-51b3-48a2-b7d4-8d3023e39e9a",
+              "IsTrigger": false,
+              "Model": "models/ken/block.vmdl",
+              "Static": false
+            }
+          ]
+        },
+        {
+          "__guid": "a10106d7-fc9c-433e-bd15-904deb086738",
+          "Flags": 0,
+          "Name": "block",
+          "Position": "64,128,0",
+          "Tags": "gridtile",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "08252780-c593-4766-b530-0a0bde365b2c",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/ken/block.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "ac41e938-53fe-4442-9a6e-f955fa7af627",
+              "IsTrigger": false,
+              "Model": "models/ken/block.vmdl",
+              "Static": false
+            }
+          ]
+        },
+        {
+          "__guid": "95ce0311-8532-496d-83da-5f3d435d8592",
+          "Flags": 0,
+          "Name": "block",
+          "Position": "128,256,0",
+          "Tags": "gridtile",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "b97c3b6c-a76e-4616-8eea-1676cc929b75",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/ken/block.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "0fea55ad-5163-4c96-a701-eae44a4d6706",
+              "IsTrigger": false,
+              "Model": "models/ken/block.vmdl",
+              "Static": false
+            }
+          ]
+        },
+        {
+          "__guid": "cbaa59a3-20d7-4804-bfe8-abd1f3c375b4",
+          "Flags": 0,
+          "Name": "block",
+          "Position": "128,-128,0",
+          "Tags": "gridtile",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "e048ce49-62c3-4eff-a849-37fd1b8eed8c",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/ken/block.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "580fdd26-74fc-40e4-a58b-d7219b7d50af",
+              "IsTrigger": false,
+              "Model": "models/ken/block.vmdl",
+              "Static": false
+            }
+          ]
+        },
+        {
+          "__guid": "6e0fea2b-3cab-46b4-a9ac-0703a047c4d0",
+          "Flags": 0,
+          "Name": "hole-open",
+          "Position": "-259.6983,-160,128",
+          "Tags": "gridtile",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "e988b096-cde6-4fbd-804a-19ac8120ac49",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/ken/hole-open.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "44ba536d-c582-49a6-b792-7b9108521727",
+              "IsTrigger": false,
+              "Model": "models/ken/hole-open.vmdl",
+              "Static": false
+            }
+          ]
+        },
+        {
+          "__guid": "6816cf63-af11-468e-823c-07b1cd1c1df1",
+          "Flags": 0,
+          "Name": "hole-round",
+          "Position": "-131.6983,-160,128",
+          "Tags": "gridtile",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "b0a7ef5b-8c06-4798-a207-298563b113bf",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/ken/hole-round.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "07a6a3ba-bd1b-4f6a-a644-e2b7cb4d602a",
+              "IsTrigger": false,
+              "Model": "models/ken/hole-round.vmdl",
+              "Static": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "test_tile_scene",
+  "Description": "",
+  "ResourceVersion": 1,
+  "__references": [
+    "caro.bluecloudysky#27761"
+  ],
+  "IsValid": true,
+  "__version": 1
+}

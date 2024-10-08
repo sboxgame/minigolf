@@ -1,0 +1,54 @@
+{
+  "RootObject": {
+    "__guid": "8cd32595-5213-4233-a905-6119bfe9e2cd",
+    "Name": "testfab",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "Components": [
+      {
+        "__type": "Sandbox.ModelRenderer",
+        "__guid": "e2ec46ec-c46f-4716-a7ff-df34d328129f",
+        "BodyGroups": 18446744073709551615,
+        "Model": "models/ken/windmill.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "Sandbox.ModelCollider",
+        "__guid": "2c8db517-7700-4845-b41f-9a2387461fe6",
+        "IsTrigger": false,
+        "Model": "models/ken/windmill.vmdl",
+        "Static": false
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "35322488-3c7b-4b80-a0f8-284eceb7666b",
+        "Name": "Cube",
+        "Position": "-0.0004703507,-28.87421,185.4518",
+        "Rotation": "0.8726839,0,0,-0.4882857",
+        "Scale": "1.814989,1.727082,5.52552",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "0ca36d7d-4164-4aab-84f9-780393a1188e",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/dev/box.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}
