@@ -1,14 +1,19 @@
 {
-	"Base": "default",
-	"Friction": 0.000000,
-	"Elasticity": 0.000000,
-	"Density": 4000.000000,
-	"Thickness": -1.000000,
-	"Dampening": 0.000000,
-	"ImpactEffects":
-	{
-	},
-	"Sounds":
-	{
-	}
+  "BaseSurface": null,
+  "AudioSurface": "Generic",
+  "Description": null,
+  "Friction": 0.3,
+  "Elasticity": 0.5,
+  "Density": 4000,
+  "Thickness": -1,
+  "Dampening": 0,
+  "BounceThreshold": 40,
+  "ImpactEffects": {},
+  "ScrapeEffects": {},
+  "Sounds": {},
+  "Breakables": {},
+  "Tags": null,
+  "__references": [],
+  "IsValid": true,
+  "__version": 0
 }

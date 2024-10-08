@@ -71,7 +71,8 @@
           "__guid": "095d4813-7e01-433d-8c75-3fef93dba2d6",
           "IsTrigger": false,
           "Model": "models/ken/straight.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -102,7 +103,8 @@
           "__guid": "802b1525-d364-4713-b9bb-e4806a04ffe8",
           "IsTrigger": false,
           "Model": "models/ken/straight.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -133,7 +135,8 @@
           "__guid": "fd446834-57f4-4f6a-8b2a-67f22753603d",
           "IsTrigger": false,
           "Model": "models/ken/straight.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -165,7 +168,8 @@
           "__guid": "9b64b870-e7b0-4952-977e-87391064c47b",
           "IsTrigger": false,
           "Model": "models/ken/round-corner-b.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -197,7 +201,8 @@
           "__guid": "d85315d6-a499-41d2-880d-92cd588ba6fd",
           "IsTrigger": false,
           "Model": "models/ken/straight.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -229,7 +234,8 @@
           "__guid": "5c565dfa-7ea5-4a92-9bb4-d291512bb960",
           "IsTrigger": false,
           "Model": "models/ken/straight.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -261,7 +267,8 @@
           "__guid": "41ecd654-e2c0-4323-ad85-dd06ab6cc88d",
           "IsTrigger": false,
           "Model": "models/ken/straight.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -293,7 +300,8 @@
           "__guid": "fa33fc69-85c0-488d-b24f-6281454a2482",
           "IsTrigger": false,
           "Model": "models/ken/end.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -324,7 +332,8 @@
           "__guid": "3523b5a8-f531-455a-9302-a7466b15fa03",
           "IsTrigger": false,
           "Model": "models/ken/hill-round.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -356,7 +365,8 @@
           "__guid": "a1a4fbc4-02d6-4200-9a8d-a6ca4170e824",
           "IsTrigger": false,
           "Model": "models/ken/ramp-large.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -387,7 +397,8 @@
           "__guid": "7ec9f135-6910-4be8-9f88-63063ab90f90",
           "IsTrigger": false,
           "Model": "models/ken/walls-to-open.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -419,7 +430,8 @@
           "__guid": "733df9d8-3546-4634-aa22-dbe2c2fa0eed",
           "IsTrigger": false,
           "Model": "models/ken/round-corner-c.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -451,7 +463,8 @@
           "__guid": "8321661d-4721-4059-be30-496dfa2c5560",
           "IsTrigger": false,
           "Model": "models/ken/round-corner-c.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -482,7 +495,8 @@
           "__guid": "f94612f4-b254-4975-bbc3-156b1b7fe4f2",
           "IsTrigger": false,
           "Model": "models/ken/side.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -514,7 +528,8 @@
           "__guid": "d8ca896a-46a0-47de-865e-4e2293bf9db6",
           "IsTrigger": false,
           "Model": "models/ken/side.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -546,7 +561,8 @@
           "__guid": "de169afe-caee-454e-93ac-06f33184834d",
           "IsTrigger": false,
           "Model": "models/ken/round-corner-c.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -577,7 +593,8 @@
           "__guid": "dc38e304-e2fa-496f-bf38-25a71950bf5b",
           "IsTrigger": false,
           "Model": "models/ken/round-corner-c.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -609,7 +626,8 @@
           "__guid": "02a80aaf-ca19-42f0-80f9-623fc940746c",
           "IsTrigger": false,
           "Model": "models/ken/side.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
@@ -640,7 +658,8 @@
           "__guid": "3e5bed4d-a9e0-4994-a02b-1e372ec55280",
           "IsTrigger": false,
           "Model": "models/ken/hole-square.vmdl",
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.side.surface"
         }
       ]
     },
