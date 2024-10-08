@@ -4,12 +4,6 @@
     "Flags": 0,
     "Name": "hole_goal",
     "Enabled": true,
-    "Components": [
-      {
-        "__type": "HoleGoal",
-        "__guid": "ae29fc72-1d79-4039-bb87-24f0512c1774"
-      }
-    ],
     "Children": [
       {
         "__guid": "4e6cc64c-28ef-42e6-b4f5-2b8c176d7e44",
@@ -45,13 +39,17 @@
             "__guid": "f98a0337-dd6d-4f78-8eba-5a031606b5ab",
             "BoxSize": "50,50,50",
             "Center": "0,0,0",
-            "Height": 2,
+            "Height": 5,
             "IsTrigger": true,
             "Radius": 8,
             "Radius2": 0,
             "Slices": 8,
             "Static": false,
             "Type": "Cylinder"
+          },
+          {
+            "__type": "HoleGoal",
+            "__guid": "ae29fc72-1d79-4039-bb87-24f0512c1774"
           }
         ]
       }

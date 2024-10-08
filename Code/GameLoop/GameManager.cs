@@ -68,4 +68,9 @@ public sealed class GameManager : Component, Component.INetworkListener,
 	{
 		Log.Info( $"{ball} struck" );
 	}
+
+	void IGameEvent.OnGoal( Ball ball, HoleGoal goal )
+	{
+		Log.Info( $"{ball} hit {goal}" );
+	}
 }

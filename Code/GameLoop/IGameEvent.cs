@@ -12,4 +12,11 @@ public interface IGameEvent : ISceneEvent<IGameEvent>
 	/// <param name="ball"></param>
 	/// <param name="inPlay"></param>
 	void BallInPlay( Ball ball, bool inPlay ) { }
+
+	/// <summary>
+	/// Called when a ball hits a goal
+	/// </summary>
+	/// <param name="ball"></param>
+	/// <param name="goal"></param>
+	void OnGoal( Ball ball, HoleGoal goal ) { }
 }

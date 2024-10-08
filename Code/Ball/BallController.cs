@@ -52,20 +52,33 @@ public sealed class BallController : Component
 			Arrow.GameObject.Destroy();
 	}
 
+	void CheckInPlay()
+	{
+		// Sanity check, maybe our ball is hit by rotating blades?
+		if ( !InPlay )
+		{
+			if ( Ball.Rigidbody.Velocity.Length >= 2.5f )
+				InPlay = true;
+		}
+
+		// Check if our ball has pretty much stopped (waiting for 0 is nasty)
+		if ( !Ball.Rigidbody.Velocity.Length.AlmostEqual( 0.0f, 2.5f ) )
+			return;
+
+		Ball.Rigidbody.Velocity = Vector3.Zero;
+		InPlay = false;
+	}
+
 	protected override void OnUpdate()
 	{
 		if ( IsProxy )
 			return;
 
+		CheckInPlay();
+
 		if ( InPlay )
 		{
 			Arrow.GameObject.Enabled = false;
-
-			if ( Ball.Rigidbody.Velocity.Length < 5f )
-			{
-				InPlay = false;
-			}
-
 			return;
 		}
 
