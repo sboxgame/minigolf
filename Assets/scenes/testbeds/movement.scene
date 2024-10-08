@@ -1,0 +1,281 @@
+{
+  "__guid": "23b05eb8-b31a-4994-bcbb-041d21e1a7db",
+  "GameObjects": [
+    {
+      "__guid": "eb67e77b-643e-41fe-af6f-be539ddef67f",
+      "Flags": 0,
+      "Name": "2D Skybox",
+      "Position": "0,0,100",
+      "Tags": "skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "85eddb2b-c95c-4a34-a9e0-cb912e3d0c47",
+          "SkyIndirectLighting": true,
+          "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "8b98d6e4-6d3e-4ac9-8ece-181d050fbf26",
+      "Flags": 0,
+      "Name": "Object",
+      "Position": "-7.723498,0,0",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "SplineMesh",
+          "__guid": "7b55554f-1b90-4f60-b699-b427b4f08b1b",
+          "ControlPoints": [
+            {
+              "_type": "gameobject",
+              "go": "9c97e5db-aa72-4b74-8bc2-8d88e1518daa"
+            },
+            {
+              "_type": "gameobject",
+              "go": "ab51153b-89cb-4e04-afec-4731e3770c11"
+            },
+            {
+              "_type": "gameobject",
+              "go": "211a9ccc-8beb-4701-bca3-3eaed4d55968"
+            },
+            {
+              "_type": "gameobject",
+              "go": "0a952cb6-4de1-478a-bb74-ec9f4c46639a"
+            },
+            {
+              "_type": "gameobject",
+              "go": "e0ac8372-5c13-4dfb-8c52-3a4882f7d132"
+            },
+            {
+              "_type": "gameobject",
+              "go": "0a6ebb5b-a381-452d-b3a2-a7a316efffdc"
+            },
+            {
+              "_type": "gameobject",
+              "go": "b9c06c3e-a567-4d68-8dbe-e5bb351a787c"
+            }
+          ],
+          "ModelMaterial": "materials/dev/bright_100.vmat",
+          "RadialSegments": 64,
+          "Radius": 64,
+          "SplineBias": 0,
+          "SplineContinuity": 0,
+          "SplineInterpolation": 128,
+          "SplineTension": 0
+        },
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "8e2f97e6-2742-40c2-ba4a-8b2b63662d08",
+          "BodyGroups": 18446744073709551615,
+          "Model": "sbox_procedural_model.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "9c97e5db-aa72-4b74-8bc2-8d88e1518daa",
+          "Flags": 0,
+          "Name": "Point A",
+          "Position": "-0.0001468658,0,0",
+          "Enabled": true
+        },
+        {
+          "__guid": "ab51153b-89cb-4e04-afec-4731e3770c11",
+          "Flags": 0,
+          "Name": "Point B",
+          "Position": "479.4378,0,-119.5587",
+          "Enabled": true
+        },
+        {
+          "__guid": "211a9ccc-8beb-4701-bca3-3eaed4d55968",
+          "Flags": 0,
+          "Name": "Point C",
+          "Position": "1425.936,-0.7408447,-569.7457",
+          "Enabled": true
+        },
+        {
+          "__guid": "0a952cb6-4de1-478a-bb74-ec9f4c46639a",
+          "Flags": 0,
+          "Name": "Point D",
+          "Position": "1614.941,-1200.59,-569.0001",
+          "Enabled": true
+        },
+        {
+          "__guid": "e0ac8372-5c13-4dfb-8c52-3a4882f7d132",
+          "Flags": 0,
+          "Name": "Point E",
+          "Position": "2920.44,-1324.457,-568.9991",
+          "Enabled": true
+        },
+        {
+          "__guid": "0a6ebb5b-a381-452d-b3a2-a7a316efffdc",
+          "Flags": 0,
+          "Name": "Point F",
+          "Position": "2835.264,-114.2516,-569.0008",
+          "Enabled": true
+        },
+        {
+          "__guid": "b9c06c3e-a567-4d68-8dbe-e5bb351a787c",
+          "Flags": 0,
+          "Name": "Point G",
+          "Position": "2143.097,-50.16592,-1036.604",
+          "Enabled": true
+        }
+      ]
+    },
+    {
+      "__guid": "83d7b006-4aec-4655-9bbd-43d1d302cb89",
+      "Flags": 0,
+      "Name": "Map Instance",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MapInstance",
+          "__guid": "d190fedb-e3b5-451f-a3ab-60df097deee4",
+          "__version": 1,
+          "EnableCollision": true,
+          "MapName": "facepunch.minigolf_green",
+          "NoOrigin": false,
+          "OnMapLoaded": null,
+          "OnMapUnloaded": null,
+          "UseMapFromLaunch": false
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "476b1b4a-4184-4332-9e05-fd85af624ae2",
+      "Flags": 0,
+      "Name": "Ball",
+      "Position": "-47.15673,128.4128,25.08789",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "6a98840a-f2fd-4e21-88b1-c99d338d7358",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/golf_ball.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "7440ccd7-0280-4559-aa26-cc0ce005e38b",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassCenterOverride": "0,0,0",
+          "MassOverride": 0,
+          "MotionEnabled": true,
+          "OverrideMassCenter": false,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "Sandbox.SphereCollider",
+          "__guid": "d4f93f0f-1995-47bf-8a13-6dba04afc61e",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Radius": 1.52,
+          "Static": false,
+          "Surface": "surfaces/minigolf.ball.surface"
+        },
+        {
+          "__type": "Ball",
+          "__guid": "17a459ff-756b-4a1a-9a80-dd7b584d894c"
+        }
+      ]
+    },
+    {
+      "__guid": "01612cdc-9cb4-4733-a47c-571ada8f2a2e",
+      "Flags": 0,
+      "Name": "Camera",
+      "Position": "-241.8758,173.8025,145.5537",
+      "Rotation": "0.01604135,0.1818873,-0.08637599,0.979387",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "c00441cf-fe66-437a-84c3-de18325501a2",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        },
+        {
+          "__type": "CameraController",
+          "__guid": "863bda44-ac33-4be0-aba3-7b180a806c31",
+          "Ball": {
+            "_type": "component",
+            "component_id": "17a459ff-756b-4a1a-9a80-dd7b584d894c",
+            "go": "476b1b4a-4184-4332-9e05-fd85af624ae2",
+            "component_type": "Ball"
+          },
+          "Camera": {
+            "_type": "component",
+            "component_id": "c00441cf-fe66-437a-84c3-de18325501a2",
+            "go": "01612cdc-9cb4-4733-a47c-571ada8f2a2e",
+            "component_type": "CameraComponent"
+          },
+          "DistanceStep": 10,
+          "MaxDistance": 300,
+          "MinDistance": 100
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "splines",
+  "Description": "",
+  "ResourceVersion": 1,
+  "__references": [],
+  "IsValid": true,
+  "__version": 1
+}
