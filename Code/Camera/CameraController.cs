@@ -38,6 +38,12 @@ public sealed class CameraController : Component
 	[Property]
 	public float DistanceStep { get; set; } = 10.0f;
 
+	/// <summary>
+	/// How far up above the ball is the camera by default?
+	/// </summary>
+	[Property]
+	public float UpAmount { get; set; } = 24f;
+
 	private Angles _targetAngles;
 	private Rotation _targetRotation;
 	private float _distance = 150.0f;
@@ -56,12 +62,12 @@ public sealed class CameraController : Component
 		if ( IsSpectating || !Input.Down( "Attack1" ) )
 			_targetAngles.pitch = _targetAngles.pitch.Clamp( 0, 89 );
 
-		Camera.WorldPosition = Ball.WorldPosition + Vector3.Up * (24 + (Ball.Rigidbody.PhysicsBody.GetBounds().Center.z * Ball.WorldScale));
+		Camera.WorldPosition = Ball.WorldPosition + Vector3.Up * (UpAmount + (Ball.Rigidbody.PhysicsBody.GetBounds().Center.z * Ball.WorldScale));
 		_targetRotation = Rotation.From( _targetAngles );
 
-		Camera.WorldRotation = Rotation.Slerp( Camera.WorldRotation, _targetRotation, RealTime.Delta * 10.0f );
-		_targetDistance = _targetDistance.LerpTo( _distance, RealTime.Delta * 5.0f );
+		Camera.WorldRotation = Rotation.Slerp( Camera.WorldRotation, _targetRotation, Time.Delta * 10.0f );
+		_targetDistance = _targetDistance.LerpTo( _distance, Time.Delta * 5.0f );
 		Camera.WorldPosition += Camera.WorldRotation.Backward * _targetDistance;
-		Camera.FieldOfView = 80.0f;
+		Camera.FieldOfView = Preferences.FieldOfView;
 	}
 }
