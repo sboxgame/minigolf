@@ -159,6 +159,42 @@
             "MaxDistance": 300,
             "MinDistance": 100,
             "UpAmount": 24
+          },
+          {
+            "__type": "Sandbox.AmbientOcclusion",
+            "__guid": "a8f2617f-6210-4a2e-9cd3-684a9b2e68ea",
+            "FalloffDistance": 1,
+            "Intensity": 8,
+            "Quality": "High",
+            "Radius": 32
+          },
+          {
+            "__type": "Sandbox.Bloom",
+            "__guid": "3087feaa-f0cd-4e49-bb1f-4a2a761b5a4e",
+            "BloomColor": {
+              "color": [
+                {
+                  "c": "1,1,1,1"
+                },
+                {
+                  "t": 1,
+                  "c": "1,1,1,1"
+                }
+              ]
+            },
+            "BloomCurve": [
+              {
+                "y": 0.5
+              },
+              {
+                "x": 1,
+                "y": 1
+              }
+            ],
+            "Mode": "Additive",
+            "Strength": 0.1,
+            "Threshold": 0.5,
+            "ThresholdWidth": 0
           }
         ]
       }

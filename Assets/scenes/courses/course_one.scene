@@ -32,7 +32,7 @@
           "__type": "Sandbox.SkyBox2D",
           "__guid": "b43b0df3-2de9-465b-87d7-37940a32bff3",
           "SkyIndirectLighting": true,
-          "SkyMaterial": "materials/sky/sky_002.vmat",
+          "SkyMaterial": "materials/default/plainsky.vmat",
           "Tint": "0.20792,0.20792,0.20792,1"
         }
       ]
@@ -720,7 +720,7 @@
   "Description": "",
   "ResourceVersion": 1,
   "__references": [
-    "caro.bluecloudysky#27761"
+    "agentab.plainsky#31314"
   ],
   "IsValid": true,
   "__version": 1
