@@ -19,125 +19,9 @@
       ]
     },
     {
-      "__guid": "8b98d6e4-6d3e-4ac9-8ece-181d050fbf26",
-      "Flags": 0,
-      "Name": "Object",
-      "Position": "-7.723498,0,0",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "SplineMesh",
-          "__guid": "7b55554f-1b90-4f60-b699-b427b4f08b1b",
-          "ControlPoints": [
-            {
-              "_type": "gameobject",
-              "go": "9c97e5db-aa72-4b74-8bc2-8d88e1518daa"
-            },
-            {
-              "_type": "gameobject",
-              "go": "ab51153b-89cb-4e04-afec-4731e3770c11"
-            },
-            {
-              "_type": "gameobject",
-              "go": "211a9ccc-8beb-4701-bca3-3eaed4d55968"
-            },
-            {
-              "_type": "gameobject",
-              "go": "0a952cb6-4de1-478a-bb74-ec9f4c46639a"
-            },
-            {
-              "_type": "gameobject",
-              "go": "e0ac8372-5c13-4dfb-8c52-3a4882f7d132"
-            },
-            {
-              "_type": "gameobject",
-              "go": "0a6ebb5b-a381-452d-b3a2-a7a316efffdc"
-            },
-            {
-              "_type": "gameobject",
-              "go": "b9c06c3e-a567-4d68-8dbe-e5bb351a787c"
-            }
-          ],
-          "ModelMaterial": "materials/dev/bright_100.vmat",
-          "RadialSegments": 64,
-          "Radius": 64,
-          "SplineBias": 0,
-          "SplineContinuity": 0,
-          "SplineInterpolation": 128,
-          "SplineTension": 0
-        },
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "8e2f97e6-2742-40c2-ba4a-8b2b63662d08",
-          "BodyGroups": 18446744073709551615,
-          "Model": "sbox_procedural_model.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        }
-      ],
-      "Children": [
-        {
-          "__guid": "9c97e5db-aa72-4b74-8bc2-8d88e1518daa",
-          "Flags": 0,
-          "Name": "Point A",
-          "Position": "-0.0001468658,0,0",
-          "Enabled": true
-        },
-        {
-          "__guid": "ab51153b-89cb-4e04-afec-4731e3770c11",
-          "Flags": 0,
-          "Name": "Point B",
-          "Position": "479.4378,0,-119.5587",
-          "Enabled": true
-        },
-        {
-          "__guid": "211a9ccc-8beb-4701-bca3-3eaed4d55968",
-          "Flags": 0,
-          "Name": "Point C",
-          "Position": "1425.936,-0.7408447,-569.7457",
-          "Enabled": true
-        },
-        {
-          "__guid": "0a952cb6-4de1-478a-bb74-ec9f4c46639a",
-          "Flags": 0,
-          "Name": "Point D",
-          "Position": "1614.941,-1200.59,-569.0001",
-          "Enabled": true
-        },
-        {
-          "__guid": "e0ac8372-5c13-4dfb-8c52-3a4882f7d132",
-          "Flags": 0,
-          "Name": "Point E",
-          "Position": "2920.44,-1324.457,-568.9991",
-          "Enabled": true
-        },
-        {
-          "__guid": "0a6ebb5b-a381-452d-b3a2-a7a316efffdc",
-          "Flags": 0,
-          "Name": "Point F",
-          "Position": "2835.264,-114.2516,-569.0008",
-          "Enabled": true
-        },
-        {
-          "__guid": "b9c06c3e-a567-4d68-8dbe-e5bb351a787c",
-          "Flags": 0,
-          "Name": "Point G",
-          "Position": "2143.097,-50.16592,-1036.604",
-          "Enabled": true
-        }
-      ]
-    },
-    {
       "__guid": "83d7b006-4aec-4655-9bbd-43d1d302cb89",
       "Flags": 0,
       "Name": "Map Instance",
-      "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.MapInstance",
@@ -150,14 +34,46 @@
           "OnMapUnloaded": null,
           "UseMapFromLaunch": false
         }
-      ],
-      "Children": []
+      ]
+    },
+    {
+      "__guid": "4ecded68-63fc-4e13-880f-c23486714433",
+      "Flags": 0,
+      "Name": "Ball Arrow",
+      "Position": "-97.60262,128.4128,25.08789",
+      "Components": [
+        {
+          "__type": "BallArrow",
+          "__guid": "f14e8731-c6bd-4908-ac06-e33a7afd6cdc",
+          "Material": "materials/minigolf.arrow.vmat",
+          "Renderer": {
+            "_type": "component",
+            "component_id": "d586294b-21bd-40fc-a8f5-c961206ba0f6",
+            "go": "4ecded68-63fc-4e13-880f-c23486714433",
+            "component_type": "ModelRenderer"
+          }
+        },
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "d586294b-21bd-40fc-a8f5-c961206ba0f6",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/dev/plane.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
     },
     {
       "__guid": "476b1b4a-4184-4332-9e05-fd85af624ae2",
       "Flags": 0,
       "Name": "Ball",
-      "Position": "-47.15673,128.4128,25.08789",
+      "Position": "-47.15673,128.4128,20.92825",
       "Enabled": true,
       "Components": [
         {
@@ -193,18 +109,44 @@
           "__guid": "d4f93f0f-1995-47bf-8a13-6dba04afc61e",
           "Center": "0,0,0",
           "IsTrigger": false,
-          "Radius": 1.52,
+          "Radius": 1.51,
           "Static": false,
           "Surface": "surfaces/minigolf.ball.surface"
         },
         {
           "__type": "Ball",
           "__guid": "17a459ff-756b-4a1a-9a80-dd7b584d894c",
+          "PowerMultiplier": 2500,
           "SwingSound": "sounds/swing/minigolf.swing1.sound"
         },
         {
           "__type": "BallController",
-          "__guid": "410f4c7c-06c1-4f75-b3cc-8c61c6174492"
+          "__guid": "410f4c7c-06c1-4f75-b3cc-8c61c6174492",
+          "Arrow": {
+            "_type": "component",
+            "component_id": "f14e8731-c6bd-4908-ac06-e33a7afd6cdc",
+            "go": "4ecded68-63fc-4e13-880f-c23486714433",
+            "component_type": "BallArrow"
+          }
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "80842912-bd9f-4e32-b7ac-c36327b1d2e6",
+          "Flags": 0,
+          "Name": "Trail",
+          "Tags": "particles",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.LegacyParticleSystem",
+              "__guid": "d4403b62-2402-45b8-87bf-4c68eeb289c1",
+              "ControlPoints": [],
+              "Looped": false,
+              "Particles": "particles/gameplay/ball_trail/ball_trail.vpcf",
+              "PlaybackSpeed": 1
+            }
+          ]
         }
       ]
     },
@@ -252,6 +194,92 @@
           "MaxDistance": 300,
           "MinDistance": 100,
           "UpAmount": 24
+        }
+      ]
+    },
+    {
+      "__guid": "387de214-dd2d-417a-92c0-bd63e6e39dca",
+      "Flags": 0,
+      "Name": "Box",
+      "Position": "800,-528,-0.00003051758",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "3bb2db14-a809-4736-80f1-952114c6fdb7",
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "HideInGame": false,
+          "IsTrigger": false,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACk2MAQoAIAgDrSz7/4drBwoOjmKbczO7Ygg0hYuTHuB1hXgS/so\u002Bqi4vOdnOrb6NT15bJXy63JDz/\u002Bg6SXigAAAA",
+            "Positions": [
+              "-1024,-944,0",
+              "1024,-944,0",
+              "1024,944,0",
+              "-1024,944,0"
+            ],
+            "TextureCoord": [
+              "2,1.84375",
+              "0,0",
+              "2,-1.84375",
+              "0,0",
+              "-2,-1.84375",
+              "0,0",
+              "-2,1.84375",
+              "0,0"
+            ],
+            "TextureUAxis": [
+              "1,0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0"
+            ],
+            "TextureScale": [
+              "0.25,0.25"
+            ],
+            "TextureOffset": [
+              "896,1984"
+            ],
+            "MaterialIndex": [
+              0
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/grass/floor_grass_a.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "88f924e7-afcb-42ff-81b9-fe9fd0707077",
+      "Flags": 0,
+      "Name": "Sun",
+      "Position": "78.23114,661.5344,418.6567",
+      "Rotation": "0,0.6087614,0,0.7933534",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "d9cad8a3-161f-4949-aee4-c3271c34eeba",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0,0,0,0"
         }
       ]
     }
