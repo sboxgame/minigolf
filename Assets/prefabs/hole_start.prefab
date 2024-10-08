@@ -1,0 +1,60 @@
+{
+  "RootObject": {
+    "__guid": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
+    "Flags": 0,
+    "Name": "hole_start",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Hole",
+        "__guid": "a025c7f1-2fab-4bf9-bbe2-e90c311f8522",
+        "Number": 1
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "c5305631-db03-4bba-8a17-a00f70b58076",
+        "Flags": 0,
+        "Name": "Mesh",
+        "Scale": "1,1,0.05",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "236cf0af-45f1-4fd8-bc23-fb9c8fad8cd5",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/dev/box.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      }
+    ],
+    "__variables": [
+      {
+        "Id": "Number",
+        "Title": "Number",
+        "Targets": [
+          {
+            "Id": "a025c7f1-2fab-4bf9-bbe2-e90c311f8522",
+            "Property": "Number"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "IsValid": true,
+  "__version": 1
+}

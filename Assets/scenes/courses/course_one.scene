@@ -660,10 +660,38 @@
       "__guid": "b788cc96-b466-491b-87c5-df796d670bfa",
       "Flags": 0,
       "Name": "Ball",
-      "Position": "-705.8792,-553.0568,10.10583",
+      "Position": "-704.264,-546.59,10.10583",
       "Enabled": true,
       "__Prefab": "prefabs/ball.prefab",
       "__PrefabVariables": {}
+    },
+    {
+      "__guid": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
+      "Flags": 0,
+      "Name": "Hole Start",
+      "Position": "-704.4165,-546.6317,7.337734",
+      "Enabled": true,
+      "__Prefab": "prefabs/hole_start.prefab",
+      "__PrefabVariables": {
+        "Number": 1
+      }
+    },
+    {
+      "__guid": "170a21ab-94cd-45c5-858c-41948d724b39",
+      "Flags": 0,
+      "Name": "Hole End",
+      "Position": "320,-32,-64",
+      "Rotation": "0,0.00000002980232,0.7071068,0.7071068",
+      "Enabled": true,
+      "__Prefab": "prefabs/hole_goal.prefab",
+      "__PrefabVariables": {
+        "Hole": {
+          "_type": "component",
+          "component_id": "72c3b54e-5a88-4cd8-a3bd-7491a2c572c0",
+          "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
+          "component_type": "Hole"
+        }
+      }
     }
   ],
   "SceneProperties": {
