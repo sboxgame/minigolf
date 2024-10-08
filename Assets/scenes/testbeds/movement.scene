@@ -37,39 +37,6 @@
       ]
     },
     {
-      "__guid": "4ecded68-63fc-4e13-880f-c23486714433",
-      "Flags": 0,
-      "Name": "Ball Arrow",
-      "Position": "-97.60262,128.4128,25.08789",
-      "Components": [
-        {
-          "__type": "BallArrow",
-          "__guid": "f14e8731-c6bd-4908-ac06-e33a7afd6cdc",
-          "Material": "materials/minigolf.arrow.vmat",
-          "Renderer": {
-            "_type": "component",
-            "component_id": "d586294b-21bd-40fc-a8f5-c961206ba0f6",
-            "go": "4ecded68-63fc-4e13-880f-c23486714433",
-            "component_type": "ModelRenderer"
-          }
-        },
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "d586294b-21bd-40fc-a8f5-c961206ba0f6",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/dev/plane.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        }
-      ]
-    },
-    {
       "__guid": "476b1b4a-4184-4332-9e05-fd85af624ae2",
       "Flags": 0,
       "Name": "Ball",
@@ -145,6 +112,39 @@
               "Looped": false,
               "Particles": "particles/gameplay/ball_trail/ball_trail.vpcf",
               "PlaybackSpeed": 1
+            }
+          ]
+        },
+        {
+          "__guid": "4ecded68-63fc-4e13-880f-c23486714433",
+          "Flags": 0,
+          "Name": "Ball Arrow",
+          "Position": "-50.44589,0,4.159641",
+          "Components": [
+            {
+              "__type": "BallArrow",
+              "__guid": "f14e8731-c6bd-4908-ac06-e33a7afd6cdc",
+              "Material": "materials/minigolf.arrow.vmat",
+              "Renderer": {
+                "_type": "component",
+                "component_id": "d586294b-21bd-40fc-a8f5-c961206ba0f6",
+                "go": "4ecded68-63fc-4e13-880f-c23486714433",
+                "component_type": "ModelRenderer"
+              }
+            },
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "d586294b-21bd-40fc-a8f5-c961206ba0f6",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/dev/plane.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
             }
           ]
         }
@@ -259,7 +259,8 @@
             ]
           },
           "SmoothingAngle": 40,
-          "Static": true
+          "Static": true,
+          "Surface": "surfaces/minigolf.grass.surface"
         }
       ]
     },

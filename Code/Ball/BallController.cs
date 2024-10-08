@@ -9,6 +9,17 @@ public sealed class BallController : Component
 	[Sync]
 	public float ShotPower { get; set; } = 0f;
 
+	protected override void OnStart()
+	{
+		Arrow.GameObject.SetParent( null );
+	}
+
+	protected override void OnDestroy()
+	{
+		if ( Arrow.IsValid() )
+			Arrow.GameObject.Destroy();
+	}
+
 	protected override void OnUpdate()
 	{
 		if ( IsProxy )
