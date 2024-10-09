@@ -35,7 +35,6 @@ public partial class GameManager
 		var copy = new Dictionary<Ball, float>( OutOfBoundsBalls );
 		foreach ( var ball in copy.Keys )
 		{
-			// TODO: check cupped balls
 			if ( !ball.IsValid() || ball.IsCupped )
 			{
 				OutOfBoundsBalls.Remove( ball );

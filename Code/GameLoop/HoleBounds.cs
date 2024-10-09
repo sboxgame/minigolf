@@ -5,9 +5,6 @@ public partial class HoleBounds : Component, Component.ITriggerListener
 	[Property]
 	public Hole Hole { get; set; }
 
-	[Property]
-	public Collider Collider { get; set; }
-
 	void ITriggerListener.OnTriggerEnter( Collider other )
 	{
 		if ( GameManager.Instance.CurrentHole != Hole )
@@ -30,5 +27,20 @@ public partial class HoleBounds : Component, Component.ITriggerListener
 			return;
 
 		GameManager.Instance.UpdateBallInBounds( ball, false );
+	}
+
+	protected override void DrawGizmos()
+	{
+		Gizmo.Transform = new Transform();
+
+		var col = Color.Green;
+		foreach ( var collider in GetComponentsInChildren<Collider>() )
+		{
+			Gizmo.Draw.Color = col;
+			Gizmo.Draw.LineBBox( collider.KeyframeBody.GetBounds() );
+
+			Gizmo.Draw.Color = col.WithAlpha( 0.35f );
+			Gizmo.Draw.SolidBox( collider.KeyframeBody.GetBounds() );
+		}
 	}
 }

@@ -697,6 +697,33 @@
           "__PrefabVariables": {
             "Number": 1
           }
+        },
+        {
+          "__guid": "3718c0b0-70b8-4d38-b407-18d62df515a0",
+          "Flags": 0,
+          "Name": "Hole Bounds",
+          "Position": "278.4109,-934.3819,-432.054",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Facepunch.Minigolf.HoleBounds",
+              "__guid": "87011444-1cca-4d6e-a290-f2e32223d476",
+              "Hole": {
+                "_type": "component",
+                "component_id": "565774eb-05e1-437c-9afa-a3072d6d87c9",
+                "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
+                "component_type": "Hole"
+              }
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "74212631-f74a-4048-a879-ab335a1543b0",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "1300,781.2808,128",
+              "Static": true
+            }
+          ]
         }
       ]
     },
