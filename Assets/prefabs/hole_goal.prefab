@@ -50,7 +50,7 @@
           {
             "__type": "HoleGoal",
             "__guid": "ae29fc72-1d79-4039-bb87-24f0512c1774",
-            "CupTime": 0.5,
+            "CupTime": 0.25,
             "Particles": {
               "_type": "component",
               "component_id": "fe9aed45-f375-49a8-a5ab-b35807fa3905",

@@ -21,7 +21,7 @@ public sealed class HoleGoal : Component, Component.ITriggerListener
 	/// How long until we confirm a cupped ball?
 	/// </summary>
 	[Property]
-	public float CupTime { get; set; } = 0.5f;
+	public float CupTime { get; set; } = 0.25f;
 
 	void ITriggerListener.OnTriggerEnter( Collider other )
 	{
