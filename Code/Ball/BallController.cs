@@ -12,6 +12,10 @@ public sealed class BallController : Component
 	[Sync]
 	public float ShotPower { get; set; } = 0f;
 
+
+	[Sync]
+	public float LastShotPower { get; set; } = 0f;
+
 	/// <summary>
 	/// Is the ball in play (is it moving, making it so we can't control it)
 	/// </summary>
@@ -115,6 +119,8 @@ public sealed class BallController : Component
 			InPlay = true;
 
 			Ball.Stroke( Scene.Camera.WorldRotation.Yaw(), ShotPower );
+
+			LastShotPower = ShotPower;
 			ShotPower = 0f;
 
 			IGameEvent.Post( x => x.BallStroke( Ball ) );

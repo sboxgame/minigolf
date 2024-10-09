@@ -4,7 +4,7 @@
 
 <root>
     <div style="flex-grow: 1;" />
-    <div class="vitals column gap">
+@*     <div class="vitals column gap">
         <div class="gap">
             <label>Stroke:</label>
             <label>@Ball.Local.GetCurrentPar()</label>
@@ -16,11 +16,9 @@
             <label>Par:</label>
             <label>@GameManager.Instance.CurrentHole.Par</label>
         </div>
+    </div> *@
 
-        <div class="gap">
-            <label>@ScoreUtils.GetScore(GameManager.Instance.CurrentHole.Par, Ball.Local.GetCurrentPar())</label>
-        </div>
-    </div>
+    <PowerBar />
 </root>
 
 @code

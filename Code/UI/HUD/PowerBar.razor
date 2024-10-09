@@ -1,0 +1,39 @@
+@namespace Facepunch.Minigolf.UI
+
+@inherits Sandbox.UI.Panel
+
+<root>
+	<div class="powerbar-header">
+		<text class="title">Power</text>
+		<text class="value">@FormatShotPower( controller.ShotPower )</text>
+	</div>
+	<div class="powerbar-container">
+		<div class="bar-container">
+            <div class="bar @( controller.ShotPower > 0.0f ? "is-visible" : "" )" style="width: @Length.Percent( controller.ShotPower * 100 );"></div>
+		</div>
+
+        @if ( controller.LastShotPower > 0.01f )
+        {
+            <div class="last-power-container" style="left: @Length.Percent( controller.LastShotPower * 100 );">
+                <text class="last-power-label">@FormatShotPower(controller.LastShotPower)</text>
+                <div class="last-power-icon"></div>
+            </div>
+        }
+
+	</div>
+</root>
+
+@code {
+    private Ball ball => Ball.Local;
+    private BallController controller => ball.Controller;
+
+	private string FormatShotPower( float shotPower )
+	{
+		return $"{shotPower:0%}";
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( ball, controller, controller?.ShotPower, controller?.LastShotPower );
+	}
+}
