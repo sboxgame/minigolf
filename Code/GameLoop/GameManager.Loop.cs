@@ -1,3 +1,5 @@
+using Facepunch.Minigolf.UI;
+
 namespace Facepunch.Minigolf;
 
 public enum GameState
@@ -109,6 +111,21 @@ public partial class GameManager
 
 		ball.IsCupped = true;
 		Sound.Play( "minigolf.sink_into_cup", goal.WorldPosition );
+
+		using ( Rpc.FilterInclude( ball.Network.Owner ) )
+		{
+			ShowUI( goal.Hole.Number, goal.Hole.Par, ball.GetCurrentPar() );
+		}
 	}
 
+	/// <summary>
+	/// Show the par screen UI to the person who did it
+	/// </summary>
+	/// <param name="hole"></param>
+	/// <param name="par"></param>
+	/// <param name="strokes"></param>
+	private void ShowUI( int hole, int par, int strokes )
+	{
+		ParScreen.Show( hole, par, strokes );
+	}
 }
