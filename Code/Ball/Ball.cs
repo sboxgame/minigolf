@@ -3,18 +3,38 @@
 /// </summary>
 public sealed class Ball : Component
 {
+	/// <summary>
+	/// The local player's ball
+	/// </summary>
+	public static Ball Local { get; set; }
+
+	/// <summary>
+	/// The ball's Rigidbody
+	/// </summary>
 	[RequireComponent]
 	public Rigidbody Rigidbody { get; set; }
 
+	/// <summary>
+	/// Controls for the ball
+	/// </summary>
 	[RequireComponent]
 	public BallController Controller { get; set; }
 
+	/// <summary>
+	/// Which sound do we play when hitting the ball
+	/// </summary>
 	[Property]
 	public SoundEvent SwingSound { get; set; }
 
+	/// <summary>
+	/// The ball's trail
+	/// </summary>
 	[Property]
 	public GameObject Trail { get; set; }
 
+	/// <summary>
+	/// How powerful should a stroke be
+	/// </summary>
 	[Property]
 	public float PowerMultiplier { get; set; } = 2500.0f;
 
@@ -34,9 +54,17 @@ public sealed class Ball : Component
 	[HostSync]
 	public bool IsCupped { get; set; }
 
+	/// <summary>
+	/// A tracking history of the pars, we might want to move this though
+	/// </summary>
 	[Sync]
-	private NetDictionary<Hole, int> Pars { get; set; }
+	private NetDictionary<Hole, int> Pars { get; set; } = new();
 
+	/// <summary>
+	/// Get a player's par for a current hole
+	/// </summary>
+	/// <param name="hole"></param>
+	/// <returns></returns>
 	public int GetPar( Hole hole )
 	{
 		if ( Pars.TryGetValue( hole, out var par ) )
@@ -47,16 +75,29 @@ public sealed class Ball : Component
 		return 0;
 	}
 
+	/// <summary>
+	/// Get the player's current par for the current hole
+	/// </summary>
+	/// <returns></returns>
 	public int GetCurrentPar()
 	{
 		return GetPar( Facepunch.Minigolf.GameManager.Instance.CurrentHole );
 	}
 
+	/// <summary>
+	/// Sets the player's par on a specific hole
+	/// </summary>
+	/// <param name="hole"></param>
+	/// <param name="par"></param>
 	public void SetPar( Hole hole, int par )
 	{
 		Pars[hole] = par;
 	}
 
+	/// <summary>
+	/// Increments the player's par on a specific hole
+	/// </summary>
+	/// <param name="hole"></param>
 	public void IncrementPar( Hole hole )
 	{
 		if ( !Pars.TryGetValue( hole, out var par ) )
@@ -93,6 +134,11 @@ public sealed class Ball : Component
 		{
 			IncrementPar( hole );
 		}
+	}
+
+	protected override void OnStart()
+	{
+		if ( !IsProxy ) Local = this;
 	}
 
 	/// <summary>

@@ -538,6 +538,68 @@
                   "Surface": "surfaces/minigolf.side.surface"
                 }
               ]
+            },
+            {
+              "__guid": "4d26ddba-cc56-4e4e-b76f-ab279537e81e",
+              "Flags": 0,
+              "Name": "support-bottom",
+              "Position": "432.6445,-708.7568,-489.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "75614052-4fa3-4943-8c90-24654a818a57",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/support-bottom.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "538aa160-03bf-4252-a88d-eaacf7182a69",
+                  "IsTrigger": false,
+                  "Model": "models/ken/support-bottom.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "208bb859-fb7c-4f0d-93d8-dd97d829967a",
+              "Flags": 0,
+              "Name": "support-bottom",
+              "Position": "624.6445,-1028.757,-489.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "d0e86eed-91f4-4661-a606-b41eb710644f",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/support-bottom.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "e1818d3e-8872-46f1-87b4-e3dee2c3c3a2",
+                  "IsTrigger": false,
+                  "Model": "models/ken/support-bottom.vmdl",
+                  "Static": true
+                }
+              ]
             }
           ]
         },
@@ -1307,70 +1369,12 @@
               "Scale": 1,
               "ScaleStrategy": "ConsistentHeight",
               "ZIndex": 100
+            },
+            {
+              "__type": "Facepunch.Minigolf.UI.HUDComponent",
+              "__guid": "7eef7409-9d1e-4d26-a6c7-90ddd9a8594c"
             }
           ]
-        }
-      ]
-    },
-    {
-      "__guid": "208bb859-fb7c-4f0d-93d8-dd97d829967a",
-      "Flags": 0,
-      "Name": "support-bottom",
-      "Position": "224,576,-64",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "d0e86eed-91f4-4661-a606-b41eb710644f",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/support-bottom.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "e1818d3e-8872-46f1-87b4-e3dee2c3c3a2",
-          "IsTrigger": false,
-          "Model": "models/ken/support-bottom.vmdl",
-          "Static": true
-        }
-      ]
-    },
-    {
-      "__guid": "4d26ddba-cc56-4e4e-b76f-ab279537e81e",
-      "Flags": 0,
-      "Name": "support-bottom",
-      "Position": "32,896,-64.00002",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "75614052-4fa3-4943-8c90-24654a818a57",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/support-bottom.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "538aa160-03bf-4252-a88d-eaacf7182a69",
-          "IsTrigger": false,
-          "Model": "models/ken/support-bottom.vmdl",
-          "Static": true
         }
       ]
     }

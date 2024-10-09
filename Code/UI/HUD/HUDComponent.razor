@@ -1,0 +1,26 @@
+@namespace Facepunch.Minigolf.UI
+@inherits PanelComponent
+@attribute [Title( "HUD" )]
+
+<root>
+    <div style="flex-grow: 1;" />
+    <div class="vitals column gap">
+        <div class="gap">
+            <label>Strokes:</label>
+            <label>@Ball.Local.GetCurrentPar()</label>
+        </div>
+
+        <div class="gap">
+            <label>Hole:</label>
+            <label>@GameManager.Instance.CurrentHole.Number</label>
+        </div>
+    </div>
+</root>
+
+@code
+{
+    protected override int BuildHash()
+    {
+        return HashCode.Combine( Ball.Local, Ball.Local.GetCurrentPar(), GameManager.Instance, GameManager.Instance.CurrentHole.Number );
+    }
+}
