@@ -22,6 +22,6 @@ public sealed class HoleGoal : Component, Component.ITriggerListener
 	{
 		var firstNum = Hole.Number % 10;
 		var secondNum = ( Hole.Number / 10 ) % 10;
-		Particles.SceneObject.SetControlPoint( 21, new Vector3( 0, firstNum, secondNum ) );
+		Particles.SceneObject.SetControlPoint( 21, new Vector3( 0, secondNum, firstNum ) );
 	}
 }
