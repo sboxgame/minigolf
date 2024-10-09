@@ -6,14 +6,25 @@
   "Elasticity": 0.5,
   "Density": 4000,
   "Thickness": -1,
-  "Dampening": 100,
+  "RollingResistance": 0,
   "BounceThreshold": 40,
-  "ImpactEffects": {},
+  "ImpactEffects": {
+    "Regular": [],
+    "Bullet": [],
+    "BulletDecal": [],
+    "SoftParticles": [],
+    "SoftDecal": [],
+    "HardParticles": [],
+    "HardDecal": []
+  },
   "ScrapeEffects": {
     "RoughnessFactor": 0.25,
     "RoughThreshold": 0.5
   },
-  "Sounds": {},
+  "Sounds": {
+    "ImpactHard": "sounds/impact/minigolf.ball_impact_on_concrete1.sound",
+    "ImpactSoft": "sounds/impact/minigolf.ball_impact_on_concrete2.sound"
+  },
   "Breakables": {},
   "Tags": null,
   "__references": [],
