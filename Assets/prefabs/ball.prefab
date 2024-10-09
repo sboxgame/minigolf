@@ -13,7 +13,7 @@
         "Model": "models/golf_ball.vmdl",
         "RenderOptions": {
           "GameLayer": true,
-          "OverlayLayer": false,
+          "OverlayLayer": true,
           "BloomLayer": false,
           "AfterUILayer": false
         },
@@ -46,6 +46,12 @@
       {
         "__type": "Ball",
         "__guid": "17a459ff-756b-4a1a-9a80-dd7b584d894c",
+        "Outline": {
+          "_type": "component",
+          "component_id": "542c0189-7758-4818-8271-74f704d24048",
+          "go": "476b1b4a-4184-4332-9e05-fd85af624ae2",
+          "component_type": "HighlightOutline"
+        },
         "PowerMultiplier": 2500,
         "SwingSound": "sounds/swing/minigolf.swing1.sound",
         "Trail": {
@@ -73,7 +79,20 @@
         "__type": "GoalWhirlpoolEffect",
         "__guid": "28057ef2-0ade-457c-a25c-eafa07f2ce1f",
         "IsSinking": false,
-        "Radius": 0
+        "PullStrength": 200,
+        "SinkThreshold": 1.5,
+        "SlowFactor": 0.95,
+        "WhirlpoolStrength": 1000
+      },
+      {
+        "__type": "Sandbox.HighlightOutline",
+        "__guid": "542c0189-7758-4818-8271-74f704d24048",
+        "__enabled": false,
+        "Color": "1,1,1,0",
+        "InsideColor": "0,0,0,0",
+        "InsideObscuredColor": "0,0,0,0",
+        "ObscuredColor": "0.19141,0.73488,0.31822,1",
+        "Width": 0.1
       }
     ],
     "Children": [
@@ -207,6 +226,10 @@
             "Strength": 0.1,
             "Threshold": 0.5,
             "ThresholdWidth": 0
+          },
+          {
+            "__type": "Sandbox.Highlight",
+            "__guid": "77fe25cc-774c-4e91-b1de-dc15efd4271a"
           }
         ]
       }

@@ -146,6 +146,12 @@
                   "Model": "models/ken/round-large-corner.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "bab83c9f-46fd-4c03-9eae-daa46d36580d",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -614,7 +620,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "a93d625c-f731-447d-8c36-1866f5be734e",
+              "component_id": "5b9f4594-8fe1-47c8-9cd9-03800aa23c84",
               "go": "097cf5cc-b809-4c3d-aca5-d4b34ccc2dec",
               "component_type": "Hole"
             }
@@ -642,7 +648,12 @@
             {
               "__type": "Facepunch.Minigolf.HoleBounds",
               "__guid": "b9490bbc-8071-48c7-9379-1b677a56651c",
-              "Hole": null
+              "Hole": {
+                "_type": "component",
+                "component_id": "5b9f4594-8fe1-47c8-9cd9-03800aa23c84",
+                "go": "097cf5cc-b809-4c3d-aca5-d4b34ccc2dec",
+                "component_type": "Hole"
+              }
             },
             {
               "__type": "Sandbox.BoxCollider",
@@ -698,6 +709,12 @@
                   "Model": "models/ken/hole-square.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "d9180bfb-9fb7-4086-9e72-db5c8554a73a",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -731,6 +748,12 @@
                   "Model": "models/ken/side.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "14aaf4ba-d6ee-401c-bdbd-7f2b81369aaa",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -763,6 +786,12 @@
                   "Model": "models/ken/round-corner-c.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "4d05cb3c-0d32-4840-8130-a94347ee0578",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -796,6 +825,12 @@
                   "Model": "models/ken/round-corner-c.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "e1556358-2329-4e26-a4b5-238556e771fc",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -829,6 +864,12 @@
                   "Model": "models/ken/side.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "bd15a2f1-d5cb-4ade-813f-69ed011d0c8c",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -861,6 +902,12 @@
                   "Model": "models/ken/side.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "0dc9a861-cfa6-412e-8051-94b890a576a1",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -894,6 +941,12 @@
                   "Model": "models/ken/round-corner-c.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "35f183b6-e952-4357-a143-93434690acda",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -927,6 +980,12 @@
                   "Model": "models/ken/round-corner-c.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "d3478951-2c50-4cba-9b26-bb903d9e88bc",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -959,6 +1018,12 @@
                   "Model": "models/ken/walls-to-open.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "3299efea-a962-49f7-8f11-e6920dcb3d9e",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -992,6 +1057,12 @@
                   "Model": "models/ken/ramp-large.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "56d95fb9-5a06-4bd0-a58d-45a1d095067f",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -1024,6 +1095,12 @@
                   "Model": "models/ken/hill-round.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "72be5ee2-9544-4d9c-925d-524c181040a0",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -1057,6 +1134,12 @@
                   "Model": "models/ken/end.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "9c82e07b-e9eb-4a2e-9a9a-d3e316199f6e",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -1090,6 +1173,12 @@
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "8a22a888-0000-4431-b6f2-714ccc5d4cee",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -1123,6 +1212,12 @@
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "cabdc995-c1fe-4e9d-86a2-4cce9a00611d",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -1156,6 +1251,12 @@
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "0eca3494-d77d-4d12-90b8-cae9db828d1c",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -1188,6 +1289,12 @@
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "8a6c17da-adc6-45c7-bc7e-d48d14316814",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -1220,6 +1327,12 @@
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "74ef2d66-a7f4-47b4-82e3-07f964c45567",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -1253,6 +1366,12 @@
                   "Model": "models/ken/round-corner-b.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "3c08ae04-eae1-4056-a359-b3aac0b78087",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
@@ -1284,6 +1403,12 @@
                   "IsTrigger": false,
                   "Model": "models/ken/wall-right.vmdl",
                   "Static": true
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "4d61a603-2d36-47c8-817c-8f21901ae87f",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             }
@@ -1300,7 +1425,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "f33f5055-e8dc-438a-9aa0-edf8596bf61c",
+              "component_id": "b2899a7e-694d-4018-87cb-e40fba04803c",
               "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
               "component_type": "Hole"
             }
@@ -1328,7 +1453,12 @@
             {
               "__type": "Facepunch.Minigolf.HoleBounds",
               "__guid": "87011444-1cca-4d6e-a290-f2e32223d476",
-              "Hole": null
+              "Hole": {
+                "_type": "component",
+                "component_id": "b2899a7e-694d-4018-87cb-e40fba04803c",
+                "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
+                "component_type": "Hole"
+              }
             },
             {
               "__type": "Sandbox.BoxCollider",

@@ -39,6 +39,12 @@ public sealed class Ball : Component
 	public float PowerMultiplier { get; set; } = 2500.0f;
 
 	/// <summary>
+	/// The ball's glow
+	/// </summary>
+	[Property]
+	public HighlightOutline Outline { get; set; }
+
+	/// <summary>
 	/// The player's last position when they hit the ball
 	/// </summary>
 	public Vector3 LastPosition { get; set; }
@@ -143,7 +149,11 @@ public sealed class Ball : Component
 
 	protected override void OnStart()
 	{
-		if ( !IsProxy ) Local = this;
+		if ( !IsProxy )
+		{
+			Local = this;
+			Outline.Enabled = true;
+		}
 	}
 
 	/// <summary>
