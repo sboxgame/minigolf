@@ -76,7 +76,7 @@ public sealed class BallController : Component
 
 		CheckInPlay();
 
-		if ( InPlay )
+		if ( InPlay || Ball.IsCupped )
 		{
 			Arrow.GameObject.Enabled = false;
 			return;
