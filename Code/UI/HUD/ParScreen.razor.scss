@@ -1,0 +1,77 @@
+﻿ParScreen {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba( 15, 15, 15, 0.5 );
+  backdrop-filter-blur: 32px;
+  transition: all 0.25s ease-in;
+  z-index: 5000;
+
+  &:intro,
+  &:outro {
+    opacity: 0;
+  }
+
+  &:intro {
+    .label {
+      transform: rotate(20deg) scale(0.1);
+      opacity: 0;
+    }
+  }
+
+  &:outro {
+    .label {
+      transform: rotate(-20deg) scale(4);
+      opacity: 0;
+    }
+  }
+
+  label {
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .score {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    label {
+      font-weight: 900;
+      color: gold;
+      font-size: 144px;
+      transform: rotate(-4deg) scale(1);
+      transition: all 0.25s linear;
+      text-transform: uppercase;
+      margin-bottom: -56px;
+      text-shadow: 0 14 0 black;
+      text-stroke: 10px black;
+      opacity: 1;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &.hole-in-one {
+      label:nth-child(2) {
+        font-size: 100px;
+      }
+    }
+  }
+
+  label.hole {
+    font-size: 42px;
+    text-shadow: 0 4 0 black;
+    text-stroke: 6px black;
+    margin-top: -20px;
+  }
+}

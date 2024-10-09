@@ -1,0 +1,60 @@
+﻿@namespace Facepunch.Minigolf.UI
+@inherits Sandbox.UI.Panel
+
+<root>
+	@if ( Strokes == 1 )
+	{
+		<div class="score hole-in-one">
+			<label>Hole</label>
+			<label>in</label>
+			<label>One</label>
+		</div>
+	}
+	else
+	{
+		<div class="score @( $"score--{Score}" )">
+			@foreach ( var line in ScoreUtils.GetScore( Par, Score ).Split( ' ' ) )
+			{
+				<label>@line</label>
+			}
+		</div>
+	}
+	<label class="hole">
+		@( $"Hole {Hole}" )
+	</label>
+</root>
+
+
+@code {
+	readonly RealTimeSince _createdAt;
+	static float ShowScoreForLength => 3.0f;
+
+	private int Hole { get; }
+	private int Par { get; }
+	private int Strokes { get; }
+	private int Score => Par - Strokes;
+
+	public ParScreen( int hole, int par, int strokes )
+	{
+		Hole = hole;
+		Par = par;
+		Strokes = strokes;
+		_createdAt = 0;
+	}
+
+	public override void Tick()
+	{
+		if ( _createdAt > ShowScoreForLength && !IsDeleting )
+		{
+			Delete();
+		}
+	}
+
+    [ConCmd( "minigolf_debug_testscore" )]
+	public static void Show( int hole, int par, int strokes )
+	{
+		Game.ActiveScene.GetAllComponents<HUDComponent>()
+        .FirstOrDefault()
+        .Panel.AddChild( new ParScreen( hole, par, strokes ) );
+	}
+}
