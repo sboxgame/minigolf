@@ -681,7 +681,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "3e6acf4e-10af-45fd-9a54-ce0852704ebf",
+              "component_id": "565774eb-05e1-437c-9afa-a3072d6d87c9",
               "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
               "component_type": "Hole"
             }
@@ -708,8 +708,8 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "GameManager",
-          "__guid": "c9d6bc7c-d797-486e-9872-c897269dad40"
+          "__type": "Facepunch.Minigolf.GameManager",
+          "__guid": "1e82b58a-63f9-4e94-8efb-9dff2049b6b7"
         }
       ],
       "Children": [

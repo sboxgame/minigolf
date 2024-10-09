@@ -1,6 +1,6 @@
-using System.Linq;
+namespace Facepunch.Minigolf;
 
-public sealed class GameManager : Component, Component.INetworkListener,
+public partial class GameManager : Component, Component.INetworkListener,
 	ISceneStartup, IGameEvent
 {
 	void ISceneStartup.OnHostInitialize()
@@ -8,6 +8,18 @@ public sealed class GameManager : Component, Component.INetworkListener,
 		// If we're not hosting a lobby, start hosting one
 		// so that people can join this game.
 		Networking.CreateLobby();
+
+		var holes = Scene.GetAllComponents<Hole>().ToArray();
+		if ( holes.Length > 0 )
+		{
+			var firstHole = holes
+				.OrderBy( x => x.Number )
+				.First();
+
+			CurrentHole = firstHole;
+
+			Log.Info( $"Assigning first hole {CurrentHole}" );
+		}
 	}
 
 	void INetworkListener.OnActive( Connection channel )
@@ -20,10 +32,10 @@ public sealed class GameManager : Component, Component.INetworkListener,
 	/// </summary>
 	Transform FindSpawnLocation()
 	{
-		var spawnPoints = Scene.GetAllComponents<Hole>().ToArray();
-		if ( spawnPoints.Length > 0 )
+		var holes = Scene.GetAllComponents<Hole>().ToArray();
+		if ( holes.Length > 0 )
 		{
-			var transform = spawnPoints
+			var transform = holes
 				.OrderBy( x => x.Number )
 				.First()
 				.WorldTransform;
@@ -74,5 +86,13 @@ public sealed class GameManager : Component, Component.INetworkListener,
 		Log.Info( $"{ball} hit {goal}" );
 
 		Sound.Play( "minigolf.sink_into_cup", goal.WorldPosition );
+	}
+
+	protected override void OnUpdate()
+	{
+		if ( !IsProxy )
+		{
+			CheckBoundsTimes();
+		}
 	}
 }
