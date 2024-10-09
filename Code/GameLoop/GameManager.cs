@@ -67,6 +67,7 @@ public partial class GameManager : Component, Component.INetworkListener,
 		if ( !IsProxy )
 		{
 			CheckBoundsTimes();
+			CheckRoundState();
 		}
 	}
 }
