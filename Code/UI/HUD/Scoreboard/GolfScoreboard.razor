@@ -16,6 +16,10 @@
 		}
 	</div> *@
 
+    @{
+        var orderedHoles = Scene.GetAllComponents<Hole>().OrderBy(x => x.Number);
+    }
+
 	<div class="scoreboard-container">
 		<div class="scoreboard-title">
             <img src="/ui/minigolf_logo.png" class="logo" />
@@ -26,7 +30,7 @@
 					<text>Hole</text>
 					<div class="holes">
 						<div>
-                            @foreach ( var hole in Scene.GetAllComponents<Hole>() )
+                            @foreach ( var hole in orderedHoles )
                             {
                                 <label class=@( hole == GameManager.Instance.CurrentHole ? "active" : "" )>@hole.Number</label>
                             }
@@ -38,7 +42,7 @@
 					<text>Par</text>
 					<div class="holes">
 						<div>
-                            @foreach ( var hole in Scene.GetAllComponents<Hole>() )
+                            @foreach ( var hole in orderedHoles )
                             {
                                 <label class=@( hole == GameManager.Instance.CurrentHole ? "active" : "" )>@hole.Par</label>
                             }
