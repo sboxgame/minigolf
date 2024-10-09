@@ -68,6 +68,12 @@
           "go": "ac7b8cd5-6135-41c5-a9f0-78b414836490",
           "component_type": "CameraController"
         }
+      },
+      {
+        "__type": "GoalWhirlpoolEffect",
+        "__guid": "28057ef2-0ade-457c-a25c-eafa07f2ce1f",
+        "IsSinking": false,
+        "Radius": 0
       }
     ],
     "Children": [

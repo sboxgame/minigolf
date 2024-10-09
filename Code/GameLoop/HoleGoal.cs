@@ -29,6 +29,9 @@ public sealed class HoleGoal : Component, Component.ITriggerListener
 		if ( !ball.IsValid() )
 			return;
 
+		var whirl = ball.GetComponent<GoalWhirlpoolEffect>();
+		whirl.StartWhirlpoolEffect( this );
+
 		balls.Add( ball, 0 );
 	}
 
@@ -37,6 +40,9 @@ public sealed class HoleGoal : Component, Component.ITriggerListener
 		var ball = other.GameObject.Root.GetComponentInChildren<Ball>();
 		if ( !ball.IsValid() )
 			return;
+
+		var whirl = ball.GetComponent<GoalWhirlpoolEffect>();
+		whirl.IsSinking = false;
 
 		balls.Remove( ball );
 	}

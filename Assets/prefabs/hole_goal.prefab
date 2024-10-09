@@ -39,7 +39,7 @@
             "__guid": "f98a0337-dd6d-4f78-8eba-5a031606b5ab",
             "BoxSize": "50,50,50",
             "Center": "0,0,0",
-            "Height": 5,
+            "Height": 10,
             "IsTrigger": true,
             "Radius": 8,
             "Radius2": 0,
@@ -50,6 +50,7 @@
           {
             "__type": "HoleGoal",
             "__guid": "ae29fc72-1d79-4039-bb87-24f0512c1774",
+            "CupTime": 0.5,
             "Particles": {
               "_type": "component",
               "component_id": "fe9aed45-f375-49a8-a5ab-b35807fa3905",
