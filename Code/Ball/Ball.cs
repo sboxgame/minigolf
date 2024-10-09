@@ -1,5 +1,3 @@
-using System.Diagnostics;
-
 /// <summary>
 /// A ball
 /// </summary>
@@ -36,6 +34,39 @@ public sealed class Ball : Component
 	[HostSync]
 	public bool IsCupped { get; set; }
 
+	[Sync]
+	private NetDictionary<Hole, int> Pars { get; set; }
+
+	public int GetPar( Hole hole )
+	{
+		if ( Pars.TryGetValue( hole, out var par ) )
+		{
+			return par;
+		}
+
+		return 0;
+	}
+
+	public int GetCurrentPar()
+	{
+		return GetPar( Facepunch.Minigolf.GameManager.Instance.CurrentHole );
+	}
+
+	public void SetPar( Hole hole, int par )
+	{
+		Pars[hole] = par;
+	}
+
+	public void IncrementPar( Hole hole )
+	{
+		if ( !Pars.TryGetValue( hole, out var par ) )
+		{
+			Pars[hole] = 0;
+		}
+
+		Pars[hole]++;
+	}
+
 	/// <summary>
 	/// Hit your ball
 	/// </summary>
@@ -55,7 +86,13 @@ public sealed class Ball : Component
 
 		// Store last known positions
 		LastPosition = WorldPosition;
-		LastAngles = new Angles( 0, yaw, 0 );	
+		LastAngles = new Angles( 0, yaw, 0 );
+
+		// Increment par if we're in a hole
+		if ( Facepunch.Minigolf.GameManager.Instance.CurrentHole is { } hole )
+		{
+			IncrementPar( hole );
+		}
 	}
 
 	/// <summary>
