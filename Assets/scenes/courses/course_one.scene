@@ -550,12 +550,7 @@
           "Enabled": true,
           "__Prefab": "prefabs/hole_goal.prefab",
           "__PrefabVariables": {
-            "Hole": {
-              "_type": "component",
-              "component_id": "a21b9a79-cada-4c7f-aa1e-cd466ce2b9fa",
-              "go": "097cf5cc-b809-4c3d-aca5-d4b34ccc2dec",
-              "component_type": "Hole"
-            }
+            "Hole": null
           }
         },
         {
@@ -566,7 +561,8 @@
           "Enabled": true,
           "__Prefab": "prefabs/hole_start.prefab",
           "__PrefabVariables": {
-            "Number": 2
+            "Number": 2,
+            "Par": 4
           }
         },
         {
@@ -579,12 +575,7 @@
             {
               "__type": "Facepunch.Minigolf.HoleBounds",
               "__guid": "b9490bbc-8071-48c7-9379-1b677a56651c",
-              "Hole": {
-                "_type": "component",
-                "component_id": "a21b9a79-cada-4c7f-aa1e-cd466ce2b9fa",
-                "go": "097cf5cc-b809-4c3d-aca5-d4b34ccc2dec",
-                "component_type": "Hole"
-              }
+              "Hole": null
             },
             {
               "__type": "Sandbox.BoxCollider",
@@ -1240,12 +1231,7 @@
           "Enabled": true,
           "__Prefab": "prefabs/hole_goal.prefab",
           "__PrefabVariables": {
-            "Hole": {
-              "_type": "component",
-              "component_id": "565774eb-05e1-437c-9afa-a3072d6d87c9",
-              "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
-              "component_type": "Hole"
-            }
+            "Hole": null
           }
         },
         {
@@ -1256,7 +1242,8 @@
           "Enabled": true,
           "__Prefab": "prefabs/hole_start.prefab",
           "__PrefabVariables": {
-            "Number": 1
+            "Number": 1,
+            "Par": 3
           }
         },
         {
@@ -1269,12 +1256,7 @@
             {
               "__type": "Facepunch.Minigolf.HoleBounds",
               "__guid": "87011444-1cca-4d6e-a290-f2e32223d476",
-              "Hole": {
-                "_type": "component",
-                "component_id": "565774eb-05e1-437c-9afa-a3072d6d87c9",
-                "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
-                "component_type": "Hole"
-              }
+              "Hole": null
             },
             {
               "__type": "Sandbox.BoxCollider",

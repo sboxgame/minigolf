@@ -8,7 +8,8 @@
       {
         "__type": "Hole",
         "__guid": "a025c7f1-2fab-4bf9-bbe2-e90c311f8522",
-        "Number": 1
+        "Number": 1,
+        "Par": 3
       }
     ],
     "Children": [
@@ -44,6 +45,16 @@
           {
             "Id": "a025c7f1-2fab-4bf9-bbe2-e90c311f8522",
             "Property": "Number"
+          }
+        ]
+      },
+      {
+        "Id": "Par",
+        "Title": "Par",
+        "Targets": [
+          {
+            "Id": "a025c7f1-2fab-4bf9-bbe2-e90c311f8522",
+            "Property": "Par"
           }
         ]
       }
