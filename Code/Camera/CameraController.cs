@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 /// <summary>
 /// Controls the camera
 /// </summary>
@@ -49,6 +51,32 @@ public sealed class CameraController : Component
 	private float _distance = 150.0f;
 	private float _targetDistance = 150.0f;
 
+	private readonly List<ViewBlocker> _viewBlockers = new();
+	private void UpdateViewBlockers()
+	{
+		foreach ( var ent in _viewBlockers )
+		{
+			ent.BlockingView = false;
+		}
+
+		_viewBlockers.Clear();
+
+		var traces = Scene.Trace.Ray( Camera.WorldPosition, Ball.Local.WorldPosition )
+			.RunAll();
+
+		if ( traces == null )
+			return;
+
+		foreach ( var tr in traces )
+		{
+			if ( tr.Component.GetComponent<ViewBlocker>() is { } blocker )
+			{
+				blocker.BlockingView = true;
+				_viewBlockers.Add( blocker );
+			}
+		}
+	}
+
 	protected override void OnUpdate()
 	{
 		_distance = Math.Clamp( _distance + -Input.MouseWheel.y * DistanceStep, MinDistance, MaxDistance );
@@ -69,5 +97,7 @@ public sealed class CameraController : Component
 		_targetDistance = _targetDistance.LerpTo( _distance, Time.Delta * 5.0f );
 		Camera.WorldPosition += Camera.WorldRotation.Backward * _targetDistance;
 		Camera.FieldOfView = Preferences.FieldOfView;
+
+		UpdateViewBlockers();
 	}
 }
