@@ -21,7 +21,7 @@
     "PerMapRanking": true,
     "LeaderboardType": "Ascending",
     "GameNetworkType": "Multiplayer",
-    "MaxPlayers": 16,
+    "MaxPlayers": 8,
     "GameCategory": "Sports",
     "ControlModes": {
       "Keyboard": true
@@ -43,6 +43,9 @@
         "PreLaunchCommand": "",
         "PostLaunchCommand": ""
       }
-    ]
+    ],
+    "StartupScene": "scenes/menu.scene",
+    "MapStartupScene": "scenes/menu.scene",
+    "LaunchMode": "Normal"
   }
 }

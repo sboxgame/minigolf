@@ -3,6 +3,7 @@
     "__guid": "476b1b4a-4184-4332-9e05-fd85af624ae2",
     "Flags": 0,
     "Name": "ball",
+    "Tags": "ball",
     "Enabled": true,
     "Components": [
       {
