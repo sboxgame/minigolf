@@ -1,0 +1,51 @@
+﻿@using Sandbox;
+@using Sandbox.UI;
+
+@namespace Facepunch.Minigolf.UI
+@inherits Sandbox.UI.NavHostPanel
+@attribute [StyleSheet]
+
+<root>
+	<gradient />
+
+	<main>
+		
+		<body>
+			<Breadcrumbs />
+			<div class="navigator-canvas" slot="navigator-canvas" />
+		</body>
+
+		<footer>
+			<span>
+				<img src="avatar:@Friend.Id" class="avatar" />
+				<label class="small">@Friend.Name</label>
+			</span>
+		</footer>
+
+	</main>
+
+</root>
+
+@code {
+    public Friend Friend => new Friend( Game.SteamId );
+	public BaseMenu CurrentMenu => CurrentPanel as BaseMenu;
+
+	public static MainMenu Current { get; private set; }
+
+	public void GoTo( string url )
+	{
+		Log.Info("Navigating to " + url);
+		
+		Navigate(url);
+	}
+
+	public MainMenu()
+	{
+		Current = this;
+
+		DefaultUrl = "/";
+
+		AddDestination("/", typeof(Home));
+		AddDestination("/play", typeof(Play));
+	}
+}

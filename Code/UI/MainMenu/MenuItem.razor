@@ -1,0 +1,27 @@
+﻿@using Sandbox;
+@using Sandbox.Razor;
+@using Sandbox.UI;
+
+@namespace Facepunch.Minigolf.UI
+@inherits Panel
+
+<root>
+    <div class="ball"></div>
+
+    <a href="@Href" >
+        <span>
+            <label @ref="Label">@Title</label>
+            <label class="small" @ref="Label">@Description</label>
+        </span>
+        <div class="underline"></div>
+    </a>
+</root>
+
+
+@code {
+    public RenderFragment Title { get; set; }
+    public RenderFragment Description { get; set; }
+    public Label Label { get; set; }
+
+    public string Href { get; set; }
+}

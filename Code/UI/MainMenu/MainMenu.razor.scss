@@ -1,0 +1,190 @@
+﻿$accent: #eda656;
+$green: #16261c;
+$text: #f4efec;
+$transition: all 150ms ease;
+
+MainMenu {
+    font-family: FredokaOne;
+    font-size: 24px;
+    font-weight: bolder;
+    color: $text;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+label {
+    &.small {
+        font-size: 16px;
+    }
+}
+
+background, gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+background {
+    background-size: cover;
+    background-position: center;
+    background-image: url( /ui/background.mp4 );
+}
+
+gradient {
+    background: linear-gradient( to top, $green, rgba( $green, 0 ) );
+    opacity: 0.75;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    max-width: 1920px;
+    max-height: 1080px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-size: 400px 100%;
+    gap: 50px;
+
+    left {
+        height: 100%;
+        width: 50%;
+    }
+
+    right {
+        height: 100%;
+        width: 50%;
+        justify-content: flex-end;
+    }
+}
+
+body {
+    padding: 100px;
+    padding-bottom: 0;
+    flex-grow: 1;
+    width: 100%;
+    flex-direction: column;
+}
+
+.navigator-canvas {
+    position: relative;
+    flex-grow: 1;
+    flex-direction: row;
+
+    > .navigator-body {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 1;
+
+        &.hidden {
+            opacity: 0;
+        }
+    }
+}
+
+footer {
+    width: 1720px; // 1920 - 200px
+    border-top: 1px solid rgba( white, 0.025 );
+    align-items: flex-start;
+    margin: 0 100px;
+    padding: 20px 0;
+    padding-bottom: 50px;
+
+    span {
+        gap: 10px;
+        align-items: center;
+    }
+}
+
+img.avatar {
+    border-radius: 100%;
+    width: 32px;
+    aspect-ratio: 1;
+}
+
+.logo {
+    width: 384px;
+    background-size: contain;
+    aspect-ratio: 2;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.menu {
+    flex-direction: row;
+    gap: 5px;
+    z-index: 10;
+    justify-content: flex-start;
+    align-items: flex-start;
+    filter: drop-shadow( 2px 2px 2px rgba( black, 0.1 ) );
+
+    MenuItem {
+        align-items: center;
+        transition: $transition;
+        padding: 10px 0;
+
+        .ball {
+            aspect-ratio: 1;
+            height: 0px;
+            border-radius: 100%;
+            opacity: 0;
+            transition: $transition;
+            background-image: url( ui/ball_icon.png );
+            background-size: cover;
+        }
+
+        .underline {
+            position: relative;
+            height: 4px;
+            left: 0;
+            width: 0%;
+            bottom: 0px;
+            background-color: $accent;
+            border-radius: 100%;
+            transition: $transition;
+        }
+
+        span {
+            flex-direction: column;
+        }
+
+        &:hover {
+            .ball {
+                height: 24px;
+                opacity: 1;
+                margin-right: 10px;
+            }
+
+/*            .underline {
+                width: 100%;
+            }*/
+        }
+
+        &:active {
+            sound-in: minigolf.ui.button.press;
+        }
+    }
+}
+
+column {
+    flex-direction: column;
+}
+
+row {
+    flex-direction: row;
+}
+
+* {
+    // border: 1px solid #f0f;
+}

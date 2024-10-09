@@ -1,0 +1,28 @@
+﻿@using Sandbox;
+@using Sandbox.UI;
+
+@namespace Facepunch.Minigolf.UI
+@inherits BaseMenu
+
+<root>
+	<column style="height: 100%; justify-content: flex-end; align-items: flex-start;">
+		<img src="/ui/minigolf_logo.png" class="logo" />
+			
+		<MenuItem Href="/play">
+			<Title>Play</Title>
+			<Description>Start your minigolf adventure</Description>
+		</MenuItem>
+
+		<MenuItem onclick=@(() => Quit())>
+			<Title>Quit</Title>
+			<Description>Had enough?</Description>
+		</MenuItem>
+	</column>
+</root>
+
+@code {
+    void Quit()
+    {
+        Game.Close();
+    }
+}

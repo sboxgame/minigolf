@@ -681,7 +681,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "1e55f649-8f54-4aee-a340-d91bac5c58e9",
+              "component_id": "3e6acf4e-10af-45fd-9a54-ce0852704ebf",
               "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
               "component_type": "Hole"
             }
@@ -710,6 +710,25 @@
         {
           "__type": "GameManager",
           "__guid": "c9d6bc7c-d797-486e-9872-c897269dad40"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "2f3d7c53-989d-4c00-b477-0a7e662efd3f",
+          "Flags": 0,
+          "Name": "UI",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ScreenPanel",
+              "__guid": "5b8c21d1-2059-4795-8bb0-b81052d9b21e",
+              "AutoScreenScale": true,
+              "Opacity": 1,
+              "Scale": 1,
+              "ScaleStrategy": "ConsistentHeight",
+              "ZIndex": 100
+            }
+          ]
         }
       ]
     }
