@@ -47,7 +47,11 @@
         "__type": "Ball",
         "__guid": "17a459ff-756b-4a1a-9a80-dd7b584d894c",
         "PowerMultiplier": 2500,
-        "SwingSound": "sounds/swing/minigolf.swing1.sound"
+        "SwingSound": "sounds/swing/minigolf.swing1.sound",
+        "Trail": {
+          "_type": "gameobject",
+          "go": "80842912-bd9f-4e32-b7ac-c36327b1d2e6"
+        }
       },
       {
         "__type": "BallController",

@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 /// <summary>
 /// A ball
 /// </summary>
@@ -11,6 +13,9 @@ public sealed class Ball : Component
 
 	[Property]
 	public SoundEvent SwingSound { get; set; }
+
+	[Property]
+	public GameObject Trail { get; set; }
 
 	[Property]
 	public float PowerMultiplier { get; set; } = 2500.0f;
@@ -63,6 +68,8 @@ public sealed class Ball : Component
 
 	public void ResetPosition( Vector3 position, Angles angles )
 	{
+		Trail.Enabled = false;
+
 		// Move the player
 		WorldPosition = position;
 
@@ -73,5 +80,7 @@ public sealed class Ball : Component
 		// This is the new info
 		LastPosition = position;
 		LastAngles = angles;
+
+		Trail.Enabled = true;
 	}
 }
