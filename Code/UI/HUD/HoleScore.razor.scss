@@ -1,0 +1,67 @@
+﻿@import "./UI/_vars.scss";
+
+HoleScore
+{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 32px;
+    right: 64px;
+    flex-direction: row;
+    height: 104px;
+
+    .course-info
+    {
+        flex-direction: column;
+        background-color: rgba($dark-grey, 0.9);
+        border-radius: 8px;
+    }
+
+    .info-container
+    {
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        padding: 0 50px 0 20px;
+        margin-right: 80px;
+
+        label
+        {
+            color: $light-blue;
+            font-size: 20px;
+            text-shadow: 0 3 0 #000;
+            text-stroke: 4px #000;
+
+            &.value
+            {
+                color: #fff;
+                font-size: 26px;
+                margin-left: 16px;
+                min-width: 20px;
+            }
+        }
+    }
+
+    .stroke-ball
+    {
+        width: 104px;
+        height: 104px;
+        background: radial-gradient($primary, $dark-blue);
+        border: 4px solid $dark-grey;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 8px;
+        bottom: 0;
+
+        label
+        {
+            color: #fff;
+            font-size: 54px;
+            text-shadow: 0 3 0 $dark-blue;
+            text-stroke: 4px $dark-blue;
+        }
+    }
+}
