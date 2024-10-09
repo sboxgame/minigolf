@@ -1,0 +1,29 @@
+@namespace Facepunch.Minigolf.UI
+
+@inherits Sandbox.UI.Panel
+
+<root>
+	@if ( Ball.Local.IsValid() )
+	{
+		<div class="hint">
+			<text>Stroke</text>
+			<buttonhint name="Attack1" />
+		</div>
+		<div class="hint">
+			<text>Free Cam</text>
+			<buttonhint name="View" />
+		</div>
+	}
+
+	<div class="hint">
+		<text>Scoreboard</text>
+		<buttonhint name="Score" />
+	</div>
+</root>
+
+@code {
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( Ball.Local.IsValid() );
+	}
+}

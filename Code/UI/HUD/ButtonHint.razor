@@ -1,0 +1,27 @@
+﻿@namespace Facepunch.Minigolf.UI
+
+@inherits Sandbox.UI.Panel
+
+<root>
+	<Image @ref=ImageRef></Image>
+</root>
+
+@code {
+	private string Button { get; set; }
+	private Image ImageRef { get; set; }
+
+	public override void SetProperty( string name, string value )
+	{
+		base.SetProperty( name, value );
+
+		if ( name == "name" )
+			Button = value;
+	}
+
+	public override void Tick()
+	{
+		ImageRef.Texture = Input.GetGlyph( Button, InputGlyphSize.Medium, GlyphStyle.Light.WithNeutralColorABXY() );
+		ImageRef.Style.Width = Length.Pixels( 32f );
+		ImageRef.Style.Height = Length.Pixels( 32f );
+	}
+}
