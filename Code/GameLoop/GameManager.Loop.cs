@@ -68,6 +68,9 @@ public partial class GameManager
 		CurrentHole = nextHole;
 		IsHoleEnding = false;
 
+		if ( !CurrentHole.IsValid() )
+			return;
+
 		var position = CurrentHole.WorldPosition + Vector3.Up * 16f;
 		foreach ( var ball in Scene.GetAllComponents<Ball>() )
 		{
