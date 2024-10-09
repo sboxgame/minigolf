@@ -3,25 +3,11 @@
 @attribute [Title( "HUD" )]
 
 <root>
-    <div style="flex-grow: 1;" />
-@*     <div class="vitals column gap">
-        <div class="gap">
-            <label>Stroke:</label>
-            <label>@Ball.Local.GetCurrentPar()</label>
-        </div>
-
-        <div class="gap">
-            <label>Hole:</label>
-            <label>@GameManager.Instance.CurrentHole.Number</label>
-            <label>Par:</label>
-            <label>@GameManager.Instance.CurrentHole.Par</label>
-        </div>
-    </div> *@
-
     <PowerBar />
     <HoleScore />
     <ControlHints />
     <HoleMarker />
+    <GolfScoreboard />
 </root>
 
 @code

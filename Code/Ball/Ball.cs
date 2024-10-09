@@ -108,6 +108,11 @@ public sealed class Ball : Component
 		Pars[hole]++;
 	}
 
+	public int GetTotalPar()
+	{
+		return Pars.Sum( x => x.Value );
+	}
+
 	/// <summary>
 	/// Hit your ball
 	/// </summary>

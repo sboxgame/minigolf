@@ -1,0 +1,48 @@
+@namespace Facepunch.Minigolf.UI
+
+@inherits Sandbox.UI.Panel
+
+<root class=@( Connection.Local == Client ? "me" : "" )>
+	<div class="player">
+		<text class="position">@( SiblingIndex + 1 )</text>
+		<img src="avatar:@Client.SteamId" class="avatar" />
+		<text class="name">@Client.DisplayName</text>
+	</div>
+	<div class="scores">
+		<div>
+			@for ( int i = 1; i <= Scene.GetAllComponents<Hole>().Count(); i++ )
+			{
+				if ( GameManager.Instance.CurrentHole.Number < i )
+				{
+                    <label>-</label>
+                    continue;
+                }
+
+                var hole = GetHole( i );
+				var par = Ball.GetPar( hole );
+				var holePar = hole.Par;
+                var isActive = GameManager.Instance.CurrentHole == hole;
+				var isBelow = par < holePar;
+				var isOver = par > holePar;
+
+				<label class="
+				@( isActive ? "active" : "" )
+				@( isBelow ? "below" : "" )
+				@( isOver ? "over" : "" )">
+					@par
+				</label>
+			}
+		</div>
+		<text class="total">@Ball.GetTotalPar()</text>
+	</div>
+</root>
+
+@code {
+    public Connection Client { get; set; }
+    public Ball Ball => Scene.GetAllComponents<Ball>().FirstOrDefault(x => x.Network.Owner == Client);
+
+    private Hole GetHole( int number )
+    {
+        return Scene.GetAllComponents<Hole>().FirstOrDefault( x => x.Number == number );
+    }
+}
