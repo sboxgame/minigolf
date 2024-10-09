@@ -49,7 +49,30 @@
           },
           {
             "__type": "HoleGoal",
-            "__guid": "ae29fc72-1d79-4039-bb87-24f0512c1774"
+            "__guid": "ae29fc72-1d79-4039-bb87-24f0512c1774",
+            "Particles": {
+              "_type": "component",
+              "component_id": "fe9aed45-f375-49a8-a5ab-b35807fa3905",
+              "go": "c4162136-132b-4029-945c-7d08640b2fb5",
+              "component_type": "LegacyParticleSystem"
+            }
+          }
+        ]
+      },
+      {
+        "__guid": "c4162136-132b-4029-945c-7d08640b2fb5",
+        "Flags": 0,
+        "Name": "Particle",
+        "Tags": "particles",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.LegacyParticleSystem",
+            "__guid": "fe9aed45-f375-49a8-a5ab-b35807fa3905",
+            "ControlPoints": [],
+            "Looped": false,
+            "Particles": "particles/gameplay/flag_number/flag_number.vpcf",
+            "PlaybackSpeed": 1
           }
         ]
       }
