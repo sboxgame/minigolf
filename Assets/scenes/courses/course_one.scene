@@ -642,7 +642,12 @@
             {
               "__type": "Facepunch.Minigolf.HoleBounds",
               "__guid": "b9490bbc-8071-48c7-9379-1b677a56651c",
-              "Hole": null
+              "Hole": {
+                "_type": "component",
+                "component_id": "5d3bcc4d-7964-4170-b2d0-fd0593310d10",
+                "go": "097cf5cc-b809-4c3d-aca5-d4b34ccc2dec",
+                "component_type": "Hole"
+              }
             },
             {
               "__type": "Sandbox.BoxCollider",
@@ -1328,7 +1333,12 @@
             {
               "__type": "Facepunch.Minigolf.HoleBounds",
               "__guid": "87011444-1cca-4d6e-a290-f2e32223d476",
-              "Hole": null
+              "Hole": {
+                "_type": "component",
+                "component_id": "008504b8-b4a8-4b14-ac20-4dc7e0ab943e",
+                "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
+                "component_type": "Hole"
+              }
             },
             {
               "__type": "Sandbox.BoxCollider",

@@ -6,13 +6,19 @@
     <div style="flex-grow: 1;" />
     <div class="vitals column gap">
         <div class="gap">
-            <label>Strokes:</label>
+            <label>Stroke:</label>
             <label>@Ball.Local.GetCurrentPar()</label>
         </div>
 
         <div class="gap">
             <label>Hole:</label>
             <label>@GameManager.Instance.CurrentHole.Number</label>
+            <label>Par:</label>
+            <label>@GameManager.Instance.CurrentHole.Par</label>
+        </div>
+
+        <div class="gap">
+            <label>@ScoreUtils.GetScore(GameManager.Instance.CurrentHole.Par, Ball.Local.GetCurrentPar())</label>
         </div>
     </div>
 </root>

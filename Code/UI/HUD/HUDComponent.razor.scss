@@ -6,11 +6,11 @@ $transition: all 150ms ease;
 HUDComponent
 {
     padding: 16px;
-
     font-family: FredokaOne;
     font-size: 24px;
     font-weight: bolder;
     color: $text;
+    text-shadow: 5px 5px 1px rgba(black, 0.2);
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
