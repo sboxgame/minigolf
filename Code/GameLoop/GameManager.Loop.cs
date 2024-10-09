@@ -1,4 +1,5 @@
 using Facepunch.Minigolf.UI;
+using Sandbox;
 
 namespace Facepunch.Minigolf;
 
@@ -105,6 +106,23 @@ public partial class GameManager
 		Log.Info( $"{ball} struck" );
 	}
 
+	// Should be a util
+	private LegacyParticleSystem CreateParticleSystem( ParticleSystem particleSystem, Vector3 pos, float decay = 5f )
+	{
+		var gameObject = Scene.CreateObject();
+		gameObject.Name = $"Particle";
+		gameObject.WorldPosition = pos;
+
+		var p = gameObject.Components.Create<LegacyParticleSystem>();
+		p.Particles = particleSystem;
+		gameObject.Transform.ClearInterpolation();
+
+		// Clear off in a suitable amount of time.
+		p.Invoke( decay, gameObject.Destroy );
+
+		return p;
+	}
+
 	void IGameEvent.OnGoal( Ball ball, HoleGoal goal )
 	{
 		Log.Info( $"{ball} hit {goal}" );
@@ -116,6 +134,23 @@ public partial class GameManager
 		{
 			ShowUI( goal.Hole.Number, goal.Hole.Par, ball.GetCurrentPar() );
 		}
+
+		BroadcastEffects( ball, goal );
+
+		Sound.Play( "minigolf.award" ).Volume = 0.5f;
+	}
+
+	[Broadcast]
+	private void BroadcastEffects( Ball ball, HoleGoal goal )
+	{
+		if ( ball.GetCurrentPar() == 1 )
+		{
+			CreateParticleSystem( ParticleSystem.Load( "particles/gameplay/hole_in_one/v2/hole_in_one.vpcf" ), goal.WorldPosition + Vector3.Up * 16.0f );
+		}
+		else
+		{
+			CreateParticleSystem( ParticleSystem.Load( "particles/gameplay/hole_effect/confetti.vpcf" ), goal.WorldPosition + Vector3.Up * 16.0f );
+		}
 	}
 
 	/// <summary>
@@ -124,6 +159,7 @@ public partial class GameManager
 	/// <param name="hole"></param>
 	/// <param name="par"></param>
 	/// <param name="strokes"></param>
+	[Broadcast]
 	private void ShowUI( int hole, int par, int strokes )
 	{
 		ParScreen.Show( hole, par, strokes );
