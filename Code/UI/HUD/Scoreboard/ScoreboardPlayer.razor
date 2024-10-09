@@ -2,6 +2,9 @@
 
 @inherits Sandbox.UI.Panel
 
+@if ( Client is null )
+    return;
+
 <root class=@( Connection.Local == Client ? "me" : "" )>
 	<div class="player">
 		<text class="position">@( SiblingIndex + 1 )</text>
@@ -39,10 +42,15 @@
 
 @code {
     public Connection Client { get; set; }
-    public Ball Ball => Scene.GetAllComponents<Ball>().FirstOrDefault(x => x.Network.Owner == Client);
+    public Ball Ball => Client.GetBall();
 
     private Hole GetHole( int number )
     {
         return Scene.GetAllComponents<Hole>().FirstOrDefault( x => x.Number == number );
+    }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine( Client, GameManager.Instance.CurrentHole.Number, Ball.GetCurrentPar() );
     }
 }
