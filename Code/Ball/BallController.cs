@@ -96,6 +96,9 @@ public sealed class BallController : Component
 
 		if ( Input.Down( "Attack1" ) )
 		{
+			if ( !Arrow.GameObject.Enabled )
+				Arrow.GameObject.Enabled = true;
+
 			float delta = Input.AnalogLook.pitch * RealTime.Delta;
 			ShotPower = Math.Clamp( ShotPower - delta, 0, 1 );
 
