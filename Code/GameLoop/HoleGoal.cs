@@ -50,6 +50,9 @@ public sealed class HoleGoal : Component, Component.ITriggerListener
 
 	protected override void OnUpdate()
 	{
+		if ( IsProxy )
+			return;
+
 		foreach ( var kv in balls )
 		{
 			// Have to be cupped for over half a second 

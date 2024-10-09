@@ -36,7 +36,7 @@ public partial class GameManager
 		foreach ( var ball in copy.Keys )
 		{
 			// TODO: check cupped balls
-			if ( !ball.IsValid() /*|| ball.Cupped*/ )
+			if ( !ball.IsValid() || ball.IsCupped )
 			{
 				OutOfBoundsBalls.Remove( ball );
 				continue;

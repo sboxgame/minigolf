@@ -26,6 +26,12 @@ public sealed class Ball : Component
 	public Angles LastAngles { get; set; }
 
 	/// <summary>
+	/// Is this ball cupped?
+	/// </summary>
+	[HostSync]
+	public bool IsCupped { get; set; }
+
+	/// <summary>
 	/// Hit your ball
 	/// </summary>
 	/// <param name="yaw"></param>

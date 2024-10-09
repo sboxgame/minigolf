@@ -85,6 +85,7 @@ public partial class GameManager : Component, Component.INetworkListener,
 	{
 		Log.Info( $"{ball} hit {goal}" );
 
+		ball.IsCupped = true;
 		Sound.Play( "minigolf.sink_into_cup", goal.WorldPosition );
 	}
 
