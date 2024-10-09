@@ -614,7 +614,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "0f031008-474c-44e2-8678-c3b94c23c1fb",
+              "component_id": "a93d625c-f731-447d-8c36-1866f5be734e",
               "go": "097cf5cc-b809-4c3d-aca5-d4b34ccc2dec",
               "component_type": "Hole"
             }
@@ -642,12 +642,7 @@
             {
               "__type": "Facepunch.Minigolf.HoleBounds",
               "__guid": "b9490bbc-8071-48c7-9379-1b677a56651c",
-              "Hole": {
-                "_type": "component",
-                "component_id": "0f031008-474c-44e2-8678-c3b94c23c1fb",
-                "go": "097cf5cc-b809-4c3d-aca5-d4b34ccc2dec",
-                "component_type": "Hole"
-              }
+              "Hole": null
             },
             {
               "__type": "Sandbox.BoxCollider",
@@ -1305,7 +1300,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "c9ddf0c3-77b5-44dd-8e77-b847f59b074c",
+              "component_id": "f33f5055-e8dc-438a-9aa0-edf8596bf61c",
               "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
               "component_type": "Hole"
             }
@@ -1333,12 +1328,7 @@
             {
               "__type": "Facepunch.Minigolf.HoleBounds",
               "__guid": "87011444-1cca-4d6e-a290-f2e32223d476",
-              "Hole": {
-                "_type": "component",
-                "component_id": "c9ddf0c3-77b5-44dd-8e77-b847f59b074c",
-                "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
-                "component_type": "Hole"
-              }
+              "Hole": null
             },
             {
               "__type": "Sandbox.BoxCollider",

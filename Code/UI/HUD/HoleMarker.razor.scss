@@ -1,0 +1,19 @@
+﻿HoleMarker {
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 140px;
+    height: 140px;
+    background-image-tint: rgb(200, 255, 200);
+  }
+
+  label {
+    color: white;
+    font-size: 32px;
+    text-shadow: 0 3px 0 black;
+    text-stroke: 6px black;
+    margin-top: -16px;
+  }
+}

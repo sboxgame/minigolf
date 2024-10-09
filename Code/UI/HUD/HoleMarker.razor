@@ -1,0 +1,40 @@
+@namespace Facepunch.Minigolf.UI
+
+@inherits Sandbox.UI.Panel
+
+<root style="left: @Length.Fraction( screenPos.x ); top: @Length.Fraction( screenPos.y );">
+	<img src="/UI/hole_marker.png">
+	<label>@( $"{holeDistance:0}m" )</label>
+</root>
+
+@code {
+	private float holeDistance;
+	private Vector3 screenPos;
+
+	public HoleMarker()
+	{
+		var transform = new PanelTransform();
+		transform.AddTranslateY( Length.Fraction( -1.0f ) );
+		transform.AddScale( 0.5f );
+		transform.AddTranslateX( Length.Fraction( -0.85f ) );
+
+		Style.Transform = transform;
+	}
+
+	public override void Tick()
+	{
+		if ( !Ball.Local.IsValid() )
+			return;
+
+		var hole = GameManager.Instance.CurrentHole.Goal;
+		if ( !hole.IsValid() )
+			return;
+
+		holeDistance = Ball.Local.WorldPosition.Distance( hole.WorldPosition + Vector3.Up * 8 ) * 0.02f;
+
+		var labelPos = hole.WorldPosition + Vector3.Up * 140;
+		screenPos = labelPos.ToScreen();
+	}
+
+	protected override int BuildHash() => HashCode.Combine( holeDistance, screenPos );
+}
