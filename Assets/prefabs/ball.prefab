@@ -129,6 +129,22 @@
           "go": "ddc725f2-256d-4ee1-96d8-bc60dee11ed2",
           "component_type": "CameraComponent"
         }
+      },
+      {
+        "__type": "Facepunch.Minigolf.CinematicCamera",
+        "__guid": "77c95f6a-84ff-4e6d-8559-2c8bc0730a86",
+        "Ball": {
+          "_type": "component",
+          "component_id": "17a459ff-756b-4a1a-9a80-dd7b584d894c",
+          "go": "476b1b4a-4184-4332-9e05-fd85af624ae2",
+          "component_type": "Ball"
+        },
+        "Camera": {
+          "_type": "component",
+          "component_id": "c3cfe019-6e47-4213-b7eb-981379700aca",
+          "go": "ddc725f2-256d-4ee1-96d8-bc60dee11ed2",
+          "component_type": "CameraComponent"
+        }
       }
     ],
     "Children": [

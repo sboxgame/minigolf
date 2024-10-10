@@ -3,10 +3,22 @@
 @attribute [Title( "HUD" )]
 
 <root>
-    <PowerBar />
-    <HoleScore />
-    <ControlHints />
-    <HoleMarker />
+    @if ( GameManager.Instance.State == GameState.InPlay )
+    {
+        <PowerBar />
+        <HoleScore />
+        <ControlHints />
+        <HoleMarker />
+    }
+
+    @if ( GameManager.Instance.State == GameState.WaitingForPlayers )
+    {
+        <div class="notice">
+            <label class="title">Waiting for players</label>
+            <label class="title">(@(Connection.All.Count())/@(GameManager.MinPlayers))</label>
+        </div>
+    }
+
     <GolfScoreboard />
 </root>
 
@@ -14,6 +26,6 @@
 {
     protected override int BuildHash()
     {
-        return HashCode.Combine( Ball.Local, Ball.Local.GetCurrentPar(), GameManager.Instance, GameManager.Instance.CurrentHole.Number );
+        return HashCode.Combine( Ball.Local, Ball.Local.GetCurrentPar(), GameManager.Instance, GameManager.Instance.CurrentHole.Number, GameManager.Instance.State );
     }
 }

@@ -49,7 +49,7 @@ public partial class BaseCamera : Component
 	{
 	}
 
-	public virtual void Tick()
+	public virtual void OnCameraUpdate()
 	{
 	}
 }

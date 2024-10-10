@@ -620,7 +620,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "401eac07-f1fb-4095-ac17-97ece862f3b2",
+              "component_id": "ef11f634-23cf-4f98-88c8-7c44960cd383",
               "go": "511f1d03-7f4d-4057-ab67-f2b306b129a3",
               "component_type": "Hole"
             }
@@ -650,7 +650,7 @@
               "__guid": "c99d0932-8a38-4b44-85dd-0044a6a53ba8",
               "Hole": {
                 "_type": "component",
-                "component_id": "401eac07-f1fb-4095-ac17-97ece862f3b2",
+                "component_id": "ef11f634-23cf-4f98-88c8-7c44960cd383",
                 "go": "511f1d03-7f4d-4057-ab67-f2b306b129a3",
                 "component_type": "Hole"
               }
@@ -1250,7 +1250,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "694c207b-6c21-4a6f-8251-06401645e671",
+              "component_id": "155714e7-4d14-44e2-987c-54e2ec342e29",
               "go": "2b45b25f-e329-413a-b804-68bb8fefefa9",
               "component_type": "Hole"
             }
@@ -1280,7 +1280,7 @@
               "__guid": "791212d7-c89d-40ab-ac78-37994e118b9e",
               "Hole": {
                 "_type": "component",
-                "component_id": "694c207b-6c21-4a6f-8251-06401645e671",
+                "component_id": "155714e7-4d14-44e2-987c-54e2ec342e29",
                 "go": "2b45b25f-e329-413a-b804-68bb8fefefa9",
                 "component_type": "Hole"
               }
@@ -1888,7 +1888,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "2fab5bb7-5210-4a75-80ec-649e3da750d7",
+              "component_id": "013466c0-9063-4a82-8c14-921757a5b1bc",
               "go": "097cf5cc-b809-4c3d-aca5-d4b34ccc2dec",
               "component_type": "Hole"
             }
@@ -1918,7 +1918,7 @@
               "__guid": "b9490bbc-8071-48c7-9379-1b677a56651c",
               "Hole": {
                 "_type": "component",
-                "component_id": "2fab5bb7-5210-4a75-80ec-649e3da750d7",
+                "component_id": "013466c0-9063-4a82-8c14-921757a5b1bc",
                 "go": "097cf5cc-b809-4c3d-aca5-d4b34ccc2dec",
                 "component_type": "Hole"
               }
@@ -2687,7 +2687,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "1291784d-8992-47b4-a012-4286e9049f9b",
+              "component_id": "f71dc224-b90e-44eb-8aaa-aaeda46cf869",
               "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
               "component_type": "Hole"
             }
@@ -2717,7 +2717,7 @@
               "__guid": "87011444-1cca-4d6e-a290-f2e32223d476",
               "Hole": {
                 "_type": "component",
-                "component_id": "1291784d-8992-47b4-a012-4286e9049f9b",
+                "component_id": "f71dc224-b90e-44eb-8aaa-aaeda46cf869",
                 "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
                 "component_type": "Hole"
               }
@@ -2803,6 +2803,5 @@
   "__references": [
     "agentab.plainsky#31314"
   ],
-  "IsValid": true,
   "__version": 1
 }

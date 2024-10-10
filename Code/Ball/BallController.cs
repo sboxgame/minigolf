@@ -29,6 +29,9 @@ public sealed class BallController : Component
 	/// <returns></returns>
 	public BaseCamera GetActiveCamera()
 	{
+		if ( Facepunch.Minigolf.GameManager.Instance.State == GameState.WaitingForPlayers )
+			return GetComponent<CinematicCamera>();
+
 		if ( WantsFreeCamera() ) return GetComponent<FreeCamera>();
 		return GetComponent<BallCamera>();
 	}
@@ -64,7 +67,7 @@ public sealed class BallController : Component
 					last.OnCameraInactive();
 			}
 
-			cam.Tick();
+			cam.OnCameraUpdate();
 		}
 	}
 

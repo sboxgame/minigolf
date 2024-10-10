@@ -59,7 +59,7 @@ public sealed class BallCamera : BaseCamera
 		Camera.FieldOfView = Preferences.FieldOfView;
 	}
 
-	public override void Tick()
+	public override void OnCameraUpdate()
 	{
 		UpdateDefault();
 		UpdateViewBlockers();

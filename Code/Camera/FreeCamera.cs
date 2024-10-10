@@ -12,7 +12,7 @@ public sealed class FreeCamera : BaseCamera
 		freeCamAngles = Camera.WorldRotation.Angles();
 	}
 
-	public override void Tick()
+	public override void OnCameraUpdate()
 	{
 		Vector3 movement = Input.AnalogMove;
 		float speed = 350.0f;

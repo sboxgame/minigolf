@@ -3,6 +3,9 @@ namespace Facepunch.Minigolf;
 public partial class GameManager : Component, Component.INetworkListener,
 	ISceneStartup, IGameEvent
 {
+	[ConVar( "minigolf_min_players" )]
+	public static int MinPlayers { get; set; } = 1;
+
 	void ISceneStartup.OnHostInitialize()
 	{
 		// If we're not hosting a lobby, start hosting one
@@ -25,6 +28,11 @@ public partial class GameManager : Component, Component.INetworkListener,
 	void INetworkListener.OnActive( Connection channel )
 	{
 		SpawnPlayerForConnection( channel );
+
+		if ( Connection.All.Count >= MinPlayers && State == GameState.WaitingForPlayers )
+		{
+			State = GameState.InPlay;
+		}
 	}
 
 	/// <summary>
