@@ -1,3 +1,5 @@
+using Facepunch.Minigolf;
+
 public sealed class BallController : Component
 {
 	[RequireComponent] 
@@ -6,12 +8,11 @@ public sealed class BallController : Component
 	[Property]
 	public BallArrow Arrow { get; set; }
 
-	[Property]
-	public CameraController CameraController { get; set; }
-
 	[Sync]
 	public float ShotPower { get; set; } = 0f;
 
+	[Property]
+	public CameraComponent Camera { get; set; }
 
 	[Sync]
 	public float LastShotPower { get; set; } = 0f;
@@ -21,6 +22,51 @@ public sealed class BallController : Component
 	/// </summary>
 	[Sync, Change( nameof( OnInPlayChanged ) )] 
 	public bool InPlay { get; set; }
+
+	/// <summary>
+	/// Gets the active camera
+	/// </summary>
+	/// <returns></returns>
+	public BaseCamera GetActiveCamera()
+	{
+		if ( WantsFreeCamera() ) return GetComponent<FreeCamera>();
+		return GetComponent<BallCamera>();
+	}
+
+	private bool wantsFreeCam = false;
+	private bool WantsFreeCamera()
+	{
+		if ( InPlay ) return false;
+		if ( Ball.IsCupped ) return false;
+		return wantsFreeCam;
+	}
+
+	private BaseCamera CurrentCamera { get; set; }
+	private void UpdateCamera()
+	{
+		if ( Input.Pressed( "View" ) )
+		{
+			wantsFreeCam = !wantsFreeCam;
+		}
+
+		var last = CurrentCamera;
+		var cam = GetActiveCamera();
+		CurrentCamera = cam;
+
+		// Tick only the active camera
+		if ( cam.IsValid() )
+		{
+			if ( last != cam )
+			{
+				cam.OnCameraActive();
+
+				if ( last.IsValid() )
+					last.OnCameraInactive();
+			}
+
+			cam.Tick();
+		}
+	}
 
 	/// <summary>
 	/// Called when the play mode of the ball changes, we're using this to post an event to the game manager
@@ -36,15 +82,15 @@ public sealed class BallController : Component
 	{
 		if ( IsProxy )
 		{
-			CameraController.GameObject.Enabled = false;
+			Camera.GameObject.Enabled = false;
 			Arrow.GameObject.Enabled = false;
 			return;
 		}
 
 		// Turn on the camera if we're in control
-		CameraController.GameObject.Enabled = true;
-		CameraController.GameObject.SetParent( null );
-		CameraController.GameObject.Name = $"Camera (linked to {Ball.GameObject})";
+		Camera.GameObject.Enabled = true;
+		Camera.GameObject.SetParent( null );
+		Camera.GameObject.Name = $"Camera (linked to {Ball.GameObject})";
 		
 		// Arrow shouldn't be parented since the ball goes mental
 		Arrow.GameObject.SetParent( null );
@@ -78,6 +124,7 @@ public sealed class BallController : Component
 		if ( IsProxy )
 			return;
 
+		UpdateCamera();
 		CheckInPlay();
 
 		if ( InPlay || Ball.IsCupped )

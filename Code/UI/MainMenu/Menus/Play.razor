@@ -5,10 +5,13 @@
 @inherits BaseMenu
 
 <root>
-	<left>
-		<label>Play Menu</label>
-	</left>
-
-	<right>
-	</right>
+    <div class="column padding">
+        @foreach (var scene in ResourceLibrary.GetAll<SceneFile>().Where(x => x.ResourcePath.Contains("/courses/")))
+        {
+            <div class="card column">
+                <label>@scene.Title</label>
+                <label class="small">@scene.Description</label>
+            </div>
+        }
+    </div>
 </root>

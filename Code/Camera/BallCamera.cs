@@ -1,27 +1,10 @@
-using System.Diagnostics;
+using Facepunch.Minigolf;
 
 /// <summary>
 /// Controls the camera
 /// </summary>
-public sealed class CameraController : Component
+public sealed class BallCamera : BaseCamera
 {
-	/// <summary>
-	/// Are we spectating right now?
-	/// </summary>
-	public bool IsSpectating { get; set; } = false;
-
-	/// <summary>
-	/// The ball we're following
-	/// </summary>
-	[Property]
-	public Ball Ball { get; set; }
-
-	/// <summary>
-	/// The camera component
-	/// </summary>
-	[Property]
-	public CameraComponent Camera { get; set; }
-
 	/// <summary>
 	/// How close can we zoom in
 	/// </summary>
@@ -51,43 +34,20 @@ public sealed class CameraController : Component
 	private float _distance = 150.0f;
 	private float _targetDistance = 150.0f;
 
-	private readonly List<ViewBlocker> _viewBlockers = new();
-	private void UpdateViewBlockers()
-	{
-		foreach ( var ent in _viewBlockers )
-		{
-			ent.BlockingView = false;
-		}
-
-		_viewBlockers.Clear();
-
-		var traces = Scene.Trace.Ray( Camera.WorldPosition, Ball.Local.WorldPosition )
-			.RunAll();
-
-		if ( traces == null )
-			return;
-
-		foreach ( var tr in traces )
-		{
-			if ( tr.Component.GetComponent<ViewBlocker>() is { } blocker )
-			{
-				blocker.BlockingView = true;
-				_viewBlockers.Add( blocker );
-			}
-		}
-	}
-
-	protected override void OnUpdate()
+	/// <summary>
+	/// Update with the default camera mode
+	/// </summary>
+	private void UpdateDefault()
 	{
 		_distance = Math.Clamp( _distance + -Input.MouseWheel.y * DistanceStep, MinDistance, MaxDistance );
 
 		_targetAngles.yaw += Input.AnalogLook.yaw;
 		_targetAngles = _targetAngles.Normal;
 
-		if ( IsSpectating || !Input.Down( "Attack1" ) )
+		if ( !Input.Down( "Attack1" ) )
 			_targetAngles.pitch += Input.AnalogLook.pitch;
 
-		if ( IsSpectating || !Input.Down( "Attack1" ) )
+		if ( !Input.Down( "Attack1" ) )
 			_targetAngles.pitch = _targetAngles.pitch.Clamp( 0, 89 );
 
 		Camera.WorldPosition = Ball.WorldPosition + Vector3.Up * UpAmount;
@@ -97,7 +57,11 @@ public sealed class CameraController : Component
 		_targetDistance = _targetDistance.LerpTo( _distance, Time.Delta * 5.0f );
 		Camera.WorldPosition += Camera.WorldRotation.Backward * _targetDistance;
 		Camera.FieldOfView = Preferences.FieldOfView;
+	}
 
+	public override void Tick()
+	{
+		UpdateDefault();
 		UpdateViewBlockers();
 	}
 }

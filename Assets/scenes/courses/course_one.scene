@@ -2797,8 +2797,8 @@
       "IncludedBodies": ""
     }
   },
-  "Title": "test_tile_scene",
-  "Description": "",
+  "Title": "The Sky",
+  "Description": "Easy Course",
   "ResourceVersion": 1,
   "__references": [
     "agentab.plainsky#31314"

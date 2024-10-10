@@ -68,11 +68,11 @@
           "go": "4ecded68-63fc-4e13-880f-c23486714433",
           "component_type": "BallArrow"
         },
-        "CameraController": {
+        "Camera": {
           "_type": "component",
-          "component_id": "97424b3c-8513-4dc6-9fff-5e4e1b5b61eb",
-          "go": "ac7b8cd5-6135-41c5-a9f0-78b414836490",
-          "component_type": "CameraController"
+          "component_id": "c3cfe019-6e47-4213-b7eb-981379700aca",
+          "go": "ddc725f2-256d-4ee1-96d8-bc60dee11ed2",
+          "component_type": "CameraComponent"
         }
       },
       {
@@ -93,6 +93,42 @@
         "InsideObscuredColor": "0,0,0,0",
         "ObscuredColor": "0.19141,0.73488,0.31822,1",
         "Width": 0.1
+      },
+      {
+        "__type": "BallCamera",
+        "__guid": "6a4e7990-c1ad-4d96-b240-a0b47d4b7113",
+        "Ball": {
+          "_type": "component",
+          "component_id": "17a459ff-756b-4a1a-9a80-dd7b584d894c",
+          "go": "476b1b4a-4184-4332-9e05-fd85af624ae2",
+          "component_type": "Ball"
+        },
+        "Camera": {
+          "_type": "component",
+          "component_id": "c3cfe019-6e47-4213-b7eb-981379700aca",
+          "go": "ddc725f2-256d-4ee1-96d8-bc60dee11ed2",
+          "component_type": "CameraComponent"
+        },
+        "DistanceStep": 10,
+        "MaxDistance": 300,
+        "MinDistance": 100,
+        "UpAmount": 24
+      },
+      {
+        "__type": "FreeCamera",
+        "__guid": "ee65d675-f3a0-457f-b2a9-6612a4c1866b",
+        "Ball": {
+          "_type": "component",
+          "component_id": "17a459ff-756b-4a1a-9a80-dd7b584d894c",
+          "go": "476b1b4a-4184-4332-9e05-fd85af624ae2",
+          "component_type": "Ball"
+        },
+        "Camera": {
+          "_type": "component",
+          "component_id": "c3cfe019-6e47-4213-b7eb-981379700aca",
+          "go": "ddc725f2-256d-4ee1-96d8-bc60dee11ed2",
+          "component_type": "CameraComponent"
+        }
       }
     ],
     "Children": [
@@ -147,15 +183,14 @@
         ]
       },
       {
-        "__guid": "ac7b8cd5-6135-41c5-a9f0-78b414836490",
+        "__guid": "ddc725f2-256d-4ee1-96d8-bc60dee11ed2",
         "Flags": 0,
         "Name": "Camera",
-        "Position": "-679.4228,-759.0539,146.0663",
-        "Rotation": "-0.1866801,0.1792704,0.6966994,0.669046",
+        "Enabled": true,
         "Components": [
           {
             "__type": "Sandbox.CameraComponent",
-            "__guid": "9bac30f1-a796-459c-b414-c1f555e02fdf",
+            "__guid": "c3cfe019-6e47-4213-b7eb-981379700aca",
             "BackgroundColor": "0.33333,0.46275,0.52157,1",
             "ClearFlags": "All",
             "FieldOfView": 60,
@@ -169,67 +204,6 @@
             "Viewport": "0,0,1,1",
             "ZFar": 10000,
             "ZNear": 10
-          },
-          {
-            "__type": "CameraController",
-            "__guid": "97424b3c-8513-4dc6-9fff-5e4e1b5b61eb",
-            "Ball": {
-              "_type": "component",
-              "component_id": "17a459ff-756b-4a1a-9a80-dd7b584d894c",
-              "go": "476b1b4a-4184-4332-9e05-fd85af624ae2",
-              "component_type": "Ball"
-            },
-            "Camera": {
-              "_type": "component",
-              "component_id": "9bac30f1-a796-459c-b414-c1f555e02fdf",
-              "go": "ac7b8cd5-6135-41c5-a9f0-78b414836490",
-              "component_type": "CameraComponent"
-            },
-            "DistanceStep": 10,
-            "MaxDistance": 300,
-            "MinDistance": 100,
-            "UpAmount": 24
-          },
-          {
-            "__type": "Sandbox.AmbientOcclusion",
-            "__guid": "a8f2617f-6210-4a2e-9cd3-684a9b2e68ea",
-            "FalloffDistance": 1,
-            "Intensity": 8,
-            "Quality": "High",
-            "Radius": 32
-          },
-          {
-            "__type": "Sandbox.Bloom",
-            "__guid": "3087feaa-f0cd-4e49-bb1f-4a2a761b5a4e",
-            "BloomColor": {
-              "color": [
-                {
-                  "c": "1,1,1,1"
-                },
-                {
-                  "t": 1,
-                  "c": "1,1,1,1"
-                }
-              ],
-              "alpha": []
-            },
-            "BloomCurve": [
-              {
-                "y": 0.5
-              },
-              {
-                "x": 1,
-                "y": 1
-              }
-            ],
-            "Mode": "Additive",
-            "Strength": 0.1,
-            "Threshold": 0.5,
-            "ThresholdWidth": 0
-          },
-          {
-            "__type": "Sandbox.Highlight",
-            "__guid": "77fe25cc-774c-4e91-b1de-dc15efd4271a"
           }
         ]
       }
@@ -242,6 +216,5 @@
   "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
-  "IsValid": true,
   "__version": 1
 }
