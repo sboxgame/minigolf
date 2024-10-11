@@ -41,14 +41,430 @@
       "__guid": "c8b0e208-841f-403b-b460-22327b6a3998",
       "Flags": 0,
       "Name": "Hole #3",
-      "Position": "1001.104,704,425.0106",
+      "Position": "526.9366,1357.675,425.012",
+      "Rotation": "0,0,-0.7071067,0.7071068",
       "Enabled": true,
       "Children": [
         {
           "__guid": "d0bc0d69-116a-46d1-8391-056dfa197643",
           "Flags": 0,
           "Name": "Pieces",
-          "Enabled": true
+          "Enabled": true,
+          "Children": [
+            {
+              "__guid": "f11590e9-7eea-466b-8f1f-ddccd6debf4c",
+              "Flags": 0,
+              "Name": "end",
+              "Position": "-297.104,-1248,-425.0106",
+              "Rotation": "0.00000005960464,0.00000005960464,-0.7071068,0.7071068",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "42f48a74-4d79-439d-878c-c475cb28e924",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/end.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "398ef912-0a25-4ab3-a191-d1b77b31dff2",
+                  "IsTrigger": false,
+                  "Model": "models/ken/end.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "3ee7e3a2-c619-4a03-9064-ba55ca803032",
+              "Flags": 0,
+              "Name": "corner",
+              "Position": "-297.104,-864,-361.0106",
+              "Rotation": "-0.00000002980232,0.00000002980232,0.7071067,0.7071067",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "f9cb5d62-8293-4882-a567-bf42dc79183d",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/corner.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "b620d103-06a5-41ea-91a3-c307f8650880",
+                  "IsTrigger": false,
+                  "Model": "models/ken/corner.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "38a08577-5b42-4c05-bb42-0dd043bfea0c",
+              "Flags": 0,
+              "Name": "ramp-large",
+              "Position": "-297.104,-1056,-425.0106",
+              "Rotation": "0,0,0.7071067,0.7071067",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "dd85b3c7-3ddd-48c7-83fd-7d6acb3f7278",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/ramp-large.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "71721464-8b7e-4905-a7ea-054f826ae411",
+                  "IsTrigger": false,
+                  "Model": "models/ken/ramp-large.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "f8ed728a-7f6e-4652-a1cd-b533f8efacf9",
+              "Flags": 0,
+              "Name": "ramp-large",
+              "Position": "-169.104,-1056,-361.0106",
+              "Rotation": "0.00000005960464,0.00000005960464,-0.7071068,0.7071068",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "3b547e83-0f29-412a-a73c-585dcce29d75",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/ramp-large.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "dabb22da-4ac2-491e-8379-7d4ce8274e7e",
+                  "IsTrigger": false,
+                  "Model": "models/ken/ramp-large.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "e223bbea-96cf-47c3-ab42-602090f0b72d",
+              "Flags": 0,
+              "Name": "ramp-large",
+              "Position": "22.896,-1248,-361.0106",
+              "Rotation": "0,0.00000004371139,0.9999999,0",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "7c24d59c-483e-4cba-961c-55ba555bdb86",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/ramp-large.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "64210afb-b493-40e5-b3ca-bf4fbfb4c3b0",
+                  "IsTrigger": false,
+                  "Model": "models/ken/ramp-large.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "3c7c024f-1d1a-4e10-8538-e83c137973fd",
+              "Flags": 0,
+              "Name": "square-corner-a",
+              "Position": "-169.104,-1248,-297.0106",
+              "Rotation": "0,0.00000004371139,-0.9999999,0",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "9c9ad992-43cf-4bcd-9d36-b7a1ec3c6349",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/square-corner-a.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "62407603-0e3e-497a-b5d2-8ce343a6ab4b",
+                  "IsTrigger": false,
+                  "Model": "models/ken/square-corner-a.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "7d8c6ab4-2873-4d96-8869-7f7020c5e3ea",
+              "Flags": 0,
+              "Name": "round-corner-a",
+              "Position": "214.896,-1248,-361.0106",
+              "Rotation": "0.00000005960464,0.00000005960464,-0.7071068,0.7071068",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "185207fd-6eef-4a91-87c9-fd167c98c5bf",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-corner-a.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "967d4ab6-e471-45a5-8d21-cce2e0027e2d",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-corner-a.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "3ed39688-b3d3-43dc-ab6f-f78d62055e60",
+              "Flags": 0,
+              "Name": "wall-left",
+              "Position": "214.896,-1120,-361.0106",
+              "Rotation": "0,0,-0.7071067,0.7071067",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "5df15dae-aca2-4d7e-918e-ce177dd229ea",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/wall-left.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "bb4e4f6a-7d61-4eb5-b237-c3417913eaa3",
+                  "IsTrigger": false,
+                  "Model": "models/ken/wall-left.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "8ef94b83-1466-4dba-b031-62890c7ac67c",
+              "Flags": 0,
+              "Name": "hill-corner",
+              "Position": "-169.104,-864,-361.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "33bd90fe-b97d-4c18-a675-d036d786eb6b",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/hill-corner.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "a6203a6e-1962-47c2-8ed3-9d50115c3487",
+                  "IsTrigger": false,
+                  "Model": "models/ken/hill-corner.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "7e0c3eb1-5400-4955-8bca-40f00ce4b4a4",
+              "Flags": 0,
+              "Name": "hole-square",
+              "Position": "-41.104,-864,-361.0106",
+              "Rotation": "0,0.00000004371139,0.9999999,0",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "ad3e6172-ef94-4433-8f2b-934678a15de8",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/hole-square.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "83721be8-0dff-4aa3-a918-4fb7b4f3628d",
+                  "IsTrigger": false,
+                  "Model": "models/ken/hole-square.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "e4b90a58-5815-4881-8210-69d23c098d03",
+              "Flags": 0,
+              "Name": "round-corner-a",
+              "Position": "86.896,-864,-361.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "20e9bc1a-2bdc-4cd7-83d7-615b40dd8c49",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-corner-a.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "c8ed1926-0c00-43a8-a337-63549b93f680",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-corner-a.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "ecec3e97-a1ad-418b-90a1-0142329c4291",
+              "Flags": 0,
+              "Name": "round-corner-b",
+              "Position": "214.896,-992,-361.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "f1fcabee-a124-4961-9073-dc5e1782c09f",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-corner-b.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "f0e96217-c01a-4449-b888-48385457a2c8",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-corner-b.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "2a8961e5-80fa-46c9-ba00-7a0049258012",
+              "Flags": 0,
+              "Name": "round-corner-b",
+              "Position": "86.896,-992,-361.0106",
+              "Rotation": "0,0.00000004371139,0.9999999,0",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "331687b4-6730-4c0f-998a-d00485baf9f9",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-corner-b.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "fd067258-263b-4985-9548-f363343bccc8",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-corner-b.vmdl",
+                  "Static": true
+                }
+              ]
+            }
+          ]
         },
         {
           "__guid": "ec89b2fa-2d0f-4a95-8a37-e418ddc0a391",
@@ -61,7 +477,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "20553953-1d3d-4ab2-817d-e6da40968d60",
+              "component_id": "386adf8c-ed0e-4718-b375-b73f74dbc3d7",
               "go": "2b45b25f-e329-413a-b804-68bb8fefefa9",
               "component_type": "Hole"
             }
@@ -83,7 +499,7 @@
           "__guid": "499addef-add6-4aaf-864a-5a6f846a4638",
           "Flags": 0,
           "Name": "Hole Bounds",
-          "Position": "42.43494,-934.3819,-333.032",
+          "Position": "-58.15277,-1048.495,-333.032",
           "Enabled": true,
           "Components": [
             {
@@ -91,7 +507,7 @@
               "__guid": "791212d7-c89d-40ab-ac78-37994e118b9e",
               "Hole": {
                 "_type": "component",
-                "component_id": "20553953-1d3d-4ab2-817d-e6da40968d60",
+                "component_id": "386adf8c-ed0e-4718-b375-b73f74dbc3d7",
                 "go": "2b45b25f-e329-413a-b804-68bb8fefefa9",
                 "component_type": "Hole"
               }
@@ -101,7 +517,7 @@
               "__guid": "ae6ec271-50df-4a33-9125-3ceb1ecd5cda",
               "Center": "0,0,0",
               "IsTrigger": true,
-              "Scale": "901.8394,781.2808,275.04",
+              "Scale": "680.7999,673.2005,275.04",
               "Static": true
             }
           ]
@@ -1582,419 +1998,6 @@
               "__guid": "ef551742-88ef-4db7-926d-59e575c4f32b"
             }
           ]
-        }
-      ]
-    },
-    {
-      "__guid": "f11590e9-7eea-466b-8f1f-ddccd6debf4c",
-      "Flags": 0,
-      "Name": "end",
-      "Position": "704,-544,0",
-      "Rotation": "0.00000005960464,0.00000005960464,-0.7071068,0.7071068",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "42f48a74-4d79-439d-878c-c475cb28e924",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/end.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "398ef912-0a25-4ab3-a191-d1b77b31dff2",
-          "IsTrigger": false,
-          "Model": "models/ken/end.vmdl",
-          "Static": true
-        }
-      ]
-    },
-    {
-      "__guid": "3ee7e3a2-c619-4a03-9064-ba55ca803032",
-      "Flags": 0,
-      "Name": "corner",
-      "Position": "704,-160,64",
-      "Rotation": "-0.00000002980232,0.00000002980232,0.7071067,0.7071067",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "f9cb5d62-8293-4882-a567-bf42dc79183d",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/corner.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "b620d103-06a5-41ea-91a3-c307f8650880",
-          "IsTrigger": false,
-          "Model": "models/ken/corner.vmdl",
-          "Static": true
-        }
-      ]
-    },
-    {
-      "__guid": "38a08577-5b42-4c05-bb42-0dd043bfea0c",
-      "Flags": 0,
-      "Name": "ramp-large",
-      "Position": "704,-352,0",
-      "Rotation": "0,0,0.7071067,0.7071067",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "dd85b3c7-3ddd-48c7-83fd-7d6acb3f7278",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/ramp-large.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "71721464-8b7e-4905-a7ea-054f826ae411",
-          "IsTrigger": false,
-          "Model": "models/ken/ramp-large.vmdl",
-          "Static": true
-        }
-      ]
-    },
-    {
-      "__guid": "f8ed728a-7f6e-4652-a1cd-b533f8efacf9",
-      "Flags": 0,
-      "Name": "ramp-large",
-      "Position": "832,-352,64",
-      "Rotation": "0.00000005960464,0.00000005960464,-0.7071068,0.7071068",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "3b547e83-0f29-412a-a73c-585dcce29d75",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/ramp-large.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "dabb22da-4ac2-491e-8379-7d4ce8274e7e",
-          "IsTrigger": false,
-          "Model": "models/ken/ramp-large.vmdl",
-          "Static": true
-        }
-      ]
-    },
-    {
-      "__guid": "e223bbea-96cf-47c3-ab42-602090f0b72d",
-      "Flags": 0,
-      "Name": "ramp-large",
-      "Position": "1024,-544,64",
-      "Rotation": "0,0.00000004371139,0.9999999,0",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "7c24d59c-483e-4cba-961c-55ba555bdb86",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/ramp-large.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "64210afb-b493-40e5-b3ca-bf4fbfb4c3b0",
-          "IsTrigger": false,
-          "Model": "models/ken/ramp-large.vmdl",
-          "Static": true
-        }
-      ]
-    },
-    {
-      "__guid": "3c7c024f-1d1a-4e10-8538-e83c137973fd",
-      "Flags": 0,
-      "Name": "square-corner-a",
-      "Position": "832,-544,128",
-      "Rotation": "0,0.00000004371139,-0.9999999,0",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "9c9ad992-43cf-4bcd-9d36-b7a1ec3c6349",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/square-corner-a.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "62407603-0e3e-497a-b5d2-8ce343a6ab4b",
-          "IsTrigger": false,
-          "Model": "models/ken/square-corner-a.vmdl",
-          "Static": true
-        }
-      ]
-    },
-    {
-      "__guid": "7d8c6ab4-2873-4d96-8869-7f7020c5e3ea",
-      "Flags": 0,
-      "Name": "round-corner-a",
-      "Position": "1216,-544,64",
-      "Rotation": "0.00000005960464,0.00000005960464,-0.7071068,0.7071068",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "185207fd-6eef-4a91-87c9-fd167c98c5bf",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/round-corner-a.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "967d4ab6-e471-45a5-8d21-cce2e0027e2d",
-          "IsTrigger": false,
-          "Model": "models/ken/round-corner-a.vmdl",
-          "Static": true
-        }
-      ]
-    },
-    {
-      "__guid": "3ed39688-b3d3-43dc-ab6f-f78d62055e60",
-      "Flags": 0,
-      "Name": "wall-left",
-      "Position": "1216,-416,64",
-      "Rotation": "0,0,-0.7071067,0.7071067",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "5df15dae-aca2-4d7e-918e-ce177dd229ea",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/wall-left.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "bb4e4f6a-7d61-4eb5-b237-c3417913eaa3",
-          "IsTrigger": false,
-          "Model": "models/ken/wall-left.vmdl",
-          "Static": true
-        }
-      ]
-    },
-    {
-      "__guid": "8ef94b83-1466-4dba-b031-62890c7ac67c",
-      "Flags": 0,
-      "Name": "hill-corner",
-      "Position": "832,-160,64",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "33bd90fe-b97d-4c18-a675-d036d786eb6b",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/hill-corner.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "a6203a6e-1962-47c2-8ed3-9d50115c3487",
-          "IsTrigger": false,
-          "Model": "models/ken/hill-corner.vmdl",
-          "Static": true
-        }
-      ]
-    },
-    {
-      "__guid": "7e0c3eb1-5400-4955-8bca-40f00ce4b4a4",
-      "Flags": 0,
-      "Name": "hole-square",
-      "Position": "960,-160,63.99997",
-      "Rotation": "0,0.00000004371139,0.9999999,0",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "ad3e6172-ef94-4433-8f2b-934678a15de8",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/hole-square.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "83721be8-0dff-4aa3-a918-4fb7b4f3628d",
-          "IsTrigger": false,
-          "Model": "models/ken/hole-square.vmdl",
-          "Static": true
-        }
-      ]
-    },
-    {
-      "__guid": "e4b90a58-5815-4881-8210-69d23c098d03",
-      "Flags": 0,
-      "Name": "round-corner-a",
-      "Position": "1088,-160,64.00003",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "20e9bc1a-2bdc-4cd7-83d7-615b40dd8c49",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/round-corner-a.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "c8ed1926-0c00-43a8-a337-63549b93f680",
-          "IsTrigger": false,
-          "Model": "models/ken/round-corner-a.vmdl",
-          "Static": true
-        }
-      ]
-    },
-    {
-      "__guid": "ecec3e97-a1ad-418b-90a1-0142329c4291",
-      "Flags": 0,
-      "Name": "round-corner-b",
-      "Position": "1216,-288,64",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "f1fcabee-a124-4961-9073-dc5e1782c09f",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/round-corner-b.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "f0e96217-c01a-4449-b888-48385457a2c8",
-          "IsTrigger": false,
-          "Model": "models/ken/round-corner-b.vmdl",
-          "Static": true
-        }
-      ]
-    },
-    {
-      "__guid": "2a8961e5-80fa-46c9-ba00-7a0049258012",
-      "Flags": 0,
-      "Name": "round-corner-b",
-      "Position": "1088,-288,64",
-      "Rotation": "0,0.00000004371139,0.9999999,0",
-      "Tags": "gridtile",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "331687b4-6730-4c0f-998a-d00485baf9f9",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/ken/round-corner-b.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "fd067258-263b-4985-9548-f363343bccc8",
-          "IsTrigger": false,
-          "Model": "models/ken/round-corner-b.vmdl",
-          "Static": true
         }
       ]
     }
