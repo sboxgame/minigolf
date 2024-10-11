@@ -29,7 +29,7 @@ public sealed class BallController : Component
 	/// <returns></returns>
 	public BaseCamera GetActiveCamera()
 	{
-		if ( Facepunch.Minigolf.GameManager.Instance.State == GameState.WaitingForPlayers )
+		if ( Facepunch.Minigolf.GameManager.Instance.State != GameState.InPlay )
 			return GetComponent<CinematicCamera>();
 
 		if ( WantsFreeCamera() ) return GetComponent<FreeCamera>();
@@ -129,6 +129,10 @@ public sealed class BallController : Component
 
 		UpdateCamera();
 		CheckInPlay();
+
+		// We're not in play, so don't let us do anything
+		if ( Facepunch.Minigolf.GameManager.Instance.State != GameState.InPlay )
+			return;
 
 		if ( InPlay || Ball.IsCupped )
 		{

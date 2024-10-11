@@ -7,6 +7,8 @@ public enum GameState
 {
 	WaitingForPlayers,
 	InPlay,
+	HoleFinished,
+	NewHole,
 	EndOfGame
 }
 
@@ -25,12 +27,6 @@ public partial class GameManager
 	public Hole StartingHole { get; set; }
 
 	/// <summary>
-	/// Are we ending the hole, do cinematic camera etc - this should be GameState?
-	/// </summary>
-	[HostSync]
-	public bool IsHoleEnding { get; set; }
-
-	/// <summary>
 	/// Game state
 	/// </summary>
 	[HostSync]
@@ -43,7 +39,7 @@ public partial class GameManager
 	/// </summary>
 	private void CheckRoundState()
 	{
-		if ( IsHoleEnding ) return;
+		if ( State != GameState.InPlay ) return;
 
 		var waitingCount = Scene.GetAllComponents<Ball>()
 			.Where( x => !x.IsCupped )
@@ -78,13 +74,13 @@ public partial class GameManager
 			return;
 		}
 
-		IsHoleEnding = true;
+		State = GameState.HoleFinished;
 
 		// TODO: Announce state
-		await GameTask.DelaySeconds( 5.0f );
+		await GameTask.DelaySeconds( 3.0f );
 
 		CurrentHole = nextHole;
-		IsHoleEnding = false;
+		State = GameState.NewHole;
 
 		if ( !CurrentHole.IsValid() )
 			return;
@@ -95,11 +91,14 @@ public partial class GameManager
 			ball.IsCupped = false;
 			ball.ResetPosition( position, Angles.Zero );
 		}
+
+		await GameTask.DelaySeconds( 5.0f );
+		State = GameState.InPlay;
 	}
 
 	public void EndGame()
 	{
-		// TODO: End the game
+		State = GameState.EndOfGame;
 	}
 
 	/// <summary>

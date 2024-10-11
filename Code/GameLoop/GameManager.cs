@@ -37,7 +37,8 @@ public partial class GameManager : Component, Component.INetworkListener,
 
 		if ( Connection.All.Count >= MinPlayers && State == GameState.WaitingForPlayers )
 		{
-			State = GameState.InPlay;
+			State = GameState.NewHole;
+			Invoke( 5, () => State = GameState.InPlay );
 		}
 	}
 
