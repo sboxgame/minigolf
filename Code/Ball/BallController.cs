@@ -24,6 +24,12 @@ public sealed class BallController : Component
 	public bool InPlay { get; set; }
 
 	/// <summary>
+	/// An object we'll place under the player's ball while they're in play.
+	/// </summary>
+	[Property]
+	public GameObject InPlayObject { get; set; }
+
+	/// <summary>
 	/// Gets the active camera
 	/// </summary>
 	/// <returns></returns>
@@ -79,6 +85,8 @@ public sealed class BallController : Component
 	private void OnInPlayChanged( bool before, bool after )
 	{
 		IGameEvent.Post( x => x.BallInPlay( Ball, after ) );
+
+		InPlayObject.Enabled = !after;
 	}
 
 	protected override void OnStart()

@@ -73,6 +73,10 @@
           "component_id": "c3cfe019-6e47-4213-b7eb-981379700aca",
           "go": "ddc725f2-256d-4ee1-96d8-bc60dee11ed2",
           "component_type": "CameraComponent"
+        },
+        "InPlayObject": {
+          "_type": "gameobject",
+          "go": "97a84edb-67a9-49c9-9add-358248aaabf2"
         }
       },
       {
@@ -223,6 +227,24 @@
             "Viewport": "0,0,1,1",
             "ZFar": 10000,
             "ZNear": 10
+          }
+        ]
+      },
+      {
+        "__guid": "97a84edb-67a9-49c9-9add-358248aaabf2",
+        "Flags": 0,
+        "Name": "Status",
+        "Position": "0,0,-1.478665",
+        "Tags": "particles",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.LegacyParticleSystem",
+            "__guid": "baf27d1b-ed0b-47aa-a666-82329ea8c31f",
+            "ControlPoints": [],
+            "Looped": true,
+            "Particles": "particles/gameplay/ball_circle/ball_circle.vpcf",
+            "PlaybackSpeed": 1
           }
         ]
       }
