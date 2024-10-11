@@ -12,8 +12,8 @@
 	}
 	else
 	{
-		<div class="score @( $"score--{Score}" )">
-			@foreach ( var line in ScoreUtils.GetScore( Par, Score ).Split( ' ' ) )
+		<div class="score">
+            @foreach ( var line in ScoreUtils.GetScore( Par, Strokes ).Split(' '))
 			{
 				<label>@line</label>
 			}
@@ -32,7 +32,6 @@
 	private int Hole { get; }
 	private int Par { get; }
 	private int Strokes { get; }
-	private int Score => Par - Strokes;
 
 	public ParScreen( int hole, int par, int strokes )
 	{
