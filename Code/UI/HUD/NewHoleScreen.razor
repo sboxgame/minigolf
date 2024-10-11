@@ -1,0 +1,48 @@
+﻿@namespace Facepunch.Minigolf.UI
+@inherits Sandbox.UI.Panel
+
+<root>
+    <div class="main">
+        <div class="score">
+            <label>
+                @($"Hole {Hole}")
+            </label>
+        </div>
+
+        <label class="hole">
+            @($"Par {Par}")
+        </label>
+    </div>
+</root>
+
+
+@code {
+	readonly RealTimeSince _createdAt;
+	static float ShowScoreForLength => 5.0f;
+
+	private int Hole { get; }
+	private int Par { get; }
+
+	public NewHoleScreen( int hole, int par )
+	{
+		Hole = hole;
+		Par = par;
+		_createdAt = 0;
+	}
+
+	public override void Tick()
+	{
+		if ( _createdAt > ShowScoreForLength && !IsDeleting )
+		{
+			Delete();
+		}
+	}
+
+    [ConCmd( "minigolf_debug_testholescreen" )]
+	public static void Show( int hole = 1, int par = 3 )
+	{
+		Game.ActiveScene.GetAllComponents<HUDComponent>()
+        .FirstOrDefault()
+        .Panel.AddChild( new NewHoleScreen( hole, par ) );
+	}
+}

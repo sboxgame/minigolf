@@ -92,6 +92,8 @@ public partial class GameManager
 			ball.ResetPosition( position, Angles.Zero );
 		}
 
+		ShowHoleScreen( CurrentHole.Number, CurrentHole.Par );
+
 		await GameTask.DelaySeconds( 5.0f );
 		State = GameState.InPlay;
 	}
@@ -146,7 +148,7 @@ public partial class GameManager
 
 		using ( Rpc.FilterInclude( ball.Network.Owner ) )
 		{
-			ShowUI( goal.Hole.Number, goal.Hole.Par, ball.GetCurrentPar() );
+			ShowParScreen( goal.Hole.Number, goal.Hole.Par, ball.GetCurrentPar() );
 		}
 
 		BroadcastEffects( ball, goal );
@@ -174,8 +176,19 @@ public partial class GameManager
 	/// <param name="par"></param>
 	/// <param name="strokes"></param>
 	[Broadcast]
-	private void ShowUI( int hole, int par, int strokes )
+	private void ShowParScreen( int hole, int par, int strokes )
 	{
 		ParScreen.Show( hole, par, strokes );
+	}
+
+	/// <summary>
+	/// Show the hole screen UI to the person who did it
+	/// </summary>
+	/// <param name="hole"></param>
+	/// <param name="par"></param>
+	[Broadcast]
+	private void ShowHoleScreen( int hole, int par )
+	{
+		NewHoleScreen.Show( hole, par );
 	}
 }
