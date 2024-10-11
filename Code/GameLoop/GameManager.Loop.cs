@@ -12,12 +12,27 @@ public enum GameState
 
 public partial class GameManager
 {
+	/// <summary>
+	/// What's the current hole, networked
+	/// </summary>
 	[HostSync]
 	public Hole CurrentHole { get; set; }
 
+	/// <summary>
+	/// The starting hole for this course
+	/// </summary>
+	[Property] 
+	public Hole StartingHole { get; set; }
+
+	/// <summary>
+	/// Are we ending the hole, do cinematic camera etc - this should be GameState?
+	/// </summary>
 	[HostSync]
 	public bool IsHoleEnding { get; set; }
 
+	/// <summary>
+	/// Game state
+	/// </summary>
 	[HostSync]
 	public GameState State { get; set; } = GameState.WaitingForPlayers;
 

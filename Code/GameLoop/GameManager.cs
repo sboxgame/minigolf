@@ -12,6 +12,12 @@ public partial class GameManager : Component, Component.INetworkListener,
 		// so that people can join this game.
 		Networking.CreateLobby();
 
+		if ( StartingHole.IsValid() )
+		{
+			CurrentHole = StartingHole;
+			return;
+		}
+
 		var holes = Scene.GetAllComponents<Hole>().ToArray();
 		if ( holes.Length > 0 )
 		{
@@ -40,21 +46,7 @@ public partial class GameManager : Component, Component.INetworkListener,
 	/// </summary>
 	Transform FindSpawnLocation()
 	{
-		var holes = Scene.GetAllComponents<Hole>().ToArray();
-		if ( holes.Length > 0 )
-		{
-			var transform = holes
-				.OrderBy( x => x.Number )
-				.First()
-				.WorldTransform;
-
-			return transform.WithPosition( transform.Position + Vector3.Up * 16f );
-		}
-
-		//
-		// Failing that, spawn where we are
-		//
-		return global::Transform.Zero;
+		return CurrentHole.WorldTransform.WithPosition( CurrentHole.WorldPosition + Vector3.Up * 16f );
 	}
 
 	public void SpawnPlayerForConnection( Connection channel )
