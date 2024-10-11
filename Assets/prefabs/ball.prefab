@@ -75,8 +75,10 @@
           "component_type": "CameraComponent"
         },
         "InPlayObject": {
-          "_type": "gameobject",
-          "go": "97a84edb-67a9-49c9-9add-358248aaabf2"
+          "_type": "component",
+          "component_id": "baf27d1b-ed0b-47aa-a666-82329ea8c31f",
+          "go": "97a84edb-67a9-49c9-9add-358248aaabf2",
+          "component_type": "LegacyParticleSystem"
         }
       },
       {
@@ -241,6 +243,7 @@
           {
             "__type": "Sandbox.LegacyParticleSystem",
             "__guid": "baf27d1b-ed0b-47aa-a666-82329ea8c31f",
+            "__enabled": false,
             "ControlPoints": [],
             "Looped": true,
             "Particles": "particles/gameplay/ball_circle/ball_circle.vpcf",

@@ -27,7 +27,7 @@ public sealed class BallController : Component
 	/// An object we'll place under the player's ball while they're in play.
 	/// </summary>
 	[Property]
-	public GameObject InPlayObject { get; set; }
+	public LegacyParticleSystem InPlayObject { get; set; }
 
 	/// <summary>
 	/// Gets the active camera
@@ -115,6 +115,9 @@ public sealed class BallController : Component
 
 	void CheckInPlay()
 	{
+		if ( InPlayObject.Enabled )
+			InPlayObject.SceneObject.SetControlPoint( 0, WorldPosition );
+
 		// Sanity check, maybe our ball is hit by rotating blades?
 		if ( !InPlay )
 		{
