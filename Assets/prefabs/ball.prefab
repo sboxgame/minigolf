@@ -144,7 +144,10 @@
           "component_id": "c3cfe019-6e47-4213-b7eb-981379700aca",
           "go": "ddc725f2-256d-4ee1-96d8-bc60dee11ed2",
           "component_type": "CameraComponent"
-        }
+        },
+        "Height": 90,
+        "OrbitDistance": 300,
+        "OrbitSpeed": 0.25
       }
     ],
     "Children": [
@@ -189,11 +192,11 @@
             "Model": "models/dev/plane.vmdl",
             "RenderOptions": {
               "GameLayer": true,
-              "OverlayLayer": false,
+              "OverlayLayer": true,
               "BloomLayer": false,
               "AfterUILayer": false
             },
-            "RenderType": "On",
+            "RenderType": "Off",
             "Tint": "1,1,1,1"
           }
         ]
