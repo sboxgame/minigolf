@@ -73,6 +73,9 @@ public sealed class Ball : Component
 	/// <returns></returns>
 	public int GetPar( Hole hole )
 	{
+		if ( !hole.IsValid() )
+			return 0;
+		
 		if ( Pars.TryGetValue( hole, out var par ) )
 		{
 			return par;

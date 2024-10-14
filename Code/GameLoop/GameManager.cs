@@ -6,28 +6,32 @@ public partial class GameManager : Component, Component.INetworkListener,
 	[ConVar( "minigolf_min_players" )]
 	public static int MinPlayers { get; set; } = 1;
 
-	void ISceneStartup.OnHostInitialize()
+	protected override void OnStart()
 	{
-		// If we're not hosting a lobby, start hosting one
-		// so that people can join this game.
-		Networking.CreateLobby();
+		State = DefaultState;
 
-		if ( StartingHole.IsValid() )
+		if ( !Networking.IsActive )
 		{
-			CurrentHole = StartingHole;
-			return;
-		}
+			// If we're not hosting a lobby, start hosting one
+			// so that people can join this game.
+			Networking.CreateLobby();
 
-		var holes = Scene.GetAllComponents<Hole>().ToArray();
-		if ( holes.Length > 0 )
-		{
-			var firstHole = holes
-				.OrderBy( x => x.Number )
-				.First();
+			if ( StartingHole.IsValid() )
+			{
+				CurrentHole = StartingHole;
+				return;
+			}
 
-			CurrentHole = firstHole;
+			var holes = Scene.GetAllComponents<Hole>().ToArray();
+			if ( holes.Length > 0 )
+			{
+				var firstHole = holes
+					.OrderBy( x => x.Number )
+					.First();
 
-			Log.Info( $"Assigning first hole {CurrentHole}" );
+				CurrentHole = firstHole;
+				Log.Info( $"Assigning first hole {CurrentHole}" );
+			}
 		}
 	}
 

@@ -31,6 +31,12 @@ public partial class GameManager
 	/// </summary>
 	[HostSync]
 	public GameState State { get; set; } = GameState.WaitingForPlayers;
+	
+	/// <summary>
+	/// The default game state
+	/// </summary>
+	[Property]
+	public GameState DefaultState { get; set; } = GameState.WaitingForPlayers;
 
 	/// <summary>
 	/// Ran on update, check for any uncupped balls - if there are any, we won't end the hole.
