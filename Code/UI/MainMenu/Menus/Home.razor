@@ -7,11 +7,16 @@
 <root>
 	<column style="height: 100%; justify-content: flex-end; align-items: flex-start;">
 		<img src="/ui/minigolf_logo.png" class="logo" />
-			
-		<MenuItem Href="/play">
-			<Title>Play</Title>
-			<Description>Start your minigolf adventure</Description>
-		</MenuItem>
+
+        <div class="column">
+            @foreach (var scene in ResourceLibrary.GetAll<SceneFile>().Where(x => x.ResourcePath.Contains("/courses/")))
+            {
+                <div class="card column" onclick="@( () => OpenScene( scene ))">
+                    <label>@scene.Title</label>
+                    <label class="small">@scene.Description</label>
+                </div>
+            }
+        </div>
 
 		<MenuItem onclick=@(() => Quit())>
 			<Title>Quit</Title>
@@ -20,9 +25,15 @@
 	</column>
 </root>
 
-@code {
+@code
+{
     void Quit()
     {
         Game.Close();
+    }
+
+    void OpenScene( SceneFile scene )
+    {
+        Scene.Load( scene );
     }
 }

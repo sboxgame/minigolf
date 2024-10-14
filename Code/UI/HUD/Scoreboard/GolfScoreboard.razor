@@ -52,7 +52,7 @@
 				</div>
 			</div>
 			<div class="players">
-				@foreach ( var client in Connection.All.OrderByDescending( x => x.GetBall().GetTotalPar() ) )
+				@foreach ( var client in Connection.All.Where( x => x.GetBall().IsValid() ).OrderByDescending( x => x.GetBall().GetTotalPar() ) )
 				{
 					<ScoreboardPlayer Client=@client />
 				}

@@ -34,8 +34,6 @@
 
 	public void GoTo( string url )
 	{
-		Log.Info("Navigating to " + url);
-		
 		Navigate(url);
 	}
 
@@ -46,6 +44,5 @@
 		DefaultUrl = "/";
 
 		AddDestination("/", typeof(Home));
-		AddDestination("/play", typeof(Play));
 	}
 }
