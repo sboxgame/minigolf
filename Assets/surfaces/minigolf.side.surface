@@ -3,7 +3,7 @@
   "AudioSurface": "Generic",
   "Description": null,
   "Friction": 0.3,
-  "Elasticity": 0.5,
+  "Elasticity": 0.6,
   "Density": 4000,
   "Thickness": -1,
   "RollingResistance": 0,
@@ -28,6 +28,5 @@
   "Breakables": {},
   "Tags": null,
   "__references": [],
-  "IsValid": true,
   "__version": 0
 }

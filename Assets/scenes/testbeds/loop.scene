@@ -681,7 +681,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "c9ddf0c3-77b5-44dd-8e77-b847f59b074c",
+              "component_id": "6479346c-d5a4-4c30-be46-1f65197f4d4d",
               "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
               "component_type": "Hole"
             }
@@ -711,7 +711,7 @@
               "__guid": "87011444-1cca-4d6e-a290-f2e32223d476",
               "Hole": {
                 "_type": "component",
-                "component_id": "c9ddf0c3-77b5-44dd-8e77-b847f59b074c",
+                "component_id": "6479346c-d5a4-4c30-be46-1f65197f4d4d",
                 "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
                 "component_type": "Hole"
               }
@@ -737,7 +737,8 @@
       "Components": [
         {
           "__type": "Facepunch.Minigolf.GameManager",
-          "__guid": "1e82b58a-63f9-4e94-8efb-9dff2049b6b7"
+          "__guid": "1e82b58a-63f9-4e94-8efb-9dff2049b6b7",
+          "DefaultState": "InPlay"
         }
       ],
       "Children": [
@@ -793,6 +794,5 @@
   "__references": [
     "agentab.plainsky#31314"
   ],
-  "IsValid": true,
   "__version": 1
 }
