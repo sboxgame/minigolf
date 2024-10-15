@@ -53,7 +53,7 @@ public partial class GameManager : Component, Component.INetworkListener,
 	/// </summary>
 	Transform FindSpawnLocation()
 	{
-		return CurrentHole.WorldTransform.WithPosition( CurrentHole.WorldPosition + Vector3.Up * 16f );
+		return CurrentHole.Start.WorldTransform.WithPosition( CurrentHole.Start.WorldPosition + Vector3.Up * 16f );
 	}
 
 	public void SpawnPlayerForConnection( Connection channel )

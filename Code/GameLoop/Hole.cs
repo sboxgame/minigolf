@@ -13,9 +13,14 @@ public sealed class Hole : Component
 	public int Par { get; set; } = 3;
 
 	/// <summary>
-	/// The goal
+	/// The starting point for this hole
 	/// </summary>
-	public HoleGoal Goal => Scene.GetAllComponents<HoleGoal>().FirstOrDefault( x => x.Hole == this );
+	public HoleStart Start => GetComponentInChildren<HoleStart>();
+
+	/// <summary>
+	/// The goal for this hole
+	/// </summary>
+	public HoleGoal Goal => GetComponentInChildren<HoleGoal>();
 
 	public override string ToString()
 	{

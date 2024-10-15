@@ -131,7 +131,7 @@ public partial class GameManager
 		if ( !CurrentHole.IsValid() )
 			return;
 
-		var position = CurrentHole.WorldPosition + Vector3.Up * 16f;
+		var position = CurrentHole.Start.WorldPosition + Vector3.Up * 16f;
 		foreach ( var ball in Scene.GetAllComponents<Ball>() )
 		{
 			ball.IsCupped = false;

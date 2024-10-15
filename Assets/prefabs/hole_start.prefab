@@ -6,10 +6,8 @@
     "Enabled": true,
     "Components": [
       {
-        "__type": "Hole",
-        "__guid": "a025c7f1-2fab-4bf9-bbe2-e90c311f8522",
-        "Number": 1,
-        "Par": 3
+        "__type": "HoleStart",
+        "__guid": "a025c7f1-2fab-4bf9-bbe2-e90c311f8522"
       }
     ],
     "Children": [

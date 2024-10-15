@@ -61,7 +61,7 @@ public partial class CinematicCamera : BaseCamera
 
 	private void UpdateNewHole()
 	{
-		Target = GameManager.Instance.CurrentHole.GameObject;
+		Target = GameManager.Instance.CurrentHole.Start.GameObject;
 
 		if ( Target.IsValid() )
 		{

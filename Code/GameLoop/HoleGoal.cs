@@ -3,8 +3,7 @@ public sealed class HoleGoal : Component, Component.ITriggerListener
 	/// <summary>
 	/// Which hole is this a goal for?
 	/// </summary>
-	[Property] 
-	public Hole Hole { get; set; }
+	public Hole Hole => GetComponentInParent<Hole>();
 
 	/// <summary>
 	/// Particle for hole number
