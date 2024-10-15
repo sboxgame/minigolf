@@ -15,7 +15,7 @@
 		<div>
 			@for ( int i = 1; i <= Scene.GetAllComponents<Hole>().Count(); i++ )
 			{
-				if ( GameManager.Instance.CurrentHole.Number <= i )
+				if ( GameManager.Instance.CurrentHole.Number < i )
 				{
                     <label>-</label>
                     continue;

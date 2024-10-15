@@ -23,14 +23,13 @@ public partial class GameManager : Component, Component.INetworkListener,
 				return;
 			}
 
-			var holes = Scene.GetAllComponents<Hole>().ToArray();
+			var holes = Scene.GetAllComponents<Hole>()
+				.OrderBy( x => x.Number )
+				.ToArray();
+
 			if ( holes.Length > 0 )
 			{
-				var firstHole = holes
-					.OrderBy( x => x.Number )
-					.First();
-
-				CurrentHole = firstHole;
+				CurrentHole = holes.First();
 				Log.Info( $"Assigning first hole {CurrentHole}" );
 			}
 		}
