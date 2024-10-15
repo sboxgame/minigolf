@@ -145,6 +145,7 @@ public partial class GameManager
 	public void EndGame()
 	{
 		State = GameState.EndOfGame;
+		Tell( "The game is over!" );
 	}
 
 	/// <summary>
