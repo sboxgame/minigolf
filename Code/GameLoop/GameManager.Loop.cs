@@ -14,6 +14,9 @@ public enum GameState
 
 public partial class GameManager
 {
+	[ConVar( "minigolf_hole_length" )]
+	public static int HoleLength { get; set; } = 180;
+
 	/// <summary>
 	/// What's the current hole, networked
 	/// </summary>
@@ -39,6 +42,11 @@ public partial class GameManager
 	public GameState DefaultState { get; set; } = GameState.WaitingForPlayers;
 
 	/// <summary>
+	/// While in play, each hole has a timer. If you don't putt in time, we move on.
+	/// </summary>
+	public TimeUntil TimeUntilNextHole { get; set; }
+
+	/// <summary>
 	/// Ran on update, check for any uncupped balls - if there are any, we won't end the hole.
 	/// 
 	/// This is easier than responding to states, but we might want to change it to that at some point.
@@ -53,6 +61,32 @@ public partial class GameManager
 		
 		if ( waitingCount == 0 )
 			EndHole();
+	}
+
+	/// <summary>
+	/// Ran on update, checks if we ran out of time on a hole.
+	/// </summary>
+	private void CheckNextHole()
+	{
+		if ( State == GameState.InPlay )
+		{
+			if ( TimeUntilNextHole )
+			{
+				Tell( "Time's up - moving to the next hole." );
+				EndHole();
+			}
+		}
+	}
+
+	/// <summary>
+	/// Tell a message to the whole session
+	/// </summary>
+	/// <param name="message"></param>
+	[Broadcast]
+	public void Tell( string message )
+	{
+		Scene.GetComponentInChildren<Chat>()
+			.AddSystemText( message );
 	}
 
 	/// <summary>
@@ -102,6 +136,7 @@ public partial class GameManager
 
 		await GameTask.DelaySeconds( 5.0f );
 		State = GameState.InPlay;
+		TimeUntilNextHole = HoleLength;
 	}
 
 	public void EndGame()

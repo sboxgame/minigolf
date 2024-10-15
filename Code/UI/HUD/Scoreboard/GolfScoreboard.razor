@@ -2,7 +2,7 @@
 @inherits Sandbox.UI.Panel
 
 <root>
-@* 	<div class="timer">
+	<div class="timer">
 		@{
 			if ( !string.IsNullOrEmpty( TimerTimeLeft ) || !string.IsNullOrEmpty( TimerTimeUntil ) )
 			{
@@ -14,7 +14,7 @@
 				</div>
 			}
 		}
-	</div> *@
+	</div>
 
     @{
         var orderedHoles = Scene.GetAllComponents<Hole>().OrderBy( x => x.Number );
@@ -75,6 +75,31 @@
     static GolfScoreboard Current;
     public bool ForceOpen;
 
+    public string TimerTimeLeft
+    {
+        get
+        {
+            if ( GameManager.Instance.State == GameState.InPlay )
+            {
+                return TimeSpan.FromSeconds(GameManager.Instance.TimeUntilNextHole).ToString( @"hh\:mm\:ss" );/* $"00:{Math.Max(0, (int)MathF.Floor(GameManager.Instance.TimeUntilNextHole)).ToString("D2")}"; */
+            }
+            return "";
+        }
+    }
+
+    public string TimerTimeUntil
+    {
+        get
+        {
+            if (GameManager.Instance.State == GameState.EndOfGame)
+                return "Return To Lobby";
+            if (GameManager.Instance.State == GameState.HoleFinished )
+                return "Next Hole";
+
+            return "";
+        }
+    }
+
     public GolfScoreboard()
     {
         Current = this;
@@ -93,6 +118,6 @@
         var clients = Connection.All.HashCombine( c => HashCode.Combine( c.SteamId, c.GetBall(), c.GetBall().GetTotalPar() ) );
         var currentHole = GameManager.Instance.CurrentHole.Number;
 
-		return HashCode.Combine( clients, currentHole );
+		return HashCode.Combine( GameManager.Instance.TimeUntilNextHole.Passed, clients, currentHole );
 	}
 }

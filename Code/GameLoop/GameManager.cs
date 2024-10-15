@@ -10,6 +10,11 @@ public partial class GameManager : Component, Component.INetworkListener,
 	{
 		State = DefaultState;
 
+		if ( DefaultState == GameState.InPlay )
+		{
+			TimeUntilNextHole = HoleLength;
+		}
+
 		if ( !Networking.IsActive )
 		{
 			// If we're not hosting a lobby, start hosting one
@@ -73,6 +78,7 @@ public partial class GameManager : Component, Component.INetworkListener,
 		if ( !IsProxy )
 		{
 			CheckBoundsTimes();
+			CheckNextHole();
 			CheckRoundState();
 		}
 	}
