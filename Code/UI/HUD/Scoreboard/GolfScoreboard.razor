@@ -72,31 +72,27 @@
 </root>
 
 @code {
-	static GolfScoreboard Current;
-	public bool ForceOpen;
+    static GolfScoreboard Current;
+    public bool ForceOpen;
 
-	public GolfScoreboard()
-	{
-		Current = this;
-	}
+    public GolfScoreboard()
+    {
+        Current = this;
+    }
 
-	public override void Tick()
-	{
-		if ( ForceOpen )
-			SetClass( "open", true );
-		else
-			SetClass( "open", Input.Down( "Score" ) );
-	}
+    public override void Tick()
+    {
+        if ( ForceOpen )
+            SetClass( "open", true );
+        else
+            SetClass( "open", Input.Down( "Score" ) );
+    }
 
-	protected override int BuildHash()
-	{
-		// var clients = Game.Clients.HashCombine( c => HashCode.Combine( c.SteamId, c.GetTotalPar() ) );
-		// var mapIdent = Sandbox.Game.Server.MapIdent;
-		// var holeCount = MinigolfGame.Current.Course.Holes.Count;
-		// var currentHole = MinigolfGame.Current.Course.CurrentHoleIndex;
+    protected override int BuildHash()
+    {
+        var clients = Connection.All.HashCombine( c => HashCode.Combine( c.SteamId, c.GetBall(), c.GetBall().GetTotalPar() ) );
+        var currentHole = GameManager.Instance.CurrentHole.Number;
 
-		// return HashCode.Combine( clients, mapIdent, holeCount, currentHole, TimerTimeLeft.GetHashCode(), TimerTimeUntil.GetHashCode() );
-
-        return HashCode.Combine( Time.Now );
+		return HashCode.Combine( clients, currentHole );
 	}
 }

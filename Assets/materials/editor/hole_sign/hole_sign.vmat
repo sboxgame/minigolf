@@ -1,16 +1,10 @@
-// THIS FILE IS AUTO-GENERATED
-
-Layer0
+"Layer0"
 {
-	shader "tools_sprite.vfx"
-
-	F_ALPHA_TEST 2 // Embedded Alpha (RGBA)
-	F_TEXTURED 1
-	F_WORLD_SPACE_SIZE 1 // Size In World Space
-
-	g_flAlphaTestReference "0.604"
-	g_flUniformPointSize "17.000"
-
-	//---- Color ----
-	TextureColor "materials/editor/hole_sign/hole_sign.tga"
+	"shader"		"shaders/tools_sprite.shader"
+	"F_ALPHA_TEST"		"2"
+	"F_TEXTURED"		"1"
+	"F_WORLD_SPACE_SIZE"		"1"
+	"g_flAlphaTestReference"		"0.604000"
+	"g_flUniformPointSize"		"17.000000"
+	"TextureColor"		"materials/editor/hole_sign/hole_sign.tga"
 }
