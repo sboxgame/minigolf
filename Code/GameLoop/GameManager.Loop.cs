@@ -101,6 +101,12 @@ public partial class GameManager
 			.FirstOrDefault( x => x.Number == currentNumber + 1 );
 	}
 
+	public IEnumerable<Ball> GetOrderedWinners()
+	{
+		return Scene.GetAllComponents<Ball>()
+			.OrderByDescending( x => x.GetTotalPar() );
+	}
+
 	/// <summary>
 	/// Ends the current hole.
 	/// </summary>

@@ -116,7 +116,7 @@
 
     protected override int BuildHash()
     {
-        var clients = Connection.All.HashCombine( c => HashCode.Combine( c.SteamId, c.GetBall(), c.GetBall().GetTotalPar() ) );
+        var clients = Connection.All.Where( x => x.GetBall().IsValid() ).HashCombine( c => HashCode.Combine( c.SteamId, c.GetBall(), c.GetBall().GetTotalPar() ) );
         var currentHole = GameManager.Instance.CurrentHole.Number;
 
 		return HashCode.Combine( GameManager.Instance.TimeUntilNextHole.Passed, clients, currentHole );
