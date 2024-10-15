@@ -55,7 +55,7 @@
               "__guid": "3256b75d-d71c-4ffd-88fc-cd77902f336e",
               "Flags": 0,
               "Name": "end",
-              "Position": "-319.8082,-1284.084,-425.012",
+              "Position": "-319.8082,-1284.083,-425.012",
               "Rotation": "-0.00000004214685,0.000000000000003552714,0.9999999,0.00000005960464",
               "Tags": "gridtile",
               "Enabled": true,
@@ -87,7 +87,7 @@
               "__guid": "d9974183-b05a-44c8-8ba7-62aa3e913598",
               "Flags": 0,
               "Name": "split-t",
-              "Position": "-191.8082,-1284.084,-425.012",
+              "Position": "-191.8082,-1284.083,-425.012",
               "Rotation": "-0.00000003090862,0.00000003090862,-0.7071068,0.7071066",
               "Tags": "gridtile",
               "Enabled": true,
@@ -119,7 +119,7 @@
               "__guid": "88322aef-1b93-4d49-82cf-1a3cc4f04e33",
               "Flags": 0,
               "Name": "split-start",
-              "Position": "-63.80821,-1284.084,-425.012",
+              "Position": "-63.80821,-1284.083,-425.012",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -150,7 +150,7 @@
               "__guid": "135a92cb-96d9-4e8b-948b-9e5cec810a77",
               "Flags": 0,
               "Name": "crest",
-              "Position": "64.19178,-1284.084,-425.012",
+              "Position": "64.19178,-1284.083,-425.012",
               "Rotation": "0,0,0.9999999,0.00000005960464",
               "Tags": "gridtile",
               "Enabled": true,
@@ -182,7 +182,7 @@
               "__guid": "f0e72e55-0e2a-42d7-bb9a-1f7245eda80a",
               "Flags": 0,
               "Name": "round-corner-a",
-              "Position": "192.1918,-1284.084,-425.012",
+              "Position": "192.1918,-1284.083,-425.012",
               "Rotation": "-0.00000003090862,0.00000003090862,-0.7071068,0.7071066",
               "Tags": "gridtile",
               "Enabled": true,
@@ -214,7 +214,7 @@
               "__guid": "c70239dd-e549-4b7a-bd00-3d35f227d429",
               "Flags": 0,
               "Name": "round-corner-a",
-              "Position": "192.1918,-1156.084,-425.012",
+              "Position": "192.1918,-1156.083,-425.012",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -245,7 +245,7 @@
               "__guid": "48c67b24-6cd1-4e97-a88a-def4e0778c67",
               "Flags": 0,
               "Name": "round-corner-a",
-              "Position": "-63.80819,-1156.084,-425.012",
+              "Position": "-63.80819,-1156.083,-425.012",
               "Rotation": "-0.00000004214685,0.000000000000003552714,0.9999999,0.00000005960464",
               "Tags": "gridtile",
               "Enabled": true,
@@ -277,7 +277,7 @@
               "__guid": "d9a02817-7c80-4f92-8004-8e11585ad247",
               "Flags": 0,
               "Name": "crest",
-              "Position": "64.1918,-1156.084,-425.012",
+              "Position": "64.1918,-1156.083,-425.012",
               "Rotation": "-0.00000004214685,0.000000000000003552714,0.9999999,0.00000005960464",
               "Tags": "gridtile",
               "Enabled": true,
@@ -309,7 +309,7 @@
               "__guid": "4177022d-434c-41ec-8ecf-155dc2d38c4a",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "-191.8081,-900.0845,-425.012",
+              "Position": "-191.8081,-900.0842,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -341,7 +341,7 @@
               "__guid": "7d134bbe-f992-4045-bb84-60c86c952971",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "-63.80814,-900.0847,-425.012",
+              "Position": "-63.80814,-900.0845,-425.012",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -372,7 +372,7 @@
               "__guid": "583d0df6-8d8b-450b-abd8-ee990348fbd6",
               "Flags": 0,
               "Name": "bump-walls",
-              "Position": "-63.80816,-1028.084,-425.012",
+              "Position": "-63.80816,-1028.083,-425.012",
               "Rotation": "-0.00000003090862,0.00000003090862,-0.7071068,0.7071066",
               "Tags": "gridtile",
               "Enabled": true,
@@ -404,7 +404,7 @@
               "__guid": "602481e5-996e-437c-9862-44a44143b584",
               "Flags": 0,
               "Name": "split-t",
-              "Position": "-191.8082,-1028.084,-425.012",
+              "Position": "-191.8082,-1028.083,-425.012",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -435,7 +435,7 @@
               "__guid": "b7dbf156-c6a8-4fec-9651-2365ea607b1a",
               "Flags": 0,
               "Name": "square-corner-a",
-              "Position": "-319.8079,-1028.084,-425.012",
+              "Position": "-319.8079,-1028.083,-425.012",
               "Rotation": "-0.00000004214685,0.000000000000003552714,0.9999999,0.00000005960464",
               "Tags": "gridtile",
               "Enabled": true,
@@ -467,7 +467,7 @@
               "__guid": "7120f5f4-f05f-4fcf-a3bc-be038388a520",
               "Flags": 0,
               "Name": "hole-square",
-              "Position": "-319.8081,-900.0845,-425.012",
+              "Position": "-319.8081,-900.0842,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -499,7 +499,7 @@
               "__guid": "2ef90556-a5c3-4569-b421-e3b6c0975d48",
               "Flags": 0,
               "Name": "support",
-              "Position": "32.19178,-1284.084,-425.012",
+              "Position": "32.19178,-1284.083,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -535,7 +535,7 @@
               "__guid": "52652629-dd97-4a55-8605-2d9e542eb2ec",
               "Flags": 0,
               "Name": "gap",
-              "Position": "-191.8082,-1156.084,-425.012",
+              "Position": "-191.8082,-1156.083,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -567,7 +567,7 @@
               "__guid": "12cc6c50-4629-4fe6-8303-47e7afd7afbe",
               "Flags": 0,
               "Name": "supports",
-              "Position": "-191.8082,-1156.084,-425.012",
+              "Position": "-191.8082,-1156.083,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -603,7 +603,7 @@
               "__guid": "dee4b19c-6a7d-474f-89dd-d9a29a3cbbfd",
               "Flags": 0,
               "Name": "block",
-              "Position": "-191.8082,-1156.084,-297.012",
+              "Position": "-191.8082,-1156.083,-297.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -648,7 +648,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "98bba535-754c-4bc9-99c5-1fcb5fe7182f",
+              "component_id": "e872010f-ed3b-4873-9c46-87ad924dddf4",
               "go": "5d9cc398-02b1-4605-a786-4e57065281d7",
               "component_type": "Hole"
             }
@@ -678,7 +678,7 @@
               "__guid": "09841190-3f2e-4a55-b4f4-b5bb1f8e3b0a",
               "Hole": {
                 "_type": "component",
-                "component_id": "98bba535-754c-4bc9-99c5-1fcb5fe7182f",
+                "component_id": "e872010f-ed3b-4873-9c46-87ad924dddf4",
                 "go": "5d9cc398-02b1-4605-a786-4e57065281d7",
                 "component_type": "Hole"
               }
@@ -745,7 +745,7 @@
               "__guid": "3ee7e3a2-c619-4a03-9064-ba55ca803032",
               "Flags": 0,
               "Name": "corner",
-              "Position": "-297.1039,-863.9996,-361.0106",
+              "Position": "-297.1039,-863.9993,-361.0106",
               "Rotation": "-0.00000002980232,0.00000002980232,0.7071067,0.7071067",
               "Tags": "gridtile",
               "Enabled": true,
@@ -969,7 +969,7 @@
               "__guid": "8ef94b83-1466-4dba-b031-62890c7ac67c",
               "Flags": 0,
               "Name": "hill-corner",
-              "Position": "-169.104,-863.9996,-361.0106",
+              "Position": "-169.104,-863.9993,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1000,7 +1000,7 @@
               "__guid": "7e0c3eb1-5400-4955-8bca-40f00ce4b4a4",
               "Flags": 0,
               "Name": "hole-square",
-              "Position": "-41.10403,-863.9996,-361.0106",
+              "Position": "-41.10403,-863.9993,-361.0106",
               "Rotation": "0,0.00000004371139,0.9999999,0",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1032,7 +1032,7 @@
               "__guid": "e4b90a58-5815-4881-8210-69d23c098d03",
               "Flags": 0,
               "Name": "round-corner-a",
-              "Position": "86.89596,-863.9996,-361.0106",
+              "Position": "86.89596,-863.9993,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1063,7 +1063,7 @@
               "__guid": "ecec3e97-a1ad-418b-90a1-0142329c4291",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "214.8959,-991.9996,-361.0106",
+              "Position": "214.8959,-991.9993,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1094,7 +1094,7 @@
               "__guid": "2a8961e5-80fa-46c9-ba00-7a0049258012",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "86.89594,-991.9996,-361.0106",
+              "Position": "86.89594,-991.9993,-361.0106",
               "Rotation": "0,0.00000004371139,0.9999999,0",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1135,7 +1135,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "57bfdc57-c15e-414c-824a-3f29698a9ea2",
+              "component_id": "ce8f7446-238b-420f-9a6b-fbe7e4a734af",
               "go": "2b45b25f-e329-413a-b804-68bb8fefefa9",
               "component_type": "Hole"
             }
@@ -1165,7 +1165,7 @@
               "__guid": "791212d7-c89d-40ab-ac78-37994e118b9e",
               "Hole": {
                 "_type": "component",
-                "component_id": "57bfdc57-c15e-414c-824a-3f29698a9ea2",
+                "component_id": "ce8f7446-238b-420f-9a6b-fbe7e4a734af",
                 "go": "2b45b25f-e329-413a-b804-68bb8fefefa9",
                 "component_type": "Hole"
               }
@@ -1773,7 +1773,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "69dc1a49-9e03-43e7-9a07-bd27d22415fe",
+              "component_id": "4501389e-d32d-461b-aed3-7ad2b057c441",
               "go": "097cf5cc-b809-4c3d-aca5-d4b34ccc2dec",
               "component_type": "Hole"
             }
@@ -1803,7 +1803,7 @@
               "__guid": "b9490bbc-8071-48c7-9379-1b677a56651c",
               "Hole": {
                 "_type": "component",
-                "component_id": "69dc1a49-9e03-43e7-9a07-bd27d22415fe",
+                "component_id": "4501389e-d32d-461b-aed3-7ad2b057c441",
                 "go": "097cf5cc-b809-4c3d-aca5-d4b34ccc2dec",
                 "component_type": "Hole"
               }
@@ -2572,7 +2572,7 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "e8f8ae32-450b-4d70-bf67-b26e8baca0f0",
+              "component_id": "15454455-2ab6-4071-a4c3-589b325f9146",
               "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
               "component_type": "Hole"
             }
@@ -2602,7 +2602,7 @@
               "__guid": "87011444-1cca-4d6e-a290-f2e32223d476",
               "Hole": {
                 "_type": "component",
-                "component_id": "e8f8ae32-450b-4d70-bf67-b26e8baca0f0",
+                "component_id": "15454455-2ab6-4071-a4c3-589b325f9146",
                 "go": "3b357604-4fe4-4b53-86cd-a9c7de235f14",
                 "component_type": "Hole"
               }
@@ -2625,39 +2625,11 @@
       "Name": "Game Manager",
       "Position": "-336.4055,711.4708,422.399",
       "Enabled": true,
-      "Components": [
-        {
-          "__type": "Facepunch.Minigolf.GameManager",
-          "__guid": "1e82b58a-63f9-4e94-8efb-9dff2049b6b7"
-        }
-      ],
-      "Children": [
-        {
-          "__guid": "2f3d7c53-989d-4c00-b477-0a7e662efd3f",
-          "Flags": 0,
-          "Name": "UI",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.ScreenPanel",
-              "__guid": "5b8c21d1-2059-4795-8bb0-b81052d9b21e",
-              "AutoScreenScale": true,
-              "Opacity": 1,
-              "Scale": 1,
-              "ScaleStrategy": "ConsistentHeight",
-              "ZIndex": 100
-            },
-            {
-              "__type": "Facepunch.Minigolf.UI.HUDComponent",
-              "__guid": "7eef7409-9d1e-4d26-a6c7-90ddd9a8594c"
-            },
-            {
-              "__type": "Chat",
-              "__guid": "ef551742-88ef-4db7-926d-59e575c4f32b"
-            }
-          ]
-        }
-      ]
+      "__Prefab": "prefabs/game_manager.prefab",
+      "__PrefabVariables": {
+        "Starting Hole": null,
+        "Default State": "WaitingForPlayers"
+      }
     }
   ],
   "SceneProperties": {

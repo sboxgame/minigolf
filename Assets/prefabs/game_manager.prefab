@@ -1,0 +1,73 @@
+{
+  "RootObject": {
+    "__guid": "cce93630-5c95-465b-b612-ee209a30c195",
+    "Flags": 0,
+    "Name": "game_manager",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Facepunch.Minigolf.GameManager",
+        "__guid": "1e82b58a-63f9-4e94-8efb-9dff2049b6b7",
+        "ConfettiEffect": "particles/gameplay/hole_effect/confetti.vpcf",
+        "DefaultState": "WaitingForPlayers",
+        "HoleInOneEffect": "particles/gameplay/hole_in_one/v2/hole_in_one.vpcf"
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "2f3d7c53-989d-4c00-b477-0a7e662efd3f",
+        "Flags": 0,
+        "Name": "UI",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ScreenPanel",
+            "__guid": "5b8c21d1-2059-4795-8bb0-b81052d9b21e",
+            "AutoScreenScale": true,
+            "Opacity": 1,
+            "Scale": 1,
+            "ScaleStrategy": "ConsistentHeight",
+            "ZIndex": 100
+          },
+          {
+            "__type": "Facepunch.Minigolf.UI.HUDComponent",
+            "__guid": "7eef7409-9d1e-4d26-a6c7-90ddd9a8594c"
+          },
+          {
+            "__type": "Chat",
+            "__guid": "ef551742-88ef-4db7-926d-59e575c4f32b"
+          }
+        ]
+      }
+    ],
+    "__variables": [
+      {
+        "Id": "Starting Hole",
+        "Title": "Starting Hole",
+        "Targets": [
+          {
+            "Id": "1e82b58a-63f9-4e94-8efb-9dff2049b6b7",
+            "Property": "StartingHole"
+          }
+        ]
+      },
+      {
+        "Id": "Default State",
+        "Title": "Default State",
+        "Targets": [
+          {
+            "Id": "1e82b58a-63f9-4e94-8efb-9dff2049b6b7",
+            "Property": "DefaultState"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

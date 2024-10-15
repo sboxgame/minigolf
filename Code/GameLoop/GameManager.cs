@@ -9,11 +9,7 @@ public partial class GameManager : Component, Component.INetworkListener,
 	protected override void OnStart()
 	{
 		State = DefaultState;
-
-		if ( DefaultState == GameState.InPlay )
-		{
-			TimeUntilNextHole = HoleLength;
-		}
+		TimeUntilNextHole = HoleLength;
 
 		if ( !Networking.IsActive )
 		{

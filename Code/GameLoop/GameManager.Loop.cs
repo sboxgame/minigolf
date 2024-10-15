@@ -119,8 +119,11 @@ public partial class GameManager
 		// TODO: Announce state
 		await GameTask.DelaySeconds( 3.0f );
 
+		Tell( "We're switching hole..." );
+
 		CurrentHole = nextHole;
 		State = GameState.NewHole;
+		TimeUntilNextHole = HoleLength;
 
 		if ( !CurrentHole.IsValid() )
 			return;
@@ -194,19 +197,28 @@ public partial class GameManager
 
 		BroadcastEffects( ball, goal );
 
-		Sound.Play( "minigolf.award" ).Volume = 0.5f;
+		Sound.Play( "minigolf.award" )
+			.Volume = 0.5f;
 	}
+
+	// TODO: Use new particles
+	[Property] 
+	public ParticleSystem HoleInOneEffect { get; set; }
+
+	// TODO: Use new particles
+	[Property] 
+	public ParticleSystem ConfettiEffect { get; set; }
 
 	[Broadcast]
 	private void BroadcastEffects( Ball ball, HoleGoal goal )
 	{
 		if ( ball.GetCurrentPar() == 1 )
 		{
-			CreateParticleSystem( ParticleSystem.Load( "particles/gameplay/hole_in_one/v2/hole_in_one.vpcf" ), goal.WorldPosition + Vector3.Up * 16.0f );
+			CreateParticleSystem( HoleInOneEffect, goal.WorldPosition + Vector3.Up * 16.0f );
 		}
 		else
 		{
-			CreateParticleSystem( ParticleSystem.Load( "particles/gameplay/hole_effect/confetti.vpcf" ), goal.WorldPosition + Vector3.Up * 16.0f );
+			CreateParticleSystem( ConfettiEffect, goal.WorldPosition + Vector3.Up * 16.0f );
 		}
 	}
 
