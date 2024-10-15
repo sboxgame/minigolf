@@ -1,5 +1,8 @@
 namespace Facepunch.Minigolf;
 
+/// <summary>
+/// A cinematic camera script which makes the camera orbit around objects.
+/// </summary>
 public partial class CinematicCamera : BaseCamera
 {
 	/// <summary>
@@ -20,21 +23,40 @@ public partial class CinematicCamera : BaseCamera
 	[Property]
 	public float Height { get; set; } = 90.0f;
 
+	/// <summary>
+	/// How long until we switch target?
+	/// </summary>
 	TimeUntil TimeUntilNextTarget { get; set; }
-	public GameObject Target { get; set; }
 
-	private GameObject FindRandomTarget()
+	/// <summary>
+	/// What's our current target?
+	/// </summary>
+	GameObject Target { get; set; }
+
+	/// <summary>
+	/// What hole are we on?
+	/// </summary>
+	Hole CurrentHole => GameManager.Instance.CurrentHole;
+
+	/// <summary>
+	/// Looks for a random target.
+	/// </summary>
+	/// <returns></returns>
+	private GameObject FindRandomTarget<T>() where T : Component
 	{
-		return Scene.GetAllComponents<HoleGoal>()
+		return Scene.GetAllComponents<T>()
 			.FirstOrDefault( x => x.GameObject != Target )
 			.GameObject;
 	}
 
+	/// <summary>
+	/// Special case that updates the target every 5 seconds.
+	/// </summary>
 	private void UpdateWaiting()
 	{
 		if ( TimeUntilNextTarget )
 		{
-			Target = FindRandomTarget();
+			Target = FindRandomTarget<HoleGoal>();
 			TimeUntilNextTarget = 5f;
 		}
 
@@ -44,7 +66,12 @@ public partial class CinematicCamera : BaseCamera
 		}
 	}
 
+	// Cached angles.
 	private float angle;
+
+	/// <summary>
+	/// Orbits around <see cref="Target"/> at a set speed and distance.
+	/// </summary>
 	private void OrbitAroundTarget()
 	{
 		angle += OrbitSpeed * Time.Delta;
@@ -52,16 +79,20 @@ public partial class CinematicCamera : BaseCamera
 		float x = MathF.Cos( angle ) * OrbitDistance;
 		float z = MathF.Sin( angle ) * OrbitDistance;
 
-		Camera.WorldPosition = new Vector3( Target.WorldPosition.x + x, Target.WorldPosition.y + z, Target.WorldPosition.z + Height );
+		Camera.WorldPosition = Camera.WorldPosition.LerpTo( new Vector3( Target.WorldPosition.x + x, Target.WorldPosition.y + z, Target.WorldPosition.z + Height ), Time.Delta * 10f );
 
 		var normal = (Camera.WorldPosition - Target.WorldPosition).Normal;
 
 		Camera.WorldRotation = Rotation.LookAt( -normal );
 	}
 
-	private void UpdateNewHole()
+	/// <summary>
+	/// Updates the camera to orbit around a set target
+	/// </summary>
+	/// <param name="target"></param>
+	private void UpdateWithTarget( GameObject target )
 	{
-		Target = GameManager.Instance.CurrentHole.Start.GameObject;
+		Target = target;
 
 		if ( Target.IsValid() )
 		{
@@ -81,7 +112,11 @@ public partial class CinematicCamera : BaseCamera
 		}
 		if ( state is GameState.NewHole )
 		{
-			UpdateNewHole();
+			UpdateWithTarget( CurrentHole.Start.GameObject );
+		}
+		if ( state is GameState.HoleFinished )
+		{
+			UpdateWithTarget( CurrentHole.Goal.GameObject );
 		}
 	}
 }
