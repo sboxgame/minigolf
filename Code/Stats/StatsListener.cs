@@ -13,7 +13,7 @@ public sealed class StatsListener : Component,
 	void IGameEvent.BallStroke( Ball ball ) 
 	{
 		Stats.Increment( "total_strokes" );
-		Stats.Increment( "total_strokes", 1, true );
+		Stats.Increment( "total_strokes", 1, false );
 	}
 
 	void IGameEvent.OnGoal( Ball ball, HoleGoal goal )
@@ -23,6 +23,6 @@ public sealed class StatsListener : Component,
 			return;
 
 		Stats.Increment( "goals" );
-		Stats.Increment( "goals", 1, true );
+		Stats.Increment( "goals", 1, false );
 	}
 }
