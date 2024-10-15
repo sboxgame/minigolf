@@ -11,6 +11,10 @@
         "ConfettiEffect": "particles/gameplay/hole_effect/confetti.vpcf",
         "DefaultState": "WaitingForPlayers",
         "HoleInOneEffect": "particles/gameplay/hole_in_one/v2/hole_in_one.vpcf"
+      },
+      {
+        "__type": "Facepunch.Minigolf.StatsListener",
+        "__guid": "736a2b82-fb1d-4b96-b51b-4ba024ab1931"
       }
     ],
     "Children": [

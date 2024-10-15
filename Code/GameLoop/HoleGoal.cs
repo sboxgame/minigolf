@@ -63,9 +63,21 @@ public sealed class HoleGoal : Component, Component.ITriggerListener
 			// Have to be cupped for over half a second 
 			if ( kv.Value > CupTime )
 			{
-				IGameEvent.Post( x => x.OnGoal( kv.Key, this ) );
+				kv.Key.IsCupped = true;
+
+				using ( Rpc.FilterInclude( kv.Key.Network.Owner ) )
+				{
+					BroadcastGoal( kv.Key );
+				}
+
 				balls.Remove( kv.Key );
 			}
 		}
+	}
+
+	[Broadcast( NetPermission.HostOnly )]
+	private void BroadcastGoal( Ball ball )
+	{
+		IGameEvent.Post( x => x.OnGoal( ball, this ) );
 	}
 }

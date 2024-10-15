@@ -1,5 +1,6 @@
 using Facepunch.Minigolf.UI;
 using Sandbox;
+using Sandbox.Services;
 
 namespace Facepunch.Minigolf;
 
@@ -101,7 +102,11 @@ public partial class GameManager
 			.FirstOrDefault( x => x.Number == currentNumber + 1 );
 	}
 
-	public IEnumerable<Ball> GetOrderedWinners()
+	/// <summary>
+	/// Get a collection of the balls ordered by whoever's got the lowest par.
+	/// </summary>
+	/// <returns></returns>
+	public IEnumerable<Ball> GetOrderedBalls()
 	{
 		return Scene.GetAllComponents<Ball>()
 			.OrderByDescending( x => x.GetTotalPar() );
@@ -208,18 +213,25 @@ public partial class GameManager
 	{
 		Log.Info( $"{ball} hit {goal}" );
 
-		ball.IsCupped = true;
-		Sound.Play( "minigolf.sink_into_cup", goal.WorldPosition );
-
-		using ( Rpc.FilterInclude( ball.Network.Owner ) )
+		// We the owner of the ball? We'd like to see the UI for it.
+		if ( !ball.IsProxy )
 		{
-			ShowParScreen( goal.Hole.Number, goal.Hole.Par, ball.GetCurrentPar() );
+			ParScreen.Show( goal.Hole.Number, goal.Hole.Par, ball.GetCurrentPar() );
+
+			if ( ball.GetCurrentPar() == 1 )
+			{
+				CreateParticleSystem( HoleInOneEffect, goal.WorldPosition + Vector3.Up * 16.0f );
+			}
+			else
+			{
+				CreateParticleSystem( ConfettiEffect, goal.WorldPosition + Vector3.Up * 16.0f );
+			}
+
+			Sound.Play( "minigolf.award" )
+				.Volume = 0.5f;
 		}
 
-		BroadcastEffects( ball, goal );
-
-		Sound.Play( "minigolf.award" )
-			.Volume = 0.5f;
+		Sound.Play( "minigolf.sink_into_cup", goal.WorldPosition );
 	}
 
 	// TODO: Use new particles
@@ -229,31 +241,6 @@ public partial class GameManager
 	// TODO: Use new particles
 	[Property] 
 	public ParticleSystem ConfettiEffect { get; set; }
-
-	[Broadcast]
-	private void BroadcastEffects( Ball ball, HoleGoal goal )
-	{
-		if ( ball.GetCurrentPar() == 1 )
-		{
-			CreateParticleSystem( HoleInOneEffect, goal.WorldPosition + Vector3.Up * 16.0f );
-		}
-		else
-		{
-			CreateParticleSystem( ConfettiEffect, goal.WorldPosition + Vector3.Up * 16.0f );
-		}
-	}
-
-	/// <summary>
-	/// Show the par screen UI to the person who did it
-	/// </summary>
-	/// <param name="hole"></param>
-	/// <param name="par"></param>
-	/// <param name="strokes"></param>
-	[Broadcast]
-	private void ShowParScreen( int hole, int par, int strokes )
-	{
-		ParScreen.Show( hole, par, strokes );
-	}
 
 	/// <summary>
 	/// Show the hole screen UI to the person who did it
