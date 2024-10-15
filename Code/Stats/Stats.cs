@@ -27,6 +27,18 @@ public static class Stats
 	}
 
 	/// <summary>
+	/// Get an average stat
+	/// </summary>
+	/// <param name="ident"></param>
+	/// <param name="useCourse"></param>
+	/// <returns></returns>
+	public static int GetAverage( string ident, bool useCourse = true )
+	{
+		ident = ParseIdent( ident, useCourse );
+		return (int)Sandbox.Services.Stats.LocalPlayer.Get( ident ).Avg;
+	}
+
+	/// <summary>
 	/// Increments a stat.
 	/// </summary>
 	/// <param name="ident"></param>

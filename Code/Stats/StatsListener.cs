@@ -24,5 +24,16 @@ public sealed class StatsListener : Component,
 
 		Stats.Increment( "goals" );
 		Stats.Increment( "goals", 1, false );
+
+		// Store what our par was for this hole for this map, and we can do stuff with it.
+		Stats.Increment( $"par-{goal.Hole.Number}", ball.GetCurrentPar() );
+
+		// Hole in ones!
+		if ( ball.GetCurrentPar() == 1 )
+		{
+			Stats.Increment( "hole-in-ones", 1, false );
+			Stats.Increment( "hole-in-ones" );
+			Stats.Increment( $"hole-in-ones-{goal.Hole.Number}" );
+		}
 	}
 }
