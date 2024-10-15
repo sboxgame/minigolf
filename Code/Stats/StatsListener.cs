@@ -1,5 +1,8 @@
 namespace Facepunch.Minigolf;
 
+/// <summary>
+/// Place this in a scene, and we'll listen to events that give stats to players for certain gameplay events.
+/// </summary>
 public sealed class StatsListener : Component, 
 	IGameEvent, IPlayerEvent
 {
