@@ -116,7 +116,10 @@ public partial class GameManager
 
 		State = GameState.HoleFinished;
 
-		// TODO: Announce state
+		await GameTask.DelaySeconds( 3.0f );
+
+		OpenScoreboard( true, 3.0f );
+
 		await GameTask.DelaySeconds( 3.0f );
 
 		Tell( "We're switching hole..." );
@@ -140,6 +143,17 @@ public partial class GameManager
 		await GameTask.DelaySeconds( 5.0f );
 		State = GameState.InPlay;
 		TimeUntilNextHole = HoleLength;
+	}
+
+	[Broadcast]
+	public void OpenScoreboard( bool open, float returnTime = 0f )
+	{
+		GolfScoreboard.Current.ForceOpen = open;
+
+		if ( returnTime > 0f )
+		{
+			Invoke( returnTime, () => OpenScoreboard( false ) );
+		}
 	}
 
 	public void EndGame()

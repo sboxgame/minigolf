@@ -72,7 +72,8 @@
 </root>
 
 @code {
-    static GolfScoreboard Current;
+    public static GolfScoreboard Current { get; set; }
+
     public bool ForceOpen;
 
     public string TimerTimeLeft
