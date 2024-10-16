@@ -1,3 +1,4 @@
+using System.Text.Json.Nodes;
 
 /// <summary>
 /// A definition component for a course. This is most useful in a course's scene.
@@ -39,5 +40,38 @@ public sealed class Course : Component
 	protected override void OnStart()
 	{
 		Current = this;
+	}
+
+	/// <summary>
+	/// Looks for a Course component in a scene file and gives it to you
+	/// </summary>
+	/// <param name="scene"></param>
+	/// <returns></returns>
+	public static string ParseIdentFromSceneFile( SceneFile scene )
+	{
+		foreach ( var go in scene.GameObjects )
+		{
+			if ( go.TryGetPropertyValue( "Components", out var componentsNode ) && componentsNode is JsonArray components )
+			{
+				foreach ( var component in components.Select( x => x.AsObject() ) )
+				{
+					if ( !component.TryGetPropertyValue( "__type", out var typeNode )
+						|| !string.Equals( typeNode?.GetValue<string>(), typeof( Course ).FullName, StringComparison.OrdinalIgnoreCase ) )
+					{
+						continue;
+					}
+
+
+					if ( !component.TryGetPropertyValue( "Ident", out var identNode ) )
+					{
+						continue;
+					}
+
+					return identNode.GetValue<string>();
+				}
+			}
+		}
+
+		return null;
 	}
 }

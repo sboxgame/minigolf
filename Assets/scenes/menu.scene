@@ -60,29 +60,963 @@
       ]
     },
     {
-      "__guid": "769e61bb-76b7-4fa9-b5d1-2050f9eb28c2",
+      "__guid": "6dfd84a5-4a0b-4be8-aa0d-31d8226c7a6c",
       "Flags": 0,
-      "Name": "Hole #1",
-      "Position": "-400.6445,701.9804,425.0106",
+      "Name": "Hole #2",
+      "Position": "-400.6445,1604.757,425.0106",
       "Enabled": true,
+      "Components": [
+        {
+          "__type": "Hole",
+          "__guid": "cfae5a3f-9fcc-4d13-b093-e4f3ce8adfb3",
+          "Number": 2,
+          "Par": 4
+        }
+      ],
       "Children": [
         {
-          "__guid": "319eab68-6bdf-494c-8bfa-9baecb768ee1",
+          "__guid": "0c123f0f-19a4-4659-b570-5f66227bde58",
           "Flags": 0,
           "Name": "Pieces",
           "Enabled": true,
           "Children": [
             {
-              "__guid": "a33b528d-c65b-4f07-89be-f1f0ea5b9457",
+              "__guid": "4aa917c7-5bfa-4f21-b429-33c4d72d872a",
               "Flags": 0,
-              "Name": "hole-square",
-              "Position": "720.6445,-733.9804,-489.0106",
+              "Name": "end",
+              "Position": "-303.3555,-1252.757,-425.0106",
+              "Rotation": "0.00000005960464,0.00000005960464,-0.7071068,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "98f0609e-63a9-4691-86b4-811cf91553d1",
+                  "__guid": "77b466f0-1133-4f6f-84f1-81b23bf0e870",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/end.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "83757cc6-1ac8-4ec8-8f5b-8b8cf1632579",
+                  "IsTrigger": false,
+                  "Model": "models/ken/end.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                }
+              ]
+            },
+            {
+              "__guid": "56d20543-e792-4059-895a-641e65116d72",
+              "Flags": 0,
+              "Name": "ramp",
+              "Position": "-303.3555,-1124.757,-489.0107",
+              "Rotation": "0.00000005960464,0.00000005960464,-0.7071068,0.7071068",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "ea2c6940-7091-46c6-94c6-bda60f5fc9a0",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/ramp.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "fb614dee-a241-4ab6-9092-ec170ac492fe",
+                  "IsTrigger": false,
+                  "Model": "models/ken/ramp.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                }
+              ]
+            },
+            {
+              "__guid": "23cdb7c9-9b08-4237-8a97-dbce4ecfc1ca",
+              "Flags": 0,
+              "Name": "round-large-corner",
+              "Position": "-239.3555,-932.7568,-489.0106",
+              "Rotation": "-0.00000002980232,0.00000002980232,0.7071067,0.7071067",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "2330368a-3331-4f83-955b-d6b2f6241b86",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-large-corner.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "d4d427be-d5de-4e61-82b9-2eb6cbbc0ddd",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-large-corner.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "74b49b78-0571-4cce-a376-2b56c1cdcdfd",
+                  "CameraFade": false,
+                  "Solid": true
+                }
+              ]
+            },
+            {
+              "__guid": "4c3411d4-52e1-446e-a882-e4ce57faaa28",
+              "Flags": 0,
+              "Name": "ramp-square",
+              "Position": "-47.3555,-868.7568,-489.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "7055bb8b-6509-43fd-99e2-ac3b875efca0",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/ramp-square.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "e604a595-fe00-4043-9c46-76264387b668",
+                  "IsTrigger": false,
+                  "Model": "models/ken/ramp-square.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                }
+              ]
+            },
+            {
+              "__guid": "20005ea2-953f-44b5-887d-1d7f805b2fa3",
+              "Flags": 0,
+              "Name": "straight",
+              "Position": "80.6445,-868.7568,-489.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "b5427d31-08d4-4eca-9ddb-c437f031479a",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/straight.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "31e98113-e103-48fc-966f-dbb6218c13db",
+                  "IsTrigger": false,
+                  "Model": "models/ken/straight.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                }
+              ]
+            },
+            {
+              "__guid": "4684ff80-ff67-4af1-beeb-22aae6f43390",
+              "Flags": 0,
+              "Name": "straight",
+              "Position": "208.6445,-868.7568,-489.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "19cd1aeb-aac2-45f3-ae3c-11397d34df85",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/straight.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "5850a5d2-ee24-4d9e-a9a9-3712288bf832",
+                  "IsTrigger": false,
+                  "Model": "models/ken/straight.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                }
+              ]
+            },
+            {
+              "__guid": "1ec83b8a-72fb-46a6-a733-af1f877f4bf2",
+              "Flags": 0,
+              "Name": "split-t",
+              "Position": "336.6445,-868.7568,-489.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "c9216cb2-a5c1-48c7-b8fe-85e5da7603f2",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/split-t.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "060c093e-adc4-46f7-8e10-a9bbcc234e96",
+                  "IsTrigger": false,
+                  "Model": "models/ken/split-t.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                }
+              ]
+            },
+            {
+              "__guid": "f5b24aac-c890-46ca-9e6c-140a30a7f8bb",
+              "Flags": 0,
+              "Name": "round-large-corner-open",
+              "Position": "400.6445,-676.7568,-489.0106",
+              "Rotation": "-0.00000002980232,0.00000002980232,0.7071067,0.7071067",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "802130b4-eef3-45d4-9b7a-757f75bcd71a",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-large-corner-open.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "1e630354-c5d2-47c1-8ba6-64b2db8d4617",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-large-corner-open.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                }
+              ]
+            },
+            {
+              "__guid": "1dc66e95-06d1-44a2-9088-2084af0ecafa",
+              "Flags": 0,
+              "Name": "round-large-corner-open",
+              "Position": "400.6445,-1060.757,-489.0106",
+              "Rotation": "0,0.00000004371139,0.9999999,0",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "f33542c8-a0bf-4c83-88a0-824373e46e18",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-large-corner-open.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "d3408dc1-5da2-41ce-9a93-5187a68aa13f",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-large-corner-open.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                }
+              ]
+            },
+            {
+              "__guid": "0eb87dc8-cb9f-4ec5-8491-fea8a71ca10b",
+              "Flags": 0,
+              "Name": "block",
+              "Position": "464.6445,-868.7568,-489.0106",
+              "Rotation": "0,0.00000004371139,0.9999999,0",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "a95462c3-5fe6-402b-a21d-072bf5904d92",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/block.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "250c3c14-518a-4cd8-bf99-3ecee6048aec",
+                  "IsTrigger": false,
+                  "Model": "models/ken/block.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                }
+              ]
+            },
+            {
+              "__guid": "f4d3f643-9ad3-4bcf-a323-ec101363e37f",
+              "Flags": 0,
+              "Name": "block",
+              "Position": "592.6445,-868.7568,-489.0106",
+              "Rotation": "0,0.00000004371139,0.9999999,0",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "9f489fa1-7251-4d3b-9c01-0940d2916524",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/block.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "0ed50cf4-9909-445b-b2c1-f3c2f77290e9",
+                  "IsTrigger": false,
+                  "Model": "models/ken/block.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                }
+              ]
+            },
+            {
+              "__guid": "f2fa2cd0-c834-48b0-a8f1-9b282398a0f2",
+              "Flags": 0,
+              "Name": "hole-round",
+              "Position": "848.6445,-868.7568,-489.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "08e58ec0-bc4f-432e-bd4d-6f333653458b",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/hole-round.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "7ee66bd3-aed8-4dfd-915a-638d7a4667e3",
+                  "IsTrigger": false,
+                  "Model": "models/ken/hole-round.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                }
+              ]
+            },
+            {
+              "__guid": "b56679fc-72b7-427d-abd8-f26a3c5bd82a",
+              "Flags": 0,
+              "Name": "round-large-corner-open (2)",
+              "Position": "656.6445,-676.7568,-489.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "44e4a8fc-c280-4952-9f23-3891b023f798",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-large-corner-open.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "29cf61bf-d534-4d3a-9cfe-a873f123456f",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-large-corner-open.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                }
+              ]
+            },
+            {
+              "__guid": "77807b10-82e3-447f-a1a6-58ec418b9f45",
+              "Flags": 0,
+              "Name": "round-large-corner-open (3)",
+              "Position": "656.6445,-1060.757,-489.0106",
+              "Rotation": "0,0,-0.7071067,0.7071067",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "bb0a91ed-2752-4902-b507-33f3b10c38ce",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-large-corner-open.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "2a8c80d0-2694-4f63-90a4-801f1c925d8f",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-large-corner-open.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                }
+              ]
+            },
+            {
+              "__guid": "99c1a768-8fd9-451e-adfd-db5636eb6dfb",
+              "Flags": 0,
+              "Name": "split-t",
+              "Position": "720.6445,-868.7568,-489.0106",
+              "Rotation": "0,0.00000004371139,-0.9999999,0",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "a4253be3-c15b-4baf-8ae8-2cb94def0abe",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/split-t.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "08ec6283-c6f9-4b22-a25e-2470005faccd",
+                  "IsTrigger": false,
+                  "Model": "models/ken/split-t.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                }
+              ]
+            },
+            {
+              "__guid": "d78dbba8-0639-4647-92bd-b605d2ca6809",
+              "Flags": 0,
+              "Name": "support-bottom",
+              "Position": "432.6445,-708.7568,-489.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "fc937fee-f0ca-46e2-9a3f-ece15187e908",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/support-bottom.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "d7c8ae0c-9b49-43bc-af85-276f54bed866",
+                  "IsTrigger": false,
+                  "Model": "models/ken/support-bottom.vmdl",
+                  "Static": true
+                },
+                {
+                  "__type": "ViewBlocker",
+                  "__guid": "4a8c318a-a2b5-4326-b157-334f48ed4267"
+                }
+              ]
+            },
+            {
+              "__guid": "53603b17-527d-48f9-9819-b979b75cf356",
+              "Flags": 0,
+              "Name": "support-bottom",
+              "Position": "624.6445,-1028.757,-489.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "643d3f6f-74f7-455e-a943-a92ccff4a33d",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/support-bottom.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "d213aa81-49f7-47d1-aaec-bba1b8c30ed4",
+                  "IsTrigger": false,
+                  "Model": "models/ken/support-bottom.vmdl",
+                  "Static": true
+                },
+                {
+                  "__type": "ViewBlocker",
+                  "__guid": "e81a6cc3-7cc8-41c0-a1f1-cba818b75474"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "0000ba5c-14b4-4cd9-ad8b-1650bc669c6f",
+          "Flags": 0,
+          "Name": "Hole End",
+          "Position": "848.6445,-868.7568,-489.0107",
+          "Rotation": "0,0.00000002980232,0.7071068,0.7071068",
+          "Enabled": true,
+          "__Prefab": "prefabs/hole_goal.prefab",
+          "__PrefabVariables": {
+            "Hole": {
+              "_type": "component",
+              "component_id": "cfae5a3f-9fcc-4d13-b093-e4f3ce8adfb3",
+              "go": "6dfd84a5-4a0b-4be8-aa0d-31d8226c7a6c",
+              "component_type": "Hole"
+            }
+          }
+        },
+        {
+          "__guid": "410f7e51-4b4a-43b1-a885-1cdada471992",
+          "Flags": 0,
+          "Name": "Hole Start",
+          "Position": "-303.772,-1248.612,-418.0366",
+          "Enabled": true,
+          "__Prefab": "prefabs/hole_start.prefab",
+          "__PrefabVariables": {}
+        },
+        {
+          "__guid": "890a4e62-ff08-4e8e-a73b-f293b2709b3d",
+          "Flags": 0,
+          "Name": "Hole Bounds",
+          "Position": "278.4109,-934.3819,-432.054",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Facepunch.Minigolf.HoleBounds",
+              "__guid": "901a9d88-5373-40f8-90ca-ce50bedf652a"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "e39e6ec0-f002-4072-b8fc-cbf0edd61cd4",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "1300,781.2808,128",
+              "Static": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "5f1b9ec5-a30a-444e-8a5a-2fe3e3f77f33",
+      "Flags": 0,
+      "Name": "Hole #3",
+      "Position": "526.9366,1357.675,425.012",
+      "Rotation": "0,0,-0.7071067,0.7071068",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Hole",
+          "__guid": "17b86664-44ac-4f5f-aa89-2037de1e6db5",
+          "Number": 3,
+          "Par": 5
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "226cc5a9-8baa-4794-a10b-46ef4f42b209",
+          "Flags": 0,
+          "Name": "Pieces",
+          "Enabled": true,
+          "Children": [
+            {
+              "__guid": "f5c29da7-8ae7-4eac-9f54-6dbcd7004039",
+              "Flags": 0,
+              "Name": "end",
+              "Position": "-297.1037,-1248,-425.0106",
+              "Rotation": "0.00000005960464,0.00000005960464,-0.7071068,0.7071068",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "4b5cf7b8-da66-42b5-ba87-6f9eeba60bb3",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/end.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "3de18432-0054-45d2-8e96-4572ae13abf1",
+                  "IsTrigger": false,
+                  "Model": "models/ken/end.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "d030e52c-a442-4446-8837-d5e7f0250a84",
+              "Flags": 0,
+              "Name": "corner",
+              "Position": "-297.1039,-863.9977,-361.0106",
+              "Rotation": "-0.00000002980232,0.00000002980232,0.7071067,0.7071067",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "37e6d2f8-a1db-408c-b87e-43c4638c1ca1",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/corner.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "78b8646d-9c96-4bd5-ad22-f6d0d5cf1b2d",
+                  "IsTrigger": false,
+                  "Model": "models/ken/corner.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "d35c838e-0266-4616-9843-4c4a42b47bb7",
+              "Flags": 0,
+              "Name": "ramp-large",
+              "Position": "-297.1039,-1056,-425.0106",
+              "Rotation": "0,0,0.7071067,0.7071067",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "16b6400e-fd09-46ab-830a-0479ff379b9f",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/ramp-large.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "2f7a546c-51ad-401d-b287-087b6fad0d44",
+                  "IsTrigger": false,
+                  "Model": "models/ken/ramp-large.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "94e40228-28a8-47e4-9505-284ca65500cd",
+              "Flags": 0,
+              "Name": "ramp-large",
+              "Position": "-169.1039,-1056,-361.0106",
+              "Rotation": "0.00000005960464,0.00000005960464,-0.7071068,0.7071068",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "035fb439-13f7-4a65-b56f-46a76c8c64bc",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/ramp-large.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "810795e6-1fa7-4199-b4f1-567364a7706d",
+                  "IsTrigger": false,
+                  "Model": "models/ken/ramp-large.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "e4913bf7-c119-4dd9-af73-46ff39261980",
+              "Flags": 0,
+              "Name": "ramp-large",
+              "Position": "22.89602,-1248,-361.0106",
+              "Rotation": "0,0.00000004371139,0.9999999,0",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "57e64bf1-a232-447f-a55b-746a3362564f",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/ramp-large.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "ea6e4357-edab-4ceb-a4b6-6c5ab67c2b08",
+                  "IsTrigger": false,
+                  "Model": "models/ken/ramp-large.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "544cbd60-2c1a-4202-ba13-d3130fc6d4f0",
+              "Flags": 0,
+              "Name": "square-corner-a",
+              "Position": "-169.104,-1248,-297.0106",
+              "Rotation": "0,0.00000004371139,-0.9999999,0",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "491269e9-b2ad-4e50-afba-a9c62527040e",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/square-corner-a.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "e2660e7a-3891-4f28-97a7-63a1af45ce94",
+                  "IsTrigger": false,
+                  "Model": "models/ken/square-corner-a.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "e901f6ef-7973-4a21-bb4c-e357d08ac7c7",
+              "Flags": 0,
+              "Name": "round-corner-a",
+              "Position": "214.896,-1248,-361.0106",
+              "Rotation": "0.00000005960464,0.00000005960464,-0.7071068,0.7071068",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "570be390-392f-492a-8f3b-75a8a2c151ba",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-corner-a.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "6ebbb51d-4264-4b93-9ef1-ce55a7882d5e",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-corner-a.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "ce305688-b9a2-4a15-a62b-2d719c51c483",
+              "Flags": 0,
+              "Name": "wall-left",
+              "Position": "214.896,-1120,-361.0106",
+              "Rotation": "0,0,-0.7071067,0.7071067",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "4b2d2f46-68e9-4c7f-b631-4c3e5824b627",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/wall-left.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "e88494a0-c161-4596-b344-c14b98b14e43",
+                  "IsTrigger": false,
+                  "Model": "models/ken/wall-left.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "3ff8588b-b9c7-49db-ad09-b44301988033",
+              "Flags": 0,
+              "Name": "hill-corner",
+              "Position": "-169.104,-863.9977,-361.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "66ccd22d-2d99-4af4-9144-8f9c9f743625",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/hill-corner.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "2634e932-02b2-4961-832c-69e39febae06",
+                  "IsTrigger": false,
+                  "Model": "models/ken/hill-corner.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "d5b41e85-bc7c-4cfe-8e73-6cd2b9b6cdfb",
+              "Flags": 0,
+              "Name": "hole-square",
+              "Position": "-41.10403,-863.9977,-361.0106",
+              "Rotation": "0,0.00000004371139,0.9999999,0",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "045d6508-e086-4059-beca-8da6c0abb1c5",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/hole-square.vmdl",
                   "RenderOptions": {
@@ -96,16 +1030,876 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "1c4f698d-e30a-4223-b160-f52d9751a6c1",
+                  "__guid": "a7136429-c90c-4a74-a177-bf101af3598d",
                   "IsTrigger": false,
                   "Model": "models/ken/hole-square.vmdl",
-                  "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Static": true
                 }
               ]
             },
             {
-              "__guid": "ba982a89-a1bc-4d99-a55b-f71c717976f8",
+              "__guid": "3aee6ff8-705c-4a5b-85a5-d49153e35d7c",
+              "Flags": 0,
+              "Name": "round-corner-a",
+              "Position": "86.89596,-863.9977,-361.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "1b55e055-9673-4023-b5fd-e4a46a0eb529",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-corner-a.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "61de2e1e-28de-4495-b055-74e57fcb42a1",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-corner-a.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "cdce4061-daeb-4858-8ab2-0fcd76be4764",
+              "Flags": 0,
+              "Name": "round-corner-b",
+              "Position": "214.8959,-991.9977,-361.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "39f31b9c-92ac-4c33-8358-e40390b61afe",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-corner-b.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "238c72b0-0a23-497b-92b8-266295e06100",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-corner-b.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "d2b90636-48a3-4219-ac05-ae97a0940fab",
+              "Flags": 0,
+              "Name": "round-corner-b",
+              "Position": "86.89594,-991.9977,-361.0106",
+              "Rotation": "0,0.00000004371139,0.9999999,0",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "33a73d0c-bef9-427d-a358-0c85bcb7a5a2",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-corner-b.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "690f9175-4fab-4319-bc7f-910ad4325fb1",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-corner-b.vmdl",
+                  "Static": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "66b76707-cbb9-48a6-a76d-7310d2eb323c",
+          "Flags": 0,
+          "Name": "Hole End",
+          "Position": "-40.6676,-864.0233,-361.0106",
+          "Rotation": "0,0.00000002980232,0.7071068,0.7071068",
+          "Enabled": true,
+          "__Prefab": "prefabs/hole_goal.prefab",
+          "__PrefabVariables": {
+            "Hole": {
+              "_type": "component",
+              "component_id": "17b86664-44ac-4f5f-aa89-2037de1e6db5",
+              "go": "5f1b9ec5-a30a-444e-8a5a-2fe3e3f77f33",
+              "component_type": "Hole"
+            }
+          }
+        },
+        {
+          "__guid": "6669d58e-4f2a-4803-bedb-623eecdeab3a",
+          "Flags": 0,
+          "Name": "Hole Start",
+          "Position": "-297.104,-1248.612,-418.0366",
+          "Enabled": true,
+          "__Prefab": "prefabs/hole_start.prefab",
+          "__PrefabVariables": {}
+        },
+        {
+          "__guid": "8dfb4382-f29c-4031-8ac5-d6a917baaf08",
+          "Flags": 0,
+          "Name": "Hole Bounds",
+          "Position": "-58.15277,-1048.495,-333.032",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Facepunch.Minigolf.HoleBounds",
+              "__guid": "fd1e92b6-9cd4-4468-990e-30c10158c505"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "b8c57521-0ee9-482b-8feb-bb0f5a128198",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "680.7999,673.2005,275.04",
+              "Static": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "57313717-57d7-42b2-bfc1-362a519b9afe",
+      "Flags": 0,
+      "Name": "Hole #4",
+      "Position": "1380.085,1504.192,425.012",
+      "Rotation": "0,0,-0.7071067,0.7071068",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Hole",
+          "__guid": "6b3f47b6-fa77-4ef4-9291-61aaad7d25e4",
+          "Number": 4,
+          "Par": 4
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "0a0d5eca-d347-4774-abe2-e267704170a8",
+          "Flags": 0,
+          "Name": "Pieces",
+          "Enabled": true,
+          "Children": [
+            {
+              "__guid": "92b6d9f9-0bde-448b-b0ca-717142ac6fbf",
+              "Flags": 0,
+              "Name": "end",
+              "Position": "-319.8082,-1284.083,-425.012",
+              "Rotation": "-0.00000004214685,0.000000000000003552714,0.9999999,0.00000005960464",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "292ef21a-0b0e-4f22-9ef5-c3cbb2ac14d0",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/end.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "1963f979-9bf9-4f50-a014-626162fc0f39",
+                  "IsTrigger": false,
+                  "Model": "models/ken/end.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "97e7b1d9-2495-4521-af54-6f73fd89ef7c",
+              "Flags": 0,
+              "Name": "split-t",
+              "Position": "-191.8082,-1284.083,-425.012",
+              "Rotation": "-0.00000003090862,0.00000003090862,-0.7071068,0.7071066",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "c192e32e-6c5a-449a-9132-699d5f59fd11",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/split-t.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "ea1b9676-41a9-4f3e-805f-e08c5190fbd1",
+                  "IsTrigger": false,
+                  "Model": "models/ken/split-t.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "b8e753b1-82e7-48db-8299-a30b0f46893f",
+              "Flags": 0,
+              "Name": "split-start",
+              "Position": "-63.80821,-1284.083,-425.012",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "edda1b6b-0306-429b-bf43-efa2f9f52295",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/split-start.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "52e78bd8-99c7-4776-9d02-8afaf78fe8fd",
+                  "IsTrigger": false,
+                  "Model": "models/ken/split-start.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "e0f91f7c-8fe0-4be5-91d2-eec164a28ff6",
+              "Flags": 0,
+              "Name": "crest",
+              "Position": "64.19178,-1284.083,-425.012",
+              "Rotation": "0,0,0.9999999,0.00000005960464",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "0f95dcca-152c-4e1d-affa-9267b8279530",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/crest.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "b0c39dba-1d3f-48a7-9c7b-ea4e3f0afc42",
+                  "IsTrigger": false,
+                  "Model": "models/ken/crest.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "7f256399-006f-4979-bf05-304ee14e7630",
+              "Flags": 0,
+              "Name": "round-corner-a",
+              "Position": "192.1918,-1284.083,-425.012",
+              "Rotation": "-0.00000003090862,0.00000003090862,-0.7071068,0.7071066",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "a49590e9-3113-4162-9748-e056585bc7f8",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-corner-a.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "639e9ef5-2d74-49bc-a4fb-5a0d4523905b",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-corner-a.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "388cd835-363f-47ab-9623-69022c7acb19",
+              "Flags": 0,
+              "Name": "round-corner-a",
+              "Position": "192.1918,-1156.083,-425.012",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "72de8c65-546c-40c2-8946-d0ebef980494",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-corner-a.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "6cc659ea-a4e2-42a0-869f-d53ada3002dd",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-corner-a.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "34c03360-f33b-4255-a68a-e240da396d47",
+              "Flags": 0,
+              "Name": "round-corner-a",
+              "Position": "-63.80819,-1156.083,-425.012",
+              "Rotation": "-0.00000004214685,0.000000000000003552714,0.9999999,0.00000005960464",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "3fc4bea6-4545-4a11-8a91-6047d4d7048b",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-corner-a.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "04dfa287-e67b-4be4-b3d4-58f216294cf0",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-corner-a.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "7e6b8a78-55fb-44f3-84f6-a60b28834a57",
+              "Flags": 0,
+              "Name": "crest",
+              "Position": "64.1918,-1156.083,-425.012",
+              "Rotation": "-0.00000004214685,0.000000000000003552714,0.9999999,0.00000005960464",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "5623b61f-44b8-4f11-9eee-6ca04cd63fb9",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/crest.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "705f5f73-7110-4c16-b30c-61fe88c7fde4",
+                  "IsTrigger": false,
+                  "Model": "models/ken/crest.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "8eb46311-5e97-467e-9a19-bf9e6124a549",
+              "Flags": 0,
+              "Name": "round-corner-b",
+              "Position": "-191.8081,-900.0826,-425.012",
+              "Rotation": "0,0,0.7071067,0.7071068",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "1535344f-ddf6-4530-8837-b7608484b781",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-corner-b.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "b04be3fa-a1c2-4b0b-a914-d37990e73af4",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-corner-b.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "15a9c600-2333-42bd-a032-8c34ab4aec78",
+              "Flags": 0,
+              "Name": "round-corner-b",
+              "Position": "-63.80814,-900.0829,-425.012",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "cc5d1968-85ef-42bf-9384-8ad13a0953a0",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/round-corner-b.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "412d1323-16c1-46ef-997b-b214afde57ed",
+                  "IsTrigger": false,
+                  "Model": "models/ken/round-corner-b.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "7e6b2569-e266-480b-9405-3466dfdc8491",
+              "Flags": 0,
+              "Name": "bump-walls",
+              "Position": "-63.80816,-1028.083,-425.012",
+              "Rotation": "-0.00000003090862,0.00000003090862,-0.7071068,0.7071066",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "4dfbc273-28ae-45ea-8e2d-b4a4acef9de5",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/bump-walls.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "7a6908bc-caf9-47ef-8a92-e0a1734aa6d6",
+                  "IsTrigger": false,
+                  "Model": "models/ken/bump-walls.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "6a6da8cb-255f-49d6-afec-25c008e8280a",
+              "Flags": 0,
+              "Name": "split-t",
+              "Position": "-191.8082,-1028.083,-425.012",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "0c55dbcf-f886-4b43-91b9-0d022bcb15cc",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/split-t.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "1f1896fc-bc24-4e93-b894-80fbc4b3d1ee",
+                  "IsTrigger": false,
+                  "Model": "models/ken/split-t.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "fb135663-90c8-4035-898f-6aef75ca4c83",
+              "Flags": 0,
+              "Name": "square-corner-a",
+              "Position": "-319.8079,-1028.083,-425.012",
+              "Rotation": "-0.00000004214685,0.000000000000003552714,0.9999999,0.00000005960464",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "1328aa17-253b-4bf1-9be5-7a69ac33be43",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/square-corner-a.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "b6d0474e-9ca4-485a-a490-2ab8414197c4",
+                  "IsTrigger": false,
+                  "Model": "models/ken/square-corner-a.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "c1900339-de38-4475-a7ca-7b76b2bc116d",
+              "Flags": 0,
+              "Name": "hole-square",
+              "Position": "-319.8081,-900.0826,-425.012",
+              "Rotation": "0,0,0.7071067,0.7071068",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "85abc045-b64d-41be-860f-4903d97142a6",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/hole-square.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "c731231c-9a1b-417d-89b7-5be25632e7e2",
+                  "IsTrigger": false,
+                  "Model": "models/ken/hole-square.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "31202144-9908-456d-844d-51180097d94e",
+              "Flags": 0,
+              "Name": "support",
+              "Position": "32.19178,-1284.083,-425.012",
+              "Rotation": "0,0,0.7071067,0.7071068",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "ffb10b2a-5b6a-494a-9663-1b0b0d3c77e9",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/support.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "37a01bed-807e-4a1c-a29d-a1270e3d63ad",
+                  "IsTrigger": false,
+                  "Model": "models/ken/support.vmdl",
+                  "Static": true
+                },
+                {
+                  "__type": "ViewBlocker",
+                  "__guid": "94d80e85-3753-46d7-abff-64780a81a1ca"
+                }
+              ]
+            },
+            {
+              "__guid": "57a2509b-ab2f-48d2-952f-26bb91ab2a18",
+              "Flags": 0,
+              "Name": "gap",
+              "Position": "-191.8082,-1156.083,-425.012",
+              "Rotation": "0,0,0.7071067,0.7071068",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "b06e6470-8337-4b46-a631-e54050cc5094",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/gap.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "c29494be-2e4e-4c84-9c5f-66d2f3ad79da",
+                  "IsTrigger": false,
+                  "Model": "models/ken/gap.vmdl",
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "56cad32c-4049-460b-b98e-c4311a377a9c",
+              "Flags": 0,
+              "Name": "supports",
+              "Position": "-191.8082,-1156.083,-425.012",
+              "Rotation": "0,0,0.7071067,0.7071068",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "1dfa5f52-d5a6-4bda-b6de-48c35cebbb9f",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/supports.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "0e79bc70-3ea1-436e-825f-fe36f3341405",
+                  "IsTrigger": false,
+                  "Model": "models/ken/supports.vmdl",
+                  "Static": true
+                },
+                {
+                  "__type": "ViewBlocker",
+                  "__guid": "8479b572-9f5d-43e1-acf4-d962608540d3"
+                }
+              ]
+            },
+            {
+              "__guid": "8c4a52fc-7aa6-47cf-8ca9-59dcdf52d1db",
+              "Flags": 0,
+              "Name": "block",
+              "Position": "-191.8082,-1156.083,-297.012",
+              "Rotation": "0,0,0.7071067,0.7071068",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "4535a394-79b2-4920-92e6-75cf0548f3b3",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/block.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "70d16248-9802-44bb-922c-f6b2bb17b32f",
+                  "IsTrigger": false,
+                  "Model": "models/ken/block.vmdl",
+                  "Static": true
+                },
+                {
+                  "__type": "ViewBlocker",
+                  "__guid": "9727d23b-33bb-46f0-b03c-01e31bda9a96"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "0253c0a2-02b3-4d93-ae59-2b95370e035b",
+          "Flags": 0,
+          "Name": "Hole End",
+          "Position": "-319.8081,-900.9045,-425.012",
+          "Rotation": "0,0.00000002980232,0.7071068,0.7071068",
+          "Enabled": true,
+          "__Prefab": "prefabs/hole_goal.prefab",
+          "__PrefabVariables": {
+            "Hole": {
+              "_type": "component",
+              "component_id": "6b3f47b6-fa77-4ef4-9291-61aaad7d25e4",
+              "go": "57313717-57d7-42b2-bfc1-362a519b9afe",
+              "component_type": "Hole"
+            }
+          }
+        },
+        {
+          "__guid": "5149a567-a70b-470a-8d5b-4a7288777731",
+          "Flags": 0,
+          "Name": "Hole Start",
+          "Position": "-319.8082,-1284.085,-418.0366",
+          "Enabled": true,
+          "__Prefab": "prefabs/hole_start.prefab",
+          "__PrefabVariables": {}
+        },
+        {
+          "__guid": "6b02921a-8436-4950-8344-f4c63e080123",
+          "Flags": 0,
+          "Name": "Hole Bounds",
+          "Position": "-58.15277,-1048.495,-333.032",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Facepunch.Minigolf.HoleBounds",
+              "__guid": "8406b9cd-3884-4da8-bf22-08bff9ca5559"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "9689012d-5a31-4e41-8e8c-851eb8fba0ab",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "680.7999,673.2005,275.04",
+              "Static": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "0be75c18-4da5-4970-960e-df7e540d9bf2",
+      "Flags": 0,
+      "Name": "Hole #1",
+      "Position": "-400.6445,701.9804,425.0106",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Hole",
+          "__guid": "7d77c1bb-268c-40f3-b46d-c75d08bd841e",
+          "Number": 1,
+          "Par": 3
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "797bd443-7fb6-46ec-ac0c-296b021da8c6",
+          "Flags": 0,
+          "Name": "Pieces",
+          "Enabled": true,
+          "Children": [
+            {
+              "__guid": "97c28424-2789-4ed2-bf87-0f4154b849d2",
+              "Flags": 0,
+              "Name": "hole-square",
+              "Position": "720.6445,-733.9804,-489.0106",
+              "Tags": "gridtile",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "3f5bf7df-877c-4f22-80bb-cf97c3449c9b",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/ken/hole-square.vmdl",
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "89a7bc84-a196-48c8-96d6-54274759825f",
+                  "IsTrigger": false,
+                  "Model": "models/ken/hole-square.vmdl",
+                  "Static": true,
+                  "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "2b82b8ee-cdfb-40e4-925f-5164457d37d6",
+                  "CameraFade": false,
+                  "Solid": true
+                }
+              ]
+            },
+            {
+              "__guid": "ef88973a-60b9-41d0-8bdd-8aecb64a3b4b",
               "Flags": 0,
               "Name": "side",
               "Position": "848.6445,-733.9804,-489.0106",
@@ -115,7 +1909,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "ff342c13-68cb-451e-aa3e-824e423f449d",
+                  "__guid": "3068b4e6-873a-4cce-b824-c28c45b90ed0",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/side.vmdl",
                   "RenderOptions": {
@@ -129,16 +1923,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "a8987ed0-b1b1-4305-b505-aa1c3ff026b3",
+                  "__guid": "3bbf1b10-c25f-466f-87b0-7018c4155cb6",
                   "IsTrigger": false,
                   "Model": "models/ken/side.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "3ba2a8a5-7df3-422d-8303-7ebcb5c07cce",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "8975f078-b983-4c8f-9252-7c5d754172c7",
+              "__guid": "7cd4ae64-fde8-4142-a758-7bbf1eb96048",
               "Flags": 0,
               "Name": "round-corner-c",
               "Position": "848.6445,-605.9804,-489.0106",
@@ -147,7 +1947,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "6c5e62ba-90bf-44ef-817d-ee82d01e0964",
+                  "__guid": "6433bfa2-2261-4707-ac35-a554bd9f1553",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/round-corner-c.vmdl",
                   "RenderOptions": {
@@ -161,16 +1961,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "7afe9bc6-f160-447b-8803-442d1a26c6cb",
+                  "__guid": "8a078e1a-591a-4fb2-a4fd-28c2d174da14",
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-c.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "36613780-f2b3-4b67-aace-1355b84a331e",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "690b8b5f-cd97-41a9-bad2-274eee7bcbc4",
+              "__guid": "b340d39a-0e79-475a-84be-a928b0c60855",
               "Flags": 0,
               "Name": "round-corner-c",
               "Position": "848.6445,-861.9804,-489.0106",
@@ -180,7 +1986,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "8fcf6a79-4a41-40d1-b36f-770042e54eb1",
+                  "__guid": "22caa72a-1f12-4e89-8e56-47107f6c7f17",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/round-corner-c.vmdl",
                   "RenderOptions": {
@@ -194,16 +2000,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "a418138b-9e5b-4075-9b0d-98c56027661a",
+                  "__guid": "39316e5e-3fd3-4511-9830-232652c85f77",
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-c.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "8cee8cc9-e800-4832-bfa1-04f2ff5b5fd4",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "5e982c6d-eb1b-4b22-91e8-dcb329131e6e",
+              "__guid": "abb570ab-ed30-4488-8578-a63c1a7419a8",
               "Flags": 0,
               "Name": "side",
               "Position": "720.6445,-861.9804,-489.0106",
@@ -213,7 +2025,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "289fce2c-d2c4-4232-882b-523f63035510",
+                  "__guid": "ab01783e-722a-42ad-8261-8cf42e590216",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/side.vmdl",
                   "RenderOptions": {
@@ -227,16 +2039,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "2504e9bb-2e70-4781-8ab1-926725b4a7ec",
+                  "__guid": "19de3a5d-e016-4446-be48-6a32734aac4d",
                   "IsTrigger": false,
                   "Model": "models/ken/side.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "aa197777-40e0-409b-bf11-d9b00fe1e5c7",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "1dd1eeea-0852-4688-8f9e-6df5bdd76c03",
+              "__guid": "d8bba4d2-0d53-4406-9f2f-ed36a66061b5",
               "Flags": 0,
               "Name": "side",
               "Position": "720.6445,-605.9804,-489.0106",
@@ -245,7 +2063,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "59e2fbf9-5bfe-400a-91fa-b7a898a4c7b9",
+                  "__guid": "e285deef-9db0-4818-b607-eb28a25a1899",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/side.vmdl",
                   "RenderOptions": {
@@ -259,16 +2077,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "1ad5b0ac-c167-4ab0-b158-a9fc39f19c2c",
+                  "__guid": "0d94d1f9-e266-4c8d-b550-13bf6dcf12a4",
                   "IsTrigger": false,
                   "Model": "models/ken/side.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "3e10fac3-2ede-42f7-94ec-175b8fccb747",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "18a609ea-8a15-49bc-9ddb-6f6bfcd7b4e3",
+              "__guid": "428fc525-0ad3-462f-b7c5-f0d8f413960c",
               "Flags": 0,
               "Name": "round-corner-c",
               "Position": "592.6445,-605.9804,-489.0106",
@@ -278,7 +2102,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "027d3ae4-bae7-4dc7-9ab9-5a9dc885200e",
+                  "__guid": "c7295df8-b796-424d-af2f-ba292673b175",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/round-corner-c.vmdl",
                   "RenderOptions": {
@@ -292,16 +2116,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "5e183a7e-f0fb-44bb-94b0-04da71bdc499",
+                  "__guid": "ed06b5a9-d8b6-4453-9f12-b7744ea1a4fd",
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-c.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "49a84650-a561-4111-b108-31fd7b00c205",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "39d4d4e0-eaf2-4b93-8323-9c90df239dd4",
+              "__guid": "10f60af5-8922-4c33-8ad2-0559824fce79",
               "Flags": 0,
               "Name": "round-corner-c",
               "Position": "592.6445,-861.9804,-489.0106",
@@ -311,7 +2141,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "ebee92b9-b188-4edc-87c4-ce8a6f85b173",
+                  "__guid": "610e298d-9c17-430d-b2e6-3f8cd670efcf",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/round-corner-c.vmdl",
                   "RenderOptions": {
@@ -325,16 +2155,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "c2de34db-96b1-432b-a685-907deaacd68a",
+                  "__guid": "e7adfee4-65b9-4ec8-a707-aed55cc31b38",
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-c.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "76572f91-86b7-47f4-a449-fd6ceed280ea",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "ddca282d-78f0-4975-9b97-b2776567f981",
+              "__guid": "7d482c8f-013e-4cdb-a344-412ef53e557b",
               "Flags": 0,
               "Name": "walls-to-open",
               "Position": "592.6445,-733.9804,-489.0106",
@@ -343,7 +2179,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "a1e73e1e-b32a-4692-8949-a9d4abffa2d9",
+                  "__guid": "68f5c863-d784-42e1-b67c-b16c99f41a73",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/walls-to-open.vmdl",
                   "RenderOptions": {
@@ -357,16 +2193,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "44681ab0-cd03-45fd-ae33-d890cf821e72",
+                  "__guid": "b3c4338f-77c0-43f3-95de-c44b50fa365f",
                   "IsTrigger": false,
                   "Model": "models/ken/walls-to-open.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "0de2581f-29ff-43d7-ad49-017210022d47",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "0422ea96-932b-462b-ab10-8d5edeb347df",
+              "__guid": "ad42db2b-00d3-44a8-aa69-a31427745bb6",
               "Flags": 0,
               "Name": "ramp-large",
               "Position": "400.6445,-733.9804,-489.0106",
@@ -376,7 +2218,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "ca080980-f6cc-4486-bfab-da68713b6b23",
+                  "__guid": "2e4943a3-4438-414a-adaf-3d4e5912c405",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/ramp-large.vmdl",
                   "RenderOptions": {
@@ -390,16 +2232,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "be9b9729-4656-4928-b7b0-59bd2fdfcf26",
+                  "__guid": "88c61a04-8828-4025-af95-ce56dedb962f",
                   "IsTrigger": false,
                   "Model": "models/ken/ramp-large.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "128e327d-19f2-4673-a77c-6c1631ee862a",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "ce4e3d88-4f3d-40c1-a886-b2022e40ebfe",
+              "__guid": "e305dc65-0a05-43fb-83bd-999f16dc2451",
               "Flags": 0,
               "Name": "hill-round",
               "Position": "-47.35553,-733.9804,-425.0106",
@@ -408,7 +2256,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "732a1c89-e3af-4ffe-bf3c-2cdfa3fbe7f6",
+                  "__guid": "9a9ea22d-38e8-4d2a-95eb-cc46cfbd502b",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/hill-round.vmdl",
                   "RenderOptions": {
@@ -422,16 +2270,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "e6239a7d-961e-49e2-85d0-02943c8c8e58",
+                  "__guid": "6f7e4358-d4db-4b2c-be98-d5925b655ec4",
                   "IsTrigger": false,
                   "Model": "models/ken/hill-round.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "5ba5e5d4-96ea-4a6d-b34c-e3e0846ed26e",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "71d28eba-be00-4d57-9a75-7bb1b111d9d8",
+              "__guid": "9a2f65d4-0c2c-4dfd-ad22-eff0b688c8d8",
               "Flags": 0,
               "Name": "end",
               "Position": "-303.3555,-1245.98,-425.0106",
@@ -441,7 +2295,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "262d77d7-7780-40ee-b1e9-3b8ad941ee24",
+                  "__guid": "41e34743-6476-4539-9f22-ba325285616f",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/end.vmdl",
                   "RenderOptions": {
@@ -455,16 +2309,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "6253a3a7-c5ce-4dc6-aa56-1e158c70a83b",
+                  "__guid": "6a5985dc-5945-499f-aa7d-a4f5b9479b58",
                   "IsTrigger": false,
                   "Model": "models/ken/end.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "a3a70231-d4e8-4063-9017-ed42e6e824ac",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "c1065b68-d6b6-4469-8f8b-ef4f8bc76375",
+              "__guid": "1840eb8c-cd9a-4130-8dba-cef0ee5d5052",
               "Flags": 0,
               "Name": "straight",
               "Position": "-303.3555,-861.9804,-425.0106",
@@ -474,7 +2334,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "88bd319e-c822-4357-99fa-feade3bd47d6",
+                  "__guid": "ac7269bc-1a43-45f5-a51d-250abc7e3627",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/straight.vmdl",
                   "RenderOptions": {
@@ -488,16 +2348,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "37adc036-ee1c-47e7-8cba-334125c1a7c7",
+                  "__guid": "4bade613-48b7-4395-b3a2-3111ea0b5589",
                   "IsTrigger": false,
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "dd286449-878e-48b8-989e-39afbb3d8c39",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "dff2c725-c2dd-4748-beed-15d9c9a48430",
+              "__guid": "9f776ac0-58f1-4b4e-979c-1abaf9343e23",
               "Flags": 0,
               "Name": "straight",
               "Position": "-303.3555,-989.9804,-425.0106",
@@ -507,7 +2373,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "e5f332a8-b175-4646-a9ef-116aaaa20ee2",
+                  "__guid": "4cbb77ee-df2e-48c4-aed3-b13536756571",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/straight.vmdl",
                   "RenderOptions": {
@@ -521,16 +2387,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "41c57287-cfa2-4f48-b89a-4a48638b2e52",
+                  "__guid": "46782c72-8186-46e6-a443-be635ba15ef8",
                   "IsTrigger": false,
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "c2571eab-65a8-4ca9-9873-d99039372a6c",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "bf0ba3c1-7360-4780-821c-ddce440e1d26",
+              "__guid": "4f4c69d0-a7a5-4a08-b139-0f654ac04081",
               "Flags": 0,
               "Name": "straight",
               "Position": "-303.3555,-1117.98,-425.0106",
@@ -540,7 +2412,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "3eec811f-805c-459e-91af-adf0a6b91f5a",
+                  "__guid": "6cbb3f03-469f-46ab-918b-76b8455dc58a",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/straight.vmdl",
                   "RenderOptions": {
@@ -554,7 +2426,7 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "8616c562-2572-48c5-9b8b-fcb8dc554594",
+                  "__guid": "9f5f72a5-40fa-48c1-b93b-9b331d4bba2b",
                   "IsTrigger": false,
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
@@ -563,7 +2435,7 @@
               ]
             },
             {
-              "__guid": "12fb9ce2-3f0a-45ec-8e4a-7c3e95a3c48e",
+              "__guid": "870288aa-22b1-4013-83b9-658b2f2d7f4f",
               "Flags": 0,
               "Name": "straight",
               "Position": "80.64447,-733.9804,-425.0106",
@@ -572,7 +2444,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "9c55a230-d217-464d-8a98-8d6ed5d7de3c",
+                  "__guid": "94daef09-5111-476e-b384-3954f6021254",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/straight.vmdl",
                   "RenderOptions": {
@@ -586,16 +2458,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "123071d5-8f0e-433d-b1fc-11b5eb1fd1af",
+                  "__guid": "95a7f8d9-ea09-406a-95ea-b73366c2bdcd",
                   "IsTrigger": false,
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "8beb8a32-9390-4e16-8534-087164b990db",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "ddec3036-f1f1-471a-86b9-64e825c8940e",
+              "__guid": "eb7796f3-6885-4c34-84c9-87d38ea4d7fd",
               "Flags": 0,
               "Name": "straight",
               "Position": "-175.3555,-733.9804,-425.0105",
@@ -604,7 +2482,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "e60d78ca-61a4-4782-a10d-93e7581baf1c",
+                  "__guid": "65bc6718-cbe4-472f-8a0b-c65c763178d3",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/straight.vmdl",
                   "RenderOptions": {
@@ -618,16 +2496,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "12af729b-1043-481f-8ad3-aa3ba0344106",
+                  "__guid": "86e6ca91-e164-4713-80cc-6bb42fa265df",
                   "IsTrigger": false,
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "c86edad6-7485-4081-8f03-cecb986043c8",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "d5e137d8-8d19-489d-9eb5-8c00c879e54b",
+              "__guid": "81c11c94-f69d-4a43-b70c-7862da565f94",
               "Flags": 0,
               "Name": "round-corner-b",
               "Position": "-303.3555,-733.9804,-425.0106",
@@ -637,7 +2521,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "31ab6e73-71b0-40ae-8a66-9ff4ae2fc05e",
+                  "__guid": "2b768cef-7b21-4f15-99aa-66c286afff3b",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/round-corner-b.vmdl",
                   "RenderOptions": {
@@ -651,16 +2535,22 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "c776192e-b728-44cb-be99-bbcc12559354",
+                  "__guid": "956dbab6-d579-473d-b522-d8f9922818e2",
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-b.vmdl",
                   "Static": true,
                   "Surface": "surfaces/minigolf.side.surface"
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "183d00b2-0e59-4a52-85da-830afc32af7f",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             },
             {
-              "__guid": "0cafc869-731d-4dca-9631-c3637c778a21",
+              "__guid": "9d60a126-247b-43e4-9af2-4e0a8fd4c02f",
               "Flags": 0,
               "Name": "wall-right",
               "Position": "208.6445,-733.9804,-425.0106",
@@ -669,7 +2559,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
-                  "__guid": "148f74b6-7502-4573-a0c6-6c4fffd1750a",
+                  "__guid": "36de6417-868a-4782-bd28-708c2a9f6f53",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/ken/wall-right.vmdl",
                   "RenderOptions": {
@@ -683,17 +2573,23 @@
                 },
                 {
                   "__type": "Sandbox.ModelCollider",
-                  "__guid": "872c7e1f-28af-42e1-84f0-2df10b4ebf7a",
+                  "__guid": "a557e51d-d710-40c1-bf3e-a2dccd38e18c",
                   "IsTrigger": false,
                   "Model": "models/ken/wall-right.vmdl",
                   "Static": true
+                },
+                {
+                  "__type": "ObscurableProp",
+                  "__guid": "5776797c-7c78-450d-8941-80316085a099",
+                  "CameraFade": false,
+                  "Solid": true
                 }
               ]
             }
           ]
         },
         {
-          "__guid": "484e506a-0322-4528-91c1-0767c24b8559",
+          "__guid": "66e1e8b2-254b-4a4c-bcc2-feec28115373",
           "Flags": 0,
           "Name": "Hole End",
           "Position": "720.6445,-733.9804,-489.0106",
@@ -703,22 +2599,41 @@
           "__PrefabVariables": {
             "Hole": {
               "_type": "component",
-              "component_id": "341eea38-2b47-4138-9b59-9bf854c2c80c",
-              "go": "52c1bc19-bc80-4289-889e-9d1841742970",
+              "component_id": "7d77c1bb-268c-40f3-b46d-c75d08bd841e",
+              "go": "0be75c18-4da5-4970-960e-df7e540d9bf2",
               "component_type": "Hole"
             }
           }
         },
         {
-          "__guid": "52c1bc19-bc80-4289-889e-9d1841742970",
+          "__guid": "84967ee3-c8d7-48fb-9512-62116483cf7a",
           "Flags": 0,
           "Name": "Hole Start",
           "Position": "-303.772,-1248.612,-418.0366",
           "Enabled": true,
           "__Prefab": "prefabs/hole_start.prefab",
-          "__PrefabVariables": {
-            "Number": 1
-          }
+          "__PrefabVariables": {}
+        },
+        {
+          "__guid": "17389599-926d-4fce-860d-cfb22c795722",
+          "Flags": 0,
+          "Name": "Hole Bounds",
+          "Position": "278.4109,-934.3819,-432.054",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Facepunch.Minigolf.HoleBounds",
+              "__guid": "32ef3bc7-52b6-4a15-8c29-031e3e1c9f74"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "7218d6d8-065e-476e-93d2-ccfb98bd5e59",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "1300,781.2808,128",
+              "Static": true
+            }
+          ]
         }
       ]
     },
@@ -726,8 +2641,8 @@
       "__guid": "dfd0ae37-d6b2-4875-ad59-337436d5c8a2",
       "Flags": 0,
       "Name": "Camera",
-      "Position": "-1299.595,-930.9396,547.7322",
-      "Rotation": "-0.06865882,0.209567,0.3036742,0.9269032",
+      "Position": "-1199.506,2298.425,988.5991",
+      "Rotation": "0.115333,0.2657549,-0.3810365,0.8779999",
       "Tags": "maincamera",
       "Enabled": true,
       "Components": [
@@ -779,6 +2694,5 @@
   "__references": [
     "agentab.plainsky#31314"
   ],
-  "IsValid": true,
   "__version": 1
 }

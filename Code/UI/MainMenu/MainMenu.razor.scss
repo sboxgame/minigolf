@@ -17,6 +17,12 @@ MainMenu
     height: 100%;
 }
 
+.center
+{
+    justify-content: center;
+    align-items: center;
+}
+
 .align-center
 {
     align-items: center;
@@ -32,6 +38,11 @@ label
     &.small
     {
         font-size: 16px;
+    }
+
+    &.thin
+    {
+        font-weight: 500;
     }
 
     &.tiny
@@ -238,6 +249,11 @@ row
 .padding
 {
     padding: 32px;
+}
+
+.padding-small
+{
+    padding: 10px;
 }
 
 .card

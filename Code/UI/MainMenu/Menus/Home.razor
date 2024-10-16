@@ -15,10 +15,7 @@
 
                 @foreach (var scene in ResourceLibrary.GetAll<SceneFile>().Where(x => x.ResourcePath.Contains("/courses/")))
                 {
-                    <div class="card column" onclick="@( () => OpenScene( scene ))">
-                        <label>@scene.Title</label>
-                        <label class="small">@scene.Description</label>
-                    </div>
+                    <CourseCard SceneFile=@scene />
                 }
             </div>
         </div>
