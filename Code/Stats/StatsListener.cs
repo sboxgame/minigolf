@@ -19,6 +19,7 @@ public sealed class StatsListener : Component,
 	void IGameEvent.OnGameOver()
 	{
 		Stats.Increment( $"total-par", Ball.Local.GetTotalPar() );
+		Stats.Increment( $"completion" );
 	}
 
 	void IGameEvent.OnGoal( Ball ball, HoleGoal goal )
