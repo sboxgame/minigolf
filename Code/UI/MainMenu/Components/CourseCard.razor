@@ -18,7 +18,7 @@
         {
             <div class="row grow-content">
                 <StatCard Name="Strokes" Stat="total_strokes-@Ident" />
-                <StatCard Name="Hole In Ones" Stat="hole-in-ones-@Ident" />
+                <StatCard Name="Average Par" Stat="total-par-@Ident", Fallback="DNF", Result=@StatResultType.Average />
                 <StatCard Name="Finished Holes" Stat="goals-@Ident" />
             </div>
         }

@@ -1,5 +1,12 @@
 namespace Facepunch.Minigolf;
 
+public enum StatResultType
+{
+	Value,
+	Max,
+	Average
+}
+
 public static class Stats
 {
 	/// <summary>
@@ -19,11 +26,19 @@ public static class Stats
 	/// </summary>
 	/// <param name="ident"></param>
 	/// <param name="useCourse"></param>
+	/// <param name="statType"></param>
 	/// <returns></returns>
-	public static int Get( string ident, bool useCourse = true )
+	public static int Get( string ident, bool useCourse = true, StatResultType statType = StatResultType.Value )
 	{
 		ident = ParseIdent( ident, useCourse );
-		return (int)Sandbox.Services.Stats.LocalPlayer.Get( ident ).Value;
+
+		var stat = Sandbox.Services.Stats.LocalPlayer.Get( ident );
+		return statType switch
+		{
+			 StatResultType.Max => (int)stat.Max,
+			 StatResultType.Average => (int)stat.Avg,
+			_ => (int)stat.Value
+		};
 	}
 
 	/// <summary>

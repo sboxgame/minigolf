@@ -3,11 +3,23 @@
 
 <root class="column padding-small center">
     <label class="tiny">@Name.ToUpperInvariant()</label>
-    <label>@Stats.Get( Stat, false )</label>
+    <label>@StatString</label>
 </root>
 
 @code
 {
     public string Name { get; set; }
+    public string Fallback { get; set; } = "0";
     public string Stat { get; set; }
+    public StatResultType Result { get; set; }
+
+    private string StatString
+    {
+        get
+        {
+            var stat = Stats.Get( Stat, false, Result );
+            if (stat < 1) return Fallback;
+            return $"{stat}";
+        }
+    }
 }
