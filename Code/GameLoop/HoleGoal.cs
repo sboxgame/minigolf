@@ -6,12 +6,6 @@ public sealed class HoleGoal : Component, Component.ITriggerListener
 	public Hole Hole => GetComponentInParent<Hole>();
 
 	/// <summary>
-	/// Particle for hole number
-	/// </summary>
-	[Property]
-	public LegacyParticleSystem Particles { get; set; }
-
-	/// <summary>
 	/// Maintain a list of balls, so we can confirm that they've been cupped after <see cref="CupTime"/>
 	/// </summary>
 	private Dictionary<Ball, RealTimeSince> balls { get; set; } = new();
@@ -44,13 +38,6 @@ public sealed class HoleGoal : Component, Component.ITriggerListener
 		whirl.IsSinking = false;
 
 		balls.Remove( ball );
-	}
-
-	protected override void OnStart()
-	{
-		var firstNum = Hole.Number % 10;
-		var secondNum = ( Hole.Number / 10 ) % 10;
-		Particles.SceneObject.SetControlPoint( 21, new Vector3( 0, secondNum, firstNum ) );
 	}
 
 	protected override void OnUpdate()
