@@ -51,8 +51,7 @@
           {
             "__type": "HoleGoal",
             "__guid": "ae29fc72-1d79-4039-bb87-24f0512c1774",
-            "CupTime": 0.25,
-            "Particles": null
+            "CupTime": 0.25
           }
         ]
       },
@@ -60,7 +59,7 @@
         "__guid": "c4162136-132b-4029-945c-7d08640b2fb5",
         "Flags": 0,
         "Name": "Top",
-        "Position": "0,0,96.20927",
+        "Position": "0,0,78.35519",
         "Tags": "particles",
         "Enabled": true,
         "Components": [
@@ -76,7 +75,7 @@
             "__guid": "14891389-6cad-4a85-9c4c-38ef30ff9b15",
             "Flags": 0,
             "Name": "World Panel #4",
-            "Position": "32,0,0",
+            "Position": "16,0,0",
             "Enabled": true,
             "Components": [
               {
@@ -85,7 +84,7 @@
                 "HorizontalAlign": "Center",
                 "InteractionRange": 1000,
                 "LookAtCamera": false,
-                "PanelSize": "1024,512",
+                "PanelSize": "512,512",
                 "RenderOptions": {
                   "GameLayer": true,
                   "OverlayLayer": false,
@@ -105,7 +104,7 @@
             "__guid": "a6abd8a6-2ecc-4f16-bf28-ee34a663dc3c",
             "Flags": 0,
             "Name": "World Panel #3",
-            "Position": "0,32,0",
+            "Position": "0,16,0",
             "Rotation": "0,0,0.7071068,0.7071068",
             "Enabled": true,
             "Components": [
@@ -115,7 +114,7 @@
                 "HorizontalAlign": "Center",
                 "InteractionRange": 1000,
                 "LookAtCamera": false,
-                "PanelSize": "1024,512",
+                "PanelSize": "512,512",
                 "RenderOptions": {
                   "GameLayer": true,
                   "OverlayLayer": false,
@@ -135,7 +134,7 @@
             "__guid": "b8453d62-1a86-47a5-b9bb-70f0dd793b8d",
             "Flags": 0,
             "Name": "World Panel #2",
-            "Position": "0,-32,0",
+            "Position": "0,-16,0",
             "Rotation": "0,-0,-0.7071068,0.7071068",
             "Enabled": true,
             "Components": [
@@ -145,7 +144,7 @@
                 "HorizontalAlign": "Center",
                 "InteractionRange": 1000,
                 "LookAtCamera": false,
-                "PanelSize": "1024,512",
+                "PanelSize": "512,512",
                 "RenderOptions": {
                   "GameLayer": true,
                   "OverlayLayer": false,
@@ -165,9 +164,8 @@
             "__guid": "d9437273-5038-4022-9f43-4bf1db0f4cc3",
             "Flags": 0,
             "Name": "World Panel #1",
-            "Position": "-32,0,0",
+            "Position": "-16,0,0",
             "Rotation": "-0,0,-1,-0.00000004371139",
-            "Tags": "particles",
             "Enabled": true,
             "Components": [
               {
@@ -176,7 +174,7 @@
                 "HorizontalAlign": "Center",
                 "InteractionRange": 1000,
                 "LookAtCamera": false,
-                "PanelSize": "1024,512",
+                "PanelSize": "512,512",
                 "RenderOptions": {
                   "GameLayer": true,
                   "OverlayLayer": false,
