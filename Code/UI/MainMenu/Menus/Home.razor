@@ -11,7 +11,7 @@
             <img src="/ui/minigolf_logo.png" class="logo" />
 
             <div class="column courses gap" style="width: 386px;">
-                <label class="title">Courses</label>
+                <label class="title">Pick a course</label>
 
                 @foreach (var scene in ResourceLibrary.GetAll<SceneFile>().Where(x => x.ResourcePath.Contains("/courses/")))
                 {
@@ -36,11 +36,6 @@
 
 @code
 {
-    void Quit()
-    {
-        Game.Close();
-    }
-
     void OpenScene( SceneFile scene )
     {
         Scene.Load( scene );

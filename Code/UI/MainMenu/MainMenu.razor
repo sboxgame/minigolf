@@ -23,7 +23,7 @@
 
             <div class="grow" />
 
-            <span class="button">
+            <span class="button" onclick="@(() => Quit())">
                 <i>power_settings_new</i>
                 <label class="small">Quit</label>
             </span>
@@ -33,7 +33,8 @@
 
 </root>
 
-@code {
+@code
+{
     public Friend Friend => new Friend( Game.SteamId );
 	public BaseMenu CurrentMenu => CurrentPanel as BaseMenu;
 
@@ -43,6 +44,15 @@
 	{
 		Navigate(url);
 	}
+
+    void Quit()
+    {
+        DialogModal.Show( 
+            "Are you sure you want to quit the game?", 
+            "Yes", "Cancel", 
+            () => Game.Close() 
+        );
+    }
 
 	public MainMenu()
 	{
