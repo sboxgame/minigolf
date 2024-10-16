@@ -14,8 +14,7 @@
 
         @if ( !Achievement.IsUnlocked && Achievement.HasProgression )
         {
-            @* var progress = Achievement.ProgressionFraction.Clamp(0, 1); *@
-            var progress = 0.66f;
+            var progress = Achievement.ProgressionFraction.Clamp(0, 1);
 
             <div class="column grow">
                 <div class="bar grow">
