@@ -1,25 +1,34 @@
 @namespace Facepunch.Minigolf.UI
 @inherits Panel
 
-<root class="column gap">
-    <label>@SceneFile.Title</label>
-    <label class="thin small">@SceneFile.Description</label>
+<root>
+    <div class="background" />
 
-    <div class="row gap">
-        <div class="stat padding-small column center">
-            <label class="tiny">STROKES</label>
-            <label>@Stats.Get($"total_strokes-{Ident}", false)</label>
-        </div>
+    <div class="main column gap">
+        <label>@SceneFile.Title</label>
+        <label class="thin small">@SceneFile.Description</label>
 
-        <div class="stat padding-small column center">
-            <label class="tiny">HOLE IN ONES</label>
-            <label>@Stats.Get($"hole-in-ones-{Ident}", false)</label>
-        </div>
+        <div class="row gap">
+            <div class="stat padding-small column center">
+                <label class="tiny">STROKES</label>
+                <label>@Stats.Get($"total_strokes-{Ident}", false)</label>
+            </div>
 
-        <div class="stat padding-small column center">
-            <label class="tiny">FINISHED HOLES</label>
-            <label>@Stats.Get($"goals-{Ident}", false)</label>
+            <div class="stat padding-small column center">
+                <label class="tiny">HOLE IN ONES</label>
+                <label>@Stats.Get($"hole-in-ones-{Ident}", false)</label>
+            </div>
+
+            <div class="stat padding-small column center">
+                <label class="tiny">FINISHED HOLES</label>
+                <label>@Stats.Get($"goals-{Ident}", false)</label>
+            </div>
         </div>
+    </div>
+
+    <div class="play absolute">
+        <i>play_circle_filled</i>
+        <label>PLAY</label>
     </div>
 </root>
 
@@ -27,5 +36,10 @@
 {
     public Course Course { get; set; }
     public SceneFile SceneFile { get; set; }
-    public string Ident => Course.ParseIdentFromSceneFile(SceneFile);
+    public string Ident => Course.ParseIdentFromSceneFile( SceneFile );
+
+    protected override void OnClick( MousePanelEvent e )
+    {
+        Scene.Load( SceneFile );
+    }
 }
