@@ -3,7 +3,7 @@
 
 <root class="@(Achievement.IsUnlocked ? "unlocked" : "") gap center">
     @{
-        var progress = /* Achievement.ProgressionFraction.Clamp(0, 1); */ 0.5f;
+        var progress = Achievement.ProgressionFraction.Clamp(0, 1);
     }
 
     @if ( !IsExpanded && !Achievement.IsUnlocked )
