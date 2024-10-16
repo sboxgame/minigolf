@@ -1,6 +1,4 @@
 using Facepunch.Minigolf.UI;
-using Sandbox;
-using Sandbox.Services;
 
 namespace Facepunch.Minigolf;
 
@@ -171,6 +169,13 @@ public partial class GameManager
 	{
 		State = GameState.EndOfGame;
 		Tell( "The game is over!" );
+		BroadcastEndGame();
+	}
+
+	[Broadcast( NetPermission.HostOnly )]
+	public void BroadcastEndGame()
+	{
+		IGameEvent.Post( x => x.OnGameOver() );
 	}
 
 	/// <summary>

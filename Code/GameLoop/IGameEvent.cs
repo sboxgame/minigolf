@@ -19,4 +19,9 @@ public interface IGameEvent : ISceneEvent<IGameEvent>
 	/// <param name="ball"></param>
 	/// <param name="goal"></param>
 	void OnGoal( Ball ball, HoleGoal goal ) { }
+
+	/// <summary>
+	/// Called when the game is over (on all clients)
+	/// </summary>
+	void OnGameOver() { }
 }

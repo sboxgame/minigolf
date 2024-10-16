@@ -16,6 +16,11 @@ public sealed class StatsListener : Component,
 		Stats.Increment( "total_strokes", 1, false );
 	}
 
+	void IGameEvent.OnGameOver()
+	{
+		Stats.Increment( $"total-par", Ball.Local.GetTotalPar() );
+	}
+
 	void IGameEvent.OnGoal( Ball ball, HoleGoal goal )
 	{
 		// We only want to increment stats if we're the ball owner
