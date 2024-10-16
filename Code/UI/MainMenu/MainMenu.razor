@@ -20,6 +20,13 @@
 				<img src="avatar:@Friend.Id" class="avatar" />
 				<label class="small">@Friend.Name</label>
 			</span>
+
+            <div class="grow" />
+
+            <span class="button">
+                <i>power_settings_new</i>
+                <label class="small">Quit</label>
+            </span>
 		</footer>
 
 	</main>
@@ -42,7 +49,6 @@
 		Current = this;
 
 		DefaultUrl = "/";
-
-		AddDestination("/", typeof(Home));
+		AddDestination( "/", typeof( Home ) );
 	}
 }

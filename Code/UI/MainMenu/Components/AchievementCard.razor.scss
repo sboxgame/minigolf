@@ -1,0 +1,49 @@
+$green: #16261c;
+$accent: #eda656;
+
+AchievementCard
+{
+    padding: 16px;
+    border-radius: 2px;
+    background-color: rgba( black, 0.3 );
+    transition: all 0.1s ease-out;
+    color: rgba( white, 0.95 );
+    flex-shrink: 0;
+
+    &.unlocked
+    {
+        background-color: rgba( $accent, 0.7 );
+    }
+
+    &:hover
+    {
+        background-color: rgba( black, 0.5 );
+        color: rgba( white, 1 );
+
+        &.unlocked
+        {
+            background-color: rgba( $accent, 0.8 );
+        }
+    }
+
+    .bar
+    {
+        position: relative;
+        background-color: rgba( black, 0.2 );
+        border-radius: 2px;
+        align-items: center;
+
+        > label
+        {
+            margin-left: 8px;
+        }
+    }
+
+    .bar-progress
+    {
+        position: absolute;
+        height: 100%;
+        border-radius: 2px;
+        background-color: rgba( $accent, 0.7 );
+    }
+}
