@@ -1,0 +1,13 @@
+@namespace Facepunch.Minigolf.UI
+@inherits Panel
+
+<root class="column padding-small center">
+    <label class="tiny">@Name.ToUpperInvariant()</label>
+    <label>@Stats.Get( Stat, false )</label>
+</root>
+
+@code
+{
+    public string Name { get; set; }
+    public string Stat { get; set; }
+}

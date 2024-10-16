@@ -9,20 +9,9 @@
         <label class="thin small">@SceneFile.Description</label>
 
         <div class="row gap">
-            <div class="stat padding-small column center">
-                <label class="tiny">STROKES</label>
-                <label>@Stats.Get($"total_strokes-{Ident}", false)</label>
-            </div>
-
-            <div class="stat padding-small column center">
-                <label class="tiny">HOLE IN ONES</label>
-                <label>@Stats.Get($"hole-in-ones-{Ident}", false)</label>
-            </div>
-
-            <div class="stat padding-small column center">
-                <label class="tiny">FINISHED HOLES</label>
-                <label>@Stats.Get($"goals-{Ident}", false)</label>
-            </div>
+            <StatCard Name="Strokes" Stat="total_strokes-@Ident" />
+            <StatCard Name="Hole In Ones" Stat="hole-in-ones-@Ident" />
+            <StatCard Name="Finished Holes" Stat="goals-@Ident" />
         </div>
     </div>
 
