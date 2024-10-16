@@ -35,5 +35,14 @@ public sealed class StatsListener : Component,
 			Stats.Increment( "hole-in-ones" );
 			Stats.Increment( $"hole-in-ones-{goal.Hole.Number}" );
 		}
+		else // Anything else that isn't a hole in one
+		{
+			var score = goal.Hole.Par - ball.GetCurrentPar();
+
+			// Record general scores, so we can give achievements for just general "birdies", "eagles", etc..
+			Stats.Increment( $"par-score-{score}", ball.GetCurrentPar(), false );
+			Stats.Increment( $"par-score-{score}", ball.GetCurrentPar() );
+			Stats.Increment( $"par-score-{goal.Hole.Number}-{score}", ball.GetCurrentPar() );
+		}
 	}
 }
