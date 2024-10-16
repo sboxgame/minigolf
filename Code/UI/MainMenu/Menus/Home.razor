@@ -22,10 +22,8 @@
 
         <div class="grow" />
 
-        <div class="column courses gap" style="width: 386px;">
-            <label class="title">My Achievements</label>
-
-            <div class="column gap scroll">
+        <div class="column courses gap" style="width: 386px; align-items: flex-end;">
+            <div class="column gap scroll" style="align-items: flex-end;">
                 @foreach ( var achievement in Sandbox.Services.Achievements.All.OrderBy( x => !x.IsUnlocked ) )
                 {
                     <AchievementCard Achievement=@achievement />

@@ -1,13 +1,31 @@
 $accent: #eda656;
 
+@import "/UI/_vars.scss";
+
 CourseCard
 {
     position: relative;
-    border-radius: 2px;
+    border-radius: $content-border;
     background-color: rgba( black, 0.3 );
     transition: all 0.1s ease-out;
     color: rgba( white, 0.95 );
     flex-shrink: 0;
+    overflow: hidden;
+
+    .circle
+    {
+        background-color: rgba( $accent, 0.5 );
+        border-radius: 2px;
+        padding: 4px 0px;
+    }
+
+    .grow-content
+    {
+        > *
+        {
+            flex-grow: 1;
+        }
+    }
 
     .main
     {
@@ -30,6 +48,7 @@ CourseCard
         transition: all 0.3s ease-in-out;
         background-color: rgba( $accent, 0.9 );
         pointer-events: none;
+        border-radius: $content-border;
     }
 
     &.unlocked

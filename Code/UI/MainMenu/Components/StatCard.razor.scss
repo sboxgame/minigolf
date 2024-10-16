@@ -1,6 +1,19 @@
+@import "/UI/_vars.scss";
+
+$stat-border: 4px;
+
 StatCard
 {
     background-color: rgba( black, 0.3 );
     border-radius: 2px;
-    flex-grow: 1;
+
+    &:first-child
+    {
+        border-radius: $stat-border 0px 0px $stat-border;
+    }
+
+    &:last-child
+    {
+        border-radius: 0px $stat-border $stat-border 0px;
+    }
 }

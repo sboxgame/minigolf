@@ -1,33 +1,56 @@
 @namespace Facepunch.Minigolf.UI
 @inherits Panel
 
-<root class="@(Achievement.IsUnlocked ? "unlocked" : "") gap">
-    <div class="column grow gap">
+<root class="@(Achievement.IsUnlocked ? "unlocked" : "") gap center">
+    @{
+        var progress = /* Achievement.ProgressionFraction.Clamp(0, 1); */ 0.5f;
+    }
+
+    @if ( !IsExpanded && !Achievement.IsUnlocked )
+    {
+        <div class="progress-background" style="height: @(progress * 100f)%" />
+    }
+
+    <div class="column grow">
         <div class="row align-center gap">
             <img src="@Achievement.Icon" style="width: 32px; height: 32px;" />
 
-            <div class="column">
-                <label class="small">@Achievement.Title</label>
-                <label class="tiny">@Achievement.Description</label>
+            <div class="@( IsExpanded ? "show" : "hide" )">
+                <div class="column">
+                    <label class="small">@Achievement.Title</label>
+                    <label class="tiny">@Achievement.Description</label>
+                </div>
             </div>
         </div>
 
-        @if ( !Achievement.IsUnlocked && Achievement.HasProgression )
-        {
-            var progress = Achievement.ProgressionFraction.Clamp(0, 1);
-
-            <div class="column grow">
-                <div class="bar grow">
-                    <div class="bar-progress" style="width: @(progress * 100f)%;" />
-                    <label class="tiny">@( progress * 100f)%</label>
+        <div class="@( IsExpanded ? "show" : "hide")">
+            @if (!Achievement.IsUnlocked && Achievement.HasProgression)
+            {
+                <div class="column grow">
+                    <div class="bar grow">
+                        <div class="bar-progress" style="width: @(progress * 100f)%;" />
+                        <label class="tiny">@(progress * 100f)%</label>
+                    </div>
                 </div>
-            </div>
-        }
-
+            }
+        </div>     
     </div>
 </root>
 
 @code
 {
     public Achievement Achievement { get; set; }
+
+    public bool StartExpanded { get; set; } = false;
+    public bool IsExpanded => StartExpanded || HasHovered;
+
+    public AchievementCard()
+    {
+        BindClass( "expanded", () => IsExpanded );
+    }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine( StartExpanded, Achievement, IsExpanded );
+    }
 }

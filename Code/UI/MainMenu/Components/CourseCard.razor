@@ -8,11 +8,21 @@
         <label>@SceneFile.Title</label>
         <label class="thin small">@SceneFile.Description</label>
 
-        <div class="row gap">
-            <StatCard Name="Strokes" Stat="total_strokes-@Ident" />
-            <StatCard Name="Hole In Ones" Stat="hole-in-ones-@Ident" />
-            <StatCard Name="Finished Holes" Stat="goals-@Ident" />
-        </div>
+        @if ( Played )
+        {
+            <div class="row gap-small grow-content">
+                <StatCard Name="Strokes" Stat="total_strokes-@Ident" />
+                <StatCard Name="Hole In Ones" Stat="hole-in-ones-@Ident" />
+                <StatCard Name="Finished Holes" Stat="goals-@Ident" />
+            </div>
+        }
+        else
+        {
+            <div class="row gap-small center circle">
+                <label class="small">You haven't played this course yet</label>
+            </div>
+        }
+
     </div>
 
     <div class="play absolute">
@@ -26,6 +36,8 @@
     public Course Course { get; set; }
     public SceneFile SceneFile { get; set; }
     public string Ident => Course.ParseIdentFromSceneFile( SceneFile );
+
+    public bool Played => Stats.Get( $"total_strokes-{Ident}", false ) > 0f;
 
     protected override void OnClick( MousePanelEvent e )
     {
