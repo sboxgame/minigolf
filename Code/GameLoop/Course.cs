@@ -1,4 +1,7 @@
 using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
+
+public record CourseInfo( string Ident, int Stars );
 
 /// <summary>
 /// A definition component for a course. This is most useful in a course's scene.
@@ -9,33 +12,18 @@ public sealed class Course : Component
 	/// <summary>
 	/// Singleton for the course
 	/// </summary>
-	public static Course Current { get; private set; }
+	private static Course Current { get; set; }
 
-	/// <summary>
-	/// What's the Course called?
-	/// </summary>
-	public string Title => Scene.Title;
-
-	/// <summary>
-	/// A short description for the Course
-	/// </summary>
-	public string Description => Scene.Description;
-	
-	/// <summary>
-	/// A collection of all of the holes
-	/// </summary>
-	public IEnumerable<Hole> Holes => Scene.GetAllComponents<Hole>();
-	
-	/// <summary>
-	/// How many holes does this course have
-	/// </summary>
-	public int HoleCount => Holes.Count();
+	public static CourseInfo CurrentInfo => new CourseInfo( Current.Ident, Current.Stars );
 
 	/// <summary>
 	/// A special name for the course, we use this to store stats.
 	/// </summary>
 	[Property] 
 	public string Ident { get; set; }
+
+	[Property, Range( 0, 5 )]
+	public int Stars { get; set; }
 
 	protected override void OnStart()
 	{
@@ -47,7 +35,7 @@ public sealed class Course : Component
 	/// </summary>
 	/// <param name="scene"></param>
 	/// <returns></returns>
-	public static string ParseIdentFromSceneFile( SceneFile scene )
+	public static CourseInfo GetCourseInfo( SceneFile scene )
 	{
 		foreach ( var go in scene.GameObjects )
 		{
@@ -61,13 +49,14 @@ public sealed class Course : Component
 						continue;
 					}
 
-
 					if ( !component.TryGetPropertyValue( "Ident", out var identNode ) )
 					{
 						continue;
 					}
 
-					return identNode.GetValue<string>();
+					var course = Json.FromNode<CourseInfo>( component );
+
+					return course;
 				}
 			}
 		}

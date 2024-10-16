@@ -14,9 +14,27 @@ CourseCard
 
     .circle
     {
-        background-color: rgba( $accent, 0.5 );
         border-radius: 2px;
-        padding: 4px 0px;
+        padding: 16px 0px;
+    }
+
+    i
+    {
+
+        &.inactive
+        {
+            opacity: 0.2;
+        }
+
+        &.active
+        {
+            opacity: 1;
+        }
+    }
+
+    .accent
+    {
+        background-color: rgba( $accent, 0.8 );
     }
 
     .grow-content
@@ -29,9 +47,8 @@ CourseCard
 
     .main
     {
-        transition: opacity 0.2s ease-out;
+        transition: all 0.4s ease-out;
         flex-grow: 1;
-        padding: 16px;
     }
 
     .absolute
@@ -44,11 +61,12 @@ CourseCard
         position: absolute;
         height: 100%;
         width: 100%;
-        transform: translateX(-50%) scaleX( 0 );
+        transform: translateY(0%) scaleY( 0 );
         transition: all 0.3s ease-in-out;
-        background-color: rgba( $accent, 0.9 );
+        background-color: rgba( $accent, 1 );
         pointer-events: none;
         border-radius: $content-border;
+        transform-origin: bottom;
     }
 
     &.unlocked
@@ -76,12 +94,11 @@ CourseCard
 
     &:hover
     {
-        color: rgba( darken( $accent, 0.5 ), 1 );
 
         .main
         {
-            opacity: 0;
-            filter: blur( 5px );
+            transition: all 1s ease-out;
+            transform: translateY(-100%) scaleY( 1 );
         }
 
         .play
@@ -97,7 +114,18 @@ CourseCard
 
         .background
         {
-            transform: translateX(0%) scaleX( 1 );
+            transform-origin: bottom;
+            transform: translateY(0) scaleY( 1 );
+        }
+    }
+
+    &:active
+    {
+        transform: translateY(2px) translateX(2px);
+
+        .background
+        {
+            transform-origin: bottom;
         }
     }
 }

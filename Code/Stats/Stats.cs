@@ -10,7 +10,7 @@ public static class Stats
 	/// <returns></returns>
 	public static string ParseIdent( string name, bool useCourse = true )
 	{
-		if ( useCourse ) return $"{name}-{Course.Current.Ident}";
+		if ( useCourse ) return $"{name}-{Course.CurrentInfo.Ident}";
 		return name;
 	}
 

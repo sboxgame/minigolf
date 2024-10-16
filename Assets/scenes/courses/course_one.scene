@@ -317,7 +317,7 @@
               "__guid": "4177022d-434c-41ec-8ecf-155dc2d38c4a",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "-191.8081,-900.0831,-425.012",
+              "Position": "-191.8081,-900.0829,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -349,7 +349,7 @@
               "__guid": "7d134bbe-f992-4045-bb84-60c86c952971",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "-63.80814,-900.0834,-425.012",
+              "Position": "-63.80814,-900.0831,-425.012",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -475,7 +475,7 @@
               "__guid": "7120f5f4-f05f-4fcf-a3bc-be038388a520",
               "Flags": 0,
               "Name": "hole-square",
-              "Position": "-319.8081,-900.0831,-425.012",
+              "Position": "-319.8081,-900.0829,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -752,7 +752,7 @@
               "__guid": "3ee7e3a2-c619-4a03-9064-ba55ca803032",
               "Flags": 0,
               "Name": "corner",
-              "Position": "-297.1039,-863.9982,-361.0106",
+              "Position": "-297.1039,-863.998,-361.0106",
               "Rotation": "-0.00000002980232,0.00000002980232,0.7071067,0.7071067",
               "Tags": "gridtile",
               "Enabled": true,
@@ -976,7 +976,7 @@
               "__guid": "8ef94b83-1466-4dba-b031-62890c7ac67c",
               "Flags": 0,
               "Name": "hill-corner",
-              "Position": "-169.104,-863.9982,-361.0106",
+              "Position": "-169.104,-863.998,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1007,7 +1007,7 @@
               "__guid": "7e0c3eb1-5400-4955-8bca-40f00ce4b4a4",
               "Flags": 0,
               "Name": "hole-square",
-              "Position": "-41.10403,-863.9982,-361.0106",
+              "Position": "-41.10403,-863.998,-361.0106",
               "Rotation": "0,0.00000004371139,0.9999999,0",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1039,7 +1039,7 @@
               "__guid": "e4b90a58-5815-4881-8210-69d23c098d03",
               "Flags": 0,
               "Name": "round-corner-a",
-              "Position": "86.89596,-863.9982,-361.0106",
+              "Position": "86.89596,-863.998,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1070,7 +1070,7 @@
               "__guid": "ecec3e97-a1ad-418b-90a1-0142329c4291",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "214.8959,-991.9982,-361.0106",
+              "Position": "214.8959,-991.998,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1101,7 +1101,7 @@
               "__guid": "2a8961e5-80fa-46c9-ba00-7a0049258012",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "86.89594,-991.9982,-361.0106",
+              "Position": "86.89594,-991.998,-361.0106",
               "Rotation": "0,0.00000004371139,0.9999999,0",
               "Tags": "gridtile",
               "Enabled": true,
@@ -2635,7 +2635,8 @@
         {
           "__type": "Course",
           "__guid": "dc5702ac-a305-48a2-ba59-7d22e5a37b8e",
-          "Ident": "sky"
+          "Ident": "sky",
+          "Stars": 2
         }
       ]
     }
