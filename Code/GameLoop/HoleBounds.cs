@@ -2,8 +2,7 @@ namespace Facepunch.Minigolf;
 
 public partial class HoleBounds : Component, Component.ITriggerListener
 {
-	[Property]
-	public Hole Hole { get; set; }
+	public Hole Hole => GetComponentInParent<Hole>();
 
 	void ITriggerListener.OnTriggerEnter( Collider other )
 	{
