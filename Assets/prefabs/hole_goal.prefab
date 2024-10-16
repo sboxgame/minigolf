@@ -41,6 +41,7 @@
             "Center": "0,0,0",
             "Height": 10,
             "IsTrigger": true,
+            "Points": [],
             "Radius": 8,
             "Radius2": 0,
             "Slices": 8,
@@ -51,29 +52,145 @@
             "__type": "HoleGoal",
             "__guid": "ae29fc72-1d79-4039-bb87-24f0512c1774",
             "CupTime": 0.25,
-            "Particles": {
-              "_type": "component",
-              "component_id": "fe9aed45-f375-49a8-a5ab-b35807fa3905",
-              "go": "c4162136-132b-4029-945c-7d08640b2fb5",
-              "component_type": "LegacyParticleSystem"
-            }
+            "Particles": null
           }
         ]
       },
       {
         "__guid": "c4162136-132b-4029-945c-7d08640b2fb5",
         "Flags": 0,
-        "Name": "Particle",
+        "Name": "Top",
+        "Position": "0,0,96.20927",
         "Tags": "particles",
         "Enabled": true,
         "Components": [
           {
-            "__type": "Sandbox.LegacyParticleSystem",
-            "__guid": "fe9aed45-f375-49a8-a5ab-b35807fa3905",
-            "ControlPoints": [],
-            "Looped": false,
-            "Particles": "particles/gameplay/flag_number/flag_number.vpcf",
-            "PlaybackSpeed": 1
+            "__type": "RotateOverTime",
+            "__guid": "5ae62bd6-0429-4a5d-a80a-37ca2504a166",
+            "Direction": "0,1,0",
+            "Speed": 10
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "14891389-6cad-4a85-9c4c-38ef30ff9b15",
+            "Flags": 0,
+            "Name": "World Panel #4",
+            "Position": "32,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.WorldPanel",
+                "__guid": "90e12a9e-446d-4a9c-ba59-4d93ae21a174",
+                "HorizontalAlign": "Center",
+                "InteractionRange": 1000,
+                "LookAtCamera": false,
+                "PanelSize": "1024,512",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderScale": 1,
+                "VerticalAlign": "Center"
+              },
+              {
+                "__type": "Sandbox.HoleNumberPanel",
+                "__guid": "f63c4728-792f-4786-b302-bc8573886fcc"
+              }
+            ]
+          },
+          {
+            "__guid": "a6abd8a6-2ecc-4f16-bf28-ee34a663dc3c",
+            "Flags": 0,
+            "Name": "World Panel #3",
+            "Position": "0,32,0",
+            "Rotation": "0,0,0.7071068,0.7071068",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.WorldPanel",
+                "__guid": "8c7e08d5-44b1-44b3-afb3-ce69f4d1e6e0",
+                "HorizontalAlign": "Center",
+                "InteractionRange": 1000,
+                "LookAtCamera": false,
+                "PanelSize": "1024,512",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderScale": 1,
+                "VerticalAlign": "Center"
+              },
+              {
+                "__type": "Sandbox.HoleNumberPanel",
+                "__guid": "a10b9bc9-07e2-45db-b93c-b3fd31242bfb"
+              }
+            ]
+          },
+          {
+            "__guid": "b8453d62-1a86-47a5-b9bb-70f0dd793b8d",
+            "Flags": 0,
+            "Name": "World Panel #2",
+            "Position": "0,-32,0",
+            "Rotation": "0,-0,-0.7071068,0.7071068",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.WorldPanel",
+                "__guid": "1381ab22-400d-4a3e-bd13-c9bc9201619b",
+                "HorizontalAlign": "Center",
+                "InteractionRange": 1000,
+                "LookAtCamera": false,
+                "PanelSize": "1024,512",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderScale": 1,
+                "VerticalAlign": "Center"
+              },
+              {
+                "__type": "Sandbox.HoleNumberPanel",
+                "__guid": "dc5607c0-39c6-4c87-b4a2-ac9da0c7e84e"
+              }
+            ]
+          },
+          {
+            "__guid": "d9437273-5038-4022-9f43-4bf1db0f4cc3",
+            "Flags": 0,
+            "Name": "World Panel #1",
+            "Position": "-32,0,0",
+            "Rotation": "-0,0,-1,-0.00000004371139",
+            "Tags": "particles",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.WorldPanel",
+                "__guid": "93376098-0f93-45a1-801b-d4aae7ada69b",
+                "HorizontalAlign": "Center",
+                "InteractionRange": 1000,
+                "LookAtCamera": false,
+                "PanelSize": "1024,512",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderScale": 1,
+                "VerticalAlign": "Center"
+              },
+              {
+                "__type": "Sandbox.HoleNumberPanel",
+                "__guid": "dcdf865b-368c-4b1b-a78f-1c1473ab4ce3"
+              }
+            ]
           }
         ]
       }
@@ -97,6 +214,5 @@
   "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
-  "IsValid": true,
   "__version": 1
 }

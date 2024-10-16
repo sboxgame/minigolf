@@ -1,0 +1,22 @@
+@using Sandbox;
+@using Sandbox.UI;
+
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+    @for ( int i = 0; i < 2; i++ )
+    {
+        <div class="title">@Hole.Number.ToString( "X2" )</div>
+    }
+</root>
+
+@code
+{
+    public Hole Hole => GetComponentInParent<Hole>();
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( Hole.Number );
+}
