@@ -252,6 +252,11 @@ row
     gap: 8px;
 }
 
+.gap-large 
+{
+    gap: 32px;
+}
+
 .padding
 {
     padding: 32px;
@@ -260,6 +265,11 @@ row
 .padding-small
 {
     padding: 10px;
+}
+
+.padding-header
+{
+    padding: 10px 32px;
 }
 
 .card

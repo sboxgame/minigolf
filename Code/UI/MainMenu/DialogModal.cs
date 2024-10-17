@@ -15,6 +15,7 @@ public partial class DialogModal
 
 		pnl.Text = text;
 
+
 		//
 		pnl.CancelText = cancelText;
 		pnl.OnCancel = cancelAction;

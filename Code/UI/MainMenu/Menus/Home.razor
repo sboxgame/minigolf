@@ -10,13 +10,16 @@
         <div class="column">
             <img src="/ui/minigolf_logo.png" class="logo" />
 
-            <div class="column courses gap" style="width: 386px;">
+            <div class="column gap-large" style="width: 386px;">
                 <label class="title">Pick a course</label>
 
-                @foreach (var scene in ResourceLibrary.GetAll<SceneFile>().Where(x => x.ResourcePath.Contains("/courses/")))
-                {
-                    <CourseCard SceneFile=@scene />
-                }
+                <div class="column gap">
+                    @foreach (var scene in ResourceLibrary.GetAll<SceneFile>().Where(x => x.ResourcePath.Contains("/courses/")))
+                    {
+                        <CourseCard SceneFile=@scene />
+                    }
+                </div>
+
             </div>
         </div>
 
@@ -40,4 +43,5 @@
     {
         Scene.Load( scene );
     }
+
 }

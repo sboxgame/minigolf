@@ -3,7 +3,7 @@
 
 <root>
     <div class="main column">
-        <div class="row padding accent">
+        <div class="row padding-header accent">
             <label>@SceneFile.Title</label>
             <div class="grow"/>
             <div class="gap center">
@@ -22,6 +22,7 @@
                 <StatCard Name="Finished Holes" Stat="goals-@Ident" />
             </div>
         }
+
         else
         {
             <div class="row gap-small center circle">
@@ -34,7 +35,7 @@
     <div class="background">
         <div class="play absolute">
             <i>play_circle_filled</i>
-            <label>PLAY</label>
+            <label>PLAY @SceneFile.Title.ToUpperInvariant()</label>
         </div>
     </div>
 
