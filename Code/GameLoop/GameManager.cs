@@ -65,6 +65,12 @@ public partial class GameManager : Component, Component.INetworkListener,
 		var player = playerGo.Components.Get<Ball>( true );
 		playerGo.NetworkSpawn( channel );
 
+		if ( Game.IsRunningInVR )
+		{
+			var vrPlayerGo = GameObject.Clone( "prefabs/vrplayer.prefab", new CloneConfig { Name = $"VR Player - {channel.DisplayName}", StartEnabled = true, Transform = startLocation } );
+			vrPlayerGo.NetworkSpawn( channel );
+		}
+
 		IPlayerEvent.Post( x => x.OnSpawned( player ) );
 	}
 

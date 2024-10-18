@@ -1,0 +1,188 @@
+{
+  "RootObject": {
+    "__guid": "aa8e1ec0-613c-443a-aaca-ccc1379012db",
+    "Flags": 0,
+    "Name": "vrplayer",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.VR.VRAnchor",
+        "__guid": "52938873-74a1-4ca2-88b4-3e1c90637131"
+      },
+      {
+        "__type": "VRGolfPlayer",
+        "__guid": "589e46fe-0a69-4c67-851a-5b2c7c75bec4",
+        "GolfPutter": {
+          "_type": "gameobject",
+          "go": "822d0e1e-0166-4c22-be0f-41db05f91222"
+        },
+        "Head": {
+          "_type": "gameobject",
+          "go": "9d527937-bcdb-4aa5-beba-c96f94e00d2e"
+        },
+        "PutterHead": {
+          "_type": "gameobject",
+          "go": "f147b5c9-5094-47c0-aaea-ead2466fb6c3"
+        }
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "9d527937-bcdb-4aa5-beba-c96f94e00d2e",
+        "Flags": 0,
+        "Name": "Head",
+        "Tags": "maincamera",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.CameraComponent",
+            "__guid": "d63760d9-6727-4839-856a-f2997b1d8073",
+            "BackgroundColor": "0.33333,0.46275,0.52157,1",
+            "ClearFlags": "All",
+            "FieldOfView": 60,
+            "IsMainCamera": true,
+            "Orthographic": false,
+            "OrthographicHeight": 1204,
+            "Priority": 1,
+            "RenderExcludeTags": "",
+            "RenderTags": "",
+            "TargetEye": "Both",
+            "Viewport": "0,0,1,1",
+            "ZFar": 10000,
+            "ZNear": 1
+          },
+          {
+            "__type": "Sandbox.VR.VRTrackedObject",
+            "__guid": "4a404d51-75b8-4cec-a6a7-fc708ce3498a",
+            "PoseSource": "Head",
+            "TrackingType": "All",
+            "UseRelativeTransform": false
+          },
+          {
+            "__type": "Sandbox.Voice",
+            "__guid": "217417a1-8ca3-4735-9302-4bdc2e45dc5c",
+            "Loopback": false,
+            "Mode": "AlwaysOn",
+            "MorphScale": 3,
+            "MorphSmoothTime": 0.1,
+            "PushToTalkInput": "voice",
+            "Volume": 1,
+            "WorldspacePlayback": false
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "20f3d652-b2da-41dc-a87b-b9fe7f7f7d3a",
+            "Flags": 0,
+            "Name": "headset",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "248a52de-3efc-4037-b5c4-77c090edd8e1",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/headset/headset.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "ShadowsOnly",
+                "Tint": "1,1,1,1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "42f56ebd-88e1-4372-9bdc-ba66ccd72ccd",
+        "Flags": 0,
+        "Name": "LeftHand",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.VR.VRTrackedObject",
+            "__guid": "2fa6f0a2-7d83-45cf-8655-836fa6c3481e",
+            "PoseSource": "LeftHand",
+            "TrackingType": "All",
+            "UseRelativeTransform": false
+          }
+        ]
+      },
+      {
+        "__guid": "91bc6cac-32b8-4956-aeec-f1a6a80f4e18",
+        "Flags": 0,
+        "Name": "RightHand",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.VR.VRTrackedObject",
+            "__guid": "21eef2ed-24d1-4335-a57c-18868a989dde",
+            "PoseSource": "RightHand",
+            "TrackingType": "All",
+            "UseRelativeTransform": false
+          }
+        ]
+      },
+      {
+        "__guid": "822d0e1e-0166-4c22-be0f-41db05f91222",
+        "Flags": 0,
+        "Name": "putter",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "1accfb29-dba0-495b-ba33-4b534b1099d1",
+            "BodyGroups": 18446744073709551615,
+            "CreateBoneObjects": true,
+            "Model": "models/gameplay/putter/putter.vmdl",
+            "Morphs": {},
+            "Parameters": {
+              "bools": {},
+              "ints": {},
+              "floats": {},
+              "vectors": {},
+              "rotations": {}
+            },
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "c6b8e687-6eaa-4411-94e3-fe14e4d6ec36",
+            "Flags": 4,
+            "Name": "root",
+            "Rotation": "0.4999999,0.4999999,0.4999999,0.5000002",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "f147b5c9-5094-47c0-aaea-ead2466fb6c3",
+                "Flags": 4,
+                "Name": "putter_head",
+                "Position": "0.000006805252,0.000006805252,28.54329",
+                "Enabled": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
