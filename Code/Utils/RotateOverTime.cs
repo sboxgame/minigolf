@@ -1,6 +1,6 @@
 using Sandbox;
 
-public sealed class RotateOverTime : Component
+public sealed class RotateOverTime : Component, Component.ExecuteInEditor
 {
 	[Property] public float Speed { get; set; } = 5f;
 	[Property] public Vector3 Direction { get; set; } = new( 1, 0, 0 );
