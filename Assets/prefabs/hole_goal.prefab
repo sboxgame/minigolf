@@ -72,123 +72,51 @@
         ],
         "Children": [
           {
-            "__guid": "14891389-6cad-4a85-9c4c-38ef30ff9b15",
+            "__guid": "d499a95b-7a7c-4c68-afe3-9455de516fcb",
             "Flags": 0,
-            "Name": "World Panel #4",
-            "Position": "16,0,0",
+            "Name": "Hole Number (1)",
+            "Position": "-32,0,0",
             "Enabled": true,
-            "Components": [
-              {
-                "__type": "Sandbox.WorldPanel",
-                "__guid": "90e12a9e-446d-4a9c-ba59-4d93ae21a174",
-                "HorizontalAlign": "Center",
-                "InteractionRange": 1000,
-                "LookAtCamera": false,
-                "PanelSize": "512,512",
-                "RenderOptions": {
-                  "GameLayer": true,
-                  "OverlayLayer": false,
-                  "BloomLayer": false,
-                  "AfterUILayer": false
-                },
-                "RenderScale": 1,
-                "VerticalAlign": "Center"
-              },
-              {
-                "__type": "Sandbox.HoleNumberPanel",
-                "__guid": "f63c4728-792f-4786-b302-bc8573886fcc"
-              }
-            ]
+            "__Prefab": "prefabs/hole_number.prefab",
+            "__PrefabVariables": {
+              "Color": "1,1,1,1"
+            }
           },
           {
-            "__guid": "a6abd8a6-2ecc-4f16-bf28-ee34a663dc3c",
+            "__guid": "16c735b5-ae0d-4133-a7eb-51517227418f",
             "Flags": 0,
-            "Name": "World Panel #3",
-            "Position": "0,16,0",
-            "Rotation": "0,0,0.7071068,0.7071068",
-            "Enabled": true,
-            "Components": [
-              {
-                "__type": "Sandbox.WorldPanel",
-                "__guid": "8c7e08d5-44b1-44b3-afb3-ce69f4d1e6e0",
-                "HorizontalAlign": "Center",
-                "InteractionRange": 1000,
-                "LookAtCamera": false,
-                "PanelSize": "512,512",
-                "RenderOptions": {
-                  "GameLayer": true,
-                  "OverlayLayer": false,
-                  "BloomLayer": false,
-                  "AfterUILayer": false
-                },
-                "RenderScale": 1,
-                "VerticalAlign": "Center"
-              },
-              {
-                "__type": "Sandbox.HoleNumberPanel",
-                "__guid": "a10b9bc9-07e2-45db-b93c-b3fd31242bfb"
-              }
-            ]
-          },
-          {
-            "__guid": "b8453d62-1a86-47a5-b9bb-70f0dd793b8d",
-            "Flags": 0,
-            "Name": "World Panel #2",
-            "Position": "0,-16,0",
+            "Name": "Hole Number (2)",
+            "Position": "0,32,0",
             "Rotation": "0,-0,-0.7071068,0.7071068",
             "Enabled": true,
-            "Components": [
-              {
-                "__type": "Sandbox.WorldPanel",
-                "__guid": "1381ab22-400d-4a3e-bd13-c9bc9201619b",
-                "HorizontalAlign": "Center",
-                "InteractionRange": 1000,
-                "LookAtCamera": false,
-                "PanelSize": "512,512",
-                "RenderOptions": {
-                  "GameLayer": true,
-                  "OverlayLayer": false,
-                  "BloomLayer": false,
-                  "AfterUILayer": false
-                },
-                "RenderScale": 1,
-                "VerticalAlign": "Center"
-              },
-              {
-                "__type": "Sandbox.HoleNumberPanel",
-                "__guid": "dc5607c0-39c6-4c87-b4a2-ac9da0c7e84e"
-              }
-            ]
+            "__Prefab": "prefabs/hole_number.prefab",
+            "__PrefabVariables": {
+              "Color": "1,0,0,1"
+            }
           },
           {
-            "__guid": "d9437273-5038-4022-9f43-4bf1db0f4cc3",
+            "__guid": "7a165711-0cc0-42ea-9ab7-0c5a3bcb0acb",
             "Flags": 0,
-            "Name": "World Panel #1",
-            "Position": "-16,0,0",
-            "Rotation": "-0,0,-1,-0.00000004371139",
+            "Name": "Hole Number (3)",
+            "Position": "0,-32,0",
+            "Rotation": "0,0,0.7071068,0.7071068",
             "Enabled": true,
-            "Components": [
-              {
-                "__type": "Sandbox.WorldPanel",
-                "__guid": "93376098-0f93-45a1-801b-d4aae7ada69b",
-                "HorizontalAlign": "Center",
-                "InteractionRange": 1000,
-                "LookAtCamera": false,
-                "PanelSize": "512,512",
-                "RenderOptions": {
-                  "GameLayer": true,
-                  "OverlayLayer": false,
-                  "BloomLayer": false,
-                  "AfterUILayer": false
-                },
-                "RenderScale": 1,
-                "VerticalAlign": "Center"
-              },
-              {
-                "__type": "Sandbox.HoleNumberPanel",
-                "__guid": "dcdf865b-368c-4b1b-a78f-1c1473ab4ce3"
-              }
-            ]
+            "__Prefab": "prefabs/hole_number.prefab",
+            "__PrefabVariables": {
+              "Color": "1,0,0,1"
+            }
+          },
+          {
+            "__guid": "acd735ef-4fa7-4e63-8475-ffb19246b30d",
+            "Flags": 0,
+            "Name": "Hole Number",
+            "Position": "32,0,0",
+            "Rotation": "0,0,1,-0.00000004371139",
+            "Enabled": true,
+            "__Prefab": "prefabs/hole_number.prefab",
+            "__PrefabVariables": {
+              "Color": "1,1,1,1"
+            }
           }
         ]
       }

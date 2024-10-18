@@ -1,5 +1,4 @@
 using System.Text.Json.Nodes;
-using System.Text.Json.Serialization;
 
 public record CourseInfo( string Ident, int Stars );
 

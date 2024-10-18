@@ -1,0 +1,58 @@
+{
+  "RootObject": {
+    "__guid": "acd735ef-4fa7-4e63-8475-ffb19246b30d",
+    "Flags": 0,
+    "Name": "hole_number",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Facepunch.Minigolf.HoleNumber",
+        "__guid": "8173a69a-0a18-4d4a-a1de-a16e3c82b20c",
+        "Renderer": {
+          "_type": "component",
+          "component_id": "215dd2f4-0a98-420e-9208-c31e08a2f1e7",
+          "go": "acd735ef-4fa7-4e63-8475-ffb19246b30d",
+          "component_type": "TextRenderer"
+        }
+      },
+      {
+        "__type": "Sandbox.TextRenderer",
+        "__guid": "215dd2f4-0a98-420e-9208-c31e08a2f1e7",
+        "BlendMode": "Lighten",
+        "Color": "1,1,1,1",
+        "FontFamily": "Fredoka One",
+        "FontSize": 106.55,
+        "FontWeight": 800,
+        "RenderOptions": {
+          "GameLayer": true,
+          "OverlayLayer": false,
+          "BloomLayer": false,
+          "AfterUILayer": false
+        },
+        "Scale": 0.14,
+        "Text": "01\t01",
+        "TextAlignment": "Center"
+      }
+    ],
+    "Children": [],
+    "__variables": [
+      {
+        "Id": "Color",
+        "Title": "Color",
+        "Targets": [
+          {
+            "Id": "215dd2f4-0a98-420e-9208-c31e08a2f1e7",
+            "Property": "Color"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
