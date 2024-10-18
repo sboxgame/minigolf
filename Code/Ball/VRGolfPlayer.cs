@@ -147,6 +147,9 @@ public sealed class VRGolfPlayer : Component
 		worldInput.MouseLeftPressed = PrimaryHand.Trigger.Value > 0.5f;
 	}
 
+	bool canRotate;
+	RealTimeSince timeSinceRotated;
+
 	protected override void OnFixedUpdate()
 	{
 		if ( !Ball.Local.IsValid() )
@@ -168,6 +171,28 @@ public sealed class VRGolfPlayer : Component
 		if ( Input.VR.RightHand.ButtonA.IsPressed )
 		{
 			RightDominant = true;
+		}
+
+		if ( canRotate )
+		{
+			if ( PrimaryHand.Joystick.Value.x > 0.5f )
+			{
+				WorldRotation *= Rotation.FromYaw( -30f );
+				canRotate = false;
+				timeSinceRotated = 0f;
+			}
+
+			if ( PrimaryHand.Joystick.Value.x < -0.5f )
+			{
+				WorldRotation *= Rotation.FromYaw( 30f );
+				canRotate = false;
+				timeSinceRotated = 0f;
+			}
+		}
+
+		if ( !canRotate && (timeSinceRotated > 0.5f || PrimaryHand.Joystick.Value.Length < 0.5f) )
+		{
+			canRotate = true;
 		}
 
 		GolfPutter.Transform.World = PrimaryHand.Transform;
