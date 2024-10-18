@@ -65,12 +65,12 @@ public sealed class VRGolfPlayer : Component
 				item.Destroy();
 			}
 
-			await Task.DelaySeconds( 1f );
+			await Task.DelaySeconds( 0.5f );
 
+			//Screen => World panel conversion needs me to re-enable the gameobjects? Idk it seems weird but this worked...
 			foreach ( var item in UIPanels )
 			{
 				item.Enabled = false;
-				await Task.Frame();
 				await Task.Frame();
 				item.Enabled = true;
 			}
