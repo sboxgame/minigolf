@@ -42,13 +42,18 @@ public sealed class VRGolfPlayer : Component
 			return;
 		}
 
+		if ( !Ball.Local.IsValid() )
+		{
+			MenuMode = true;
+		}
+
 		golfPutterRenderer = GolfPutter.GetComponent<SkinnedModelRenderer>();
 
 		if ( IsProxy )
 		{
 			Head.GetComponentInChildren<ModelRenderer>().RenderType = ModelRenderer.ShadowRenderType.On;
 		}
-		else
+		else if ( !MenuMode )
 		{
 			foreach ( var item in Scene.GetAll<ScreenPanel>() )
 			{
@@ -65,6 +70,7 @@ public sealed class VRGolfPlayer : Component
 			foreach ( var item in UIPanels )
 			{
 				item.Enabled = false;
+				await Task.Frame();
 				await Task.Frame();
 				item.Enabled = true;
 			}
@@ -104,8 +110,8 @@ public sealed class VRGolfPlayer : Component
 					item.WorldPosition = WorldPosition + WorldRotation.Forward * 39f + Vector3.Up * 39f;
 					var worldpanel = item.GetComponent<Sandbox.WorldPanel>();
 					worldpanel.PanelSize = new Vector2( 1024f, 512f );
-					worldpanel.RenderScale = 0.5f;
-					item.WorldRotation = WorldRotation * Rotation.FromPitch( -35f );
+					worldpanel.RenderScale = 1f;
+					item.WorldRotation = WorldRotation;
 				}
 			}
 
@@ -129,7 +135,7 @@ public sealed class VRGolfPlayer : Component
 
 		worldInput.Ray = inputRay;
 
-		if ( worldInput.Hovered.FindRootPanel() is Sandbox.UI.WorldPanel WP && WP.RayToLocalPosition( inputRay, out Vector2 pos, out float paneldistance ) )
+		if ( worldInput.Hovered.IsValid() && worldInput.Hovered.FindRootPanel() is Sandbox.UI.WorldPanel WP && WP.RayToLocalPosition( inputRay, out Vector2 pos, out float paneldistance ) )
 		{
 			Gizmo.Draw.Line( inputRay.Position, inputRay.Position + inputRay.Forward * paneldistance );
 		}
@@ -146,6 +152,7 @@ public sealed class VRGolfPlayer : Component
 		if ( !Ball.Local.IsValid() )
 		{
 			MenuMode = true;
+			return;
 		}
 
 		if ( IsProxy )
