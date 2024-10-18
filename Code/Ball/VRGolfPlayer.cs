@@ -32,9 +32,18 @@ public sealed class VRGolfPlayer : Component
 
 	List<GameObject> UIPanels { get; set; } = new List<GameObject>();
 
+	public bool MenuMode { get; set; }
+
 	protected override async void OnStart()
 	{
+		if ( !Game.IsRunningInVR )
+		{
+			DestroyGameObject();
+			return;
+		}
+
 		golfPutterRenderer = GolfPutter.GetComponent<SkinnedModelRenderer>();
+
 		if ( IsProxy )
 		{
 			Head.GetComponentInChildren<ModelRenderer>().RenderType = ModelRenderer.ShadowRenderType.On;
@@ -56,8 +65,6 @@ public sealed class VRGolfPlayer : Component
 			foreach ( var item in UIPanels )
 			{
 				item.Enabled = false;
-				await Task.Frame();
-				await Task.Frame();
 				await Task.Frame();
 				item.Enabled = true;
 			}
@@ -82,12 +89,25 @@ public sealed class VRGolfPlayer : Component
 			PutterPosition = GolfPutter.LocalPosition;
 			PutterRotation = GolfPutter.LocalRotation;
 
-			foreach ( var item in UIPanels )
+			if ( !MenuMode )
 			{
-				item.WorldPosition = PrimaryHand.Transform.Position;
-				item.WorldRotation = PrimaryHand.Transform.Rotation * Rotation.FromYaw( -90f * (RightDominant ? -1f : 1f) ) * Rotation.FromRoll( -90f * (RightDominant ? -1f : 1f) );
+				foreach ( var item in UIPanels )
+				{
+					item.WorldPosition = PrimaryHand.Transform.Position;
+					item.WorldRotation = PrimaryHand.Transform.Rotation * Rotation.FromYaw( -90f * (RightDominant ? -1f : 1f) ) * Rotation.FromRoll( -90f * (RightDominant ? -1f : 1f) );
+				}
 			}
-
+			else
+			{
+				foreach ( var item in UIPanels )
+				{
+					item.WorldPosition = WorldPosition + WorldRotation.Forward * 39f + Vector3.Up * 39f;
+					var worldpanel = item.GetComponent<Sandbox.WorldPanel>();
+					worldpanel.PanelSize = new Vector2( 1024f, 512f );
+					worldpanel.RenderScale = 0.5f;
+					item.WorldRotation = WorldRotation * Rotation.FromPitch( -35f );
+				}
+			}
 
 			GolfPutter.Transform.World = PrimaryHand.Transform;
 			GolfPutter.WorldRotation *= Rotation.FromPitch( 35f );
@@ -95,9 +115,40 @@ public sealed class VRGolfPlayer : Component
 		}
 	}
 
+	Sandbox.UI.WorldInput worldInput;
+
+	public void DoWorldInput()
+	{
+		if ( worldInput == null )
+		{
+			worldInput = new Sandbox.UI.WorldInput();
+			worldInput.Enabled = true;
+		}
+
+		var inputRay = new Ray( PrimaryHand.Transform.Position, PrimaryHand.Transform.Rotation.Forward );
+
+		worldInput.Ray = inputRay;
+
+		if ( worldInput.Hovered.FindRootPanel() is Sandbox.UI.WorldPanel WP && WP.RayToLocalPosition( inputRay, out Vector2 pos, out float paneldistance ) )
+		{
+			Gizmo.Draw.Line( inputRay.Position, inputRay.Position + inputRay.Forward * paneldistance );
+		}
+		else
+		{
+			Gizmo.Draw.Line( inputRay.Position, inputRay.Position + inputRay.Forward * 100f );
+		}
+
+		worldInput.MouseLeftPressed = PrimaryHand.Trigger.Value > 0.5f;
+	}
+
 	protected override void OnFixedUpdate()
 	{
-		if ( !Ball.Local.IsValid() || IsProxy )
+		if ( !Ball.Local.IsValid() )
+		{
+			MenuMode = true;
+		}
+
+		if ( IsProxy )
 		{
 			return;
 		}
@@ -114,6 +165,12 @@ public sealed class VRGolfPlayer : Component
 
 		GolfPutter.Transform.World = PrimaryHand.Transform;
 		GolfPutter.WorldRotation *= Rotation.FromPitch( 35f );
+
+		if ( MenuMode )
+		{
+			DoWorldInput();
+			return;
+		}
 
 		var currentFrameVelocity = PutterHead.WorldPosition - lastFramePosition;
 
