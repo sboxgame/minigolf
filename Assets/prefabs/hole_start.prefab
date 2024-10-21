@@ -22,6 +22,7 @@
           {
             "__type": "Sandbox.ModelRenderer",
             "__guid": "236cf0af-45f1-4fd8-bc23-fb9c8fad8cd5",
+            "__enabled": false,
             "BodyGroups": 18446744073709551615,
             "Model": "models/dev/box.vmdl",
             "RenderOptions": {

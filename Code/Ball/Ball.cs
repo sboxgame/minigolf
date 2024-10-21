@@ -17,6 +17,12 @@ public sealed class Ball : Component
 	public Rigidbody Rigidbody { get; set; }
 
 	/// <summary>
+	/// The ball's model
+	/// </summary>
+	[Property]
+	public ModelRenderer Renderer { get; set; }
+
+	/// <summary>
 	/// Controls for the ball
 	/// </summary>
 	[RequireComponent]

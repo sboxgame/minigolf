@@ -1,0 +1,9 @@
+{
+  "Title": "Gold",
+  "Description": null,
+  "Category": "Skins",
+  "Prefab": null,
+  "Skin": "materials/ballskins/gold/gold_golf_ball.vmat",
+  "__references": [],
+  "__version": 0
+}

@@ -13,7 +13,7 @@
         "Model": "models/golf_ball.vmdl",
         "RenderOptions": {
           "GameLayer": true,
-          "OverlayLayer": true,
+          "OverlayLayer": false,
           "BloomLayer": false,
           "AfterUILayer": false
         },
@@ -41,7 +41,8 @@
         "IsTrigger": false,
         "Radius": 1.51,
         "Static": false,
-        "Surface": "surfaces/minigolf.ball.surface"
+        "Surface": "surfaces/minigolf.ball.surface",
+        "SurfaceVelocity": "0,0,0"
       },
       {
         "__type": "Ball",
@@ -53,6 +54,12 @@
           "component_type": "HighlightOutline"
         },
         "PowerMultiplier": 2500,
+        "Renderer": {
+          "_type": "component",
+          "component_id": "6a98840a-f2fd-4e21-88b1-c99d338d7358",
+          "go": "476b1b4a-4184-4332-9e05-fd85af624ae2",
+          "component_type": "ModelRenderer"
+        },
         "SwingSound": "sounds/swing/minigolf.swing1.sound",
         "Trail": {
           "_type": "gameobject",
@@ -248,6 +255,28 @@
             "Looped": true,
             "Particles": "particles/gameplay/ball_circle/ball_circle.vpcf",
             "PlaybackSpeed": 1
+          }
+        ]
+      },
+      {
+        "__guid": "2840ce42-3822-4887-b1f9-693c66881955",
+        "Flags": 0,
+        "Name": "Cosmetics",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Facepunch.Minigolf.CosmeticController",
+            "__guid": "f9f91c95-b2f4-4b5b-94a3-d988604026e2",
+            "InitialResources": [
+              "cosmetics/baseball_cap.csmtc",
+              "cosmetics/hover_ball_skin.csmtc"
+            ],
+            "Renderer": {
+              "_type": "component",
+              "component_id": "6a98840a-f2fd-4e21-88b1-c99d338d7358",
+              "go": "476b1b4a-4184-4332-9e05-fd85af624ae2",
+              "component_type": "ModelRenderer"
+            }
           }
         ]
       }

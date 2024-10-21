@@ -5,5 +5,77 @@
 @inherits BaseMenu
 
 <root>
-	<label>Customize Menu</label>
+<div class="row" style="width: 100%; height: 100%; justify-content: flex-start; align-items: stretch;">
+        <div class="column">
+            <div class="column gap-large grow" style="width: 512px;">
+                <div class="column gap">
+
+                    @foreach ( var group in ResourceLibrary.GetAll<CosmeticResource>().GroupBy( x => x.Category ) )
+                    {
+                        <div class="column gap">
+                            <div>
+                                <label>@group.Key</label>
+                            </div>
+
+                            <div class="row gap" style="flex-wrap: wrap;">
+
+                                @foreach ( var item in group )
+                                {
+                                    <ButtonCard onclick="@( () => Toggle( item ) )">
+                                        <Main>
+                                            <label>@item.Title</label>
+                                        </Main>
+                                        <Overlay>
+                                            @( IsEquipped( item ) ? "Take Off" : "Wear" )
+                                        </Overlay>
+                                    </ButtonCard>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div class="grow" />
+
+                <ButtonCard onclick="@(() => Save())">
+                    <Main>
+                        Save
+                    </Main>
+                    <Overlay>
+                        Save
+                    </Overlay>
+                </ButtonCard>
+
+                <ButtonCard onclick="@(() => Reset())">
+                    <Main>
+                        Reset
+                    </Main>
+                    <Overlay>
+                        Reset
+                    </Overlay>
+                </ButtonCard>
+            </div>
+        </div>
+	</div>
 </root>
+
+@code
+{
+    private bool IsEquipped( CosmeticResource resource ) => CosmeticController.Local.Current.All.ContainsValue( resource );
+
+    public void Toggle( CosmeticResource resource )
+    {
+        var equipped = IsEquipped( resource );
+        CosmeticController.Local.Set( resource, !equipped );
+    }
+
+    void Save()
+    {
+        CosmeticController.Save();
+    }
+
+    void Reset()
+    {
+        CosmeticController.ClearSaved();
+    }
+}
