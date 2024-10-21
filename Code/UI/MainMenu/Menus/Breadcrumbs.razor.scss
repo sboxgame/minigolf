@@ -3,16 +3,19 @@ $green: #16261c;
 $text: #f4efec;
 $transition: all 150ms ease;
 
-Breadcrumbs {
+Breadcrumbs 
+{
     align-items: center;
     gap: 10px;
 
-    button {
+    button 
+    {
         padding: 5px 10px;
         border-radius: 5px;
         border: 1px solid transparent;
 
-        &:hover {
+        &:hover
+        {
             border: 1px solid $accent;
         }
     }

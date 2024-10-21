@@ -2751,6 +2751,18 @@
           "Viewport": "0,0,1,1",
           "ZFar": 10000,
           "ZNear": 10
+        },
+        {
+          "__type": "MainMenuCamera",
+          "__guid": "3413874c-e19f-4e19-a2ff-824848caac67",
+          "CustomizationMarker": {
+            "_type": "gameobject",
+            "go": "2c48e2be-1bcc-46cc-a0c8-833b053e24df"
+          },
+          "DefaultMarker": {
+            "_type": "gameobject",
+            "go": "5128a4c9-087b-4be3-bb08-454318ea384c"
+          }
         }
       ]
     },
@@ -2895,8 +2907,9 @@
         {
           "__guid": "26477a26-7898-4789-a552-2c98f6e3e40f",
           "Flags": 0,
-          "Name": "Cube",
+          "Name": "Ball",
           "Position": "-19.26855,-10.39832,15.35431",
+          "Rotation": "0,0,0.9914449,0.1305264",
           "Scale": "3,3,3",
           "Enabled": true,
           "Components": [
@@ -2913,6 +2926,21 @@
               },
               "RenderType": "On",
               "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Facepunch.Minigolf.CosmeticController",
+              "__guid": "a3c8a6c1-ef96-482b-894c-76f95fd2f3c4",
+              "InitialResources": [
+                "cosmetics/hover_ball_skin.csmtc",
+                "cosmetics/baseball_cap.csmtc"
+              ],
+              "Renderer": {
+                "_type": "component",
+                "component_id": "461c0687-b2ca-4548-a509-a39a4456cd12",
+                "go": "26477a26-7898-4789-a552-2c98f6e3e40f",
+                "component_type": "ModelRenderer"
+              },
+              "Update": false
             }
           ]
         }

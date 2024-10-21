@@ -15,7 +15,13 @@ public partial class CosmeticController : Component
 	/// </summary>
 	[Property] 
 	public List<CosmeticResource> InitialResources { get; set; }
-	
+
+	/// <summary>
+	/// Should we update the position?
+	/// </summary>
+	[Property]
+	public bool Update { get; set; } = true;
+
 	/// <summary>
 	/// Store previous position so we can get the direction
 	/// </summary>
@@ -23,8 +29,11 @@ public partial class CosmeticController : Component
 
 	protected override void OnStart()
 	{
-		// We don't care about parented transforms for this, since the ball rolls around
-		GameObject.Flags |= GameObjectFlags.Absolute;
+		if ( Update )
+		{
+			// We don't care about parented transforms for this, since the ball rolls around
+			GameObject.Flags |= GameObjectFlags.Absolute;
+		}
 
 		foreach ( var resource in InitialResources )
 		{
@@ -92,6 +101,9 @@ public partial class CosmeticController : Component
 
 	protected override void OnUpdate()
 	{
+		if ( !Update )
+			return;
+
 		WorldPosition = GameObject.Parent.WorldPosition;
 
 		var dir = WorldPosition - PreviousPosition;

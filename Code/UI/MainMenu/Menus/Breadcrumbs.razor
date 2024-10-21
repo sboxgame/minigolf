@@ -16,7 +16,14 @@
 	{
 		var crumb = crumbs[i];
 
-		<button onclick=@(() => GoTo(crumb.Url))>@crumb.Name</button>
+        <ButtonCard onclick=@(() => GoTo(crumb.Url))>
+            <Main>
+                @crumb.Name
+            </Main>
+            <Overlay>
+                <i>south</i>
+            </Overlay>
+        </ButtonCard>
 
 		if (i != crumbs.Count - 1)
 		{
@@ -36,7 +43,7 @@
 
 	public void GoTo(string url)
 	{
-		MainMenu.Current.GoTo(url);
+		MainMenu.Current.GoTo( url );
 	}
 
 	public List<(string Url, string Name)> GetCrumbs()
