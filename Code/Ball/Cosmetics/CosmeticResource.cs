@@ -16,6 +16,12 @@ public partial class CosmeticResource : GameResource
 	public string Description { get; set; }
 
 	/// <summary>
+	/// The cosmetic's category for UI
+	/// </summary>
+	[Property]
+	public string Category { get; set; }
+
+	/// <summary>
 	/// The prefab we'll spawn on the ball 
 	/// </summary>
 	[Property]

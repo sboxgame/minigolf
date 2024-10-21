@@ -10,14 +10,57 @@
         <div class="column">
             <div class="column gap-large" style="width: 386px;">
                 <label class="title">Get customizing!</label>
+
+                <div class="grow" />
+
+                <div class="column gap">
+
+                    @foreach ( var group in ResourceLibrary.GetAll<CosmeticResource>().GroupBy( x => x.Category ) )
+                    {
+                        <div class="row gap align-center">
+                            <div>
+                                <label>@group.Key</label>
+                            </div>
+
+                            @foreach ( var item in group )
+                            {
+                                <ButtonCard onclick="@( () => Toggle( item ) )">
+                                    <Main>
+                                        <label>@item.Title</label>
+                                    </Main>
+                                    <Overlay>
+                                        @( IsEquipped( item ) ? "Take Off" : "Wear" )
+                                    </Overlay>
+                                </ButtonCard>
+                            }
+                        </div>
+                    }
+                </div>
             </div>
         </div>
-
-        <div class="grow" />
-
-        <div class="column courses gap" style="width: 386px; align-items: flex-end;">
-            <label class="title">Right-hand side</label>
-        </div>
-
 	</div>
 </root>
+
+@code
+{
+    public List<CosmeticResource> Equipped { get; set; } = new();
+
+    public bool IsEquipped( CosmeticResource resource )
+    {
+        return Equipped.Contains( resource );
+    }
+
+    public void Toggle( CosmeticResource resource )
+    {
+        if ( IsEquipped( resource ) )
+        {
+            Equipped.Remove( resource );
+            CosmeticController.Local.Set( resource, false );
+        }
+        else
+        {
+            Equipped.Add( resource );
+            CosmeticController.Local.Set( resource, true );
+        }
+    }
+}

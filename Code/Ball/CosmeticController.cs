@@ -1,4 +1,4 @@
-using System.Security.Cryptography;
+using System.Collections.Generic;
 
 namespace Facepunch.Minigolf;
 
@@ -13,7 +13,7 @@ public partial class CosmeticController : Component
 	/// <summary>
 	/// A list of resources we'll spawn by default, for testing purposes.
 	/// </summary>
-	[Property] 
+	[Property]
 	public List<CosmeticResource> InitialResources { get; set; }
 
 	/// <summary>
@@ -23,21 +23,51 @@ public partial class CosmeticController : Component
 	public bool Update { get; set; } = true;
 
 	/// <summary>
+	/// What's our cosmetic setup?
+	/// </summary>
+	[ConVar( "cosmetics" )]
+	public static string Saved { get; set; } = "[]";
+
+	public static void SetSaved( List<CosmeticResource> resources )
+	{
+		Saved = Json.Serialize( resources );
+	}
+
+	public static void ClearSaved()
+	{
+		Saved = "[]";
+	}
+
+	/// <summary>
 	/// Store previous position so we can get the direction
 	/// </summary>
 	private Vector3 PreviousPosition { get; set; }
 
+	public static CosmeticController Local { get; set; }
+
 	protected override void OnStart()
 	{
+		if ( !IsProxy )
+			Local = this;
+
 		if ( Update )
 		{
 			// We don't care about parented transforms for this, since the ball rolls around
 			GameObject.Flags |= GameObjectFlags.Absolute;
 		}
 
-		foreach ( var resource in InitialResources )
+		try
 		{
-			Set( resource, true );
+			var listOf = Json.Deserialize<List<CosmeticResource>>( Saved );
+
+			foreach ( var resource in listOf )
+			{
+				Set( resource, true );
+			}
+		}
+		catch
+		{
+
 		}
 	}
 
@@ -62,6 +92,8 @@ public partial class CosmeticController : Component
 		if ( !active )
 		{
 			var instance = Find( resource );
+			Log.Info( $"active instance: {instance}" );
+
 			if ( instance.IsValid() )
 			{
 				instance.GameObject.Destroy();
@@ -90,6 +122,7 @@ public partial class CosmeticController : Component
 			if ( component.IsValid() )
 			{
 				component.Resource = resource;
+				Log.Info( $"Let's set the resource to {resource}" );
 			}
 		}
 

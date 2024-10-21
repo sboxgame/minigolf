@@ -2762,7 +2762,8 @@
           "DefaultMarker": {
             "_type": "gameobject",
             "go": "5128a4c9-087b-4be3-bb08-454318ea384c"
-          }
+          },
+          "LerpSpeed": 10
         }
       ]
     },

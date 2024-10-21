@@ -4,6 +4,13 @@
     "Flags": 0,
     "Name": "baseball_cap",
     "Enabled": true,
+    "Components": [
+      {
+        "__type": "Facepunch.Minigolf.CosmeticComponent",
+        "__guid": "a5177817-eb96-4bda-9e4b-40ab30aef346",
+        "Resource": "cosmetics/baseball_cap.csmtc"
+      }
+    ],
     "Children": [
       {
         "__guid": "0ca57692-f7f8-4b78-bb70-f3f6b62ec952",

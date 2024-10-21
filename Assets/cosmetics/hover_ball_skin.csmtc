@@ -1,6 +1,7 @@
 {
   "Title": "Hover Ball",
   "Description": null,
+  "Category": "Skins",
   "Prefab": null,
   "Skin": "materials/ballskins/hoverball/hover_golf_ball.vmat",
   "__references": [],

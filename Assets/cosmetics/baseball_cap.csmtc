@@ -1,10 +1,12 @@
 {
   "Title": "Baseball Cap",
   "Description": "A baseball cap",
+  "Category": "Hats",
   "Prefab": {
     "_type": "gameobject",
     "prefab": "cosmetics/baseball_cap.prefab"
   },
+  "Skin": null,
   "__references": [],
   "__version": 0
 }
