@@ -9,8 +9,6 @@
 
         <div class="column">
             <div class="column gap-large grow" style="width: 386px;">
-                <label class="title">Get customizing!</label>
-
                 <div class="column gap">
 
                     @foreach ( var group in ResourceLibrary.GetAll<CosmeticResource>().GroupBy( x => x.Category ) )
@@ -20,17 +18,20 @@
                                 <label>@group.Key</label>
                             </div>
 
-                            @foreach ( var item in group )
-                            {
-                                <ButtonCard class="grow" onclick="@( () => Toggle( item ) )">
-                                    <Main>
-                                        <label>@item.Title</label>
-                                    </Main>
-                                    <Overlay>
-                                        @( IsEquipped( item ) ? "Take Off" : "Wear" )
-                                    </Overlay>
-                                </ButtonCard>
-                            }
+                            <div class="row gap" style="flex-wrap: wrap;">
+
+                                @foreach ( var item in group )
+                                {
+                                    <ButtonCard onclick="@( () => Toggle( item ) )">
+                                        <Main>
+                                            <label>@item.Title</label>
+                                        </Main>
+                                        <Overlay>
+                                            @( IsEquipped( item ) ? "Take Off" : "Wear" )
+                                        </Overlay>
+                                    </ButtonCard>
+                                }
+                            </div>
                         </div>
                     }
                 </div>
@@ -61,7 +62,7 @@
 
 @code
 {
-    private bool IsEquipped( CosmeticResource resource ) => CosmeticController.Local.Current.All.Contains( resource );
+    private bool IsEquipped( CosmeticResource resource ) => CosmeticController.Local.Current.All.ContainsValue( resource );
 
     public void Toggle( CosmeticResource resource )
     {

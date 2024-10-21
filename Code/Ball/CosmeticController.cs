@@ -3,7 +3,7 @@ namespace Facepunch.Minigolf;
 public struct BallCosmetics
 {
 	public DateTimeOffset SavedAt { get; set; }
-	public HashSet<CosmeticResource> All { get; set; }
+	public Dictionary<string, CosmeticResource> All { get; set; }
 
 	public BallCosmetics()
 	{
@@ -69,7 +69,7 @@ public partial class CosmeticController : Component
 
 		foreach ( var resource in save.All )
 		{
-			Set( resource, true );
+			Set( resource.Value, true );
 		}
 	}
 
@@ -91,11 +91,11 @@ public partial class CosmeticController : Component
 	/// <param name="active"></param>
 	public void Set( CosmeticResource resource, bool active = true )
 	{
+		var instance = Find( resource );
+
 		if ( !active )
 		{
-			var instance = Find( resource );
-
-			Current.All.Remove( resource );
+			Current.All.Remove( resource.Category );
 
 			if ( instance.IsValid() )
 			{
@@ -110,6 +110,13 @@ public partial class CosmeticController : Component
 
 			return;
 		}
+
+		if ( instance.IsValid() )
+		{
+			instance.GameObject.Destroy();
+		}
+
+		Current.All.Remove( resource.Category );
 
 		if ( resource.Prefab.IsValid() )
 		{
@@ -133,7 +140,7 @@ public partial class CosmeticController : Component
 			Renderer.MaterialOverride = resource.Skin;
 		}
 
-		Current.All.Add( resource );
+		Current.All.Add( resource.Category, resource );
 	}
 
 	protected override void OnUpdate()
