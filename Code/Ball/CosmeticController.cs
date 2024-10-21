@@ -1,7 +1,27 @@
-using System.Collections.Generic;
-
 namespace Facepunch.Minigolf;
 
+public struct CosmeticsSave
+{
+	public DateTimeOffset SavedAt { get; set; }
+	public List<CosmeticResource> All { get; set; }
+
+	public CosmeticsSave()
+	{
+		SavedAt = DateTimeOffset.UtcNow;
+		All = new();
+	}
+
+	public CosmeticsSave( List<CosmeticResource> cosmetics )
+	{
+		SavedAt = DateTimeOffset.UtcNow;
+		All = cosmetics;
+	}
+}
+
+/// <summary>
+/// Controls cosmetics for the player. This can potentially exist anywhere. It'll target a <see cref="ModelRenderer"/> and apply everything there.
+/// It holds the saved cosmetics using <see cref="Saved"/>, and can be saved using <see cref="SetSaved(List{Facepunch.Minigolf.CosmeticResource})"/>
+/// </summary>
 public partial class CosmeticController : Component
 {
 	/// <summary>
@@ -9,12 +29,6 @@ public partial class CosmeticController : Component
 	/// </summary>
 	[Property]
 	public ModelRenderer Renderer { get; set; }
-
-	/// <summary>
-	/// A list of resources we'll spawn by default, for testing purposes.
-	/// </summary>
-	[Property]
-	public List<CosmeticResource> InitialResources { get; set; }
 
 	/// <summary>
 	/// Should we update the position?
@@ -28,27 +42,22 @@ public partial class CosmeticController : Component
 	[ConVar( "cosmetics" )]
 	public static string Saved { get; set; } = "[]";
 
-	public static void SetSaved( List<CosmeticResource> resources )
-	{
-		Saved = Json.Serialize( resources );
-	}
-
-	public static void ClearSaved()
-	{
-		Saved = "[]";
-	}
-
 	/// <summary>
 	/// Store previous position so we can get the direction
 	/// </summary>
 	private Vector3 PreviousPosition { get; set; }
 
+	/// <summary>
+	/// The local cosmetic controller
+	/// </summary>
 	public static CosmeticController Local { get; set; }
 
 	protected override void OnStart()
 	{
 		if ( !IsProxy )
+		{
 			Local = this;
+		}
 
 		if ( Update )
 		{
@@ -58,16 +67,15 @@ public partial class CosmeticController : Component
 
 		try
 		{
-			var listOf = Json.Deserialize<List<CosmeticResource>>( Saved );
+			var save = Json.Deserialize<CosmeticsSave>( Saved );
 
-			foreach ( var resource in listOf )
+			foreach ( var resource in save.All )
 			{
 				Set( resource, true );
 			}
 		}
 		catch
 		{
-
 		}
 	}
 
@@ -143,5 +151,22 @@ public partial class CosmeticController : Component
 		PreviousPosition = WorldPosition;
 
 		WorldRotation = Rotation.From( 0, Vector3.VectorAngle( dir ).yaw, 0 );
+	}
+
+	/// <summary>
+	/// Save a list of cosmetics
+	/// </summary>
+	/// <param name="save"></param>
+	public static void SetSaved( CosmeticsSave save )
+	{
+		Saved = Json.Serialize( save );
+	}
+
+	/// <summary>
+	/// Clear all cosmetics
+	/// </summary>
+	public static void ClearSaved()
+	{
+		Saved = default;
 	}
 }

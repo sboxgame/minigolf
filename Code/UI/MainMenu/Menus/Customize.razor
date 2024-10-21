@@ -8,10 +8,8 @@
 <div class="row" style="width: 100%; height: 100%; justify-content: flex-start; align-items: stretch;">
 
         <div class="column">
-            <div class="column gap-large" style="width: 386px;">
+            <div class="column gap-large grow" style="width: 386px;">
                 <label class="title">Get customizing!</label>
-
-                <div class="grow" />
 
                 <div class="column gap">
 
@@ -35,6 +33,17 @@
                             }
                         </div>
                     }
+
+                    <div class="grow"/>
+
+                    <ButtonCard onclick="@(() => Save())">
+                        <Main>
+                            Save
+                        </Main>
+                        <Overlay>
+                            Save
+                        </Overlay>
+                    </ButtonCard>
                 </div>
             </div>
         </div>
@@ -62,5 +71,10 @@
             Equipped.Add( resource );
             CosmeticController.Local.Set( resource, true );
         }
+    }
+
+    void Save()
+    {
+        CosmeticController.SetSaved( new CosmeticsSave( Equipped ) );
     }
 }
