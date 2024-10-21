@@ -20,4 +20,10 @@ public partial class CosmeticResource : GameResource
 	/// </summary>
 	[Property]
 	public GameObject Prefab { get; set; }
+
+	/// <summary>
+	/// We'll apply a skin if it exists
+	/// </summary>
+	[Property]
+	public Material Skin { get; set; }
 }

@@ -54,6 +54,12 @@
           "component_type": "HighlightOutline"
         },
         "PowerMultiplier": 2500,
+        "Renderer": {
+          "_type": "component",
+          "component_id": "6a98840a-f2fd-4e21-88b1-c99d338d7358",
+          "go": "476b1b4a-4184-4332-9e05-fd85af624ae2",
+          "component_type": "ModelRenderer"
+        },
         "SwingSound": "sounds/swing/minigolf.swing1.sound",
         "Trail": {
           "_type": "gameobject",
@@ -261,8 +267,15 @@
           {
             "__type": "Facepunch.Minigolf.CosmeticController",
             "__guid": "f9f91c95-b2f4-4b5b-94a3-d988604026e2",
+            "Ball": {
+              "_type": "component",
+              "component_id": "17a459ff-756b-4a1a-9a80-dd7b584d894c",
+              "go": "476b1b4a-4184-4332-9e05-fd85af624ae2",
+              "component_type": "Ball"
+            },
             "InitialResources": [
-              "cosmetics/baseball_cap.csmtc"
+              "cosmetics/baseball_cap.csmtc",
+              "cosmetics/hover_ball_skin.csmtc"
             ]
           }
         ]

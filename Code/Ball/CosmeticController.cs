@@ -54,23 +54,39 @@ public partial class CosmeticController : Component
 		{
 			var instance = Find( resource );
 			if ( instance.IsValid() )
+			{
 				instance.GameObject.Destroy();
+			}
+
+			// Clear the skin
+			if ( resource.Skin.IsValid() )
+			{
+				Ball.Renderer.MaterialOverride = null;
+			}
 
 			return;
 		}
 
-		var prefab = resource.Prefab.Clone( new CloneConfig()
+		if ( resource.Prefab.IsValid() )
 		{
-			Name = $"Ball Cosmetic ({resource.Title})",
-			Parent = GameObject,
-			Transform = new Transform(),
-			StartEnabled = true,
-		} );
+			var prefab = resource.Prefab.Clone( new CloneConfig()
+			{
+				Name = $"Ball Cosmetic ({resource.Title})",
+				Parent = GameObject,
+				Transform = new Transform(),
+				StartEnabled = true,
+			} );
 
-		var component = prefab.GetComponent<CosmeticComponent>();
-		if ( component.IsValid() )
+			var component = prefab.GetComponent<CosmeticComponent>();
+			if ( component.IsValid() )
+			{
+				component.Resource = resource;
+			}
+		}
+
+		if ( resource.Skin.IsValid() )
 		{
-			component.Resource = resource;
+			Ball.Renderer.MaterialOverride = resource.Skin;
 		}
 	}
 
