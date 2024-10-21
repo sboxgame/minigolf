@@ -44,6 +44,15 @@
                             Save
                         </Overlay>
                     </ButtonCard>
+
+                    <ButtonCard onclick="@(() => Reset())">
+                        <Main>
+                            Reset
+                        </Main>
+                        <Overlay>
+                            Reset
+                        </Overlay>
+                    </ButtonCard>
                 </div>
             </div>
         </div>
@@ -76,5 +85,15 @@
     void Save()
     {
         CosmeticController.SetSaved( new CosmeticsSave( Equipped ) );
+    }
+
+    void Reset()
+    {
+        CosmeticController.ClearSaved();
+
+        for ( int i = Equipped.Count() - 1; i >= 0; i-- )
+        {
+            Toggle( Equipped[i] );
+        }
     }
 }

@@ -5,16 +5,16 @@ public struct CosmeticsSave
 	public DateTimeOffset SavedAt { get; set; }
 	public List<CosmeticResource> All { get; set; }
 
-	public CosmeticsSave()
-	{
-		SavedAt = DateTimeOffset.UtcNow;
-		All = new();
-	}
-
 	public CosmeticsSave( List<CosmeticResource> cosmetics )
 	{
 		SavedAt = DateTimeOffset.UtcNow;
 		All = cosmetics;
+	}
+
+	public CosmeticsSave()
+	{
+		SavedAt = DateTimeOffset.UtcNow;
+		All = new();
 	}
 }
 
@@ -167,6 +167,6 @@ public partial class CosmeticController : Component
 	/// </summary>
 	public static void ClearSaved()
 	{
-		Saved = default;
+		Saved = Json.Serialize( new CosmeticsSave() );
 	}
 }
