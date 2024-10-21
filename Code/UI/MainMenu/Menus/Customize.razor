@@ -15,14 +15,14 @@
 
                     @foreach ( var group in ResourceLibrary.GetAll<CosmeticResource>().GroupBy( x => x.Category ) )
                     {
-                        <div class="row gap align-center">
+                        <div class="column gap">
                             <div>
                                 <label>@group.Key</label>
                             </div>
 
                             @foreach ( var item in group )
                             {
-                                <ButtonCard onclick="@( () => Toggle( item ) )">
+                                <ButtonCard class="grow" onclick="@( () => Toggle( item ) )">
                                     <Main>
                                         <label>@item.Title</label>
                                     </Main>
@@ -33,27 +33,27 @@
                             }
                         </div>
                     }
-
-                    <div class="grow"/>
-
-                    <ButtonCard onclick="@(() => Save())">
-                        <Main>
-                            Save
-                        </Main>
-                        <Overlay>
-                            Save
-                        </Overlay>
-                    </ButtonCard>
-
-                    <ButtonCard onclick="@(() => Reset())">
-                        <Main>
-                            Reset
-                        </Main>
-                        <Overlay>
-                            Reset
-                        </Overlay>
-                    </ButtonCard>
                 </div>
+
+                <div class="grow" />
+
+                <ButtonCard onclick="@(() => Save())">
+                    <Main>
+                        Save
+                    </Main>
+                    <Overlay>
+                        Save
+                    </Overlay>
+                </ButtonCard>
+
+                <ButtonCard onclick="@(() => Reset())">
+                    <Main>
+                        Reset
+                    </Main>
+                    <Overlay>
+                        Reset
+                    </Overlay>
+                </ButtonCard>
             </div>
         </div>
 	</div>
@@ -61,39 +61,21 @@
 
 @code
 {
-    public List<CosmeticResource> Equipped { get; set; } = new();
-
-    public bool IsEquipped( CosmeticResource resource )
-    {
-        return Equipped.Contains( resource );
-    }
+    private bool IsEquipped( CosmeticResource resource ) => CosmeticController.Local.Current.All.Contains( resource );
 
     public void Toggle( CosmeticResource resource )
     {
-        if ( IsEquipped( resource ) )
-        {
-            Equipped.Remove( resource );
-            CosmeticController.Local.Set( resource, false );
-        }
-        else
-        {
-            Equipped.Add( resource );
-            CosmeticController.Local.Set( resource, true );
-        }
+        var equipped = IsEquipped( resource );
+        CosmeticController.Local.Set( resource, !equipped );
     }
 
     void Save()
     {
-        CosmeticController.SetSaved( new CosmeticsSave( Equipped ) );
+        CosmeticController.Save();
     }
 
     void Reset()
     {
         CosmeticController.ClearSaved();
-
-        for ( int i = Equipped.Count() - 1; i >= 0; i-- )
-        {
-            Toggle( Equipped[i] );
-        }
     }
 }

@@ -2931,10 +2931,6 @@
             {
               "__type": "Facepunch.Minigolf.CosmeticController",
               "__guid": "a3c8a6c1-ef96-482b-894c-76f95fd2f3c4",
-              "InitialResources": [
-                "cosmetics/hover_ball_skin.csmtc",
-                "cosmetics/baseball_cap.csmtc"
-              ],
               "Renderer": {
                 "_type": "component",
                 "component_id": "461c0687-b2ca-4548-a509-a39a4456cd12",

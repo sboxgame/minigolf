@@ -1,17 +1,11 @@
 namespace Facepunch.Minigolf;
 
-public struct CosmeticsSave
+public struct BallCosmetics
 {
 	public DateTimeOffset SavedAt { get; set; }
-	public List<CosmeticResource> All { get; set; }
+	public HashSet<CosmeticResource> All { get; set; }
 
-	public CosmeticsSave( List<CosmeticResource> cosmetics )
-	{
-		SavedAt = DateTimeOffset.UtcNow;
-		All = cosmetics;
-	}
-
-	public CosmeticsSave()
+	public BallCosmetics()
 	{
 		SavedAt = DateTimeOffset.UtcNow;
 		All = new();
@@ -20,7 +14,7 @@ public struct CosmeticsSave
 
 /// <summary>
 /// Controls cosmetics for the player. This can potentially exist anywhere. It'll target a <see cref="ModelRenderer"/> and apply everything there.
-/// It holds the saved cosmetics using <see cref="Saved"/>, and can be saved using <see cref="SetSaved(List{Facepunch.Minigolf.CosmeticResource})"/>
+/// It holds the saved cosmetics using <see cref="Current"/>, and can be saved using <see cref="SetSaved(List{Facepunch.Minigolf.CosmeticResource})"/>
 /// </summary>
 public partial class CosmeticController : Component
 {
@@ -40,7 +34,12 @@ public partial class CosmeticController : Component
 	/// What's our cosmetic setup?
 	/// </summary>
 	[ConVar( "cosmetics" )]
-	public static string Saved { get; set; } = "[]";
+	public static string Serialized { get; set; } = "{}";
+
+	/// <summary>
+	/// The current save
+	/// </summary>
+	public BallCosmetics Current { get; set; }
 
 	/// <summary>
 	/// Store previous position so we can get the direction
@@ -57,6 +56,7 @@ public partial class CosmeticController : Component
 		if ( !IsProxy )
 		{
 			Local = this;
+			Current = Json.Deserialize<BallCosmetics>( Serialized );
 		}
 
 		if ( Update )
@@ -65,17 +65,11 @@ public partial class CosmeticController : Component
 			GameObject.Flags |= GameObjectFlags.Absolute;
 		}
 
-		try
-		{
-			var save = Json.Deserialize<CosmeticsSave>( Saved );
+		var save = Json.Deserialize<BallCosmetics>( Serialized );
 
-			foreach ( var resource in save.All )
-			{
-				Set( resource, true );
-			}
-		}
-		catch
+		foreach ( var resource in save.All )
 		{
+			Set( resource, true );
 		}
 	}
 
@@ -100,7 +94,8 @@ public partial class CosmeticController : Component
 		if ( !active )
 		{
 			var instance = Find( resource );
-			Log.Info( $"active instance: {instance}" );
+
+			Current.All.Remove( resource );
 
 			if ( instance.IsValid() )
 			{
@@ -130,7 +125,6 @@ public partial class CosmeticController : Component
 			if ( component.IsValid() )
 			{
 				component.Resource = resource;
-				Log.Info( $"Let's set the resource to {resource}" );
 			}
 		}
 
@@ -138,6 +132,8 @@ public partial class CosmeticController : Component
 		{
 			Renderer.MaterialOverride = resource.Skin;
 		}
+
+		Current.All.Add( resource );
 	}
 
 	protected override void OnUpdate()
@@ -156,10 +152,16 @@ public partial class CosmeticController : Component
 	/// <summary>
 	/// Save a list of cosmetics
 	/// </summary>
-	/// <param name="save"></param>
-	public static void SetSaved( CosmeticsSave save )
+	public static void Save()
 	{
-		Saved = Json.Serialize( save );
+		Serialized = Json.Serialize( Local.Current );
+	}
+
+	public void Clear()
+	{
+		GetComponentsInChildren<CosmeticComponent>()
+			.ToList()
+			.ForEach( x => x.Destroy() );
 	}
 
 	/// <summary>
@@ -167,6 +169,12 @@ public partial class CosmeticController : Component
 	/// </summary>
 	public static void ClearSaved()
 	{
-		Saved = Json.Serialize( new CosmeticsSave() );
+		if ( Local.IsValid() )
+		{
+			Local.Clear();
+		}
+
+		Local.Current = new BallCosmetics();
+		Save();
 	}
 }
