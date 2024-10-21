@@ -1,0 +1,10 @@
+{
+  "Title": "Baseball Cap",
+  "Description": "A baseball cap",
+  "Prefab": {
+    "_type": "gameobject",
+    "prefab": "cosmetics/baseball_cap.prefab"
+  },
+  "__references": [],
+  "__version": 0
+}
