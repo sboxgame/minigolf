@@ -2938,6 +2938,10 @@
                 "component_type": "ModelRenderer"
               },
               "Update": false
+            },
+            {
+              "__type": "MouseRotator",
+              "__guid": "9854ce26-698c-4b0c-9845-d80928419c15"
             }
           ]
         }
