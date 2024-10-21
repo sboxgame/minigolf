@@ -21,6 +21,24 @@
           "__type": "Facepunch.Minigolf.UI.MainMenuComponent",
           "__guid": "7d7b38bf-213b-48bc-bedc-9419e86e5a4b"
         }
+      ],
+      "Children": [
+        {
+          "__guid": "2c48e2be-1bcc-46cc-a0c8-833b053e24df",
+          "Flags": 0,
+          "Name": "Customization Marker",
+          "Position": "-2136.392,-1222.854,883.0732",
+          "Rotation": "0.01563397,0.08468258,-0.1808761,0.9797287",
+          "Enabled": true
+        },
+        {
+          "__guid": "5128a4c9-087b-4be3-bb08-454318ea384c",
+          "Flags": 0,
+          "Name": "Camera Marker",
+          "Position": "-3096.361,-287.0741,2170.934",
+          "Rotation": "-0.04159165,0.2926027,0.1344427,0.9458218",
+          "Enabled": true
+        }
       ]
     },
     {
@@ -109,7 +127,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/end.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -142,7 +161,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/ramp.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -175,7 +195,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/round-large-corner.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -213,7 +234,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/ramp-square.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -245,7 +267,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -277,7 +300,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -309,7 +333,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/split-t.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -342,7 +367,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/round-large-corner-open.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -375,7 +401,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/round-large-corner-open.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -408,7 +435,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/block.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -441,7 +469,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/block.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -473,7 +502,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/hole-round.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -505,7 +535,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/round-large-corner-open.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -538,7 +569,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/round-large-corner-open.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -571,7 +603,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/split-t.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -602,7 +635,8 @@
                   "__guid": "d7c8ae0c-9b49-43bc-af85-276f54bed866",
                   "IsTrigger": false,
                   "Model": "models/ken/support-bottom.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ViewBlocker",
@@ -637,7 +671,8 @@
                   "__guid": "d213aa81-49f7-47d1-aaec-bba1b8c30ed4",
                   "IsTrigger": false,
                   "Model": "models/ken/support-bottom.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ViewBlocker",
@@ -690,7 +725,8 @@
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "1300,781.2808,128",
-              "Static": true
+              "Static": true,
+              "SurfaceVelocity": "0,0,0"
             }
           ]
         }
@@ -746,7 +782,8 @@
                   "__guid": "3de18432-0054-45d2-8e96-4572ae13abf1",
                   "IsTrigger": false,
                   "Model": "models/ken/end.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -754,7 +791,7 @@
               "__guid": "d030e52c-a442-4446-8837-d5e7f0250a84",
               "Flags": 0,
               "Name": "corner",
-              "Position": "-297.1039,-863.9974,-361.0106",
+              "Position": "-297.1039,-863.9971,-361.0106",
               "Rotation": "-0.00000002980232,0.00000002980232,0.7071067,0.7071067",
               "Tags": "gridtile",
               "Enabled": true,
@@ -778,7 +815,8 @@
                   "__guid": "78b8646d-9c96-4bd5-ad22-f6d0d5cf1b2d",
                   "IsTrigger": false,
                   "Model": "models/ken/corner.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -810,7 +848,8 @@
                   "__guid": "2f7a546c-51ad-401d-b287-087b6fad0d44",
                   "IsTrigger": false,
                   "Model": "models/ken/ramp-large.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -842,7 +881,8 @@
                   "__guid": "810795e6-1fa7-4199-b4f1-567364a7706d",
                   "IsTrigger": false,
                   "Model": "models/ken/ramp-large.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -874,7 +914,8 @@
                   "__guid": "ea6e4357-edab-4ceb-a4b6-6c5ab67c2b08",
                   "IsTrigger": false,
                   "Model": "models/ken/ramp-large.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -906,7 +947,8 @@
                   "__guid": "e2660e7a-3891-4f28-97a7-63a1af45ce94",
                   "IsTrigger": false,
                   "Model": "models/ken/square-corner-a.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -938,7 +980,8 @@
                   "__guid": "6ebbb51d-4264-4b93-9ef1-ce55a7882d5e",
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-a.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -970,7 +1013,8 @@
                   "__guid": "e88494a0-c161-4596-b344-c14b98b14e43",
                   "IsTrigger": false,
                   "Model": "models/ken/wall-left.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -978,7 +1022,7 @@
               "__guid": "3ff8588b-b9c7-49db-ad09-b44301988033",
               "Flags": 0,
               "Name": "hill-corner",
-              "Position": "-169.104,-863.9974,-361.0106",
+              "Position": "-169.104,-863.9971,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1001,7 +1045,8 @@
                   "__guid": "2634e932-02b2-4961-832c-69e39febae06",
                   "IsTrigger": false,
                   "Model": "models/ken/hill-corner.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1009,7 +1054,7 @@
               "__guid": "d5b41e85-bc7c-4cfe-8e73-6cd2b9b6cdfb",
               "Flags": 0,
               "Name": "hole-square",
-              "Position": "-41.10403,-863.9974,-361.0106",
+              "Position": "-41.10403,-863.9971,-361.0106",
               "Rotation": "0,0.00000004371139,0.9999999,0",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1033,7 +1078,8 @@
                   "__guid": "a7136429-c90c-4a74-a177-bf101af3598d",
                   "IsTrigger": false,
                   "Model": "models/ken/hole-square.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1041,7 +1087,7 @@
               "__guid": "3aee6ff8-705c-4a5b-85a5-d49153e35d7c",
               "Flags": 0,
               "Name": "round-corner-a",
-              "Position": "86.89596,-863.9974,-361.0106",
+              "Position": "86.89596,-863.9971,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1064,7 +1110,8 @@
                   "__guid": "61de2e1e-28de-4495-b055-74e57fcb42a1",
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-a.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1072,7 +1119,7 @@
               "__guid": "cdce4061-daeb-4858-8ab2-0fcd76be4764",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "214.8959,-991.9974,-361.0106",
+              "Position": "214.8959,-991.9971,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1095,7 +1142,8 @@
                   "__guid": "238c72b0-0a23-497b-92b8-266295e06100",
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-b.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1103,7 +1151,7 @@
               "__guid": "d2b90636-48a3-4219-ac05-ae97a0940fab",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "86.89594,-991.9974,-361.0106",
+              "Position": "86.89594,-991.9971,-361.0106",
               "Rotation": "0,0.00000004371139,0.9999999,0",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1127,7 +1175,8 @@
                   "__guid": "690f9175-4fab-4319-bc7f-910ad4325fb1",
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-b.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             }
@@ -1176,7 +1225,8 @@
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "680.7999,673.2005,275.04",
-              "Static": true
+              "Static": true,
+              "SurfaceVelocity": "0,0,0"
             }
           ]
         }
@@ -1232,7 +1282,8 @@
                   "__guid": "1963f979-9bf9-4f50-a014-626162fc0f39",
                   "IsTrigger": false,
                   "Model": "models/ken/end.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1264,7 +1315,8 @@
                   "__guid": "ea1b9676-41a9-4f3e-805f-e08c5190fbd1",
                   "IsTrigger": false,
                   "Model": "models/ken/split-t.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1295,7 +1347,8 @@
                   "__guid": "52e78bd8-99c7-4776-9d02-8afaf78fe8fd",
                   "IsTrigger": false,
                   "Model": "models/ken/split-start.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1327,7 +1380,8 @@
                   "__guid": "b0c39dba-1d3f-48a7-9c7b-ea4e3f0afc42",
                   "IsTrigger": false,
                   "Model": "models/ken/crest.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1359,7 +1413,8 @@
                   "__guid": "639e9ef5-2d74-49bc-a4fb-5a0d4523905b",
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-a.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1390,7 +1445,8 @@
                   "__guid": "6cc659ea-a4e2-42a0-869f-d53ada3002dd",
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-a.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1422,7 +1478,8 @@
                   "__guid": "04dfa287-e67b-4be4-b3d4-58f216294cf0",
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-a.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1454,7 +1511,8 @@
                   "__guid": "705f5f73-7110-4c16-b30c-61fe88c7fde4",
                   "IsTrigger": false,
                   "Model": "models/ken/crest.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1462,7 +1520,7 @@
               "__guid": "8eb46311-5e97-467e-9a19-bf9e6124a549",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "-191.8081,-900.0823,-425.012",
+              "Position": "-191.8081,-900.082,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1486,7 +1544,8 @@
                   "__guid": "b04be3fa-a1c2-4b0b-a914-d37990e73af4",
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-b.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1494,7 +1553,7 @@
               "__guid": "15a9c600-2333-42bd-a032-8c34ab4aec78",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "-63.80814,-900.0826,-425.012",
+              "Position": "-63.80814,-900.0823,-425.012",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1517,7 +1576,8 @@
                   "__guid": "412d1323-16c1-46ef-997b-b214afde57ed",
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-b.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1549,7 +1609,8 @@
                   "__guid": "7a6908bc-caf9-47ef-8a92-e0a1734aa6d6",
                   "IsTrigger": false,
                   "Model": "models/ken/bump-walls.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1580,7 +1641,8 @@
                   "__guid": "1f1896fc-bc24-4e93-b894-80fbc4b3d1ee",
                   "IsTrigger": false,
                   "Model": "models/ken/split-t.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1612,7 +1674,8 @@
                   "__guid": "b6d0474e-9ca4-485a-a490-2ab8414197c4",
                   "IsTrigger": false,
                   "Model": "models/ken/square-corner-a.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1620,7 +1683,7 @@
               "__guid": "c1900339-de38-4475-a7ca-7b76b2bc116d",
               "Flags": 0,
               "Name": "hole-square",
-              "Position": "-319.8081,-900.0823,-425.012",
+              "Position": "-319.8081,-900.082,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1644,7 +1707,8 @@
                   "__guid": "c731231c-9a1b-417d-89b7-5be25632e7e2",
                   "IsTrigger": false,
                   "Model": "models/ken/hole-square.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1676,7 +1740,8 @@
                   "__guid": "37a01bed-807e-4a1c-a29d-a1270e3d63ad",
                   "IsTrigger": false,
                   "Model": "models/ken/support.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ViewBlocker",
@@ -1712,7 +1777,8 @@
                   "__guid": "c29494be-2e4e-4c84-9c5f-66d2f3ad79da",
                   "IsTrigger": false,
                   "Model": "models/ken/gap.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -1744,7 +1810,8 @@
                   "__guid": "0e79bc70-3ea1-436e-825f-fe36f3341405",
                   "IsTrigger": false,
                   "Model": "models/ken/supports.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ViewBlocker",
@@ -1780,7 +1847,8 @@
                   "__guid": "70d16248-9802-44bb-922c-f6b2bb17b32f",
                   "IsTrigger": false,
                   "Model": "models/ken/block.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ViewBlocker",
@@ -1833,7 +1901,8 @@
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "680.7999,673.2005,275.04",
-              "Static": true
+              "Static": true,
+              "SurfaceVelocity": "0,0,0"
             }
           ]
         }
@@ -1888,7 +1957,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/hole-square.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -1927,7 +1997,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/side.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -1965,7 +2036,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-c.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2004,7 +2076,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-c.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2043,7 +2116,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/side.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2081,7 +2155,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/side.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2120,7 +2195,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-c.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2159,7 +2235,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-c.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2197,7 +2274,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/walls-to-open.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2236,7 +2314,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/ramp-large.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2274,7 +2353,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/hill-round.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2313,7 +2393,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/end.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2352,7 +2433,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2391,7 +2473,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2430,7 +2513,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 }
               ]
             },
@@ -2462,7 +2546,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2500,7 +2585,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/straight.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2539,7 +2625,8 @@
                   "IsTrigger": false,
                   "Model": "models/ken/round-corner-b.vmdl",
                   "Static": true,
-                  "Surface": "surfaces/minigolf.side.surface"
+                  "Surface": "surfaces/minigolf.side.surface",
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2576,7 +2663,8 @@
                   "__guid": "a557e51d-d710-40c1-bf3e-a2dccd38e18c",
                   "IsTrigger": false,
                   "Model": "models/ken/wall-right.vmdl",
-                  "Static": true
+                  "Static": true,
+                  "SurfaceVelocity": "0,0,0"
                 },
                 {
                   "__type": "ObscurableProp",
@@ -2631,7 +2719,8 @@
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "1300,781.2808,128",
-              "Static": true
+              "Static": true,
+              "SurfaceVelocity": "0,0,0"
             }
           ]
         }
@@ -2662,6 +2751,170 @@
           "Viewport": "0,0,1,1",
           "ZFar": 10000,
           "ZNear": 10
+        }
+      ]
+    },
+    {
+      "__guid": "809c33fd-5e82-4db9-a29a-486fc46d1693",
+      "Flags": 0,
+      "Name": "Customization Stage",
+      "Position": "-1836.731,-1109.602,636.9054",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "166c8356-dee6-48c5-a51a-dc55a92dd481",
+          "Flags": 0,
+          "Name": "corner",
+          "Position": "-83.26855,-74.39832,3.094604",
+          "Rotation": "0,0.00000004371139,0.9999999,0",
+          "Tags": "gridtile",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "bbe85919-87ce-4525-ba75-3da3a42da20c",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/ken/corner.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "7076e063-1364-4691-b436-8d74276c1341",
+              "IsTrigger": false,
+              "Model": "models/ken/corner.vmdl",
+              "Static": true,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "ce7c3fb0-b08f-4fcd-ba71-6d67e34626df",
+          "Flags": 0,
+          "Name": "corner",
+          "Position": "44.73145,-74.39832,3.094604",
+          "Rotation": "0.00000005960464,0.00000005960464,-0.7071068,0.7071068",
+          "Tags": "gridtile",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "38f0adc4-27d2-43c9-9e52-879422020639",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/ken/corner.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "c4623ac6-6f65-420a-8268-c9d528af4f50",
+              "IsTrigger": false,
+              "Model": "models/ken/corner.vmdl",
+              "Static": true,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "efe47e22-ecfa-474a-9810-f81075949745",
+          "Flags": 0,
+          "Name": "corner",
+          "Position": "44.73145,53.60168,3.094604",
+          "Tags": "gridtile",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "bf70dfe2-8763-4085-8294-7994012d1deb",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/ken/corner.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "d8d56898-e0dc-49fc-b383-e94e9f3f281d",
+              "IsTrigger": false,
+              "Model": "models/ken/corner.vmdl",
+              "Static": true,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "fdb9fa59-6e81-4a05-acb8-c712ec2964a8",
+          "Flags": 0,
+          "Name": "corner",
+          "Position": "-83.26855,53.60168,3.094604",
+          "Rotation": "-0.00000002980232,0.00000002980232,0.7071067,0.7071067",
+          "Tags": "gridtile",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "56c09a89-cfd6-44c5-8de5-d652ef604c9c",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/ken/corner.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "2447333e-24af-48ad-b149-186296ce94fe",
+              "IsTrigger": false,
+              "Model": "models/ken/corner.vmdl",
+              "Static": true,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "26477a26-7898-4789-a552-2c98f6e3e40f",
+          "Flags": 0,
+          "Name": "Cube",
+          "Position": "-19.26855,-10.39832,15.35431",
+          "Scale": "3,3,3",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "461c0687-b2ca-4548-a509-a39a4456cd12",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/golf_ball.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
         }
       ]
     }

@@ -5,10 +5,10 @@ namespace Facepunch.Minigolf;
 public partial class CosmeticController : Component
 {
 	/// <summary>
-	/// The ball
+	/// The model we're editing
 	/// </summary>
 	[Property]
-	public Ball Ball { get; set; }
+	public ModelRenderer Renderer { get; set; }
 
 	/// <summary>
 	/// A list of resources we'll spawn by default, for testing purposes.
@@ -61,7 +61,7 @@ public partial class CosmeticController : Component
 			// Clear the skin
 			if ( resource.Skin.IsValid() )
 			{
-				Ball.Renderer.MaterialOverride = null;
+				Renderer.MaterialOverride = null;
 			}
 
 			return;
@@ -86,7 +86,7 @@ public partial class CosmeticController : Component
 
 		if ( resource.Skin.IsValid() )
 		{
-			Ball.Renderer.MaterialOverride = resource.Skin;
+			Renderer.MaterialOverride = resource.Skin;
 		}
 	}
 

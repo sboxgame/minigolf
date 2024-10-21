@@ -1,46 +1,51 @@
 @namespace Facepunch.Minigolf.UI
 @inherits Panel
 
+<style>
+    .inactive 
+    {
+        opacity: 0.2;
+    }
+</style>
+
 <root>
-    <div class="main column">
-        <div class="row padding-header accent">
-            <label>@SceneFile.Title</label>
-            <div class="grow"/>
-            <div class="gap center">
-                @for ( int i = 0; i < 5; i++ )
+    <ButtonCard>
+        <Main>
+            <div class="grow column center">
+                <div class="row padding-header accent gap" style="width: 100%;">
+                    <label>@SceneFile.Title</label>
+                    <div class="grow"/>
+                    <div class="gap center">
+                        @for ( int i = 0; i < 5; i++ )
+                        {
+                            <i class="@(Stars> i ? "active" : "inactive")">star</i>
+                        }
+                    </div>
+                </div>
+
+                @if ( Played )
                 {
-                    <i class="@(Stars> i ? "active" : "inactive")">star</i>
+                    <div class="row grow-content">
+                        <StatCard Name="Strokes" Stat="total_strokes-@Ident" />
+                        <StatCard Name="Average Par" Stat="total-par-@Ident", Fallback="DNF", Result=@StatResultType.Average />
+                        <StatCard Name="Finished Holes" Stat="goals-@Ident" />
+                    </div>
+                }
+
+                else
+                {
+                    <div class="row gap-small center circle">
+                        <label class="small">You haven't played this course yet</label>
+                    </div>
                 }
             </div>
-        </div>
+        </Main>
 
-        @if ( Played )
-        {
-            <div class="row grow-content">
-                <StatCard Name="Strokes" Stat="total_strokes-@Ident" />
-                <StatCard Name="Average Par" Stat="total-par-@Ident", Fallback="DNF", Result=@StatResultType.Average />
-                <StatCard Name="Finished Holes" Stat="goals-@Ident" />
-            </div>
-        }
-
-        else
-        {
-            <div class="row gap-small center circle">
-                <label class="small">You haven't played this course yet</label>
-            </div>
-        }
-
-    </div>
-    
-    <div class="background">
-        <div class="play absolute">
+        <Overlay>
             <i>play_circle_filled</i>
             <label>PLAY @SceneFile.Title.ToUpperInvariant()</label>
-        </div>
-    </div>
-
-
-
+        </Overlay>
+    </ButtonCard>
 </root>
 
 @code

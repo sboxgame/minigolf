@@ -1,0 +1,29 @@
+@using Sandbox.Razor;
+
+@namespace Facepunch.Minigolf.UI
+@inherits Panel
+
+<root>
+    <div class="main">
+        @Main
+    </div>
+
+    <div class="overlay">
+         <div class="overlay-content accent">
+            @Overlay
+         </div>
+    </div>
+</root>
+
+@code
+{
+    public RenderFragment Main { get; set; }
+    public RenderFragment Overlay { get; set; }
+    public Color Color { get; set; } = Color.Parse( "#eda656" ).Value.Darken( 0.1f );
+
+    protected override void OnAfterTreeRender( bool firstTime )
+    {
+        var str = ".accent { background-color: " + $"{Color.Hex}" + "; } .accent-foreground { color: " + $"{Color.Hex}" + "; }";
+        StyleSheet.Parse( str );
+    }
+}
