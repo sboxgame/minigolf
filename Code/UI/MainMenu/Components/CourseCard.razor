@@ -54,10 +54,9 @@
 
 @code
 {
-    public CourseInfo Info => Course.GetCourseInfo( SceneFile );
     public SceneFile SceneFile { get; set; }
-    public int Stars => Info.Stars;
-    public string Ident => Info.Ident;
+    public int Stars => SceneFile.GetMetadata( "Stars" ).ToInt();
+    public string Ident => SceneFile.GetMetadata( "Ident" );
 
     public bool Played => Stats.Get( $"total_strokes-{Ident}", false ) > 0f;
 
