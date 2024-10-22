@@ -791,7 +791,7 @@
               "__guid": "d030e52c-a442-4446-8837-d5e7f0250a84",
               "Flags": 0,
               "Name": "corner",
-              "Position": "-297.1039,-863.9968,-361.0106",
+              "Position": "-297.1039,-863.9963,-361.0106",
               "Rotation": "-0.00000002980232,0.00000002980232,0.7071067,0.7071067",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1022,7 +1022,7 @@
               "__guid": "3ff8588b-b9c7-49db-ad09-b44301988033",
               "Flags": 0,
               "Name": "hill-corner",
-              "Position": "-169.104,-863.9968,-361.0106",
+              "Position": "-169.104,-863.9963,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1054,7 +1054,7 @@
               "__guid": "d5b41e85-bc7c-4cfe-8e73-6cd2b9b6cdfb",
               "Flags": 0,
               "Name": "hole-square",
-              "Position": "-41.10403,-863.9968,-361.0106",
+              "Position": "-41.10403,-863.9963,-361.0106",
               "Rotation": "0,0.00000004371139,0.9999999,0",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1087,7 +1087,7 @@
               "__guid": "3aee6ff8-705c-4a5b-85a5-d49153e35d7c",
               "Flags": 0,
               "Name": "round-corner-a",
-              "Position": "86.89596,-863.9968,-361.0106",
+              "Position": "86.89596,-863.9963,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1119,7 +1119,7 @@
               "__guid": "cdce4061-daeb-4858-8ab2-0fcd76be4764",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "214.8959,-991.9968,-361.0106",
+              "Position": "214.8959,-991.9963,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1151,7 +1151,7 @@
               "__guid": "d2b90636-48a3-4219-ac05-ae97a0940fab",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "86.89594,-991.9968,-361.0106",
+              "Position": "86.89594,-991.9963,-361.0106",
               "Rotation": "0,0.00000004371139,0.9999999,0",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1520,7 +1520,7 @@
               "__guid": "8eb46311-5e97-467e-9a19-bf9e6124a549",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "-191.8081,-900.0817,-425.012",
+              "Position": "-191.8081,-900.0812,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1553,7 +1553,7 @@
               "__guid": "15a9c600-2333-42bd-a032-8c34ab4aec78",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "-63.80814,-900.082,-425.012",
+              "Position": "-63.80814,-900.0815,-425.012",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1683,7 +1683,7 @@
               "__guid": "c1900339-de38-4475-a7ca-7b76b2bc116d",
               "Flags": 0,
               "Name": "hole-square",
-              "Position": "-319.8081,-900.0817,-425.012",
+              "Position": "-319.8081,-900.0812,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -2906,18 +2906,19 @@
           ]
         },
         {
-          "__guid": "26477a26-7898-4789-a552-2c98f6e3e40f",
+          "__guid": "cc814923-d9df-4ed8-b71f-aef156627439",
           "Flags": 0,
           "Name": "Ball",
-          "Position": "-81.48206,-6.942871,15.35431",
-          "Rotation": "0,0,0.9335317,0.3584948",
+          "Position": "-71.12305,7.052002,15.35443",
+          "Rotation": "0,0,0.9313041,0.3642421",
           "Scale": "3,3,3",
           "Enabled": true,
           "Components": [
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "461c0687-b2ca-4548-a509-a39a4456cd12",
+              "__guid": "7555fe1a-00c4-4366-8957-8c73c3296615",
               "BodyGroups": 18446744073709551615,
+              "MaterialOverride": "materials/ballskins/gold/gold_golf_ball.vmat",
               "Model": "models/golf_ball.vmdl",
               "RenderOptions": {
                 "GameLayer": true,
@@ -2930,18 +2931,20 @@
             },
             {
               "__type": "Facepunch.Minigolf.CosmeticController",
-              "__guid": "a3c8a6c1-ef96-482b-894c-76f95fd2f3c4",
+              "__guid": "54efde5a-9a11-4dca-9bb2-40d95b266e13",
               "Renderer": {
                 "_type": "component",
-                "component_id": "461c0687-b2ca-4548-a509-a39a4456cd12",
-                "go": "26477a26-7898-4789-a552-2c98f6e3e40f",
+                "component_id": "7555fe1a-00c4-4366-8957-8c73c3296615",
+                "go": "cc814923-d9df-4ed8-b71f-aef156627439",
                 "component_type": "ModelRenderer"
               },
               "Update": false
             },
             {
               "__type": "MouseRotator",
-              "__guid": "9854ce26-698c-4b0c-9845-d80928419c15"
+              "__guid": "468109fa-6549-4232-bf91-fc0df9bfe35e",
+              "DeltaSpeed": 0.025,
+              "LerpSpeed": 10
             }
           ]
         }

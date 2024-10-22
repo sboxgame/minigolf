@@ -8,6 +8,8 @@ public record CourseInfo( string Ident, int Stars );
 /// </summary>
 public sealed class Course : Component
 {
+	[Property, InputAction] public string Hello { get; set; }
+
 	/// <summary>
 	/// Singleton for the course
 	/// </summary>

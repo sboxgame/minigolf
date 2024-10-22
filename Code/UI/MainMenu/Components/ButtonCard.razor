@@ -3,7 +3,7 @@
 @namespace Facepunch.Minigolf.UI
 @inherits Panel
 
-<root>
+<root class="@Classes">
     <div class="main">
         @Main
     </div>
@@ -19,7 +19,20 @@
 {
     public RenderFragment Main { get; set; }
     public RenderFragment Overlay { get; set; }
+    public bool Small { get; set; }
+    public bool Square { get; set; }
     public Color Color { get; set; } = Color.Parse( "#eda656" ).Value.Darken( 0.1f );
+
+    public string Classes
+    {
+        get 
+        {
+            var str = "";
+            if ( Small ) str += "small ";
+            if ( Square ) str += "square ";
+            return str;
+        }
+    }
 
     protected override void OnAfterTreeRender( bool firstTime )
     {

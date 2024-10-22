@@ -5,56 +5,65 @@
 @inherits BaseMenu
 
 <root>
-<div class="row" style="width: 100%; height: 100%; justify-content: flex-start; align-items: stretch;">
-        <div class="column">
-            <div class="column gap-large grow" style="width: 512px;">
+    <div class="row" style="width: 100%; height: 100%; justify-content: flex-start; align-items: stretch;">
+        <div class="column grow gap">
+            <div class="grow" />
+
+            <div class="row gap">
                 <div class="column gap">
+                    <div class="row gap grow" style="align-items: flex-end;">
+                        @foreach ( var group in ResourceLibrary.GetAll<CosmeticResource>().GroupBy( x => x.Category ) )
+                        {
+                            <ButtonCard Small=@true onclick="@(() => SetCategory( group.Key ) )">
+                                <Main>
+                                    @group.Key
+                                </Main>
+                                <Overlay>
+                                    @group.Key
+                                </Overlay>
+                            </ButtonCard>
+                        }
 
-                    @foreach ( var group in ResourceLibrary.GetAll<CosmeticResource>().GroupBy( x => x.Category ) )
-                    {
-                        <div class="column gap">
-                            <div>
-                                <label>@group.Key</label>
-                            </div>
-
-                            <div class="row gap" style="flex-wrap: wrap;">
-
-                                @foreach ( var item in group )
-                                {
-                                    <ButtonCard onclick="@( () => Toggle( item ) )">
-                                        <Main>
-                                            <label>@item.Title</label>
-                                        </Main>
-                                        <Overlay>
-                                            @( IsEquipped( item ) ? "Take Off" : "Wear" )
-                                        </Overlay>
-                                    </ButtonCard>
-                                }
-                            </div>
-                        </div>
-                    }
+                        <div class="grow" />
+                    </div>
+                    <div @ref="Items" class="row gap" style="flex-wrap: wrap; height: 80px; overflow: scroll;	mask: linear-gradient( to bottom, white, black ) top bottom / 100% 5%;">
+                        @foreach ( var item in ResourceLibrary.GetAll<CosmeticResource>().Where( x => x.Category == CurrentCategory ) )
+                        {
+                            <ButtonCard Square=@true onclick="@( () => Toggle( item ) )">
+                                <Main>
+                                    <label>@item.Title</label>
+                                </Main>
+                                <Overlay>
+                                    @( IsEquipped( item ) ? "Take Off" : "Wear" )
+                                </Overlay>
+                            </ButtonCard>
+                        }
+                    </div>
                 </div>
-
+            
                 <div class="grow" />
 
-                <ButtonCard onclick="@(() => Save())">
-                    <Main>
-                        Save
-                    </Main>
-                    <Overlay>
-                        Save
-                    </Overlay>
-                </ButtonCard>
+                <div class="column gap" style="align-items: flex-end; justify-content: flex-end;">
+                    <ButtonCard Small=@true onclick="@(() => Save())">
+                        <Main>
+                            Save
+                        </Main>
+                        <Overlay>
+                            Save
+                        </Overlay>
+                    </ButtonCard>
 
-                <ButtonCard onclick="@(() => Reset())">
-                    <Main>
-                        Reset
-                    </Main>
-                    <Overlay>
-                        Reset
-                    </Overlay>
-                </ButtonCard>
+                    <ButtonCard Small=@true onclick="@(() => Reset())">
+                        <Main>
+                            Reset
+                        </Main>
+                        <Overlay>
+                            Reset
+                        </Overlay>
+                    </ButtonCard>
+                </div>
             </div>
+
         </div>
 	</div>
 </root>
@@ -63,10 +72,24 @@
 {
     private bool IsEquipped( CosmeticResource resource ) => CosmeticController.Local.Current.All.ContainsValue( resource );
 
+    public Panel Items { get; set; }
+
     public void Toggle( CosmeticResource resource )
     {
         var equipped = IsEquipped( resource );
         CosmeticController.Local.Set( resource, !equipped );
+    }
+
+    public string CurrentCategory { get; set; } = "Skins";
+
+    void SetCategory( string category )
+    {
+        CurrentCategory = category;
+
+        foreach ( var item in Items.Children )
+        {
+            item.StateHasChanged();
+        }
     }
 
     void Save()
