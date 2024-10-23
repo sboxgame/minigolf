@@ -1,0 +1,12 @@
+$accent: #eda656;
+
+CosmeticCard
+{
+    &.equipped
+    {
+        ButtonCard
+        {
+            border: 2px solid $accent;
+        }
+    }
+}

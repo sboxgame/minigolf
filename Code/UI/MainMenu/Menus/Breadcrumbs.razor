@@ -29,32 +29,35 @@
 
 
 @code {
-	public bool Visible => MainMenu.Current.CurrentMenu is not Home;
+    public bool Visible => MainMenu.Current.CurrentMenu is not Home;
 
-	protected override int BuildHash()
-	{
-		return HashCode.Combine( Visible );
-	}
+    protected override int BuildHash()
+    {
+        return HashCode.Combine( Visible );
+    }
 
-	public void GoTo( string url )
-	{
-		MainMenu.Current.GoTo( url );
-	}
+    public void GoTo( string url )
+    {
+        MainMenu.Current.GoTo( url );
+    }
 
-	public List<( string Url, string Name )> GetCrumbs()
-	{
-		var nav = MainMenu.Current;
-		var split = nav.CurrentUrl.Split( '/' ).Select( x => "/" + x );
+    public List<( string Url, string Name )> GetCrumbs()
+    {
+        var nav = MainMenu.Current;
+        var split = nav.CurrentUrl.Split( '/' ).Select( x => "/" + x );
 
-		var crumbs = new List<( string Url, string Name )>();
+        var crumbs = new List<( string Url, string Name )>();
 
-		foreach ( var crumb in split )
-		{
-			var url = crumb;
-			var name = crumb.ToTitleCase().Replace( "/", "" );
+        foreach ( var crumb in split )
+        {
+            var url = crumb;
+            var name = crumb.ToTitleCase().Replace( "/", "" );
 
-			if ( url == "/" )
-				name = "Home";
+            if ( url == "/" )
+                name = "Home";
+
+            if ( split.Last() == crumb ) 
+                continue;
 
 			crumbs.Add( ( url, name ) );
 		}

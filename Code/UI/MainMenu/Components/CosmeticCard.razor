@@ -26,6 +26,14 @@
 
     private bool IsEquipped => CosmeticController.Local.Current.All.ContainsValue( Cosmetic );
 
+    protected override void OnAfterTreeRender( bool firstTime )
+    {
+        if ( firstTime )
+        {
+            BindClass( "equipped", () => IsEquipped );   
+        }
+    }
+
     protected override int BuildHash()
     {
         return HashCode.Combine( Cosmetic, IsEquipped );
