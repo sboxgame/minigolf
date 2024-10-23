@@ -52,15 +52,6 @@
                             Save
                         </Overlay>
                     </ButtonCard>
-
-                    <ButtonCard Small=@true onclick="@(() => Reset())">
-                        <Main>
-                            Reset
-                        </Main>
-                        <Overlay>
-                            Reset
-                        </Overlay>
-                    </ButtonCard>
                 </div>
             </div>
 
@@ -94,11 +85,13 @@
 
     void Save()
     {
-        CosmeticController.Save();
-    }
-
-    void Reset()
-    {
-        CosmeticController.ClearSaved();
+        DialogModal.Show( 
+            "Do you want to save your avatar?", 
+            "Yes", "Cancel",
+            () => {
+                CosmeticController.Save();
+                this.Navigate( "/" );
+            }
+        );
     }
 }

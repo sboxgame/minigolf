@@ -304,6 +304,7 @@ row
     background-color: rgba( black, 0.1 );
     padding: 10px 16px;
     border-radius: 2px;
+    pointer-events: all;
 
     &:hover
     {
