@@ -29,14 +29,7 @@
                     <div @ref="Items" class="row gap" style="flex-wrap: wrap; height: 80px; overflow: scroll;	mask: linear-gradient( to bottom, white, black ) top bottom / 100% 5%;">
                         @foreach ( var item in ResourceLibrary.GetAll<CosmeticResource>().Where( x => x.Category == CurrentCategory ) )
                         {
-                            <ButtonCard Square=@true onclick="@( () => Toggle( item ) )">
-                                <Main>
-                                    <label>@item.Title</label>
-                                </Main>
-                                <Overlay>
-                                    @( IsEquipped( item ) ? "Take Off" : "Wear" )
-                                </Overlay>
-                            </ButtonCard>
+                            <CosmeticCard Cosmetic=@item />
                         }
                     </div>
                 </div>
@@ -73,14 +66,21 @@
 
     public string CurrentCategory { get; set; } = "Skins";
 
+    private void RefreshTree( Panel panel )
+    {
+        foreach ( var child in panel.Children )
+        {
+            child.StateHasChanged();
+
+            RefreshTree( child );
+        }
+    }
+
     void SetCategory( string category )
     {
         CurrentCategory = category;
 
-        foreach ( var item in Items.Children )
-        {
-            item.StateHasChanged();
-        }
+        RefreshTree( Items );
     }
 
     void Save()
