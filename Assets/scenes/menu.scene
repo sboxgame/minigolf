@@ -2,6 +2,21 @@
   "__guid": "8d1530f4-67a2-4ffb-82b9-0b8868906f3d",
   "GameObjects": [
     {
+      "__guid": "72b3ba4c-bce3-4d0d-904a-36eab395aef0",
+      "Flags": 0,
+      "Name": "Scene Information",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SceneInformation",
+          "__guid": "f1f38913-c084-4b76-89d5-b1bb83b323b5",
+          "Description": "",
+          "SceneTags": "",
+          "Title": "menu"
+        }
+      ]
+    },
+    {
       "__guid": "5f20dc7f-6730-4414-b725-4f1eb4f8a09e",
       "Flags": 0,
       "Name": "Main Menu",
@@ -791,7 +806,7 @@
               "__guid": "d030e52c-a442-4446-8837-d5e7f0250a84",
               "Flags": 0,
               "Name": "corner",
-              "Position": "-297.1039,-863.9963,-361.0106",
+              "Position": "-297.1039,-863.996,-361.0106",
               "Rotation": "-0.00000002980232,0.00000002980232,0.7071067,0.7071067",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1022,7 +1037,7 @@
               "__guid": "3ff8588b-b9c7-49db-ad09-b44301988033",
               "Flags": 0,
               "Name": "hill-corner",
-              "Position": "-169.104,-863.9963,-361.0106",
+              "Position": "-169.104,-863.996,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1054,7 +1069,7 @@
               "__guid": "d5b41e85-bc7c-4cfe-8e73-6cd2b9b6cdfb",
               "Flags": 0,
               "Name": "hole-square",
-              "Position": "-41.10403,-863.9963,-361.0106",
+              "Position": "-41.10403,-863.996,-361.0106",
               "Rotation": "0,0.00000004371139,0.9999999,0",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1087,7 +1102,7 @@
               "__guid": "3aee6ff8-705c-4a5b-85a5-d49153e35d7c",
               "Flags": 0,
               "Name": "round-corner-a",
-              "Position": "86.89596,-863.9963,-361.0106",
+              "Position": "86.89596,-863.996,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1119,7 +1134,7 @@
               "__guid": "cdce4061-daeb-4858-8ab2-0fcd76be4764",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "214.8959,-991.9963,-361.0106",
+              "Position": "214.8959,-991.996,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1151,7 +1166,7 @@
               "__guid": "d2b90636-48a3-4219-ac05-ae97a0940fab",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "86.89594,-991.9963,-361.0106",
+              "Position": "86.89594,-991.996,-361.0106",
               "Rotation": "0,0.00000004371139,0.9999999,0",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1520,7 +1535,7 @@
               "__guid": "8eb46311-5e97-467e-9a19-bf9e6124a549",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "-191.8081,-900.0812,-425.012",
+              "Position": "-191.8081,-900.0809,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1553,7 +1568,7 @@
               "__guid": "15a9c600-2333-42bd-a032-8c34ab4aec78",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "-63.80814,-900.0815,-425.012",
+              "Position": "-63.80814,-900.0812,-425.012",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1683,7 +1698,7 @@
               "__guid": "c1900339-de38-4475-a7ca-7b76b2bc116d",
               "Flags": 0,
               "Name": "hole-square",
-              "Position": "-319.8081,-900.0812,-425.012",
+              "Position": "-319.8081,-900.0809,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -2932,11 +2947,18 @@
             {
               "__type": "Facepunch.Minigolf.CosmeticController",
               "__guid": "54efde5a-9a11-4dca-9bb2-40d95b266e13",
+              "DefaultTrail": "particles/gameplay/ball_trail/ball_trail.vpcf",
               "Renderer": {
                 "_type": "component",
                 "component_id": "7555fe1a-00c4-4366-8957-8c73c3296615",
                 "go": "cc814923-d9df-4ed8-b71f-aef156627439",
                 "component_type": "ModelRenderer"
+              },
+              "TrailSystem": {
+                "_type": "component",
+                "component_id": "278bb433-8176-4422-acf7-203975c800b5",
+                "go": "ba67da7b-860e-41b0-9e49-7d17b72aa065",
+                "component_type": "LegacyParticleSystem"
               },
               "Update": false
             },
@@ -2945,6 +2967,29 @@
               "__guid": "468109fa-6549-4232-bf91-fc0df9bfe35e",
               "DeltaSpeed": 0.025,
               "LerpSpeed": 10
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "ba67da7b-860e-41b0-9e49-7d17b72aa065",
+              "Flags": 0,
+              "Name": "Trail",
+              "Tags": "particles",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.LegacyParticleSystem",
+                  "__guid": "278bb433-8176-4422-acf7-203975c800b5",
+                  "ControlPoints": [],
+                  "Looped": true,
+                  "Particles": "particles/gameplay/ball_trail/ball_trail.vpcf",
+                  "PlaybackSpeed": 1
+                },
+                {
+                  "__type": "OrbitAround",
+                  "__guid": "43639aa5-c131-4c21-9c5d-0aae16ec619f"
+                }
+              ]
             }
           ]
         }
@@ -2960,6 +3005,9 @@
     "ThreadedAnimation": true,
     "TimeScale": 1,
     "UseFixedUpdate": true,
+    "Metadata": {
+      "Title": "menu"
+    },
     "NavMesh": {
       "Enabled": false,
       "IncludeStaticBodies": true,
@@ -2973,11 +3021,11 @@
       "IncludedBodies": ""
     }
   },
+  "ResourceVersion": 2,
   "Title": "menu",
-  "Description": "",
-  "ResourceVersion": 1,
+  "Description": null,
   "__references": [
     "agentab.plainsky#31314"
   ],
-  "__version": 1
+  "__version": 2
 }

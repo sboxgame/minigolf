@@ -25,6 +25,18 @@ public partial class CosmeticController : Component
 	public ModelRenderer Renderer { get; set; }
 
 	/// <summary>
+	/// The particle system for trails
+	/// </summary>
+	[Property]
+	public LegacyParticleSystem TrailSystem { get; set; }
+
+	/// <summary>
+	/// The default trail
+	/// </summary>
+	[Property]
+	public ParticleSystem DefaultTrail { get; set; }
+
+	/// <summary>
 	/// Should we update the position?
 	/// </summary>
 	[Property]
@@ -123,6 +135,11 @@ public partial class CosmeticController : Component
 				Renderer.MaterialOverride = null;
 			}
 
+			if ( resource.Trail.IsValid() && resource.Trail == TrailSystem.Particles )
+			{
+				TrailSystem.Particles = DefaultTrail;
+			}
+
 			return;
 		}
 
@@ -153,6 +170,11 @@ public partial class CosmeticController : Component
 		if ( resource.Skin.IsValid() )
 		{
 			Renderer.MaterialOverride = resource.Skin;
+		}
+
+		if ( resource.Trail.IsValid() )
+		{
+			TrailSystem.Particles = resource.Trail;
 		}
 
 		Current.All.Add( resource.Category, resource );

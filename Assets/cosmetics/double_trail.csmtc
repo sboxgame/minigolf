@@ -1,0 +1,10 @@
+{
+  "Title": "Double",
+  "Description": null,
+  "Category": "Trails",
+  "Prefab": null,
+  "Skin": null,
+  "Trail": "particles/gameplay/ball_trail/custom/double_ball_trail.vpcf",
+  "__references": [],
+  "__version": 0
+}

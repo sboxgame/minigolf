@@ -267,21 +267,48 @@
           {
             "__type": "Facepunch.Minigolf.CosmeticController",
             "__guid": "f9f91c95-b2f4-4b5b-94a3-d988604026e2",
-            "InitialResources": [
-              "cosmetics/baseball_cap.csmtc",
-              "cosmetics/hover_ball_skin.csmtc"
-            ],
+            "DefaultTrail": "particles/gameplay/ball_trail/ball_trail.vpcf",
             "Renderer": {
               "_type": "component",
               "component_id": "6a98840a-f2fd-4e21-88b1-c99d338d7358",
               "go": "476b1b4a-4184-4332-9e05-fd85af624ae2",
               "component_type": "ModelRenderer"
-            }
+            },
+            "TrailSystem": {
+              "_type": "component",
+              "component_id": "d4403b62-2402-45b8-87bf-4c68eeb289c1",
+              "go": "80842912-bd9f-4e32-b7ac-c36327b1d2e6",
+              "component_type": "LegacyParticleSystem"
+            },
+            "Update": true
           }
         ]
       }
     ],
-    "__variables": []
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
   },
   "ShowInMenu": false,
   "MenuPath": null,

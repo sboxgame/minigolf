@@ -32,4 +32,10 @@ public partial class CosmeticResource : GameResource
 	/// </summary>
 	[Property]
 	public Material Skin { get; set; }
+
+	/// <summary>
+	/// We'll apply a trail if it exists
+	/// </summary>
+	[Property]
+	public ParticleSystem Trail { get; set; }
 }
