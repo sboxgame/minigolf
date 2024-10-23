@@ -3,7 +3,7 @@
 @namespace Facepunch.Minigolf.UI
 @inherits Panel
 
-<root class="@Classes">
+<root class="@ButtonClasses">
     <div class="main">
         @Main
     </div>
@@ -23,7 +23,7 @@
     public bool Square { get; set; }
     public Color Color { get; set; } = Color.Parse( "#eda656" ).Value.Darken( 0.1f );
 
-    public string Classes
+    public string ButtonClasses
     {
         get 
         {

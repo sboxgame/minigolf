@@ -65,12 +65,27 @@ public partial class CosmeticController : Component
 			GameObject.Flags |= GameObjectFlags.Absolute;
 		}
 
-		var save = Json.Deserialize<BallCosmetics>( Serialized );
+		TryLoad();
+	}
+
+	[Broadcast]
+	private void UpdateForEveryone( string serialized )
+	{
+		var save = Json.Deserialize<BallCosmetics>( serialized );
 
 		foreach ( var resource in save.All )
 		{
 			Set( resource.Value, true );
 		}
+	}
+
+	private void TryLoad()
+	{
+		if ( IsProxy )
+			return;
+
+		// Send the serialized set of ball cosmetics to everyone for this player, so it's networked
+		UpdateForEveryone( Serialized );
 	}
 
 	/// <summary>
