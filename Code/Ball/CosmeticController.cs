@@ -118,34 +118,6 @@ public partial class CosmeticController : Component
 		}
 	}
 
-	/// <summary>
-	/// Accessor to see if an achievement is unlocked
-	/// </summary>
-	/// <param name="str"></param>
-	/// <returns></returns>
-	private bool IsAchievementUnlocked( string str )
-	{
-		return Sandbox.Services.Achievements.All.FirstOrDefault( x => x.Name == str && x.IsUnlocked ) is not null;
-	}
-
-	/// <summary>
-	/// Are we allowed to equip this?
-	/// </summary>
-	/// <param name="res"></param>
-	/// <returns></returns>
-	public bool CanEquip( CosmeticResource res )
-	{
-		if ( res.RequiredAchievements is not null )
-		{
-			foreach ( var name in res.RequiredAchievements )
-			{
-				if ( !IsAchievementUnlocked( name ) ) return false;
-			}
-		}
-
-		return true;
-	}
-
 	private void TryLoad()
 	{
 		if ( IsProxy )
@@ -177,7 +149,7 @@ public partial class CosmeticController : Component
 		var instance = Find( resource );
 
 		// Nope.
-		if ( addToList && !CanEquip( resource ) )
+		if ( addToList && !resource.CanEquip() )
 			return;
 
 		if ( !active )

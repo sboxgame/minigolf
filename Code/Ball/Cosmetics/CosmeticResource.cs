@@ -46,4 +46,31 @@ public partial class CosmeticResource : GameResource
 	public List<string> RequiredAchievements { get; set; } = new()
 	{
 	};
+
+	/// <summary>
+	/// Accessor to see if an achievement is unlocked
+	/// </summary>
+	/// <param name="str"></param>
+	/// <returns></returns>
+	private bool IsAchievementUnlocked( string str )
+	{
+		return Sandbox.Services.Achievements.All.FirstOrDefault( x => x.Name == str && x.IsUnlocked ) is not null;
+	}
+
+	/// <summary>
+	/// Are we allowed to equip this?
+	/// </summary>
+	/// <returns></returns>
+	public bool CanEquip()
+	{
+		if ( RequiredAchievements is not null )
+		{
+			foreach ( var name in RequiredAchievements )
+			{
+				if ( !IsAchievementUnlocked( name ) ) return false;
+			}
+		}
+
+		return true;
+	}
 }
