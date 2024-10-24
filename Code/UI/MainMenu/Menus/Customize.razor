@@ -94,7 +94,12 @@
 
     public void OnClickItem( CosmeticResource resource )
     {
+        if ( CurrentItem.IsValid() )
+            CosmeticController.Local.Preview(CurrentItem, false);
+
         CurrentItem = resource;
+
+        CosmeticController.Local.Preview( resource, true );
     }
 
     public void Toggle( CosmeticResource resource )

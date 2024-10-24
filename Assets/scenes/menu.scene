@@ -806,7 +806,7 @@
               "__guid": "d030e52c-a442-4446-8837-d5e7f0250a84",
               "Flags": 0,
               "Name": "corner",
-              "Position": "-297.1039,-863.996,-361.0106",
+              "Position": "-297.1039,-863.9957,-361.0106",
               "Rotation": "-0.00000002980232,0.00000002980232,0.7071067,0.7071067",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1037,7 +1037,7 @@
               "__guid": "3ff8588b-b9c7-49db-ad09-b44301988033",
               "Flags": 0,
               "Name": "hill-corner",
-              "Position": "-169.104,-863.996,-361.0106",
+              "Position": "-169.104,-863.9957,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1069,7 +1069,7 @@
               "__guid": "d5b41e85-bc7c-4cfe-8e73-6cd2b9b6cdfb",
               "Flags": 0,
               "Name": "hole-square",
-              "Position": "-41.10403,-863.996,-361.0106",
+              "Position": "-41.10403,-863.9957,-361.0106",
               "Rotation": "0,0.00000004371139,0.9999999,0",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1102,7 +1102,7 @@
               "__guid": "3aee6ff8-705c-4a5b-85a5-d49153e35d7c",
               "Flags": 0,
               "Name": "round-corner-a",
-              "Position": "86.89596,-863.996,-361.0106",
+              "Position": "86.89596,-863.9957,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1134,7 +1134,7 @@
               "__guid": "cdce4061-daeb-4858-8ab2-0fcd76be4764",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "214.8959,-991.996,-361.0106",
+              "Position": "214.8959,-991.9957,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1166,7 +1166,7 @@
               "__guid": "d2b90636-48a3-4219-ac05-ae97a0940fab",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "86.89594,-991.996,-361.0106",
+              "Position": "86.89594,-991.9957,-361.0106",
               "Rotation": "0,0.00000004371139,0.9999999,0",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1535,7 +1535,7 @@
               "__guid": "8eb46311-5e97-467e-9a19-bf9e6124a549",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "-191.8081,-900.0809,-425.012",
+              "Position": "-191.8081,-900.0806,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1568,7 +1568,7 @@
               "__guid": "15a9c600-2333-42bd-a032-8c34ab4aec78",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "-63.80814,-900.0812,-425.012",
+              "Position": "-63.80814,-900.0809,-425.012",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1698,7 +1698,7 @@
               "__guid": "c1900339-de38-4475-a7ca-7b76b2bc116d",
               "Flags": 0,
               "Name": "hole-square",
-              "Position": "-319.8081,-900.0809,-425.012",
+              "Position": "-319.8081,-900.0806,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -2933,7 +2933,6 @@
               "__type": "Sandbox.ModelRenderer",
               "__guid": "7555fe1a-00c4-4366-8957-8c73c3296615",
               "BodyGroups": 18446744073709551615,
-              "MaterialOverride": "materials/ballskins/gold/gold_golf_ball.vmat",
               "Model": "models/golf_ball.vmdl",
               "RenderOptions": {
                 "GameLayer": true,
@@ -2987,7 +2986,11 @@
                 },
                 {
                   "__type": "OrbitAround",
-                  "__guid": "43639aa5-c131-4c21-9c5d-0aae16ec619f"
+                  "__guid": "43639aa5-c131-4c21-9c5d-0aae16ec619f",
+                  "CurrentAngle": 0,
+                  "OrbitCenter": "0,0,0",
+                  "OrbitRadius": 6,
+                  "OrbitSpeed": 0.1
                 }
               ]
             }

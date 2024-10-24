@@ -1,3 +1,5 @@
+using Sandbox;
+
 namespace Facepunch.Minigolf;
 
 public struct BallCosmetics
@@ -91,6 +93,30 @@ public partial class CosmeticController : Component
 		}
 	}
 
+	/// <summary>
+	/// If we've got any local changes, re-setup everything
+	/// </summary>
+	private void Sync()
+	{
+		Clear();
+
+		// Make sure we're synced
+		foreach ( var resource in Current.All )
+		{
+			Set( resource.Value, true, false );
+		}
+	}
+
+	public void Preview( CosmeticResource res, bool preview = true )
+	{
+		Sync();
+
+		if ( preview )
+		{
+			Set( res, true, false );
+		}
+	}
+
 	private void TryLoad()
 	{
 		if ( IsProxy )
@@ -116,13 +142,15 @@ public partial class CosmeticController : Component
 	/// </summary>
 	/// <param name="resource"></param>
 	/// <param name="active"></param>
-	public void Set( CosmeticResource resource, bool active = true )
+	/// <param name="addToList"></param>
+	public void Set( CosmeticResource resource, bool active = true, bool addToList = true )
 	{
 		var instance = Find( resource );
 
 		if ( !active )
 		{
-			Current.All.Remove( resource.Category );
+			if ( addToList )
+				Current.All.Remove( resource.Category );
 
 			if ( instance.IsValid() )
 			{
@@ -148,7 +176,8 @@ public partial class CosmeticController : Component
 			instance.GameObject.Destroy();
 		}
 
-		Current.All.Remove( resource.Category );
+		if ( addToList )
+			Current.All.Remove( resource.Category );
 
 		if ( resource.Prefab.IsValid() )
 		{
@@ -177,7 +206,8 @@ public partial class CosmeticController : Component
 			TrailSystem.Particles = resource.Trail;
 		}
 
-		Current.All.Add( resource.Category, resource );
+		if ( addToList )
+			Current.All.Add( resource.Category, resource );
 	}
 
 	protected override void OnUpdate()
@@ -205,7 +235,10 @@ public partial class CosmeticController : Component
 	{
 		GetComponentsInChildren<CosmeticComponent>()
 			.ToList()
-			.ForEach( x => x.Destroy() );
+			.ForEach( x => x.GameObject.Destroy() );
+
+		Renderer.MaterialOverride = null;
+		TrailSystem.Particles = DefaultTrail;
 	}
 
 	/// <summary>
