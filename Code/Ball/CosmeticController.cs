@@ -1,4 +1,5 @@
 using Sandbox;
+using System.Xml.Linq;
 
 namespace Facepunch.Minigolf;
 
@@ -117,6 +118,31 @@ public partial class CosmeticController : Component
 		}
 	}
 
+	/// <summary>
+	/// Accessor to see if an achievement is unlocked
+	/// </summary>
+	/// <param name="str"></param>
+	/// <returns></returns>
+	private bool IsAchievementUnlocked( string str )
+	{
+		return Sandbox.Services.Achievements.All.FirstOrDefault( x => x.Name == str && x.IsUnlocked ) is not null;
+	}
+
+	/// <summary>
+	/// Are we allowed to equip this?
+	/// </summary>
+	/// <param name="res"></param>
+	/// <returns></returns>
+	public bool CanEquip( CosmeticResource res )
+	{
+		foreach ( var name in res.RequiredAchievements )
+		{
+			if ( !IsAchievementUnlocked( name ) ) return false; 
+		}
+
+		return true;
+	}
+
 	private void TryLoad()
 	{
 		if ( IsProxy )
@@ -146,6 +172,10 @@ public partial class CosmeticController : Component
 	public void Set( CosmeticResource resource, bool active = true, bool addToList = true )
 	{
 		var instance = Find( resource );
+
+		// Nope.
+		if ( addToList && !CanEquip( resource ) )
+			return;
 
 		if ( !active )
 		{

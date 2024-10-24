@@ -38,4 +38,12 @@ public partial class CosmeticResource : GameResource
 	/// </summary>
 	[Property]
 	public ParticleSystem Trail { get; set; }
+
+	/// <summary>
+	/// What achievements do we need unlocked for this?
+	/// </summary>
+	[Property]
+	public List<string> RequiredAchievements { get; set; } = new()
+	{
+	};
 }
