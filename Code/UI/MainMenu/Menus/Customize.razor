@@ -26,17 +26,29 @@
                         <label class="small">@CurrentItem.Category</label>
                         <label class="tiny">@(string.IsNullOrEmpty( CurrentItem.Description ) ? "No description for this item" : CurrentItem.Description )</label>
 
+                        @if ( CurrentItem.RequiredAchievements.Count() > 0 )
+                        {
+                            <label class="small">Requirements</label>
+
+                            <div class="row gap" style="max-width: 300px; flex-wrap: wrap; justify-content: flex-end;">
+                               @foreach ( var achievementName in CurrentItem.RequiredAchievements )
+                                {
+                                    var achievement = GetAchievementFromName( achievementName );
+
+                                    <AchievementCard Small=@true Achievement=@achievement />
+                                }
+                            </div>
+                        }
+
                         <div class="span">
-
-                        <ButtonCard class"hi" Small=@true onclick="@(()=>Toggle( CurrentItem ))">
-                            <Main>
-                                @txt
-                            </Main>
-                            <Overlay>
-                                @txt
-                            </Overlay>
-                        </ButtonCard>
-
+                            <ButtonCard Small=@true onclick="@(()=>Toggle( CurrentItem ))">
+                                <Main>
+                                    @txt
+                                </Main>
+                                <Overlay>
+                                    @txt
+                                </Overlay>
+                            </ButtonCard>
                         </div>
                     </div>
 
@@ -85,6 +97,11 @@
     public Panel Items { get; set; }
 
     public CosmeticResource CurrentItem { get; set; }
+
+    private Sandbox.Achievement GetAchievementFromName( string name )
+    {
+        return Sandbox.Services.Achievements.All.FirstOrDefault( x => x.Name == name );
+    }
 
     public void OnClickItem( CosmeticResource resource )
     {

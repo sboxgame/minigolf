@@ -1,48 +1,57 @@
 @namespace Facepunch.Minigolf.UI
 @inherits Panel
 
-<root class="@(Achievement.IsUnlocked ? "unlocked" : "") gap center">
+<root class="@(Achievement.IsUnlocked ? "unlocked" : "") @(Small ? "small" : "") gap center">
+
     @{
         var progress = Achievement.ProgressionFraction.Clamp(0, 1);
     }
 
-    @if ( !IsExpanded && !Achievement.IsUnlocked )
+    @if ( Small )
     {
-        <div class="progress-background" style="height: @(progress * 100f)%" />
+        <img src="@Achievement.Icon" style="width: 24px; height: 24px;" />
+        <label class="tiny">@Achievement.Title</label>
     }
+    else
+    {
+        @if (!IsExpanded && !Achievement.IsUnlocked)
+        {
+                <div class="progress-background" style="height: @(progress * 100f)%" />
+        }
 
-    <div class="column grow">
-        <div class="row align-center gap">
-            <img src="@Achievement.Icon" style="width: 32px; height: 32px;" />
+        <div class="column grow">
+            <div class="row align-center gap">
+                <img src="@Achievement.Icon" style="width: 32px; height: 32px;" />
 
-            <div class="@( IsExpanded ? "show" : "hide" )">
-                <div class="column">
-                    <label class="small">@Achievement.Title</label>
-                    <label class="tiny">@Achievement.Description</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="@( IsExpanded ? "show" : "hide")">
-            @if (!Achievement.IsUnlocked && Achievement.HasProgression)
-            {
-                <div class="column grow">
-                    <div class="bar grow">
-                        <div class="bar-progress" style="width: @(progress * 100f)%;" />
-                        <label class="tiny">@(progress * 100f)%</label>
+                <div class="@( IsExpanded ? "show" : "hide" )">
+                    <div class="column">
+                        <label class="small">@Achievement.Title</label>
+                        <label class="tiny">@Achievement.Description</label>
                     </div>
                 </div>
-            }
-        </div>     
-    </div>
+            </div>
+
+            <div class="@( IsExpanded ? "show" : "hide")">
+                @if (!Achievement.IsUnlocked && Achievement.HasProgression)
+                {
+                        <div class="column grow">
+                            <div class="bar grow">
+                                <div class="bar-progress" style="width: @(progress * 100f)%;" />
+                                <label class="tiny">@(progress * 100f)%</label>
+                            </div>
+                        </div>
+                }
+            </div>     
+        </div>
+    }
 </root>
 
 @code
 {
     public Achievement Achievement { get; set; }
-
     public bool StartExpanded { get; set; } = false;
     public bool IsExpanded => StartExpanded || HasHovered;
+    public bool Small { get; set; } = false;
 
     public AchievementCard()
     {
