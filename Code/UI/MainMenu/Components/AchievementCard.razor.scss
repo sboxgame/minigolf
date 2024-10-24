@@ -14,6 +14,7 @@ AchievementCard
     flex-shrink: 0;
     overflow: hidden;
     border-radius: $content-border;
+    pointer-events: all;
 
     > *
     {

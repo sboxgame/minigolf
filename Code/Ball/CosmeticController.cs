@@ -135,9 +135,12 @@ public partial class CosmeticController : Component
 	/// <returns></returns>
 	public bool CanEquip( CosmeticResource res )
 	{
-		foreach ( var name in res.RequiredAchievements )
+		if ( res.RequiredAchievements is not null )
 		{
-			if ( !IsAchievementUnlocked( name ) ) return false; 
+			foreach ( var name in res.RequiredAchievements )
+			{
+				if ( !IsAchievementUnlocked( name ) ) return false;
+			}
 		}
 
 		return true;
