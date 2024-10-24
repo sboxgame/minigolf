@@ -2921,6 +2921,42 @@
           ]
         },
         {
+          "__guid": "5c4e1b71-bf33-4baf-a356-7dfa9ff18033",
+          "Flags": 0,
+          "Name": "Trail Holder",
+          "Position": "-71.12305,7.052002,15.35443",
+          "Rotation": "0,0,0.9313041,0.3642421",
+          "Scale": "3,3,3",
+          "Enabled": true,
+          "Children": [
+            {
+              "__guid": "0ca3f054-476e-4c82-ad62-623ccfc0f171",
+              "Flags": 0,
+              "Name": "Trail",
+              "Tags": "particles",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.LegacyParticleSystem",
+                  "__guid": "d8f13790-1c7d-430b-8665-9b7a82a77f6e",
+                  "ControlPoints": [],
+                  "Looped": true,
+                  "Particles": "particles/gameplay/ball_trail/ball_trail.vpcf",
+                  "PlaybackSpeed": 1
+                },
+                {
+                  "__type": "OrbitAround",
+                  "__guid": "f1cec035-55e2-4a63-8596-00140f977457",
+                  "CurrentAngle": 0,
+                  "OrbitCenter": "0,0,0",
+                  "OrbitRadius": 6,
+                  "OrbitSpeed": 0.1
+                }
+              ]
+            }
+          ]
+        },
+        {
           "__guid": "cc814923-d9df-4ed8-b71f-aef156627439",
           "Flags": 0,
           "Name": "Ball",
@@ -2933,6 +2969,7 @@
               "__type": "Sandbox.ModelRenderer",
               "__guid": "7555fe1a-00c4-4366-8957-8c73c3296615",
               "BodyGroups": 18446744073709551615,
+              "MaterialOverride": "materials/ballskins/gold/gold_golf_ball.vmat",
               "Model": "models/golf_ball.vmdl",
               "RenderOptions": {
                 "GameLayer": true,
@@ -2955,8 +2992,8 @@
               },
               "TrailSystem": {
                 "_type": "component",
-                "component_id": "278bb433-8176-4422-acf7-203975c800b5",
-                "go": "ba67da7b-860e-41b0-9e49-7d17b72aa065",
+                "component_id": "d8f13790-1c7d-430b-8665-9b7a82a77f6e",
+                "go": "0ca3f054-476e-4c82-ad62-623ccfc0f171",
                 "component_type": "LegacyParticleSystem"
               },
               "Update": false
@@ -2966,33 +3003,6 @@
               "__guid": "468109fa-6549-4232-bf91-fc0df9bfe35e",
               "DeltaSpeed": 0.025,
               "LerpSpeed": 10
-            }
-          ],
-          "Children": [
-            {
-              "__guid": "ba67da7b-860e-41b0-9e49-7d17b72aa065",
-              "Flags": 0,
-              "Name": "Trail",
-              "Tags": "particles",
-              "Enabled": true,
-              "Components": [
-                {
-                  "__type": "Sandbox.LegacyParticleSystem",
-                  "__guid": "278bb433-8176-4422-acf7-203975c800b5",
-                  "ControlPoints": [],
-                  "Looped": true,
-                  "Particles": "particles/gameplay/ball_trail/ball_trail.vpcf",
-                  "PlaybackSpeed": 1
-                },
-                {
-                  "__type": "OrbitAround",
-                  "__guid": "43639aa5-c131-4c21-9c5d-0aae16ec619f",
-                  "CurrentAngle": 0,
-                  "OrbitCenter": "0,0,0",
-                  "OrbitRadius": 6,
-                  "OrbitSpeed": 0.1
-                }
-              ]
             }
           ]
         }
