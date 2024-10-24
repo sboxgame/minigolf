@@ -38,9 +38,4 @@
     {
         return HashCode.Combine( Cosmetic, IsEquipped );
     }
-
-    protected override void OnClick( MousePanelEvent e )
-    {
-        CosmeticController.Local.Set( Cosmetic, !IsEquipped );
-    }
 }

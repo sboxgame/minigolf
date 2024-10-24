@@ -7,6 +7,38 @@
 <root>
     <div class="row" style="width: 100%; height: 100%; justify-content: flex-start; align-items: stretch;">
         <div class="column grow gap">
+
+            <div class="spacer" style="height: 16px;" />
+
+            @if ( CurrentItem is not null )
+            {
+                <div class="grow" />
+             
+                <div class="row">
+                    <div class="grow" />
+
+                    <div class="column gap padding background center" style="align-items: flex-end;">
+                        <label>@CurrentItem.Title</label>
+                        <label class="small">@CurrentItem.Category</label>
+                        <label class="tiny">@(string.IsNullOrEmpty( CurrentItem.Description ) ? "No description for this item" : CurrentItem.Description )</label>
+
+                        <div class="span">
+
+                        <ButtonCard class"hi" Small=@true onclick="@(()=>Toggle( CurrentItem ))">
+                            <Main>
+                                @(IsEquipped( CurrentItem ) ? "Un-Equip" : "Equip")
+                            </Main>
+                            <Overlay>
+                                @(IsEquipped(CurrentItem) ? "Un-Equip" : "Equip")
+                            </Overlay>
+                        </ButtonCard>
+
+                        </div>
+                    </div>
+
+                </div>
+            }
+
             <div class="grow" />
 
             <div class="row gap">
@@ -29,7 +61,7 @@
                     <div @ref="Items" class="row gap" style="flex-wrap: wrap; height: 80px; overflow: scroll;	mask: linear-gradient( to bottom, white, black ) top bottom / 100% 5%;">
                         @foreach ( var item in ResourceLibrary.GetAll<CosmeticResource>().Where( x => x.Category == CurrentCategory ) )
                         {
-                            <CosmeticCard Cosmetic=@item />
+                            <CosmeticCard Cosmetic=@item onclick=@(() => OnClickItem( item ) ) />
                         }
                     </div>
                 </div>
@@ -57,6 +89,13 @@
     private bool IsEquipped( CosmeticResource resource ) => CosmeticController.Local.Current.All.ContainsValue( resource );
 
     public Panel Items { get; set; }
+
+    public CosmeticResource CurrentItem { get; set; }
+
+    public void OnClickItem( CosmeticResource resource )
+    {
+        CurrentItem = resource;
+    }
 
     public void Toggle( CosmeticResource resource )
     {
