@@ -65,19 +65,6 @@
                         }
                     </div>
                 </div>
-            
-                <div class="grow" />
-
-                <div class="column gap" style="align-items: flex-end; justify-content: flex-end;">
-                    <ButtonCard Small=@true onclick="@(() => Save())">
-                        <Main>
-                            Save
-                        </Main>
-                        <Overlay>
-                            Save
-                        </Overlay>
-                    </ButtonCard>
-                </div>
             </div>
 
         </div>
@@ -106,6 +93,7 @@
     {
         var equipped = IsEquipped( resource );
         CosmeticController.Local.Set( resource, !equipped );
+        CosmeticController.Save();
     }
 
     public string CurrentCategory { get; set; } = "Skins";
@@ -123,19 +111,6 @@
     void SetCategory( string category )
     {
         CurrentCategory = category;
-
         RefreshTree( Items );
-    }
-
-    void Save()
-    {
-        DialogModal.Show( 
-            "Do you want to save your avatar?", 
-            "Yes", "Cancel",
-            () => {
-                CosmeticController.Save();
-                this.Navigate( "/" );
-            }
-        );
     }
 }
