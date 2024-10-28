@@ -13,6 +13,15 @@ public enum GameState
 
 public partial class GameManager
 {
+	/// <summary>
+	/// What's our menu scene file?
+	/// </summary>
+	[Property]
+	public SceneFile MenuSceneFile { get; set; }
+
+	/// <summary>
+	/// What's the duration of each hole until we skip to the next hole
+	/// </summary>
 	[ConVar( "minigolf_hole_length" )]
 	public static int HoleLength { get; set; } = 180;
 
@@ -165,11 +174,26 @@ public partial class GameManager
 		}
 	}
 
-	public void EndGame()
+	public async void EndGame()
 	{
 		State = GameState.EndOfGame;
+		
+		await GameTask.DelaySeconds( 3f );
+
 		Tell( "The game is over!" );
 		BroadcastEndGame();
+		OpenScoreboard( true, 15f );
+
+		await GameTask.DelaySeconds( 15f );
+
+		KillGame();
+	}
+
+	[Broadcast]
+	private void KillGame()
+	{
+		Networking.Disconnect();
+		Scene.Load( MenuSceneFile );
 	}
 
 	[Broadcast( NetPermission.HostOnly )]

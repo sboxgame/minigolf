@@ -52,7 +52,7 @@ public partial class GameManager : Component, Component.INetworkListener,
 	/// </summary>
 	Transform FindSpawnLocation()
 	{
-		return CurrentHole.Start.WorldTransform.WithPosition( CurrentHole.Start.WorldPosition + Vector3.Up * 16f );
+		return CurrentHole.Start.WorldTransform.WithPosition( CurrentHole.Start.WorldPosition + Vector3.Up * 16f ).WithRotation( Rotation.Identity );
 	}
 
 	public void SpawnPlayerForConnection( Connection channel )

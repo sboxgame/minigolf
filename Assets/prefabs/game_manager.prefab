@@ -10,7 +10,8 @@
         "__guid": "1e82b58a-63f9-4e94-8efb-9dff2049b6b7",
         "ConfettiEffect": "particles/gameplay/hole_effect/confetti.vpcf",
         "DefaultState": "WaitingForPlayers",
-        "HoleInOneEffect": "particles/gameplay/hole_in_one/v2/hole_in_one.vpcf"
+        "HoleInOneEffect": "particles/gameplay/hole_in_one/v2/hole_in_one.vpcf",
+        "MenuSceneFile": "scenes/menu.scene"
       },
       {
         "__type": "Facepunch.Minigolf.StatsListener",
@@ -65,7 +66,30 @@
           }
         ]
       }
-    ]
+    ],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
   },
   "ShowInMenu": false,
   "MenuPath": null,
