@@ -34,7 +34,8 @@
             "Center": "0,0,0",
             "IsTrigger": false,
             "Scale": "500,500,0.01",
-            "Static": false
+            "Static": false,
+            "SurfaceVelocity": "0,0,0"
           }
         ]
       },
@@ -92,7 +93,8 @@
                 "__guid": "06aff23a-8293-4274-9fdf-46827f7044d9",
                 "IsTrigger": false,
                 "Model": "models/ken/block.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -122,7 +124,8 @@
                 "__guid": "913494e1-0a8c-4dd2-b78a-31314713ddc2",
                 "IsTrigger": false,
                 "Model": "models/ken/bump.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -152,7 +155,8 @@
                 "__guid": "3268ef7f-e588-4de6-95ba-9880fc7b4306",
                 "IsTrigger": false,
                 "Model": "models/ken/bump-down.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -182,7 +186,8 @@
                 "__guid": "2b5f623a-6133-470f-a031-e0bb1c345ec6",
                 "IsTrigger": false,
                 "Model": "models/ken/bump-down-walls.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -212,7 +217,8 @@
                 "__guid": "1c1c1716-3eeb-45d7-a4b2-66ec858c9d6a",
                 "IsTrigger": false,
                 "Model": "models/ken/bump-walls.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -242,7 +248,8 @@
                 "__guid": "a82724e5-d146-477f-90d7-08ed82959912",
                 "IsTrigger": false,
                 "Model": "models/ken/castle.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -272,7 +279,8 @@
                 "__guid": "0a83c2e4-f87a-4280-8e00-63529f6f9330",
                 "IsTrigger": false,
                 "Model": "models/ken/corner.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -302,7 +310,8 @@
                 "__guid": "8650ea6a-b29b-4088-8272-e4edaa068868",
                 "IsTrigger": false,
                 "Model": "models/ken/crest.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -332,7 +341,8 @@
                 "__guid": "f2be4284-40b7-4bd7-9fc2-56247a53136b",
                 "IsTrigger": false,
                 "Model": "models/ken/end.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -362,7 +372,8 @@
                 "__guid": "c57fdb2c-43fc-4b12-b79a-e260a88e8c45",
                 "IsTrigger": false,
                 "Model": "models/ken/gap.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -392,7 +403,8 @@
                 "__guid": "7c075571-fe7c-4672-8fa9-547471a4626e",
                 "IsTrigger": false,
                 "Model": "models/ken/hill-corner.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -422,7 +434,8 @@
                 "__guid": "cd92c029-9671-41b5-b10e-1be4febec74e",
                 "IsTrigger": false,
                 "Model": "models/ken/hill-round.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -452,7 +465,8 @@
                 "__guid": "77950627-7a15-459a-a332-46a9aa59c0b6",
                 "IsTrigger": false,
                 "Model": "models/ken/hill-square.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -482,7 +496,8 @@
                 "__guid": "2d39ce79-0c03-4518-89cb-66f98a7422ad",
                 "IsTrigger": false,
                 "Model": "models/ken/hill-square.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -512,7 +527,8 @@
                 "__guid": "ad045cfc-6331-43c1-b946-a6340c9287fa",
                 "IsTrigger": false,
                 "Model": "models/ken/hole-open.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -542,7 +558,8 @@
                 "__guid": "64a210ca-8a9e-4f83-9c6f-ba10c0942190",
                 "IsTrigger": false,
                 "Model": "models/ken/hole-round.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -572,7 +589,8 @@
                 "__guid": "d989c495-3e96-49bb-8479-57e639f8a2b9",
                 "IsTrigger": false,
                 "Model": "models/ken/hole-square.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -602,7 +620,8 @@
                 "__guid": "2480af55-c8ee-45d9-9490-15590d283695",
                 "IsTrigger": false,
                 "Model": "models/ken/inner-corner.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -632,7 +651,8 @@
                 "__guid": "e6c01fd5-4519-4e7d-86c1-fd20abf46d71",
                 "IsTrigger": false,
                 "Model": "models/ken/narrow-block.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -662,7 +682,8 @@
                 "__guid": "311213f2-f880-4063-9748-85adfe95c5cc",
                 "IsTrigger": false,
                 "Model": "models/ken/narrow-round.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -692,7 +713,8 @@
                 "__guid": "d45d7fb9-8b7a-47af-b678-f0e673a53af9",
                 "IsTrigger": false,
                 "Model": "models/ken/narrow-square.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -722,7 +744,8 @@
                 "__guid": "911738c4-e494-4660-8b60-805346910a76",
                 "IsTrigger": false,
                 "Model": "models/ken/obstacle-block.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -752,7 +775,8 @@
                 "__guid": "6372d172-c054-4582-9e89-0743393da665",
                 "IsTrigger": false,
                 "Model": "models/ken/obstacle-diamond.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -782,7 +806,8 @@
                 "__guid": "55362e2f-15fa-461e-a83c-803e11df3338",
                 "IsTrigger": false,
                 "Model": "models/ken/obstacle-triangle.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -812,7 +837,8 @@
                 "__guid": "2c1322a8-c5a1-495a-9387-a050447ff25a",
                 "IsTrigger": false,
                 "Model": "models/ken/open.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -842,7 +868,8 @@
                 "__guid": "f7b5f112-7a07-4245-8509-717554dbda56",
                 "IsTrigger": false,
                 "Model": "models/ken/ramp.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -872,7 +899,8 @@
                 "__guid": "1b5597e9-a5ba-4b68-8e35-d0e22435e7d9",
                 "IsTrigger": false,
                 "Model": "models/ken/ramp-a.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -902,7 +930,8 @@
                 "__guid": "cc29372d-1187-4228-83a8-d3abc5bb1073",
                 "IsTrigger": false,
                 "Model": "models/ken/ramp-b.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -932,7 +961,8 @@
                 "__guid": "4abd489a-68a5-44e5-bd80-e7b1c19df9ad",
                 "IsTrigger": false,
                 "Model": "models/ken/ramp-c.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -962,7 +992,8 @@
                 "__guid": "7e2f236d-12a5-40c1-9587-a4e7eb93d957",
                 "IsTrigger": false,
                 "Model": "models/ken/ramp-d.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -992,7 +1023,8 @@
                 "__guid": "498d0c9e-1c38-443b-a7e3-4424005b6dde",
                 "IsTrigger": false,
                 "Model": "models/ken/ramp-large.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1022,7 +1054,8 @@
                 "__guid": "50d7b146-d393-4492-9063-4e275c925a2e",
                 "IsTrigger": false,
                 "Model": "models/ken/ramp-large-side.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1052,7 +1085,8 @@
                 "__guid": "8756aade-e396-401e-a34e-fc299d8b3b8d",
                 "IsTrigger": false,
                 "Model": "models/ken/ramp-sharp.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1082,7 +1116,8 @@
                 "__guid": "7bbf4033-3da4-44a4-b339-0b40b6d46c2e",
                 "IsTrigger": false,
                 "Model": "models/ken/ramp-side.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1112,7 +1147,8 @@
                 "__guid": "c61eb458-d95f-45f7-a4a4-d403a5d05c98",
                 "IsTrigger": false,
                 "Model": "models/ken/ramp-square.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1142,7 +1178,8 @@
                 "__guid": "fa274777-f1f8-4628-aab3-3cd5bff84bad",
                 "IsTrigger": false,
                 "Model": "models/ken/round-corner-a.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1172,7 +1209,8 @@
                 "__guid": "2f031223-c671-4db2-837d-d6aacd1b2ccd",
                 "IsTrigger": false,
                 "Model": "models/ken/round-corner-b.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1202,7 +1240,8 @@
                 "__guid": "75722f49-5979-49f7-8c75-c51f9ecc787d",
                 "IsTrigger": false,
                 "Model": "models/ken/round-corner-c.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1232,7 +1271,8 @@
                 "__guid": "2f56bd74-d40b-44f8-80ec-462f522008b3",
                 "IsTrigger": false,
                 "Model": "models/ken/round-corner-c.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1262,7 +1302,8 @@
                 "__guid": "cd9c8c4d-a732-4015-9f37-40b8f5c2a670",
                 "IsTrigger": false,
                 "Model": "models/ken/round-large-corner.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1292,7 +1333,8 @@
                 "__guid": "1641f67f-623f-4b91-8100-077e115041dc",
                 "IsTrigger": false,
                 "Model": "models/ken/round-large-corner-open.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1322,7 +1364,8 @@
                 "__guid": "149a849e-03c4-466e-a649-645bfd5cd154",
                 "IsTrigger": false,
                 "Model": "models/ken/side.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1352,7 +1395,8 @@
                 "__guid": "f80bd07d-202c-43bd-9754-1399509e3cb0",
                 "IsTrigger": false,
                 "Model": "models/ken/skew-corner.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1382,7 +1426,8 @@
                 "__guid": "934233d7-79cb-4546-82bc-f6cafd60f5d2",
                 "IsTrigger": false,
                 "Model": "models/ken/skew-large-corner.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1412,7 +1457,8 @@
                 "__guid": "cbbdcdb9-3c2d-4330-8216-ce5937e887b8",
                 "IsTrigger": false,
                 "Model": "models/ken/skew-large-corner-open.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1442,7 +1488,8 @@
                 "__guid": "262ce4da-a3fd-411d-bbbe-eb2e94fffb67",
                 "IsTrigger": false,
                 "Model": "models/ken/split.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1472,7 +1519,8 @@
                 "__guid": "7097a861-dc97-470b-a9a8-3bced6ee6fa6",
                 "IsTrigger": false,
                 "Model": "models/ken/split-start.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1502,7 +1550,8 @@
                 "__guid": "9fb69b98-5060-44f1-958a-2ec788eacb09",
                 "IsTrigger": false,
                 "Model": "models/ken/split-t.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1532,7 +1581,8 @@
                 "__guid": "4cd531f6-13ee-49af-9b44-01a6ffabdec6",
                 "IsTrigger": false,
                 "Model": "models/ken/split-walls-to-open.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1562,7 +1612,8 @@
                 "__guid": "ff2fabf7-5997-4353-bb13-34f46de5cb7c",
                 "IsTrigger": false,
                 "Model": "models/ken/square-corner-a.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1592,7 +1643,8 @@
                 "__guid": "620b7b27-7cd6-4a5e-928a-c2ed963707b6",
                 "IsTrigger": false,
                 "Model": "models/ken/start.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1622,7 +1674,8 @@
                 "__guid": "898d91ba-5f42-47d0-9e62-6d27fff169b6",
                 "IsTrigger": false,
                 "Model": "models/ken/straight.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1652,7 +1705,8 @@
                 "__guid": "ed2d34a3-f1b0-4db4-8685-34c54744934b",
                 "IsTrigger": false,
                 "Model": "models/ken/support.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1682,7 +1736,8 @@
                 "__guid": "232eb111-b096-4ddb-b0b4-b6008229c308",
                 "IsTrigger": false,
                 "Model": "models/ken/support-bottom.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1712,7 +1767,8 @@
                 "__guid": "e41fab1e-ec7f-4458-9752-a87fbcd0b138",
                 "IsTrigger": false,
                 "Model": "models/ken/supports.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1742,7 +1798,8 @@
                 "__guid": "a13b5778-2e27-42c6-a1db-f05eb3bfec11",
                 "IsTrigger": false,
                 "Model": "models/ken/supports-bottom.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1772,7 +1829,8 @@
                 "__guid": "f2e1a1a0-8be2-4f87-ad4d-7be5815e1541",
                 "IsTrigger": false,
                 "Model": "models/ken/tunnel-double.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1802,7 +1860,8 @@
                 "__guid": "77c6e628-dbca-4ace-80b7-e5406b2e12e5",
                 "IsTrigger": false,
                 "Model": "models/ken/tunnel-narrow.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1832,7 +1891,8 @@
                 "__guid": "cab58af4-e2f1-4bfe-b2ed-0e84f1f6a31e",
                 "IsTrigger": false,
                 "Model": "models/ken/tunnel-wide.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1862,7 +1922,8 @@
                 "__guid": "cd1406dc-754c-4776-bfd3-956cc452707c",
                 "IsTrigger": false,
                 "Model": "models/ken/wall-left.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1892,7 +1953,8 @@
                 "__guid": "9b6866c5-3955-4b1b-8a52-a21a312f40d6",
                 "IsTrigger": false,
                 "Model": "models/ken/wall-right.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1922,7 +1984,8 @@
                 "__guid": "ec65c272-cc38-4bc0-84e5-3ac35905d626",
                 "IsTrigger": false,
                 "Model": "models/ken/walls-to-open.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -1952,37 +2015,34 @@
                 "__guid": "ae7ce5d0-4791-4737-ad60-22b07daf969b",
                 "IsTrigger": false,
                 "Model": "models/ken/windmill.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ],
             "Children": [
               {
-                "__guid": "f7d9ac5f-7508-494f-b8e6-410071cbabfb",
+                "__guid": "386c806d-9cfb-47b6-a081-589bd461250d",
                 "Flags": 0,
-                "Name": "fd",
-                "Position": "0,0,95.5",
+                "Name": "blades",
+                "Position": "-55.19232,0,108.8761",
+                "Rotation": "-0.3116584,0,0,-0.9501729",
                 "Enabled": true,
                 "Components": [
                   {
-                    "__type": "Sandbox.ModelRenderer",
-                    "__guid": "6f0e73c0-0d2c-4d74-ad81-656670e5bcef",
+                    "__type": "Sandbox.Prop",
+                    "__guid": "621a2715-17fd-4f8e-8a08-13ab153cdf16",
                     "BodyGroups": 18446744073709551615,
-                    "Model": "models/ken/windmill.vmdl",
-                    "RenderOptions": {
-                      "GameLayer": true,
-                      "OverlayLayer": false,
-                      "BloomLayer": false,
-                      "AfterUILayer": false
-                    },
-                    "RenderType": "On",
+                    "Health": 0,
+                    "IsStatic": true,
+                    "Model": "models/ken/blades.vmdl",
+                    "StartAsleep": false,
                     "Tint": "1,1,1,1"
                   },
                   {
-                    "__type": "Sandbox.ModelCollider",
-                    "__guid": "b8f3fd5c-4ca3-4d30-991a-fbf1515f805a",
-                    "IsTrigger": false,
-                    "Model": "models/ken/windmill.vmdl",
-                    "Static": false
+                    "__type": "RotateOverTime",
+                    "__guid": "7a007c86-37e5-4071-84b9-b58be1663f27",
+                    "Direction": "0,0,1",
+                    "Speed": 75
                   }
                 ]
               }
@@ -2018,11 +2078,8 @@
               {
                 "__type": "Sandbox.TextRenderer",
                 "__guid": "1558f6de-1ec1-4f8a-8c0a-e36070842ed4",
+                "__version": 1,
                 "BlendMode": "Normal",
-                "Color": "1,1,1,1",
-                "FontFamily": "Poppins",
-                "FontSize": 50.96,
-                "FontWeight": 800,
                 "RenderOptions": {
                   "GameLayer": true,
                   "OverlayLayer": false,
@@ -2030,8 +2087,33 @@
                   "AfterUILayer": false
                 },
                 "Scale": 0.65,
-                "Text": "Grid Tile Maps must contain \u0022_tileset\u0022 in the name.",
-                "TextAlignment": "Center"
+                "TextAlignment": "Center",
+                "TextScope": {
+                  "Text": "Grid Tile Maps must contain \u0022_tileset\u0022 in the name.",
+                  "TextColor": "1,1,1,1",
+                  "FontName": "Poppins",
+                  "FontSize": 50.96,
+                  "FontWeight": 800,
+                  "LineHeight": 1,
+                  "Outline": {
+                    "Size": 4,
+                    "Color": "0,0,1,1"
+                  },
+                  "Shadow": {
+                    "Size": 4,
+                    "Color": "0,0,0,1",
+                    "Offset": "4,4"
+                  },
+                  "OutlineUnder": {
+                    "Size": 4,
+                    "Color": "0,1,0,1"
+                  },
+                  "ShadowUnder": {
+                    "Size": 4,
+                    "Color": "0,0,0,1",
+                    "Offset": "4,4"
+                  }
+                }
               }
             ]
           },
@@ -2045,11 +2127,8 @@
               {
                 "__type": "Sandbox.TextRenderer",
                 "__guid": "71c80c77-8678-4be6-a666-6cf26276d991",
+                "__version": 1,
                 "BlendMode": "Normal",
-                "Color": "1,1,1,1",
-                "FontFamily": "Poppins",
-                "FontSize": 128,
-                "FontWeight": 800,
                 "RenderOptions": {
                   "GameLayer": true,
                   "OverlayLayer": false,
@@ -2057,8 +2136,33 @@
                   "AfterUILayer": false
                 },
                 "Scale": 0.65,
-                "Text": "GRID TILE MAP",
-                "TextAlignment": "Center"
+                "TextAlignment": "Center",
+                "TextScope": {
+                  "Text": "GRID TILE MAP",
+                  "TextColor": "1,1,1,1",
+                  "FontName": "Poppins",
+                  "FontSize": 128,
+                  "FontWeight": 800,
+                  "LineHeight": 1,
+                  "Outline": {
+                    "Size": 4,
+                    "Color": "0,0,1,1"
+                  },
+                  "Shadow": {
+                    "Size": 4,
+                    "Color": "0,0,0,1",
+                    "Offset": "4,4"
+                  },
+                  "OutlineUnder": {
+                    "Size": 4,
+                    "Color": "0,1,0,1"
+                  },
+                  "ShadowUnder": {
+                    "Size": 4,
+                    "Color": "0,0,0,1",
+                    "Offset": "4,4"
+                  }
+                }
               }
             ]
           },
@@ -2072,11 +2176,8 @@
               {
                 "__type": "Sandbox.TextRenderer",
                 "__guid": "ccfb6bc9-57eb-4407-a075-d67347677180",
+                "__version": 1,
                 "BlendMode": "Normal",
-                "Color": "1,1,1,1",
-                "FontFamily": "Poppins",
-                "FontSize": 50.96,
-                "FontWeight": 800,
                 "RenderOptions": {
                   "GameLayer": true,
                   "OverlayLayer": false,
@@ -2084,8 +2185,33 @@
                   "AfterUILayer": false
                 },
                 "Scale": 0.65,
-                "Text": "You can have objects ignored by adding the tag \u0022ignore\u0022.",
-                "TextAlignment": "Center"
+                "TextAlignment": "Center",
+                "TextScope": {
+                  "Text": "You can have objects ignored by adding the tag \u0022ignore\u0022.",
+                  "TextColor": "1,1,1,1",
+                  "FontName": "Poppins",
+                  "FontSize": 50.96,
+                  "FontWeight": 800,
+                  "LineHeight": 1,
+                  "Outline": {
+                    "Size": 4,
+                    "Color": "0,0,1,1"
+                  },
+                  "Shadow": {
+                    "Size": 4,
+                    "Color": "0,0,0,1",
+                    "Offset": "4,4"
+                  },
+                  "OutlineUnder": {
+                    "Size": 4,
+                    "Color": "0,1,0,1"
+                  },
+                  "ShadowUnder": {
+                    "Size": 4,
+                    "Color": "0,0,0,1",
+                    "Offset": "4,4"
+                  }
+                }
               }
             ]
           },
@@ -2099,11 +2225,8 @@
               {
                 "__type": "Sandbox.TextRenderer",
                 "__guid": "58766c1c-e751-48cb-92e6-8bf5afb9c55b",
+                "__version": 1,
                 "BlendMode": "Normal",
-                "Color": "1,1,1,1",
-                "FontFamily": "Poppins",
-                "FontSize": 50.96,
-                "FontWeight": 800,
                 "RenderOptions": {
                   "GameLayer": true,
                   "OverlayLayer": false,
@@ -2111,8 +2234,33 @@
                   "AfterUILayer": false
                 },
                 "Scale": 0.65,
-                "Text": "For the moment Objects must contain a Model Renderer.",
-                "TextAlignment": "Center"
+                "TextAlignment": "Center",
+                "TextScope": {
+                  "Text": "For the moment Objects must contain a Model Renderer.",
+                  "TextColor": "1,1,1,1",
+                  "FontName": "Poppins",
+                  "FontSize": 50.96,
+                  "FontWeight": 800,
+                  "LineHeight": 1,
+                  "Outline": {
+                    "Size": 4,
+                    "Color": "0,0,1,1"
+                  },
+                  "Shadow": {
+                    "Size": 4,
+                    "Color": "0,0,0,1",
+                    "Offset": "4,4"
+                  },
+                  "OutlineUnder": {
+                    "Size": 4,
+                    "Color": "0,1,0,1"
+                  },
+                  "ShadowUnder": {
+                    "Size": 4,
+                    "Color": "0,0,0,1",
+                    "Offset": "4,4"
+                  }
+                }
               }
             ]
           },
@@ -2126,11 +2274,8 @@
               {
                 "__type": "Sandbox.TextRenderer",
                 "__guid": "59837d0f-97e2-4971-8076-cbf5f0074d0d",
+                "__version": 1,
                 "BlendMode": "Normal",
-                "Color": "1,1,1,1",
-                "FontFamily": "Poppins",
-                "FontSize": 50.96,
-                "FontWeight": 800,
                 "RenderOptions": {
                   "GameLayer": true,
                   "OverlayLayer": false,
@@ -2138,8 +2283,33 @@
                   "AfterUILayer": false
                 },
                 "Scale": 0.65,
-                "Text": "Models from \u0022https://www.kenney.nl/assets/minigolf-kit\u0022",
-                "TextAlignment": "Center"
+                "TextAlignment": "Center",
+                "TextScope": {
+                  "Text": "Models from \u0022https://www.kenney.nl/assets/minigolf-kit\u0022",
+                  "TextColor": "1,1,1,1",
+                  "FontName": "Poppins",
+                  "FontSize": 50.96,
+                  "FontWeight": 800,
+                  "LineHeight": 1,
+                  "Outline": {
+                    "Size": 4,
+                    "Color": "0,0,1,1"
+                  },
+                  "Shadow": {
+                    "Size": 4,
+                    "Color": "0,0,0,1",
+                    "Offset": "4,4"
+                  },
+                  "OutlineUnder": {
+                    "Size": 4,
+                    "Color": "0,1,0,1"
+                  },
+                  "ShadowUnder": {
+                    "Size": 4,
+                    "Color": "0,0,0,1",
+                    "Offset": "4,4"
+                  }
+                }
               }
             ]
           },
@@ -2153,11 +2323,8 @@
               {
                 "__type": "Sandbox.TextRenderer",
                 "__guid": "97d19a7d-b64f-4077-a3b1-b25f041aa8e2",
+                "__version": 1,
                 "BlendMode": "Normal",
-                "Color": "1,1,1,1",
-                "FontFamily": "Poppins",
-                "FontSize": 50.96,
-                "FontWeight": 800,
                 "RenderOptions": {
                   "GameLayer": true,
                   "OverlayLayer": false,
@@ -2165,8 +2332,33 @@
                   "AfterUILayer": false
                 },
                 "Scale": 0.65,
-                "Text": "Models from \u0022https://www.kenney.nl/assets/conveyor-kit\u0022",
-                "TextAlignment": "Center"
+                "TextAlignment": "Center",
+                "TextScope": {
+                  "Text": "Models from \u0022https://www.kenney.nl/assets/conveyor-kit\u0022",
+                  "TextColor": "1,1,1,1",
+                  "FontName": "Poppins",
+                  "FontSize": 50.96,
+                  "FontWeight": 800,
+                  "LineHeight": 1,
+                  "Outline": {
+                    "Size": 4,
+                    "Color": "0,0,1,1"
+                  },
+                  "Shadow": {
+                    "Size": 4,
+                    "Color": "0,0,0,1",
+                    "Offset": "4,4"
+                  },
+                  "OutlineUnder": {
+                    "Size": 4,
+                    "Color": "0,1,0,1"
+                  },
+                  "ShadowUnder": {
+                    "Size": 4,
+                    "Color": "0,0,0,1",
+                    "Offset": "4,4"
+                  }
+                }
               }
             ]
           }
@@ -2231,7 +2423,8 @@
                 "__guid": "9ccabbbe-bf47-439a-a26f-dd88f987a8d2",
                 "IsTrigger": false,
                 "Model": "models/ken2/top-large.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2261,7 +2454,8 @@
                 "__guid": "e09c95fa-049f-4e4a-b265-9a525162c996",
                 "IsTrigger": false,
                 "Model": "models/ken2/top.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2291,7 +2485,8 @@
                 "__guid": "69450d08-b4c5-4226-90b4-92f7aa7b12a3",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-yellow-tall.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2321,7 +2516,8 @@
                 "__guid": "bdc9f102-d5bc-43d1-a92e-e58ce3d4d56a",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-yellow-short.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2351,7 +2547,8 @@
                 "__guid": "21d9ce86-16fe-4104-9349-bf7ff890b99a",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-yellow-medium.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2381,7 +2578,8 @@
                 "__guid": "9336f9d7-636e-4bde-b07d-aa8be75f3c5b",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-yellow-high.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2411,7 +2609,8 @@
                 "__guid": "80061eb5-7f7c-4245-b3e6-2e95f890cbf1",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-window-wide.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2441,7 +2640,8 @@
                 "__guid": "6b38b7b5-b136-4402-b602-7b1f754a4245",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-window.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2471,7 +2671,8 @@
                 "__guid": "0ec301c0-851c-466f-a630-c3b6e39d5d96",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-wall.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2501,7 +2702,8 @@
                 "__guid": "111d40fc-6b4f-46fd-ba6f-8b5252329ba9",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-tall.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2531,7 +2733,8 @@
                 "__guid": "f661b8da-48d4-41f1-8d79-cc9194f6c383",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-short.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2561,7 +2764,8 @@
                 "__guid": "d8eb3e2d-49c5-4538-89ac-6f8e7747dfdd",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-medium.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2591,7 +2795,8 @@
                 "__guid": "f942c25c-1e51-4790-87d1-c9c8a9d78157",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-high.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2621,7 +2826,8 @@
                 "__guid": "33478fb0-ba94-428e-b008-f95852f6f70f",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-doorway-wide.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2651,7 +2857,8 @@
                 "__guid": "0e2aaecb-8249-4c6c-890d-3da4c5f06b8b",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-doorway.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2681,7 +2888,8 @@
                 "__guid": "b2ab1c0b-f8f3-4332-91e8-f169619dd213",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-corner-outer.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2711,7 +2919,8 @@
                 "__guid": "778aefac-5d4f-4dc5-bcca-44ff75c8470f",
                 "IsTrigger": false,
                 "Model": "models/ken2/structure-corner-inner.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2741,7 +2950,8 @@
                 "__guid": "99b725c4-d84d-453b-8613-22f3e3fcb7a0",
                 "IsTrigger": false,
                 "Model": "models/ken2/scanner-low.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2771,7 +2981,8 @@
                 "__guid": "3ea527fe-3c8d-43b3-baed-9c6a42699013",
                 "IsTrigger": false,
                 "Model": "models/ken2/scanner-high.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2801,7 +3012,8 @@
                 "__guid": "343c388c-95b7-47e0-81c4-b0fad2cdc4eb",
                 "IsTrigger": false,
                 "Model": "models/ken2/robot-arm-b.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2831,7 +3043,8 @@
                 "__guid": "baf5e529-549b-4322-a9db-74987ad6cc60",
                 "IsTrigger": false,
                 "Model": "models/ken2/robot-arm-a.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2861,7 +3074,8 @@
                 "__guid": "070aff66-42f7-41de-8ecc-8c57f8c0dfe4",
                 "IsTrigger": false,
                 "Model": "models/ken2/floor-large.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2891,7 +3105,8 @@
                 "__guid": "02ef7273-9042-4ce1-86a9-d465362a1b56",
                 "IsTrigger": false,
                 "Model": "models/ken2/floor.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2921,7 +3136,8 @@
                 "__guid": "a4c68727-c93e-40c1-b368-d56acd57fea3",
                 "IsTrigger": false,
                 "Model": "models/ken2/door-wide-open.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2951,7 +3167,8 @@
                 "__guid": "d16826a5-d9bd-4bc0-8569-415eac815e4d",
                 "IsTrigger": false,
                 "Model": "models/ken2/door-wide-half.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -2981,7 +3198,8 @@
                 "__guid": "fe7394e5-0fc6-45f3-b60c-aa42222f2d68",
                 "IsTrigger": false,
                 "Model": "models/ken2/door-wide-closed.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3011,7 +3229,8 @@
                 "__guid": "47e3b63d-d097-437f-92bc-c2507ca71970",
                 "IsTrigger": false,
                 "Model": "models/ken2/door.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3041,7 +3260,8 @@
                 "__guid": "e44a1872-16e2-45f9-afda-1b5eedc3d293",
                 "IsTrigger": false,
                 "Model": "models/ken2/cover-top.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3071,7 +3291,8 @@
                 "__guid": "a39442d7-b899-4a8b-8efb-3d3e2d13f7ed",
                 "IsTrigger": false,
                 "Model": "models/ken2/cover-stripe-window.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3101,7 +3322,8 @@
                 "__guid": "2f4505bf-3ae9-4310-8331-65a1a91bc584",
                 "IsTrigger": false,
                 "Model": "models/ken2/cover-stripe-top.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3131,7 +3353,8 @@
                 "__guid": "58e25528-accc-487a-9f2d-73a62fa1e58a",
                 "IsTrigger": false,
                 "Model": "models/ken2/cover-stripe-hopper.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3161,7 +3384,8 @@
                 "__guid": "11453b94-7164-4476-b03d-a79b6b64b84f",
                 "IsTrigger": false,
                 "Model": "models/ken2/cover-stripe-bar.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3191,7 +3415,8 @@
                 "__guid": "edecad05-3dc6-4490-b216-fe616c3d6a9b",
                 "IsTrigger": false,
                 "Model": "models/ken2/cover-stripe.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3221,7 +3446,8 @@
                 "__guid": "c4abf5e4-d2b3-428c-9b81-6a377c3a4e22",
                 "IsTrigger": false,
                 "Model": "models/ken2/cover-hopper.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3251,7 +3477,8 @@
                 "__guid": "1ce32b58-b879-4a5a-808a-0cc29a7b139c",
                 "IsTrigger": false,
                 "Model": "models/ken2/cover-corner.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3281,7 +3508,8 @@
                 "__guid": "c9cc2b22-0a03-404e-ac3e-a0203bb60a1f",
                 "IsTrigger": false,
                 "Model": "models/ken2/cover-bar.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3311,7 +3539,8 @@
                 "__guid": "82a78d97-b2dc-4a94-a92e-125a84a9d817",
                 "IsTrigger": false,
                 "Model": "models/ken2/cover.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3341,7 +3570,8 @@
                 "__guid": "0abb1808-9ddf-46ca-9a72-ed58d419533e",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor-stripe-sides.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3371,7 +3601,8 @@
                 "__guid": "34ab01a3-cfaf-4201-a962-f78dbdc6c4c3",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor-stripe.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3401,7 +3632,8 @@
                 "__guid": "109af835-d9bf-454c-978f-db8db6473749",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor-sides.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3431,7 +3663,8 @@
                 "__guid": "de6a4043-fd85-453d-a369-1f7ad25ccfe1",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor-long-stripe-sides.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3461,7 +3694,8 @@
                 "__guid": "0b22c363-929a-4234-84ee-7b36de797771",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor-long-stripe.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3491,7 +3725,8 @@
                 "__guid": "02db3e02-5315-4037-ae5d-12163bf3e39d",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor-long-sides.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3521,7 +3756,8 @@
                 "__guid": "1920abc5-c518-4cd8-84b7-95a92e1e4815",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor-long.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3551,7 +3787,8 @@
                 "__guid": "62db775b-4ad3-4963-9ba6-b57828746d75",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor-bars-stripe-high.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3581,7 +3818,8 @@
                 "__guid": "f42ae152-7a28-484f-8171-7204988ce397",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor-bars-stripe-fence.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3611,7 +3849,8 @@
                 "__guid": "6385c142-8c15-4f72-82d4-a8f8dd7dccd8",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor-bars-stripe.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3641,7 +3880,8 @@
                 "__guid": "9c22ba09-a4e0-483e-a573-648e1f4bf252",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor-bars-sides.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3671,7 +3911,8 @@
                 "__guid": "0e998149-3c18-47da-9468-94d41e3b5f01",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor-bars-high.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3701,7 +3942,8 @@
                 "__guid": "7f1741b0-1608-4b4e-b95d-b2e14c43c359",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor-bars-fence.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3731,7 +3973,8 @@
                 "__guid": "092d514f-8f20-44e5-afd0-890da4b895e4",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor-bars.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3761,7 +4004,8 @@
                 "__guid": "278ec7e4-3009-40a9-aba0-fa70f43c2635",
                 "IsTrigger": false,
                 "Model": "models/ken2/conveyor.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3791,7 +4035,8 @@
                 "__guid": "112c3d93-5454-4418-9543-2d83f1244725",
                 "IsTrigger": false,
                 "Model": "models/ken2/box-wide.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3821,7 +4066,8 @@
                 "__guid": "a718b02b-2428-43e2-b4f2-88207c36adde",
                 "IsTrigger": false,
                 "Model": "models/ken2/box-small.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3851,7 +4097,8 @@
                 "__guid": "e62d4cd7-e68b-49b7-b132-98ca6a7184a9",
                 "IsTrigger": false,
                 "Model": "models/ken2/box-long.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3881,7 +4128,8 @@
                 "__guid": "8b4e5086-8367-4ae3-8fbb-65d63f7bea89",
                 "IsTrigger": false,
                 "Model": "models/ken2/box-large.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3911,7 +4159,8 @@
                 "__guid": "096904b3-7069-4787-ac22-6a5b9b5a1239",
                 "IsTrigger": false,
                 "Model": "models/ken2/arrow-basic.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -3940,7 +4189,8 @@
                 "__guid": "199450b0-b3a3-4a08-bff3-a6ecb591c16f",
                 "IsTrigger": false,
                 "Model": "models/ken2/arrow.vmdl",
-                "Static": true
+                "Static": true,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           }
@@ -3980,7 +4230,8 @@
                 "__guid": "fb822c82-fc59-460f-9557-59db9807a80b",
                 "IsTrigger": false,
                 "Model": "models/citizen_props/cardboardbox01.vmdl",
-                "Static": false
+                "Static": false,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -4011,7 +4262,8 @@
                 "__guid": "996e454c-dc98-42d7-9d1c-1404aeace6c5",
                 "IsTrigger": false,
                 "Model": "models/citizen_props/coin01.vmdl",
-                "Static": false
+                "Static": false,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -4042,7 +4294,8 @@
                 "__guid": "11bb766c-94ac-4799-b040-d953ddeba554",
                 "IsTrigger": false,
                 "Model": "models/citizen_props/chair01.vmdl",
-                "Static": false
+                "Static": false,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -4073,7 +4326,8 @@
                 "__guid": "62abc250-f85b-43c0-af49-08bed9d61fd6",
                 "IsTrigger": false,
                 "Model": "models/citizen_props/chair02.vmdl",
-                "Static": false
+                "Static": false,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           }
@@ -4106,7 +4360,8 @@
             "__guid": "902d5255-1009-4ca1-9124-95d9bcd76f4e",
             "IsTrigger": false,
             "Model": "models/citizen_props/icecreamcone01.vmdl",
-            "Static": false
+            "Static": false,
+            "SurfaceVelocity": "0,0,0"
           }
         ]
       },
@@ -4136,7 +4391,8 @@
             "__guid": "a1ea599d-56fc-45f5-9be0-0b64bdc8d5f5",
             "IsTrigger": false,
             "Model": "models/citizen_props/trashcan01.vmdl",
-            "Static": false
+            "Static": false,
+            "SurfaceVelocity": "0,0,0"
           }
         ]
       },
@@ -4166,7 +4422,8 @@
             "__guid": "44a08950-9c8b-4f15-8b9c-4ab3f6b1da5c",
             "IsTrigger": false,
             "Model": "models/citizen_props/trashcan02.vmdl",
-            "Static": false
+            "Static": false,
+            "SurfaceVelocity": "0,0,0"
           }
         ]
       },
@@ -4196,7 +4453,8 @@
             "__guid": "57eb727a-f451-418a-a42f-69d070048781",
             "IsTrigger": false,
             "Model": "models/citizen_props/wheel01.vmdl",
-            "Static": false
+            "Static": false,
+            "SurfaceVelocity": "0,0,0"
           }
         ]
       },
@@ -4234,7 +4492,8 @@
                 "__guid": "e3e8177f-f5e2-424b-853a-20440562a66b",
                 "IsTrigger": false,
                 "Model": "models/citizen_props/oldoven.vmdl",
-                "Static": false
+                "Static": false,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -4265,7 +4524,8 @@
                 "__guid": "d7e2c9d4-e9c9-49cf-b0f5-fd60ae53f6bb",
                 "IsTrigger": false,
                 "Model": "models/citizen_props/oldoven.vmdl",
-                "Static": false
+                "Static": false,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -4296,7 +4556,8 @@
                 "__guid": "a48591b2-452f-49de-a6ff-601b2efdedb2",
                 "IsTrigger": false,
                 "Model": "models/citizen_props/oldoven.vmdl",
-                "Static": false
+                "Static": false,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -4326,7 +4587,8 @@
                 "__guid": "0f1899a4-8b05-406e-afbe-9a5a74b1e238",
                 "IsTrigger": false,
                 "Model": "models/citizen_props/trashcan01.vmdl",
-                "Static": false
+                "Static": false,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -4357,7 +4619,8 @@
                 "__guid": "13c5f515-f6f8-4e7f-bcc5-0e234c14e22b",
                 "IsTrigger": false,
                 "Model": "models/citizen_props/trashcan01.vmdl",
-                "Static": false
+                "Static": false,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           }
@@ -4398,7 +4661,8 @@
                 "__guid": "d56f80a9-dbdd-40ba-8876-23b51892eadf",
                 "IsTrigger": false,
                 "Model": "models/citizen_props/oldoven.vmdl",
-                "Static": false
+                "Static": false,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -4500,7 +4764,8 @@
                 "__guid": "b0a4c517-8c8c-442e-9959-09e8575b76a4",
                 "IsTrigger": false,
                 "Model": "models/citizen_props/trashcan01.vmdl",
-                "Static": false
+                "Static": false,
+                "SurfaceVelocity": "0,0,0"
               }
             ]
           },
@@ -4649,7 +4914,30 @@
         ]
       }
     ],
-    "__variables": []
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
   },
   "ShowInMenu": false,
   "MenuPath": null,
@@ -4657,6 +4945,5 @@
   "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
-  "IsValid": true,
   "__version": 1
 }

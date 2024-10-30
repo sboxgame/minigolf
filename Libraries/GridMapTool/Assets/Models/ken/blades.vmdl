@@ -29,9 +29,9 @@
 						recenter_on_parent_bone = false
 						offset_origin = [ 0.0, 0.0, 0.0 ]
 						offset_angles = [ 0.0, 0.0, 0.0 ]
-						align_origin_x_type = "None"
-						align_origin_y_type = "None"
-						align_origin_z_type = "None"
+						align_origin_x_type = "BoundsCenter"
+						align_origin_y_type = "BoundsCenter"
+						align_origin_z_type = "BoundsCenter"
 						filename = "models/ken/windmill.fbx"
 						import_scale = 1.28
 						maxMeshVertices = 0
@@ -41,7 +41,7 @@
 							exclude_by_default = false
 							exception_list = 
 							[
-								"blades",
+								"windmill",
 							]
 						}
 					},
@@ -57,9 +57,9 @@
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
 						import_scale = 1.28
-						align_origin_x_type = "None"
-						align_origin_y_type = "None"
-						align_origin_z_type = "None"
+						align_origin_x_type = "BoundsCenter"
+						align_origin_y_type = "BoundsCenter"
+						align_origin_z_type = "BoundsCenter"
 						parent_bone = ""
 						import_filter = 
 						{
@@ -67,7 +67,7 @@
 							exception_list = 
 							[
 								"Scene",
-								"windmill",
+								"blades",
 							]
 						}
 					},
