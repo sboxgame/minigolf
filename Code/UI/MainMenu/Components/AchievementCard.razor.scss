@@ -14,6 +14,7 @@ AchievementCard
     flex-shrink: 0;
     overflow: hidden;
     border-radius: $content-border;
+    pointer-events: all;
 
     > *
     {
@@ -84,5 +85,17 @@ AchievementCard
     {
         width: 64px;
         height: 64px;
+    }
+
+    &.small
+    {
+        border-radius: 8px;
+        width: 140px;
+        height: 32px;
+
+        img
+        {
+            flex-grow: 0;
+        }
     }
 }

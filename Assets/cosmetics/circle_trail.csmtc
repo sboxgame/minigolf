@@ -1,0 +1,10 @@
+{
+  "Title": "Circle",
+  "Description": null,
+  "Category": "Trails",
+  "Prefab": null,
+  "Skin": null,
+  "Trail": "particles/gameplay/ball_trail/custom/circle_ball_trail.vpcf",
+  "__references": [],
+  "__version": 0
+}

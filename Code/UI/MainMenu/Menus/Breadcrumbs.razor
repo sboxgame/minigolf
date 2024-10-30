@@ -12,11 +12,11 @@
 		return;
 
 	@{ var crumbs = GetCrumbs(); }
-	@for (int i = 0; i < crumbs.Count; ++i)
+	@for ( int i = 0; i < crumbs.Count; ++i )
 	{
 		var crumb = crumbs[i];
 
-        <ButtonCard onclick=@(() => GoTo(crumb.Url))>
+        <ButtonCard Small=@true onclick=@(() => GoTo(crumb.Url))>
             <Main>
                 @crumb.Name
             </Main>
@@ -24,44 +24,42 @@
                 <i>south</i>
             </Overlay>
         </ButtonCard>
-
-		if (i != crumbs.Count - 1)
-		{
-			<label>&gt;</label>
-		}
 	}
 </root>
 
 
 @code {
-	public bool Visible => MainMenu.Current.CurrentMenu is not Home;
+    public bool Visible => MainMenu.Current.CurrentMenu is not Home;
 
-	protected override int BuildHash()
-	{
-		return HashCode.Combine(Visible);
-	}
+    protected override int BuildHash()
+    {
+        return HashCode.Combine( Visible );
+    }
 
-	public void GoTo(string url)
-	{
-		MainMenu.Current.GoTo( url );
-	}
+    public void GoTo( string url )
+    {
+        MainMenu.Current.GoTo( url );
+    }
 
-	public List<(string Url, string Name)> GetCrumbs()
-	{
-		var nav = MainMenu.Current;
-		var split = nav.CurrentUrl.Split( '/' ).Select( x => "/" + x );
+    public List<( string Url, string Name )> GetCrumbs()
+    {
+        var nav = MainMenu.Current;
+        var split = nav.CurrentUrl.Split( '/' ).Select( x => "/" + x );
 
-		var crumbs = new List<(string Url, string Name)>();
+        var crumbs = new List<( string Url, string Name )>();
 
-		foreach ( var crumb in split )
-		{
-			var url = crumb;
-			var name = crumb.ToTitleCase().Replace( "/", "" );
+        foreach ( var crumb in split )
+        {
+            var url = crumb;
+            var name = crumb.ToTitleCase().Replace( "/", "" );
 
-			if (url == "/")
-				name = "Home";
+            if ( url == "/" )
+                name = "Home";
 
-			crumbs.Add((url, name));
+            if ( split.Last() == crumb ) 
+                continue;
+
+			crumbs.Add( ( url, name ) );
 		}
 
 		return crumbs;

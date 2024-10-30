@@ -58,6 +58,11 @@ label
     }
 }
 
+.background {
+    border-radius: 10px;
+    background-color: rgba( black, 0.3 );
+}
+
 background, gradient
 {
     position: absolute;
@@ -304,6 +309,7 @@ row
     background-color: rgba( black, 0.1 );
     padding: 10px 16px;
     border-radius: 2px;
+    pointer-events: all;
 
     &:hover
     {

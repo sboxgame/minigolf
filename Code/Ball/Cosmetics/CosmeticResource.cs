@@ -32,4 +32,45 @@ public partial class CosmeticResource : GameResource
 	/// </summary>
 	[Property]
 	public Material Skin { get; set; }
+
+	/// <summary>
+	/// We'll apply a trail if it exists
+	/// </summary>
+	[Property]
+	public ParticleSystem Trail { get; set; }
+
+	/// <summary>
+	/// What achievements do we need unlocked for this?
+	/// </summary>
+	[Property]
+	public List<string> RequiredAchievements { get; set; } = new()
+	{
+	};
+
+	/// <summary>
+	/// Accessor to see if an achievement is unlocked
+	/// </summary>
+	/// <param name="str"></param>
+	/// <returns></returns>
+	private bool IsAchievementUnlocked( string str )
+	{
+		return Sandbox.Services.Achievements.All.FirstOrDefault( x => x.Name == str && x.IsUnlocked ) is not null;
+	}
+
+	/// <summary>
+	/// Are we allowed to equip this?
+	/// </summary>
+	/// <returns></returns>
+	public bool CanEquip()
+	{
+		if ( RequiredAchievements is not null )
+		{
+			foreach ( var name in RequiredAchievements )
+			{
+				if ( !IsAchievementUnlocked( name ) ) return false;
+			}
+		}
+
+		return true;
+	}
 }

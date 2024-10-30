@@ -1,3 +1,6 @@
+using Sandbox;
+using System.Xml.Linq;
+
 namespace Facepunch.Minigolf;
 
 public struct BallCosmetics
@@ -23,6 +26,18 @@ public partial class CosmeticController : Component
 	/// </summary>
 	[Property]
 	public ModelRenderer Renderer { get; set; }
+
+	/// <summary>
+	/// The particle system for trails
+	/// </summary>
+	[Property]
+	public LegacyParticleSystem TrailSystem { get; set; }
+
+	/// <summary>
+	/// The default trail
+	/// </summary>
+	[Property]
+	public ParticleSystem DefaultTrail { get; set; }
 
 	/// <summary>
 	/// Should we update the position?
@@ -65,12 +80,51 @@ public partial class CosmeticController : Component
 			GameObject.Flags |= GameObjectFlags.Absolute;
 		}
 
-		var save = Json.Deserialize<BallCosmetics>( Serialized );
+		TryLoad();
+	}
+
+	[Broadcast]
+	private void UpdateForEveryone( string serialized )
+	{
+		var save = Json.Deserialize<BallCosmetics>( serialized );
 
 		foreach ( var resource in save.All )
 		{
 			Set( resource.Value, true );
 		}
+	}
+
+	/// <summary>
+	/// If we've got any local changes, re-setup everything
+	/// </summary>
+	private void Sync()
+	{
+		Clear();
+
+		// Make sure we're synced
+		foreach ( var resource in Current.All )
+		{
+			Set( resource.Value, true, false );
+		}
+	}
+
+	public void Preview( CosmeticResource res, bool preview = true )
+	{
+		Sync();
+
+		if ( preview )
+		{
+			Set( res, true, false );
+		}
+	}
+
+	private void TryLoad()
+	{
+		if ( IsProxy )
+			return;
+
+		// Send the serialized set of ball cosmetics to everyone for this player, so it's networked
+		UpdateForEveryone( Serialized );
 	}
 
 	/// <summary>
@@ -89,13 +143,19 @@ public partial class CosmeticController : Component
 	/// </summary>
 	/// <param name="resource"></param>
 	/// <param name="active"></param>
-	public void Set( CosmeticResource resource, bool active = true )
+	/// <param name="addToList"></param>
+	public void Set( CosmeticResource resource, bool active = true, bool addToList = true )
 	{
 		var instance = Find( resource );
 
+		// Nope.
+		if ( addToList && !resource.CanEquip() )
+			return;
+
 		if ( !active )
 		{
-			Current.All.Remove( resource.Category );
+			if ( addToList )
+				Current.All.Remove( resource.Category );
 
 			if ( instance.IsValid() )
 			{
@@ -108,6 +168,11 @@ public partial class CosmeticController : Component
 				Renderer.MaterialOverride = null;
 			}
 
+			if ( resource.Trail.IsValid() && resource.Trail == TrailSystem.Particles )
+			{
+				TrailSystem.Particles = DefaultTrail;
+			}
+
 			return;
 		}
 
@@ -116,7 +181,8 @@ public partial class CosmeticController : Component
 			instance.GameObject.Destroy();
 		}
 
-		Current.All.Remove( resource.Category );
+		if ( addToList )
+			Current.All.Remove( resource.Category );
 
 		if ( resource.Prefab.IsValid() )
 		{
@@ -140,7 +206,13 @@ public partial class CosmeticController : Component
 			Renderer.MaterialOverride = resource.Skin;
 		}
 
-		Current.All.Add( resource.Category, resource );
+		if ( resource.Trail.IsValid() )
+		{
+			TrailSystem.Particles = resource.Trail;
+		}
+
+		if ( addToList )
+			Current.All.Add( resource.Category, resource );
 	}
 
 	protected override void OnUpdate()
@@ -168,7 +240,10 @@ public partial class CosmeticController : Component
 	{
 		GetComponentsInChildren<CosmeticComponent>()
 			.ToList()
-			.ForEach( x => x.Destroy() );
+			.ForEach( x => x.GameObject.Destroy() );
+
+		Renderer.MaterialOverride = null;
+		TrailSystem.Particles = DefaultTrail;
 	}
 
 	/// <summary>

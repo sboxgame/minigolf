@@ -1,0 +1,10 @@
+{
+  "Title": "Rainbow",
+  "Description": null,
+  "Category": "Trails",
+  "Prefab": null,
+  "Skin": null,
+  "Trail": "particles/gameplay/ball_trail/custom/rainbow_ball_trail.vpcf",
+  "__references": [],
+  "__version": 0
+}

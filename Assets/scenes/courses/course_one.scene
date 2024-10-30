@@ -2,6 +2,21 @@
   "__guid": "8e547409-dda9-42c0-8ff1-4c7712179da2",
   "GameObjects": [
     {
+      "__guid": "300f2489-58dd-4195-a26b-e756ad2daf08",
+      "Flags": 0,
+      "Name": "Scene Information",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SceneInformation",
+          "__guid": "b119dc6b-619c-40b7-8594-7d3c0d75be92",
+          "Description": "Easy Course",
+          "SceneTags": "",
+          "Title": "The Sky"
+        }
+      ]
+    },
+    {
       "__guid": "dc9a01e4-ce43-4a8b-b035-acd383f15262",
       "Flags": 0,
       "Name": "Sun",
@@ -1575,7 +1590,7 @@
                   "__guid": "3ee7e3a2-c619-4a03-9064-ba55ca803032",
                   "Flags": 0,
                   "Name": "corner",
-                  "Position": "-297.1039,-863.9963,-361.0106",
+                  "Position": "-297.1039,-863.9952,-361.0106",
                   "Rotation": "-0.00000002980232,0.00000002980232,0.7071067,0.7071067",
                   "Tags": "gridtile",
                   "Enabled": true,
@@ -1806,7 +1821,7 @@
                   "__guid": "8ef94b83-1466-4dba-b031-62890c7ac67c",
                   "Flags": 0,
                   "Name": "hill-corner",
-                  "Position": "-169.104,-863.9963,-361.0106",
+                  "Position": "-169.104,-863.9952,-361.0106",
                   "Tags": "gridtile",
                   "Enabled": true,
                   "Components": [
@@ -1838,7 +1853,7 @@
                   "__guid": "7e0c3eb1-5400-4955-8bca-40f00ce4b4a4",
                   "Flags": 0,
                   "Name": "hole-square",
-                  "Position": "-41.10403,-863.9963,-361.0106",
+                  "Position": "-41.10403,-863.9952,-361.0106",
                   "Rotation": "0,0.00000004371139,0.9999999,0",
                   "Tags": "gridtile",
                   "Enabled": true,
@@ -1871,7 +1886,7 @@
                   "__guid": "e4b90a58-5815-4881-8210-69d23c098d03",
                   "Flags": 0,
                   "Name": "round-corner-a",
-                  "Position": "86.89596,-863.9963,-361.0106",
+                  "Position": "86.89596,-863.9952,-361.0106",
                   "Tags": "gridtile",
                   "Enabled": true,
                   "Components": [
@@ -1903,7 +1918,7 @@
                   "__guid": "ecec3e97-a1ad-418b-90a1-0142329c4291",
                   "Flags": 0,
                   "Name": "round-corner-b",
-                  "Position": "214.8959,-991.9963,-361.0106",
+                  "Position": "214.8959,-991.9952,-361.0106",
                   "Tags": "gridtile",
                   "Enabled": true,
                   "Components": [
@@ -1935,7 +1950,7 @@
                   "__guid": "2a8961e5-80fa-46c9-ba00-7a0049258012",
                   "Flags": 0,
                   "Name": "round-corner-b",
-                  "Position": "86.89594,-991.9963,-361.0106",
+                  "Position": "86.89594,-991.9952,-361.0106",
                   "Rotation": "0,0.00000004371139,0.9999999,0",
                   "Tags": "gridtile",
                   "Enabled": true,
@@ -2304,7 +2319,7 @@
                   "__guid": "4177022d-434c-41ec-8ecf-155dc2d38c4a",
                   "Flags": 0,
                   "Name": "round-corner-b",
-                  "Position": "-191.8081,-900.0812,-425.012",
+                  "Position": "-191.8081,-900.0801,-425.012",
                   "Rotation": "0,0,0.7071067,0.7071068",
                   "Tags": "gridtile",
                   "Enabled": true,
@@ -2337,7 +2352,7 @@
                   "__guid": "7d134bbe-f992-4045-bb84-60c86c952971",
                   "Flags": 0,
                   "Name": "round-corner-b",
-                  "Position": "-63.80814,-900.0815,-425.012",
+                  "Position": "-63.80814,-900.0804,-425.012",
                   "Tags": "gridtile",
                   "Enabled": true,
                   "Components": [
@@ -2467,7 +2482,7 @@
                   "__guid": "7120f5f4-f05f-4fcf-a3bc-be038388a520",
                   "Flags": 0,
                   "Name": "hole-square",
-                  "Position": "-319.8081,-900.0812,-425.012",
+                  "Position": "-319.8081,-900.0801,-425.012",
                   "Rotation": "0,0,0.7071067,0.7071068",
                   "Tags": "gridtile",
                   "Enabled": true,
@@ -2729,6 +2744,12 @@
     "ThreadedAnimation": true,
     "TimeScale": 1,
     "UseFixedUpdate": true,
+    "Metadata": {
+      "Title": "The Sky",
+      "Description": "Easy Course",
+      "Ident": "sky",
+      "Stars": "2"
+    },
     "NavMesh": {
       "Enabled": false,
       "IncludeStaticBodies": true,
@@ -2742,11 +2763,11 @@
       "IncludedBodies": ""
     }
   },
+  "ResourceVersion": 2,
   "Title": "The Sky",
   "Description": "Easy Course",
-  "ResourceVersion": 1,
   "__references": [
     "agentab.plainsky#31314"
   ],
-  "__version": 1
+  "__version": 2
 }

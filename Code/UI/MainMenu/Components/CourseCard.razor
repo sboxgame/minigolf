@@ -18,7 +18,7 @@
         <Main>
             <div class="grow column center">
                 <div class="row padding-header accent gap" style="width: 100%;">
-                    <label>@SceneFile.Title</label>
+                    <label>@Title</label>
                     <div class="grow"/>
                     <div class="gap center">
                         @for ( int i = 0; i < 5; i++ )
@@ -47,17 +47,17 @@
 
         <Overlay>
             <i>play_circle_filled</i>
-            <label>PLAY @SceneFile.Title.ToUpperInvariant()</label>
+            <label>PLAY @Title.ToUpperInvariant()</label>
         </Overlay>
     </ButtonCard>
 </root>
 
 @code
 {
-    public CourseInfo Info => Course.GetCourseInfo( SceneFile );
     public SceneFile SceneFile { get; set; }
-    public int Stars => Info.Stars;
-    public string Ident => Info.Ident;
+    public int Stars => SceneFile.GetMetadata( "Stars" ).ToInt();
+    public string Ident => SceneFile.GetMetadata( "Ident" );
+    public string Title => SceneFile.GetMetadata( "Title" );
 
     public bool Played => Stats.Get( $"total_strokes-{Ident}", false ) > 0f;
 

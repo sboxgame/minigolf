@@ -75,7 +75,6 @@ public partial class GridMapTool
 			grouprow.Add( groupCombo );
 
 			var collectionButton = new Button( "", "add" );
-			collectionButton.ButtonType = "clear";
 			collectionButton.Clicked = () =>
 			{
 				var popup = new NewCollectionObjectWindow();
@@ -218,7 +217,6 @@ public partial class GridMapTool
 			var pop = Layout.Row();
 
 			var popbutton = pop.Add( new Button( "Options...", "more_horiz" ) { Clicked = () => { OpenDropdown( window ); } } );
-			popbutton.ButtonType = "clear";
 			popbutton.OnPaintOverride += () =>
 			{
 				if ( popbutton.IsUnderMouse || optionsOpened )
@@ -675,7 +673,6 @@ public class TwoButton : Widget
 		layout.Spacing = 4;
 		// Create the fvar irst button
 		button1 = layout.Add( new Button("", this ) );
-		button1.ButtonType = "clear";
 
 		label1 = layout.Add( new Label( "", this ) );
 		label1.Position = new Vector2( 40, 5 );
@@ -683,7 +680,6 @@ public class TwoButton : Widget
 
 		// Create the svar econd button
 		button2 = layout.Add( new Button("", this ) );
-		button2.ButtonType = "clear";
 		button2.Position = new Vector2( 100, 0 );
 		layout.Add( button2 );
 

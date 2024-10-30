@@ -1,0 +1,34 @@
+@namespace Facepunch.Minigolf.UI
+@inherits Panel
+
+<root>
+    <ButtonCard>
+        <Main>
+            @Cosmetic.Title
+        </Main>
+
+        <Overlay>
+            View
+        </Overlay>
+    </ButtonCard>
+</root>
+
+@code
+{
+    public CosmeticResource Cosmetic { get; set; }
+
+    private bool IsEquipped => CosmeticController.Local.Current.All.ContainsValue( Cosmetic );
+
+    protected override void OnAfterTreeRender( bool firstTime )
+    {
+        if ( firstTime )
+        {
+            BindClass( "equipped", () => IsEquipped );   
+        }
+    }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine( Cosmetic, IsEquipped );
+    }
+}
