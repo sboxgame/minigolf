@@ -22,25 +22,31 @@
 				children = 
 				[
 					{
-						_class = "PhysicsMeshFile"
+						_class = "PhysicsShapeBox"
 						parent_bone = ""
 						surface_prop = "default"
 						collision_tags = "solid"
-						recenter_on_parent_bone = false
-						offset_origin = [ 0.0, 0.0, 0.0 ]
-						offset_angles = [ 0.0, 0.0, 0.0 ]
-						align_origin_x_type = "None"
-						align_origin_y_type = "None"
-						align_origin_z_type = "None"
-						filename = "models/ken2/conveyor-bars-stripe-fence.fbx"
-						import_scale = 1.28
-						maxMeshVertices = 0
-						qemError = 0.0
-						import_filter = 
-						{
-							exclude_by_default = false
-							exception_list = [  ]
-						}
+						origin = [ -0.326393, 1.541376, 39.112701 ]
+						angles = [ 0.0, 0.0, 0.0 ]
+						dimensions = [ 104.033493, 131.107758, 10.0 ]
+					},
+					{
+						_class = "PhysicsShapeBox"
+						parent_bone = ""
+						surface_prop = "default"
+						collision_tags = "solid"
+						origin = [ -58.02552, 1.541376, 65.085938 ]
+						angles = [ 0.0, 0.0, 0.0 ]
+						dimensions = [ 11.860823, 131.107758, 61.946457 ]
+					},
+					{
+						_class = "PhysicsShapeBox"
+						parent_bone = ""
+						surface_prop = "default"
+						collision_tags = "solid"
+						origin = [ 57.766594, 1.541376, 65.085938 ]
+						angles = [ 0.0, 0.0, 0.0 ]
+						dimensions = [ 11.860823, 131.107758, 61.946457 ]
 					},
 				]
 			},

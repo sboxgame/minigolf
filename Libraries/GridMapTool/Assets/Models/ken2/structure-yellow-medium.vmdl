@@ -22,25 +22,13 @@
 				children = 
 				[
 					{
-						_class = "PhysicsMeshFile"
+						_class = "PhysicsShapeBox"
 						parent_bone = ""
 						surface_prop = "default"
 						collision_tags = "solid"
-						recenter_on_parent_bone = false
-						offset_origin = [ 0.0, 0.0, 0.0 ]
-						offset_angles = [ 0.0, 0.0, 0.0 ]
-						align_origin_x_type = "None"
-						align_origin_y_type = "None"
-						align_origin_z_type = "None"
-						filename = "models/ken2/structure-yellow-medium.fbx"
-						import_scale = 1.28
-						maxMeshVertices = 0
-						qemError = 0.0
-						import_filter = 
-						{
-							exclude_by_default = false
-							exception_list = [  ]
-						}
+						origin = [ 0.288078, -0.12556, 61.487991 ]
+						angles = [ 0.0, 0.0, 0.0 ]
+						dimensions = [ 126.913895, 19.257998, 132.975967 ]
 					},
 				]
 			},

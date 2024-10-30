@@ -2025,7 +2025,7 @@
                 "Flags": 0,
                 "Name": "blades",
                 "Position": "-55.19232,0,108.8761",
-                "Rotation": "-0.9635469,0,0,0.266241",
+                "Rotation": "0.5611589,0,0,-0.8271081",
                 "Enabled": true,
                 "Components": [
                   {

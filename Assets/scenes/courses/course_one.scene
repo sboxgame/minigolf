@@ -2897,7 +2897,7 @@
                       "Flags": 0,
                       "Name": "blades",
                       "Position": "-55.19232,0,108.875",
-                      "Rotation": "0.6435099,0,0,0.7648388",
+                      "Rotation": "0.5106096,0,0,-0.8589821",
                       "Enabled": true,
                       "Components": [
                         {
@@ -3176,9 +3176,9 @@
                             "_type": "gameobject",
                             "go": "bacb74df-339d-4115-bcdd-8c2743e74a9b"
                           },
-                          "Position": "352.0013,3118,8",
+                          "Position": "352.0016,2938,8",
                           "CurrentIndex": 1,
-                          "T": 0.2562499,
+                          "T": 0.81875086,
                           "PauseTimer": -0.019999612,
                           "MovingForward": true
                         }
