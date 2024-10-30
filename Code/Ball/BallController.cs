@@ -50,6 +50,12 @@ public sealed class BallController : Component
 		return wantsFreeCam;
 	}
 
+	private void UpdateStatus()
+	{
+		var ballRadius = Ball.Rigidbody.PhysicsBody.GetBounds().Size.z / 2;
+		InPlayObject.WorldPosition = GameObject.WorldPosition + Vector3.Down * ballRadius;
+	}
+
 	private BaseCamera CurrentCamera { get; set; }
 	private void UpdateCamera()
 	{
@@ -105,6 +111,8 @@ public sealed class BallController : Component
 		
 		// Arrow shouldn't be parented since the ball goes mental
 		Arrow.GameObject.SetParent( null );
+
+		InPlayObject.GameObject.Flags |= GameObjectFlags.Absolute;
 	}
 
 	protected override void OnDestroy()
@@ -140,6 +148,7 @@ public sealed class BallController : Component
 
 		UpdateCamera();
 		CheckInPlay();
+		UpdateStatus();
 
 		// We're not in play, so don't let us do anything
 		if ( Facepunch.Minigolf.GameManager.Instance.State != GameState.InPlay )
