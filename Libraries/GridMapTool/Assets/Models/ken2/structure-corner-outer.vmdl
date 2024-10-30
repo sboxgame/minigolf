@@ -64,6 +64,7 @@
 							exception_list = 
 							[
 								"Scene",
+								"structure_corner_outer",
 							]
 						}
 					},

@@ -64,6 +64,7 @@
 							exception_list = 
 							[
 								"Scene",
+								"door_wide_closed",
 							]
 						}
 					},
