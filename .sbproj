@@ -8,7 +8,7 @@
   "Resources": "/config/*\n/fonts/*\n/ui/*",
   "PackageReferences": [],
   "EditorReferences": null,
-  "IsWhitelistDisabled": false,
+  "IsStandaloneOnly": false,
   "Metadata": {
     "MapList": [
       "facepunch.minigolf_green",
@@ -27,8 +27,8 @@
       "Keyboard": true
     },
     "CsProjName": "",
-    "Summary": "\u26F3 Play competitive multiplayer Minigolf with your friends.",
-    "Description": "\u26F3\u26F3\u26F3 Play competitive multiplayer Minigolf with your friends. \u26F3\u26F3\u26F3\r\n",
+    "Summary": "⛳ Play competitive multiplayer Minigolf with your friends.",
+    "Description": "⛳⛳⛳ Play competitive multiplayer Minigolf with your friends. ⛳⛳⛳\r\n",
     "Public": true,
     "HttpAllowList": null,
     "TickRate": 50,

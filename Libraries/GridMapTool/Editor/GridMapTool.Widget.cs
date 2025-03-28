@@ -292,89 +292,90 @@ public partial class GridMapTool
 		popup.Layout = Layout.Column();
 		popup.Layout.Margin = 16;
 		
-		var ps = new PropertySheet( popup );
-		ps.AddSectionHeader( "Floors" );
-		{
-			floorLabel = ps.AddRow( "Current Floor Level:", new Label( floorCount.ToString() ) );
-		}
-		{
-			heightInput = ps.AddRow( "Floor Height:", new LineEdit("Floor Height") );
-			heightInput.Bind( "Value" ).From( () => FloorHeight.ToString(), x => { if ( float.TryParse( x, out var f ) ) FloorHeight = f.FloorToInt(); } );
-			heightInput.Text = "128";
-		}
-		{
-			var x = ps.AddRow("Floor Level:", new TwoButton() );
-			x.button1.Clicked = () => { DoFloors( FloorHeight )(); floorLabel.Text = $"Floor Level: {floorCount.ToString()}"; };
-			x.button1.Icon = "arrow_upward";
-			x.label1.Text = "Shift + E";
-			x.button2.Clicked = () => { DoFloors( -FloorHeight )(); floorLabel.Text = $"Floor Level: {floorCount.ToString()}"; };
-			x.button2.Icon = "arrow_downward";
-			x.label2.Text = "Shift + Q";
-		}
+		var ps = new ControlSheet();
+		// ps.AddSectionHeader( "Floors" );
+		//{
+		//	floorLabel = ps.AddRow( "Current Floor Level:", new Label( floorCount.ToString() ) );
+		//}
+		//{
+		//	heightInput = ps.AddRow( "Floor Height:", new LineEdit("Floor Height") );
+		//	heightInput.Bind( "Value" ).From( () => FloorHeight.ToString(), x => { if ( float.TryParse( x, out var f ) ) FloorHeight = f.FloorToInt(); } );
+		//	heightInput.Text = "128";
+		//}
+		//{
+		//	var x = ps.AddRow("Floor Level:", new TwoButton() );
+		//	x.button1.Clicked = () => { DoFloors( FloorHeight )(); floorLabel.Text = $"Floor Level: {floorCount.ToString()}"; };
+		//	x.button1.Icon = "arrow_upward";
+		//	x.label1.Text = "Shift + E";
+		//	x.button2.Clicked = () => { DoFloors( -FloorHeight )(); floorLabel.Text = $"Floor Level: {floorCount.ToString()}"; };
+		//	x.button2.Icon = "arrow_downward";
+		//	x.label2.Text = "Shift + Q";
+		//}
 
-		ps.AddSectionHeader( "Rotation" );
+		//// ps.AddSectionHeader( "Rotation" );
+		//{
+		//	rotationSnapBox = ps.AddRow( "Rotation Snap :", new ComboBox());
+		//	foreach (var rot in RotationSnaps )
+		//	{
+		//		rotationSnapBox.AddItem( rot.ToString(), null, () => rotationSnap = rot, rotationLabel.Text = $"Rotation Snap: {rotationSnap}" );
+		//	}
+		//	int defaultAngleSnapIndex = Array.IndexOf( RotationSnaps, 90f );
+		//	if ( defaultAngleSnapIndex != -1 )
+		//	{
+		//		rotationSnapBox.CurrentIndex = defaultAngleSnapIndex;
+		//		rotationSnap = 90f;
+		//	}
+		//	var x = ps.Add( new Label( "Decrease Rotation Snap:" + "Shift + 4" ) );
+		//	var z = ps.Add( new Label("Increase Rotation Snap:" + "Shift + 5" ) );
+		//}
 		{
-			rotationSnapBox = ps.AddRow( "Rotation Snap :", new ComboBox());
-			foreach (var rot in RotationSnaps )
-			{
-				rotationSnapBox.AddItem( rot.ToString(), null, () => rotationSnap = rot, rotationLabel.Text = $"Rotation Snap: {rotationSnap}" );
-			}
-			int defaultAngleSnapIndex = Array.IndexOf( RotationSnaps, 90f );
-			if ( defaultAngleSnapIndex != -1 )
-			{
-				rotationSnapBox.CurrentIndex = defaultAngleSnapIndex;
-				rotationSnap = 90f;
-			}
-			var x = ps.AddRow( "Decrease Rotation Snap:", new Label( "Shift + 4" ) );
-			var z = ps.AddRow( "Increase Rotation Snap:", new Label( "Shift + 5" ) );
-		}
-		{
-			var z = ps.AddRow( "Rotation Z:", new TwoButton() );
-			z.button1.Clicked = () => { DoRotation( true, GroundAxis.Z )(); };
-			z.button1.Icon = "arrow_back";
-			z.label1.Text = "Shift + 1";
-			z.button2.Clicked = () => { DoRotation( false, GroundAxis.Z )(); };
-			z.button2.Icon = "arrow_forward";
-			z.label2.Text = "Alt + 1";
+			//	var z = ps.AddRow( "Rotation Z:", new TwoButton() );
+			//	z.button1.Clicked = () => { DoRotation( true, GroundAxis.Z )(); };
+			//	z.button1.Icon = "arrow_back";
+			//	z.label1.Text = "Shift + 1";
+			//	z.button2.Clicked = () => { DoRotation( false, GroundAxis.Z )(); };
+			//	z.button2.Icon = "arrow_forward";
+			//	z.label2.Text = "Alt + 1";
 
-			var x = ps.AddRow( "Rotation X:", new TwoButton() );
-			x.button1.Clicked = () => { DoRotation( true, GroundAxis.X )(); };
-			x.button1.Icon = "arrow_back";
-			x.label1.Text = "Shift + 2";
-			x.button2.Clicked = () => { DoRotation( false, GroundAxis.X )(); };
-			x.button2.Icon = "arrow_forward";
-			x.label2.Text = "Alt + 2";
+			//	var x = ps.AddRow( "Rotation X:", new TwoButton() );
+			//	x.button1.Clicked = () => { DoRotation( true, GroundAxis.X )(); };
+			//	x.button1.Icon = "arrow_back";
+			//	x.label1.Text = "Shift + 2";
+			//	x.button2.Clicked = () => { DoRotation( false, GroundAxis.X )(); };
+			//	x.button2.Icon = "arrow_forward";
+			//	x.label2.Text = "Alt + 2";
 
-			var y = ps.AddRow( "Rotation Y:", new TwoButton() );
-			y.button1.Clicked = () => { DoRotation( true, GroundAxis.Y )(); };
-			y.button1.Icon = "arrow_back";
-			y.label1.Text = "Shift + 3";
-			y.button2.Clicked = () => { DoRotation( false, GroundAxis.Y )(); };
-			y.button2.Icon = "arrow_forward";
-			y.label2.Text = "Alt + 3";
-		}
-		ps.AddSectionHeader( "Ground Axis" );
-		{
-			var w = ps.AddRow( "X", new Checkbox( "Shift + C" ) );
-			w.Bind( "Value" ).From( () => Axis == GroundAxis.X, x => { if ( x ) Axis = GroundAxis.X; currentaxisLabel.Text = Axis.ToString(); } );
-		}
-		{
-			var w = ps.AddRow( "Y", new Checkbox( "Shift + X" ) );
-			w.Bind( "Value" ).From( () => Axis == GroundAxis.Y, x => { if ( x ) Axis = GroundAxis.Y; currentaxisLabel.Text = Axis.ToString(); } );
-		}
-		{
-			var w = ps.AddRow( "Z", new Checkbox( "Shift + Z" ) );
-			w.Bind( "Value" ).From( () => Axis == GroundAxis.Z, x => { if ( x ) Axis = GroundAxis.Z; currentaxisLabel.Text = Axis.ToString(); } );
-		}
-		ps.AddSectionHeader( "Grid" );
-		{
-			var w = ps.AddRow( "Snap to Grid", new Checkbox( "Shift + G" ) );
-			w.Bind( "Value" ).From( () => ShouldSnapToGrid, x => { ShouldSnapToGrid = x; } );
-		}
-		ps.AddSectionHeader( "Decal" );
-		{
-			var w = ps.AddRow("Tri Planar", new Checkbox( ) );
-			w.Bind( "Value" ).From( () => DecalTriPlanar, x => { DecalTriPlanar = x; } );
+			//	var y = ps.AddRow( "Rotation Y:", new TwoButton() );
+			//	y.button1.Clicked = () => { DoRotation( true, GroundAxis.Y )(); };
+			//	y.button1.Icon = "arrow_back";
+			//	y.label1.Text = "Shift + 3";
+			//	y.button2.Clicked = () => { DoRotation( false, GroundAxis.Y )(); };
+			//	y.button2.Icon = "arrow_forward";
+			//	y.label2.Text = "Alt + 3";
+			//}
+			//ps.AddSectionHeader( "Ground Axis" );
+			//{
+			//	var w = ps.AddRow( "X", new Checkbox( "Shift + C" ) );
+			//	w.Bind( "Value" ).From( () => Axis == GroundAxis.X, x => { if ( x ) Axis = GroundAxis.X; currentaxisLabel.Text = Axis.ToString(); } );
+			//}
+			//{
+			//	var w = ps.AddRow( "Y", new Checkbox( "Shift + X" ) );
+			//	w.Bind( "Value" ).From( () => Axis == GroundAxis.Y, x => { if ( x ) Axis = GroundAxis.Y; currentaxisLabel.Text = Axis.ToString(); } );
+			//}
+			//{
+			//	var w = ps.AddRow( "Z", new Checkbox( "Shift + Z" ) );
+			//	w.Bind( "Value" ).From( () => Axis == GroundAxis.Z, x => { if ( x ) Axis = GroundAxis.Z; currentaxisLabel.Text = Axis.ToString(); } );
+			//}
+			//ps.AddSectionHeader( "Grid" );
+			//{
+			//	var w = ps.AddRow( "Snap to Grid", new Checkbox( "Shift + G" ) );
+			//	w.Bind( "Value" ).From( () => ShouldSnapToGrid, x => { ShouldSnapToGrid = x; } );
+			//}
+			//ps.AddSectionHeader( "Decal" );
+			//{
+			//	var w = ps.AddRow("Tri Planar", new Checkbox( ) );
+			//	w.Bind( "Value" ).From( () => DecalTriPlanar, x => { DecalTriPlanar = x; } );
+			//}
 		}
 
 		popup.Layout.Add( ps );
@@ -626,12 +627,11 @@ public class NewCollectionObjectWindow : BaseWindow
 
 		container = new Widget( this );
 
-		var properties = new PropertySheet( this );
 
 		var nameLabel = new Label.Subtitle( "Add New Collection Object" );
 		nameLabel.Margin = 16;
 
-		var nameEdit = properties.AddLineEdit( "Collection Object Name", "" );
+		var nameEdit = new LineEdit();
 		var addbutton = new Button.Primary( "Add Collection", "add_circle" );
 		addbutton.MaximumWidth = 100;
 		addbutton.Clicked = () =>
@@ -647,7 +647,6 @@ public class NewCollectionObjectWindow : BaseWindow
 			Close();
 		};
 		Layout.Add( nameLabel );
-		Layout.Add( properties );
 		Layout.Add( addbutton );
 		Layout.Add( container );
 

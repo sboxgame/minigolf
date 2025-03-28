@@ -2,73 +2,73 @@
 @inherits Sandbox.UI.Panel
 
 <root>
-	<div class="timer">
-		@{
-			if ( !string.IsNullOrEmpty( TimerTimeLeft ) || !string.IsNullOrEmpty( TimerTimeUntil ) )
-			{
-				<div>
-					<text>@TimerTimeLeft</text>
-				</div>
-				<div>
-					<text>@TimerTimeUntil</text>
-				</div>
-			}
-		}
-	</div>
+    <div class="timer">
+        @{
+            if ( !string.IsNullOrEmpty( TimerTimeLeft ) || !string.IsNullOrEmpty( TimerTimeUntil ) )
+            {
+                <div>
+                    <text>@TimerTimeLeft</text>
+                </div>
+                <div>
+                    <text>@TimerTimeUntil</text>
+                </div>
+            }
+        }
+    </div>
 
     @{
         var orderedHoles = Scene.GetAllComponents<Hole>().OrderBy( x => x.Number );
     }
 
-	<div class="scoreboard-container">
-		<div class="scoreboard-title">
+    <div class="scoreboard-container">
+        <div class="scoreboard-title">
             <img src="/ui/minigolf_logo.png" class="logo" />
-		</div>
-		<div class="scoreboard">
-			<div class="headers">
-				<div class="hole">
-					<text>Hole</text>
-					<div class="holes">
-						<div>
+        </div>
+        <div class="scoreboard">
+            <div class="headers">
+                <div class="hole">
+                    <text>Hole</text>
+                    <div class="holes">
+                        <div>
                             @foreach ( var hole in orderedHoles )
                             {
                                 <label class=@( hole == GameManager.Instance.CurrentHole ? "active" : "" )>@hole.Number</label>
                             }
-						</div>
-						<text class="total">Total</text>
-					</div>
-				</div>
-				<div class="par">
-					<text>Par</text>
-					<div class="holes">
-						<div>
+                        </div>
+                        <text class="total">Total</text>
+                    </div>
+                </div>
+                <div class="par">
+                    <text>Par</text>
+                    <div class="holes">
+                        <div>
                             @foreach ( var hole in orderedHoles )
                             {
                                 <label class=@( hole == GameManager.Instance.CurrentHole ? "active" : "" )>@hole.Par</label>
                             }
-						</div>
-						<text class="total">@(Scene.GetAllComponents<Hole>().Sum( x => x.Par ))</text>
-					</div>
-				</div>
-			</div>
-			<div class="players">
-				@foreach ( var client in Connection.All.Where( x => x.GetBall().IsValid() ).OrderByDescending( x => x.GetBall().GetTotalPar() ) )
-				{
-					<ScoreboardPlayer Client=@client />
-				}
-			</div>
-		</div>
-		<div class="scoreboard-info">
-			<div>
-				<text class="subtext">Players: </text>
-				<text>@Connection.All.Count()</text>
-			</div>
-			<div>
-				<text class="subtext">Course: </text>
-				<text>Unknown</text>
-			</div>
-		</div>
-	</div>
+                        </div>
+                        <text class="total">@(Scene.GetAllComponents<Hole>().Sum( x => x.Par ))</text>
+                    </div>
+                </div>
+            </div>
+            <div class="players">
+                @foreach ( var client in Connection.All.Where( x => x.GetBall().IsValid() ).OrderByDescending( x => x.GetBall().GetTotalPar() ) )
+                {
+                    <ScoreboardPlayer Client=@client />
+                }
+            </div>
+        </div>
+        <div class="scoreboard-info">
+            <div>
+                <text class="subtext">Players: </text>
+                <text>@Connection.All.Count()</text>
+            </div>
+            <div>
+                <text class="subtext">Course: </text>
+                <text>Unknown</text>
+            </div>
+        </div>
+    </div>
 </root>
 
 @code {

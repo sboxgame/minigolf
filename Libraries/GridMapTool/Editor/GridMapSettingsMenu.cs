@@ -1,4 +1,5 @@
 using Editor;
+using Editor.ShaderGraph.Nodes;
 
 public static class GridMapSettingsMenu 
 {
@@ -43,24 +44,18 @@ public class GridMapSettings : BaseWindow
 
 		container = new Widget( this );
 
-		var properties = new PropertySheet( this );
+		var ps = new ControlSheet();
+		ps.AddProperty( this, x => x.newHeight );
+		ps.AddProperty( this, x => x.newGridMultiplier );
+
 		var nameLabel = new Label.Subtitle( "Grid Map Settings" );
 		nameLabel.Margin = 16;
-
-		var _defaultheight = properties.AddRow( "Default Height", new LineEdit( "Default Height" ) );
-		_defaultheight.Text = defaultHeight.ToString();
-		_defaultheight.Bind("Value").From( () => newHeight.ToString(), x => { if ( float.TryParse( x, out var f ) ) newHeight = f; } );
-
-		var _defaultGridMultiplier = properties.AddRow( "Default Grid Multiplier", new LineEdit( "Default Grid Multiplier" ) );
-		_defaultGridMultiplier.Text = defaultGridMultiplier.ToString();
-		_defaultGridMultiplier.Bind("Value").From( () => newGridMultiplier.ToString(), x => { if ( float.TryParse( x, out var f ) ) newGridMultiplier = f; } );
-
 
 		var saveButton = new Button.Primary( "Save Settings", "add_circle" );
 		saveButton.Clicked = () => SaveSettings();
 
 		Layout.Add( nameLabel );
-		Layout.Add( properties );
+		Layout.Add( ps );
 		Layout.Add( saveButton );
 		Layout.Add(container);
 	}
