@@ -1,8 +1,37 @@
 namespace Facepunch.Minigolf;
 
-[GameResource( "Minigolf/Cosmetic", "csmtc", "A cosmetic for Minigolf" )]
-public partial class CosmeticResource : GameResource
+public partial class Cosmetic : Component, ISceneMetadata
 {
+	/// <summary>
+	/// Fetch all the cosmetics we have from their prefabs, and return their root GameObject.
+	/// </summary>
+	public static IEnumerable<GameObject> AllPrefabs
+	{
+		get
+		{
+			return ResourceLibrary.GetAll<PrefabFile>()
+				.Where( x => x.GetMetadata( "IsCosmetic", "false" ).Equals( "true" ) )
+				.Select( x => GameObject.GetPrefab( x.ResourcePath ) );
+		}
+	}
+
+	/// <summary>
+	/// Parse the <see cref="Cosmetic"/> component from their cached prefab.
+	/// </summary>
+	public static IEnumerable<Cosmetic> All => AllPrefabs.Select( x => x.GetComponent<Cosmetic>() );
+
+	/// <summary>
+	/// Mark the cosmetics as a cosmetic so we can grab them from a list.
+	/// </summary>
+	/// <returns></returns>
+	Dictionary<string, string> ISceneMetadata.GetMetadata()
+	{
+		return new()
+		{
+			{ "IsCosmetic", "true" }
+		};
+	}
+
 	/// <summary>
 	/// The cosmetic's name
 	/// </summary>
@@ -20,12 +49,6 @@ public partial class CosmeticResource : GameResource
 	/// </summary>
 	[Property]
 	public string Category { get; set; }
-
-	/// <summary>
-	/// The prefab we'll spawn on the ball 
-	/// </summary>
-	[Property]
-	public GameObject Prefab { get; set; }
 
 	/// <summary>
 	/// We'll apply a skin if it exists
@@ -73,4 +96,5 @@ public partial class CosmeticResource : GameResource
 
 		return true;
 	}
+
 }

@@ -1,9 +1,0 @@
-{
-  "Title": "Tennis",
-  "Description": null,
-  "Category": "Skins",
-  "Prefab": null,
-  "Skin": "materials/ballskins/tennis/tennis_golf_ball.vmat",
-  "__references": [],
-  "__version": 0
-}

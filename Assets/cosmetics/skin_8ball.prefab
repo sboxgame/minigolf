@@ -1,0 +1,33 @@
+{
+  "RootObject": {
+    "__guid": "5bd2cb94-28c2-4213-bb2b-3bb1383fa1c1",
+    "Flags": 0,
+    "Name": "skin_8ball",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Facepunch.Minigolf.Cosmetic",
+        "__guid": "d04f5015-cb06-46a7-ba6c-a6d3c0b3341f",
+        "Category": "Skin",
+        "Description": "An eight ball.",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "RequiredAchievements": [],
+        "Skin": "materials/ballskins/8ball/8ball_golf_ball.vmat",
+        "Title": "Eight Ball",
+        "Trail": null
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

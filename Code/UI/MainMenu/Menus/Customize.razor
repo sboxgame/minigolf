@@ -60,7 +60,7 @@
             <div class="row gap">
                 <div class="column gap">
                     <div class="row gap grow" style="align-items: flex-end;">
-                        @foreach ( var group in ResourceLibrary.GetAll<CosmeticResource>().GroupBy( x => x.Category ) )
+                        @foreach ( var group in Cosmetic.All.GroupBy( x => x.Category ) )
                         {
                             <ButtonCard Small=@true onclick="@(() => SetCategory( group.Key ) )">
                                 <Main>
@@ -75,7 +75,7 @@
                         <div class="grow" />
                     </div>
                     <div @ref="Items" class="row gap" style="flex-wrap: wrap; height: 80px; overflow: scroll;	mask: linear-gradient( to bottom, white, black ) top bottom / 100% 5%;">
-                        @foreach ( var group in ResourceLibrary.GetAll<CosmeticResource>().Where( x => x.Category == CurrentCategory ).GroupBy( x => x.CanEquip() ) )
+                        @foreach ( var group in Cosmetic.All.Where( x => x.Category == CurrentCategory ).GroupBy( x => x.CanEquip() ) )
                         {
                             foreach ( var item in group.OrderBy( x => x.Title ) )
                             {
@@ -92,32 +92,32 @@
 
 @code
 {
-    private bool IsEquipped( CosmeticResource resource ) => CosmeticController.Local.Current.All.ContainsValue( resource );
+    private bool IsEquipped( Cosmetic cosmetic ) => CosmeticController.Local.Current.All.ContainsValue( cosmetic.GameObject.Name );
 
     public Panel Items { get; set; }
 
-    public CosmeticResource CurrentItem { get; set; }
+    public Cosmetic CurrentItem { get; set; }
 
     private Sandbox.Achievement GetAchievementFromName( string name )
     {
         return Sandbox.Services.Achievements.All.FirstOrDefault( x => x.Name == name );
     }
 
-    public void OnClickItem( CosmeticResource resource )
+    public void OnClickItem( Cosmetic item )
     {
-        if ( CurrentItem.IsValid() )
-            CosmeticController.Local.Preview(CurrentItem, false);
+        // if ( CurrentItem.IsValid() )
+        //     CosmeticController.Local.Preview(CurrentItem, false);
 
-        CurrentItem = resource;
+        CurrentItem = item;
 
-        CosmeticController.Local.Preview( resource, true );
+        // CosmeticController.Local.Preview( resource, true );
     }
 
-    public void Toggle( CosmeticResource resource )
+    public void Toggle( Cosmetic resource )
     {
         var equipped = IsEquipped( resource );
-        CosmeticController.Local.Set( resource, !equipped );
-        CosmeticController.Save();
+        // CosmeticController.Local.Set( resource, !equipped );
+        // CosmeticController.Save();
     }
 
     public string CurrentCategory { get; set; } = "Skins";

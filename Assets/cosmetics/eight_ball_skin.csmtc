@@ -1,9 +1,0 @@
-{
-  "Title": "8-Ball",
-  "Description": null,
-  "Category": "Skins",
-  "Prefab": null,
-  "Skin": "materials/ballskins/8ball/8ball_golf_ball.vmat",
-  "__references": [],
-  "__version": 0
-}

@@ -6,7 +6,7 @@ namespace Facepunch.Minigolf;
 public struct BallCosmetics
 {
 	public DateTimeOffset SavedAt { get; set; }
-	public Dictionary<string, CosmeticResource> All { get; set; }
+	public Dictionary<string, string> All { get; set; }
 
 	public BallCosmetics()
 	{
@@ -31,7 +31,7 @@ public partial class CosmeticController : Component
 	/// The particle system for trails
 	/// </summary>
 	[Property]
-	public LegacyParticleSystem TrailSystem { get; set; }
+	public TrailRenderer TrailSystem { get; set; }
 
 	/// <summary>
 	/// The default trail
@@ -80,18 +80,19 @@ public partial class CosmeticController : Component
 			GameObject.Flags |= GameObjectFlags.Absolute;
 		}
 
-		TryLoad();
+		//TryLoad();
 	}
 
-	[Broadcast]
+	/*
+	[Rpc.Broadcast]
 	private void UpdateForEveryone( string serialized )
 	{
-		var save = Json.Deserialize<BallCosmetics>( serialized );
+		//var save = Json.Deserialize<BallCosmetics>( serialized );
 
-		foreach ( var resource in save.All )
-		{
-			Set( resource.Value, true );
-		}
+		//foreach ( var resource in save.All )
+		//{
+		//	Set( resource.Value, true );
+		//}
 	}
 
 	/// <summary>
@@ -128,26 +129,13 @@ public partial class CosmeticController : Component
 	}
 
 	/// <summary>
-	/// Look for a cosmetic component that exists already
-	/// </summary>
-	/// <param name="resource"></param>
-	/// <returns></returns>
-	public CosmeticComponent Find( CosmeticResource resource )
-	{
-		return GetComponentsInChildren<CosmeticComponent>()
-			.FirstOrDefault( x => x.Resource == resource );
-	}
-
-	/// <summary>
 	/// Enable or disable a cosmetic
 	/// </summary>
-	/// <param name="resource"></param>
+	/// <param name="cosmetic"></param>
 	/// <param name="active"></param>
 	/// <param name="addToList"></param>
-	public void Set( CosmeticResource resource, bool active = true, bool addToList = true )
+	public void Set( Cosmetic cosmetic, bool active = true, bool addToList = true )
 	{
-		var instance = Find( resource );
-
 		// Nope.
 		if ( addToList && !resource.CanEquip() )
 			return;
@@ -258,5 +246,5 @@ public partial class CosmeticController : Component
 
 		Local.Current = new BallCosmetics();
 		Save();
-	}
+	} */
 }

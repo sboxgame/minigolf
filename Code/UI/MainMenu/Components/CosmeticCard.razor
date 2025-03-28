@@ -15,9 +15,9 @@
 
 @code
 {
-    public CosmeticResource Cosmetic { get; set; }
+    public Cosmetic Cosmetic { get; set; }
 
-    private bool IsEquipped => CosmeticController.Local.Current.All.ContainsValue( Cosmetic );
+    private bool IsEquipped => CosmeticController.Local.Current.All.ContainsValue( Cosmetic.GameObject.Name );
 
     protected override void OnAfterTreeRender( bool firstTime )
     {
