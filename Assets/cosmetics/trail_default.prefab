@@ -1,0 +1,99 @@
+{
+  "RootObject": {
+    "__guid": "2edcc1a8-d15e-4d12-8bc1-6d89626579c0",
+    "Flags": 0,
+    "Name": "Trail",
+    "Enabled": true,
+    "Children": [
+      {
+        "__guid": "0dde46ca-b657-425b-a11e-33003ffa1846",
+        "Flags": 0,
+        "Name": "Spray",
+        "Rotation": "0.6123725,0.3535534,0.3535534,0.6123725",
+        "Tags": "particles",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.TrailRenderer",
+            "__guid": "2fe2ea73-3a61-4968-80be-b50669b71d77",
+            "BlendMode": "Lighten",
+            "CastShadows": false,
+            "Color": {
+              "blend": "Linear",
+              "color": [
+                {
+                  "t": 0,
+                  "c": "1,1,1,1"
+                },
+                {
+                  "t": 1,
+                  "c": "1,1,1,1"
+                }
+              ],
+              "alpha": [
+                {
+                  "t": 0,
+                  "a": 1
+                },
+                {
+                  "t": 0,
+                  "a": 1
+                }
+              ]
+            },
+            "Emitting": true,
+            "Face": "Camera",
+            "LifeTime": 1,
+            "MaxPoints": 5512,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Opaque": false,
+            "PointDistance": 1,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "Texturing": {
+              "Texture": null,
+              "WorldSpace": true,
+              "UnitsPerTexture": 10,
+              "Scale": 1,
+              "Offset": 0,
+              "Scroll": 0
+            },
+            "Width": [
+              {
+                "x": 0,
+                "y": 1,
+                "in": -0,
+                "out": -0,
+                "mode": "Mirrored"
+              },
+              {
+                "x": 1,
+                "y": 0,
+                "in": -0,
+                "out": -0,
+                "mode": "Mirrored"
+              }
+            ],
+            "Wireframe": false
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

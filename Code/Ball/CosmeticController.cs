@@ -1,23 +1,28 @@
-using Sandbox;
-using System.Xml.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Facepunch.Minigolf;
 
 public struct BallCosmetics
 {
 	public DateTimeOffset SavedAt { get; set; }
-	public Dictionary<string, string> All { get; set; }
+
+	public List<GameObject> All { get; set; }
+
+	[JsonIgnore]
+	public List<Cosmetic> Current { get; set; }
 
 	public BallCosmetics()
 	{
 		SavedAt = DateTimeOffset.UtcNow;
 		All = new();
+		Current = new();
 	}
 }
 
 /// <summary>
 /// Controls cosmetics for the player. This can potentially exist anywhere. It'll target a <see cref="ModelRenderer"/> and apply everything there.
-/// It holds the saved cosmetics using <see cref="Current"/>, and can be saved using <see cref="SetSaved(List{Facepunch.Minigolf.CosmeticResource})"/>
+/// It holds the saved cosmetics using <see cref="Cosmetics"/>, and can be saved using <see cref="SetSaved(List{Facepunch.Minigolf.CosmeticResource})"/>
 /// </summary>
 public partial class CosmeticController : Component
 {
@@ -26,18 +31,6 @@ public partial class CosmeticController : Component
 	/// </summary>
 	[Property]
 	public ModelRenderer Renderer { get; set; }
-
-	/// <summary>
-	/// The particle system for trails
-	/// </summary>
-	[Property]
-	public TrailRenderer TrailSystem { get; set; }
-
-	/// <summary>
-	/// The default trail
-	/// </summary>
-	[Property]
-	public ParticleSystem DefaultTrail { get; set; }
 
 	/// <summary>
 	/// Should we update the position?
@@ -54,7 +47,8 @@ public partial class CosmeticController : Component
 	/// <summary>
 	/// The current save
 	/// </summary>
-	public BallCosmetics Current { get; set; }
+	[Property, JsonIgnore, InlineEditor]
+	public BallCosmetics Cosmetics { get; set; }
 
 	/// <summary>
 	/// Store previous position so we can get the direction
@@ -71,7 +65,7 @@ public partial class CosmeticController : Component
 		if ( !IsProxy )
 		{
 			Local = this;
-			Current = Json.Deserialize<BallCosmetics>( Serialized );
+			Cosmetics = Json.Deserialize<BallCosmetics>( Serialized );
 		}
 
 		if ( Update )
@@ -80,19 +74,18 @@ public partial class CosmeticController : Component
 			GameObject.Flags |= GameObjectFlags.Absolute;
 		}
 
-		//TryLoad();
+		TryLoad();
 	}
 
-	/*
 	[Rpc.Broadcast]
-	private void UpdateForEveryone( string serialized )
+	private void Share( string serialized )
 	{
-		//var save = Json.Deserialize<BallCosmetics>( serialized );
+		var save = Json.Deserialize<BallCosmetics>( serialized );
 
-		//foreach ( var resource in save.All )
-		//{
-		//	Set( resource.Value, true );
-		//}
+		foreach ( var prefab in save.All )
+		{
+			Set( prefab, true );
+		}
 	}
 
 	/// <summary>
@@ -103,19 +96,19 @@ public partial class CosmeticController : Component
 		Clear();
 
 		// Make sure we're synced
-		foreach ( var resource in Current.All )
+		foreach ( var prefab in Cosmetics.All )
 		{
-			Set( resource.Value, true, false );
+			Set( prefab, true, false );
 		}
 	}
 
-	public void Preview( CosmeticResource res, bool preview = true )
+	public void Preview( GameObject prefab, bool preview = true )
 	{
 		Sync();
 
 		if ( preview )
 		{
-			Set( res, true, false );
+			Set( prefab, true, false );
 		}
 	}
 
@@ -125,82 +118,58 @@ public partial class CosmeticController : Component
 			return;
 
 		// Send the serialized set of ball cosmetics to everyone for this player, so it's networked
-		UpdateForEveryone( Serialized );
+		Share( Serialized );
 	}
 
 	/// <summary>
 	/// Enable or disable a cosmetic
 	/// </summary>
-	/// <param name="cosmetic"></param>
+	/// <param name="prefab"></param>
 	/// <param name="active"></param>
 	/// <param name="addToList"></param>
-	public void Set( Cosmetic cosmetic, bool active = true, bool addToList = true )
+	public void Set( GameObject prefab, bool active = true, bool addToList = true )
 	{
-		// Nope.
-		if ( addToList && !resource.CanEquip() )
-			return;
+		var cosmetic = prefab.GetComponent<Cosmetic>();
 
-		if ( !active )
+		if ( addToList && !cosmetic.CanEquip() )
+			return;
+		
+		var existing = Cosmetics.Current.FirstOrDefault( x => x.Title.Equals( cosmetic.Title ) );
+
+		// Always remove existing cosmetic
 		{
 			if ( addToList )
-				Current.All.Remove( resource.Category );
+				Cosmetics.All.Remove( prefab );
 
-			if ( instance.IsValid() )
+			if ( existing.IsValid() )
 			{
-				instance.GameObject.Destroy();
+				Cosmetics.Current.Remove( existing );
+				existing.DestroyGameObject();
 			}
-
-			// Clear the skin
-			if ( resource.Skin.IsValid() )
-			{
-				Renderer.MaterialOverride = null;
-			}
-
-			if ( resource.Trail.IsValid() && resource.Trail == TrailSystem.Particles )
-			{
-				TrailSystem.Particles = DefaultTrail;
-			}
-
-			return;
 		}
 
-		if ( instance.IsValid() )
+		if ( active )
 		{
-			instance.GameObject.Destroy();
-		}
+			if ( addToList )
+				Cosmetics.All.Add( prefab );
 
-		if ( addToList )
-			Current.All.Remove( resource.Category );
-
-		if ( resource.Prefab.IsValid() )
-		{
-			var prefab = resource.Prefab.Clone( new CloneConfig()
+			var go = prefab.Clone( new CloneConfig()
 			{
-				Name = $"Ball Cosmetic ({resource.Title})",
-				Parent = GameObject,
-				Transform = new Transform(),
 				StartEnabled = true,
+				Transform = new Transform(),
+				Parent = GameObject,
 			} );
 
-			var component = prefab.GetComponent<CosmeticComponent>();
-			if ( component.IsValid() )
+			var cosmeticInst = go.GetComponent<Cosmetic>();
+			if ( cosmeticInst.IsValid() )
 			{
-				component.Resource = resource;
+				Cosmetics.Current.Add( cosmeticInst );
+			}
+			else
+			{
+				Log.Warning( $"Tried to add a cosmetic item that has no Cosmetic component somehow." );
 			}
 		}
-
-		if ( resource.Skin.IsValid() )
-		{
-			Renderer.MaterialOverride = resource.Skin;
-		}
-
-		if ( resource.Trail.IsValid() )
-		{
-			TrailSystem.Particles = resource.Trail;
-		}
-
-		if ( addToList )
-			Current.All.Add( resource.Category, resource );
 	}
 
 	protected override void OnUpdate()
@@ -221,17 +190,16 @@ public partial class CosmeticController : Component
 	/// </summary>
 	public static void Save()
 	{
-		Serialized = Json.Serialize( Local.Current );
+		Serialized = Json.Serialize( Local.Cosmetics );
 	}
 
 	public void Clear()
 	{
-		GetComponentsInChildren<CosmeticComponent>()
-			.ToList()
-			.ForEach( x => x.GameObject.Destroy() );
+		Cosmetics.Current
+			.ForEach( x => x.DestroyGameObject() );
 
+		Cosmetics.Current.Clear();
 		Renderer.MaterialOverride = null;
-		TrailSystem.Particles = DefaultTrail;
 	}
 
 	/// <summary>
@@ -244,7 +212,7 @@ public partial class CosmeticController : Component
 			Local.Clear();
 		}
 
-		Local.Current = new BallCosmetics();
+		Local.Cosmetics = new BallCosmetics();
 		Save();
-	} */
+	}
 }

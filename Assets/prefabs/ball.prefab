@@ -10,7 +10,16 @@
         "__type": "Sandbox.ModelRenderer",
         "__guid": "6a98840a-f2fd-4e21-88b1-c99d338d7358",
         "BodyGroups": 18446744073709551615,
+        "CreateAttachments": false,
+        "MaterialGroup": null,
+        "MaterialOverride": null,
         "Model": "models/golf_ball.vmdl",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "RenderOptions": {
           "GameLayer": true,
           "OverlayLayer": false,
@@ -26,10 +35,23 @@
         "AngularDamping": 1,
         "Gravity": true,
         "LinearDamping": 0,
-        "Locking": {},
+        "Locking": {
+          "X": false,
+          "Y": false,
+          "Z": false,
+          "Pitch": false,
+          "Yaw": false,
+          "Roll": false
+        },
         "MassCenterOverride": "0,0,0",
         "MassOverride": 0,
         "MotionEnabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "OverrideMassCenter": false,
         "RigidbodyFlags": 0,
         "StartAsleep": false
@@ -38,7 +60,18 @@
         "__type": "Sandbox.SphereCollider",
         "__guid": "d4f93f0f-1995-47bf-8a13-6dba04afc61e",
         "Center": "0,0,0",
+        "Friction": null,
         "IsTrigger": false,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OnObjectTriggerEnter": null,
+        "OnObjectTriggerExit": null,
+        "OnTriggerEnter": null,
+        "OnTriggerExit": null,
         "Radius": 1.51,
         "Static": false,
         "Surface": "surfaces/minigolf.ball.surface",
@@ -47,6 +80,12 @@
       {
         "__type": "Ball",
         "__guid": "17a459ff-756b-4a1a-9a80-dd7b584d894c",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "Outline": {
           "_type": "component",
           "component_id": "542c0189-7758-4818-8271-74f704d24048",
@@ -63,7 +102,7 @@
         "SwingSound": "sounds/swing/minigolf.swing1.sound",
         "Trail": {
           "_type": "gameobject",
-          "go": "80842912-bd9f-4e32-b7ac-c36327b1d2e6"
+          "go": "cb3207f7-1cd1-4ea9-b61f-2f12d2cbde5a"
         }
       },
       {
@@ -86,12 +125,25 @@
           "component_id": "baf27d1b-ed0b-47aa-a666-82329ea8c31f",
           "go": "97a84edb-67a9-49c9-9add-358248aaabf2",
           "component_type": "LegacyParticleSystem"
-        }
+        },
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       },
       {
         "__type": "GoalWhirlpoolEffect",
         "__guid": "28057ef2-0ade-457c-a25c-eafa07f2ce1f",
+        "HoleGoal": null,
         "IsSinking": false,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "PullStrength": 200,
         "SinkThreshold": 1.5,
         "SlowFactor": 0.95,
@@ -104,7 +156,14 @@
         "Color": "1,1,1,0",
         "InsideColor": "0,0,0,0",
         "InsideObscuredColor": "0,0,0,0",
+        "Material": null,
         "ObscuredColor": "0.19141,0.73488,0.31822,1",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "Width": 0.1
       },
       {
@@ -125,6 +184,12 @@
         "DistanceStep": 10,
         "MaxDistance": 300,
         "MinDistance": 100,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "UpAmount": 24
       },
       {
@@ -141,7 +206,13 @@
           "component_id": "c3cfe019-6e47-4213-b7eb-981379700aca",
           "go": "ddc725f2-256d-4ee1-96d8-bc60dee11ed2",
           "component_type": "CameraComponent"
-        }
+        },
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       },
       {
         "__type": "Facepunch.Minigolf.CinematicCamera",
@@ -159,28 +230,17 @@
           "component_type": "CameraComponent"
         },
         "Height": 90,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "OrbitDistance": 300,
         "OrbitSpeed": 0.25
       }
     ],
     "Children": [
-      {
-        "__guid": "80842912-bd9f-4e32-b7ac-c36327b1d2e6",
-        "Flags": 0,
-        "Name": "Trail",
-        "Tags": "particles",
-        "Enabled": true,
-        "Components": [
-          {
-            "__type": "Sandbox.LegacyParticleSystem",
-            "__guid": "d4403b62-2402-45b8-87bf-4c68eeb289c1",
-            "ControlPoints": [],
-            "Looped": false,
-            "Particles": "particles/gameplay/ball_trail/ball_trail.vpcf",
-            "PlaybackSpeed": 1
-          }
-        ]
-      },
       {
         "__guid": "4ecded68-63fc-4e13-880f-c23486714433",
         "Flags": 0,
@@ -191,6 +251,12 @@
             "__type": "BallArrow",
             "__guid": "f14e8731-c6bd-4908-ac06-e33a7afd6cdc",
             "Material": "materials/minigolf.arrow.vmat",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Renderer": {
               "_type": "component",
               "component_id": "d586294b-21bd-40fc-a8f5-c961206ba0f6",
@@ -202,7 +268,16 @@
             "__type": "Sandbox.ModelRenderer",
             "__guid": "d586294b-21bd-40fc-a8f5-c961206ba0f6",
             "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
             "Model": "models/dev/plane.vmdl",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "RenderOptions": {
               "GameLayer": true,
               "OverlayLayer": true,
@@ -226,7 +301,14 @@
             "BackgroundColor": "0.33333,0.46275,0.52157,1",
             "ClearFlags": "All",
             "FieldOfView": 60,
+            "FovAxis": "Horizontal",
             "IsMainCamera": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Orthographic": false,
             "OrthographicHeight": 1204,
             "Priority": 1,
@@ -253,6 +335,12 @@
             "__enabled": false,
             "ControlPoints": [],
             "Looped": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Particles": "particles/gameplay/ball_circle/ball_circle.vpcf",
             "PlaybackSpeed": 1
           }
@@ -267,22 +355,29 @@
           {
             "__type": "Facepunch.Minigolf.CosmeticController",
             "__guid": "f9f91c95-b2f4-4b5b-94a3-d988604026e2",
-            "DefaultTrail": "particles/gameplay/ball_trail/ball_trail.vpcf",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Renderer": {
               "_type": "component",
               "component_id": "6a98840a-f2fd-4e21-88b1-c99d338d7358",
               "go": "476b1b4a-4184-4332-9e05-fd85af624ae2",
               "component_type": "ModelRenderer"
             },
-            "TrailSystem": {
-              "_type": "component",
-              "component_id": "d4403b62-2402-45b8-87bf-4c68eeb289c1",
-              "go": "80842912-bd9f-4e32-b7ac-c36327b1d2e6",
-              "component_type": "LegacyParticleSystem"
-            },
             "Update": true
           }
         ]
+      },
+      {
+        "__guid": "cb3207f7-1cd1-4ea9-b61f-2f12d2cbde5a",
+        "Flags": 0,
+        "Name": "Trail",
+        "Enabled": true,
+        "__Prefab": "cosmetics/trail_default.prefab",
+        "__PrefabVariables": {}
       }
     ],
     "__variables": [],

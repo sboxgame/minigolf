@@ -1246,7 +1246,7 @@
               "__guid": "d030e52c-a442-4446-8837-d5e7f0250a84",
               "Flags": 0,
               "Name": "corner",
-              "Position": "-297.1038,-863.9956,-361.0106",
+              "Position": "-297.1037,-863.9956,-361.0106",
               "Rotation": "-0.00000002980232,0.00000002980232,0.7071067,0.7071067",
               "Tags": "gridtile",
               "Enabled": true,
@@ -1624,7 +1624,7 @@
               "__guid": "3ff8588b-b9c7-49db-ad09-b44301988033",
               "Flags": 0,
               "Name": "hill-corner",
-              "Position": "-169.104,-863.9956,-361.0106",
+              "Position": "-169.1039,-863.9955,-361.0106",
               "Tags": "gridtile",
               "Enabled": true,
               "Components": [
@@ -1837,7 +1837,7 @@
               "__guid": "d2b90636-48a3-4219-ac05-ae97a0940fab",
               "Flags": 0,
               "Name": "round-corner-b",
-              "Position": "86.8959,-991.9956,-361.0106",
+              "Position": "86.89581,-991.9955,-361.0106",
               "Rotation": "0,0.00000004371139,0.9999999,0",
               "Tags": "gridtile",
               "Enabled": true,
@@ -2805,7 +2805,7 @@
               "__guid": "57a2509b-ab2f-48d2-952f-26bb91ab2a18",
               "Flags": 0,
               "Name": "gap",
-              "Position": "-191.8081,-1156.083,-425.012",
+              "Position": "-191.808,-1156.083,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -2859,7 +2859,7 @@
               "__guid": "56cad32c-4049-460b-b98e-c4311a377a9c",
               "Flags": 0,
               "Name": "supports",
-              "Position": "-191.8081,-1156.083,-425.012",
+              "Position": "-191.808,-1156.083,-425.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -2923,7 +2923,7 @@
               "__guid": "8c4a52fc-7aa6-47cf-8ca9-59dcdf52d1db",
               "Flags": 0,
               "Name": "block",
-              "Position": "-191.8081,-1156.083,-297.012",
+              "Position": "-191.808,-1156.083,-297.012",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Tags": "gridtile",
               "Enabled": true,
@@ -4562,29 +4562,14 @@
           "Enabled": true,
           "Children": [
             {
-              "__guid": "0ca3f054-476e-4c82-ad62-623ccfc0f171",
+              "__guid": "f734e8e8-6262-41c6-8bd0-fc5b84b05e5b",
               "Flags": 0,
-              "Name": "Trail",
-              "Tags": "particles",
+              "Name": "Orbiter",
               "Enabled": true,
               "Components": [
                 {
-                  "__type": "Sandbox.LegacyParticleSystem",
-                  "__guid": "d8f13790-1c7d-430b-8665-9b7a82a77f6e",
-                  "ControlPoints": [],
-                  "Looped": true,
-                  "OnComponentDestroy": null,
-                  "OnComponentDisabled": null,
-                  "OnComponentEnabled": null,
-                  "OnComponentFixedUpdate": null,
-                  "OnComponentStart": null,
-                  "OnComponentUpdate": null,
-                  "Particles": "particles/gameplay/ball_trail/ball_trail.vpcf",
-                  "PlaybackSpeed": 1
-                },
-                {
                   "__type": "OrbitAround",
-                  "__guid": "f1cec035-55e2-4a63-8596-00140f977457",
+                  "__guid": "0e2877be-341b-4e57-90a6-3f0d83023be5",
                   "CurrentAngle": 0,
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
@@ -4595,6 +4580,16 @@
                   "OrbitCenter": "0,0,0",
                   "OrbitRadius": 6,
                   "OrbitSpeed": 0.1
+                }
+              ],
+              "Children": [
+                {
+                  "__guid": "5e38bc34-b73d-4286-95e6-99e4ae1f8032",
+                  "Flags": 0,
+                  "Name": "Trail",
+                  "Enabled": true,
+                  "__Prefab": "cosmetics/trail_default.prefab",
+                  "__PrefabVariables": {}
                 }
               ]
             }
@@ -4615,7 +4610,7 @@
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
               "MaterialGroup": null,
-              "MaterialOverride": "materials/ballskins/gold/gold_golf_ball.vmat",
+              "MaterialOverride": null,
               "Model": "models/golf_ball.vmdl",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -4635,7 +4630,6 @@
             {
               "__type": "Facepunch.Minigolf.CosmeticController",
               "__guid": "54efde5a-9a11-4dca-9bb2-40d95b266e13",
-              "DefaultTrail": "particles/gameplay/ball_trail/ball_trail.vpcf",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -4648,7 +4642,6 @@
                 "go": "cc814923-d9df-4ed8-b71f-aef156627439",
                 "component_type": "ModelRenderer"
               },
-              "TrailSystem": null,
               "Update": false
             },
             {

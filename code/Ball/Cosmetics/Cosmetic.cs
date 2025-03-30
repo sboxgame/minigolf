@@ -20,6 +20,24 @@ public partial class Cosmetic : Component, ISceneMetadata
 	/// </summary>
 	public static IEnumerable<Cosmetic> All => AllPrefabs.Select( x => x.GetComponent<Cosmetic>() );
 
+	public static GameObject FindPrefabByName( string name ) => AllPrefabs.FirstOrDefault( x => x.Name.Equals( name ) );
+
+	/// <summary>
+	/// Get cosmetic by name
+	/// </summary>
+	/// <param name="name"></param>
+	/// <returns></returns>
+	public static Cosmetic FindByName( string name )
+	{
+		var go = FindByName( name );
+		if ( go.IsValid() )
+		{
+			return go.GetComponent<Cosmetic>();
+		}
+
+		return null;
+	}
+
 	/// <summary>
 	/// Mark the cosmetics as a cosmetic so we can grab them from a list.
 	/// </summary>

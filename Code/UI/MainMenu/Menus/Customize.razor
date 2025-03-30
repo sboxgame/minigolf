@@ -92,7 +92,7 @@
 
 @code
 {
-    private bool IsEquipped( Cosmetic cosmetic ) => CosmeticController.Local.Current.All.ContainsValue( cosmetic.GameObject.Name );
+    private bool IsEquipped( Cosmetic cosmetic ) => CosmeticController.Local.Cosmetics.All.Contains( cosmetic.GameObject );
 
     public Panel Items { get; set; }
 
@@ -105,19 +105,19 @@
 
     public void OnClickItem( Cosmetic item )
     {
-        // if ( CurrentItem.IsValid() )
-        //     CosmeticController.Local.Preview(CurrentItem, false);
+        if ( CurrentItem.IsValid() )
+            CosmeticController.Local.Preview( CurrentItem.GameObject, false );
 
         CurrentItem = item;
 
-        // CosmeticController.Local.Preview( resource, true );
+        CosmeticController.Local.Preview( item.GameObject, true );
     }
 
-    public void Toggle( Cosmetic resource )
+    public void Toggle( Cosmetic item )
     {
-        var equipped = IsEquipped( resource );
-        // CosmeticController.Local.Set( resource, !equipped );
-        // CosmeticController.Save();
+        var equipped = IsEquipped( item );
+        CosmeticController.Local.Set( item.GameObject, !equipped );
+        CosmeticController.Save();
     }
 
     public string CurrentCategory { get; set; } = "Skins";
