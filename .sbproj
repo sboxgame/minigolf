@@ -24,7 +24,8 @@
     "MaxPlayers": 8,
     "GameCategory": "Sports",
     "ControlModes": {
-      "Keyboard": true
+      "Keyboard": true,
+      "VR": true
     },
     "CsProjName": "",
     "Summary": "⛳ Play competitive multiplayer Minigolf with your friends.",
