@@ -5,3 +5,14 @@
 <root>
     <MainMenu />
 </root>
+
+@code{
+	protected override void OnStart()
+	{
+		base.OnStart();
+		if (Game.IsRunningInVR)
+		{
+			GameObject.Clone("prefabs/vrplayer.prefab");
+		}
+	}
+}
