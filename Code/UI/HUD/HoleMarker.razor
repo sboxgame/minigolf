@@ -33,7 +33,7 @@
 		holeDistance = Ball.Local.WorldPosition.Distance( hole.WorldPosition + Vector3.Up * 8 ) * 0.02f;
 
 		var labelPos = hole.WorldPosition + Vector3.Up * 140;
-		screenPos = labelPos.ToScreen();
+		//screenPos = labelPos.ToScreen();
 	}
 
 	protected override int BuildHash() => HashCode.Combine( holeDistance, screenPos );

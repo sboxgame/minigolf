@@ -124,7 +124,7 @@ public sealed class BallController : Component
 	void CheckInPlay()
 	{
 		if ( InPlayObject.Enabled )
-			InPlayObject.SceneObject.SetControlPoint( 0, WorldPosition );
+			InPlayObject?.SceneObject?.SetControlPoint( 0, WorldPosition );
 
 		// Sanity check, maybe our ball is hit by rotating blades?
 		if ( !InPlay )

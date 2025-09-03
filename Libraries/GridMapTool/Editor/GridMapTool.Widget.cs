@@ -221,7 +221,7 @@ public partial class GridMapTool
 			{
 				if ( popbutton.IsUnderMouse || optionsOpened )
 				{
-					Paint.SetPen( Theme.White.WithAlpha( .75f ) );
+					Paint.SetPen( Color.White.WithAlpha( .75f ) );
 					Paint.SetDefaultFont( 8, 450 );
 					Paint.DrawText( popbutton.LocalRect + new Vector2( 164, -10 ), "Options" );
 					Paint.ClearBrush();
@@ -229,7 +229,7 @@ public partial class GridMapTool
 					Paint.SetBrush( Theme.ControlBackground.WithAlpha( .4f ) );
 				}
 
-				Paint.SetPen( Theme.White.WithAlpha( .5f ) );
+				Paint.SetPen( Color.White.WithAlpha( .5f ) );
 				Paint.SetDefaultFont( 8, 450 );
 				Paint.DrawText( popbutton.LocalRect + new Vector2( 164, -10 ), "Options" );
 				Paint.ClearBrush();
@@ -424,18 +424,18 @@ public partial class GridMapTool
 		{
 			Paint.ClearPen();
 			Paint.SetBrush( Theme.Green.WithAlpha( 0.10f ) );
-			Paint.SetPen( Theme.Black.WithAlpha( 0.50f ) );
+			Paint.SetPen( Color.Black.WithAlpha( 0.50f ) );
 			Paint.DrawRect( new Rect( 0, 0, 24, 24 ), 3 );
 		}
 
 		Paint.ClearPen();
-		Paint.SetBrush( Theme.Grey.WithAlpha( 0.10f ) );
-		Paint.SetPen( Theme.Black.WithAlpha( 0.50f ) );
+		Paint.SetBrush( Color.Gray.WithAlpha( 0.10f ) );
+		Paint.SetPen( Color.Black.WithAlpha( 0.50f ) );
 		Paint.DrawRect( new Rect( 0, 0, 24, 24 ), 3 );
 
 
 		Paint.ClearPen();
-		Paint.SetPen( Theme.Grey, 2.0f );
+		Paint.SetPen( Color.Gray, 2.0f );
 		Paint.SetFont( "Poppins", 6, 700 );
 		Paint.DrawIcon( new Rect( 0, 0, 24, 24 ), icon, 16 );
 	}
@@ -463,8 +463,8 @@ public partial class GridMapTool
 		}
 
 		Paint.ClearPen();
-		Paint.SetBrush( Theme.White.WithAlpha( 0.01f ) );
-		Paint.SetPen( Theme.White.WithAlpha( 0.05f ) );
+		Paint.SetBrush( Color.White.WithAlpha( 0.01f ) );
+		Paint.SetPen( Color.White.WithAlpha( 0.05f ) );
 		Paint.DrawRect( widget.Rect.Shrink( 2 ), 3 );
 
 		if ( CurrentListStyle == ListStyle.List )
@@ -494,7 +494,7 @@ public partial class GridMapTool
 			textRect.Top = textRect.Top + slider.Value / 10;
 
 			Paint.ClearPen();
-			Paint.SetBrush( Theme.Black.WithAlpha( 0.5f ) );
+			Paint.SetBrush( Color.Black.WithAlpha( 0.5f ) );
 			Paint.DrawRect( textRect, 0.0f );
 		}
 		else
@@ -520,7 +520,7 @@ public partial class GridMapTool
 			Paint.SetBrush( Theme.Green.WithAlpha( 0.5f ) );
 			Paint.ClearPen();
 			Paint.DrawRect( new Rect( widget.Rect.Left, widget.Rect.Top, iconscale, iconscale ), 3 );
-			Paint.SetPen( Theme.White.WithAlpha( 0.5f ) );
+			Paint.SetPen( Color.White.WithAlpha( 0.5f ) );
 			Paint.DrawIcon( new Rect( widget.Rect.Left, widget.Rect.Top, 1f * iconscale, 1f * iconscale ), "grid_view", 1 * iconscale );
 			offset += 1;
 		}
@@ -537,7 +537,7 @@ public partial class GridMapTool
 				Paint.SetBrush( Theme.Green.WithAlpha( 0.5f ) );
 				Paint.ClearPen();
 				Paint.DrawRect( new Rect( widget.Rect.Left, widget.Rect.Top, iconscale, iconscale ), 3 );
-				Paint.SetPen( Theme.White.WithAlpha( 0.5f ) );
+				Paint.SetPen( Color.White.WithAlpha( 0.5f ) );
 				string result = input.Substring( index + 1 );
 				Paint.DrawIcon( new Rect( widget.Rect.Left, widget.Rect.Top, 1f * iconscale, 1f * iconscale ), result, 1 * iconscale );
 				offset += 1;
@@ -549,7 +549,7 @@ public partial class GridMapTool
 				Paint.SetBrush( Theme.Green.WithAlpha( 0.5f ) );
 				Paint.ClearPen();
 				Paint.DrawRect( new Rect( widget.Rect.Left, widget.Rect.Top, iconscale, iconscale ), 3 );
-				Paint.SetPen( Theme.White.WithAlpha( 0.5f ) );
+				Paint.SetPen( Color.White.WithAlpha( 0.5f ) );
 				Paint.DrawIcon( new Rect( widget.Rect.Left, widget.Rect.Top, 1f * iconscale, 1f * iconscale ), "grid_view", 1 * iconscale );
 				offset += 1;
 			}
@@ -562,7 +562,7 @@ public partial class GridMapTool
 			Paint.SetBrush( Theme.Red.WithAlpha( 0.5f ) );
 			Paint.ClearPen();
 			Paint.DrawRect( new Rect( widget.Rect.Left + (iconscale * offset ) + (iconscale / 32f), widget.Rect.Top, iconscale, iconscale ), 3 );
-			Paint.SetPen( Theme.White.WithAlpha( 0.5f ) );
+			Paint.SetPen( Color.White.WithAlpha( 0.5f ) );
 			Paint.DrawIcon( new Rect( widget.Rect.Left + (iconscale * offset) + (iconscale / 32f), widget.Rect.Top, 1f * iconscale, 1f * iconscale ), "shuffle", 1 * iconscale );
 		}
 		if( brush.isDecal )
@@ -572,7 +572,7 @@ public partial class GridMapTool
 			Paint.ClearBrush();
 			Paint.SetBrush( Theme.Blue );
 			Paint.DrawRect( new Rect( widget.Rect.Left + (iconscale * offset) + (iconscale / 32f), widget.Rect.Top, iconscale, iconscale ), 3 );
-			Paint.SetPen( Theme.White );
+			Paint.SetPen( Color.White );
 			Paint.DrawIcon( new Rect( widget.Rect.Left + (iconscale * offset) + (iconscale / 32f), widget.Rect.Top, 1f * iconscale, 1f * iconscale ), "file_download", 1 * iconscale );
 
 		}
@@ -584,7 +584,7 @@ public partial class GridMapTool
 			Paint.SetBrush( Theme.Pink.WithAlpha( 0.5f ) );
 			Paint.ClearPen();
 			Paint.DrawRect( new Rect( widget.Rect.Left + (iconscale * offset) + (iconscale / 32f), widget.Rect.Top, iconscale, iconscale ), 3 );
-			Paint.SetPen( Theme.White.WithAlpha( 0.5f ) );
+			Paint.SetPen( Color.White.WithAlpha( 0.5f ) );
 			Paint.DrawIcon( new Rect( widget.Rect.Left + (iconscale * offset) + (iconscale / 32f), widget.Rect.Top, 1f * iconscale, 1f * iconscale ), "group_work", 1 * iconscale );
 
 		}
@@ -865,7 +865,7 @@ public class SceneGizmoControl : Widget
 		{
 			Paint.ClearPen();
 			Paint.ClearBrush();
-			Paint.SetBrush( freeRotation.IsUnderMouse ? Theme.Grey.WithAlpha( 0.35f ) : Theme.Grey.WithAlpha( 0.015f ) );
+			Paint.SetBrush( freeRotation.IsUnderMouse ? Color.Gray.WithAlpha( 0.35f ) : Color.Gray.WithAlpha( 0.015f ) );
 			Paint.DrawRect( LocalRect, 100 );
 			return true;
 		};
@@ -877,7 +877,7 @@ public class SceneGizmoControl : Widget
 		if ( center.IsUnderMouse )
 		{
 			Paint.ClearPen();
-			Paint.SetPen( Theme.White );
+			Paint.SetPen( Color.White );
 			Paint.SetBrush( color );
 			Paint.ClearPen();
 			Paint.DrawCircle( center.Size / 2, radius * 1.25f );
@@ -885,14 +885,14 @@ public class SceneGizmoControl : Widget
 			if(mins)
 			{
 				Paint.SetDefaultFont( 8 , 600 );
-				Paint.SetPen( Theme.White );
+				Paint.SetPen( Color.White );
 				Paint.DrawText( center.LocalRect, center.Text );
 			}
 		}
 		if( !mins )
 		{
 			Paint.ClearPen();
-			Paint.SetPen( center.IsUnderMouse ? Theme.White : Theme.Black );
+			Paint.SetPen( center.IsUnderMouse ? Color.White : Color.Black );
 			Paint.SetDefaultFont( 8, 600 );
 			Paint.DrawText( center.LocalRect, center.Text );
 		}
